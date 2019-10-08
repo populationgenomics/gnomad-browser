@@ -65,9 +65,11 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: storage
-      annotations:
-        volume.beta.kubernetes.io/storage-class: standard-storage-class
     spec:
+      storageClassName: ''
+      selector:
+        matchLabels:
+          role: es-persistent-disk
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:

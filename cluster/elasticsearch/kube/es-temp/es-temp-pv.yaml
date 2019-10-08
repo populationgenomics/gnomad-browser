@@ -1,14 +1,16 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-    name: es-temp-1
+  name: es-temp-1
+  labels:
+    role: es-temp-disk
 spec:
   capacity:
     storage: 3000G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: standard-temp-storage-class
+  storageClassName: ''
   gcePersistentDisk:
     fsType: ext4
     pdName: es-temp-1
@@ -16,14 +18,16 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-    name: es-temp-2
+  name: es-temp-2
+  labels:
+    role: es-temp-disk
 spec:
   capacity:
     storage: 3000G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: standard-temp-storage-class
+  storageClassName: ''
   gcePersistentDisk:
     fsType: ext4
     pdName: es-temp-2
@@ -31,14 +35,16 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-    name: es-temp-3
+  name: es-temp-3
+  labels:
+    role: es-temp-disk
 spec:
   capacity:
     storage: 3000G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: standard-temp-storage-class
+  storageClassName: ''
   gcePersistentDisk:
     fsType: ext4
     pdName: es-temp-3
@@ -46,15 +52,16 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-    name: es-temp-4
+  name: es-temp-4
+  labels:
+    role: es-temp-disk
 spec:
   capacity:
     storage: 3000G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: standard-temp-storage-class
-
+  storageClassName: ''
   gcePersistentDisk:
     fsType: ext4
     pdName: es-temp-4
@@ -62,14 +69,16 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-    name: es-temp-5
+  name: es-temp-5
+  labels:
+    role: es-temp-disk
 spec:
   capacity:
     storage: 3000G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: standard-temp-storage-class
+  storageClassName: ''
   gcePersistentDisk:
     fsType: ext4
     pdName: es-temp-5
