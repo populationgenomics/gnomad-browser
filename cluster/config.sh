@@ -12,7 +12,7 @@ export GCLOUD_REGION=us-east1
 # SERVER CLUSTER #
 ##################
 
-export CLUSTER_NAME=gnomad-browser
+export CLUSTER_NAME=gnomad-prod
 
 export CLUSTER_DEFAULT_MACHINE_TYPE=n1-standard-4
 export NUMBER_DEFAULT_NODES=1

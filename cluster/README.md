@@ -40,7 +40,7 @@ The `ES_JAVA_OPTS` setting in `es-loading-deployment.yaml` should be set to half
 Create the loading node pool and deploy the pods.
 
 ```
-gcloud beta container node-pools create elasticloading  \
+gcloud beta container node-pools create elastic-loading  \
 --cluster $CLUSTER_NAME \
 --zone $GCLOUD_ZONE \
 --num-nodes $NUM_LOADING_NODES \
