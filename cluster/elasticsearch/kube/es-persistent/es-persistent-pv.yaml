@@ -6,7 +6,7 @@ metadata:
     role: es-persistent-disk
 spec:
   capacity:
-    storage: 3000G
+    storage: 4250G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
@@ -18,10 +18,12 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-    name: gnomad-es-disk-2
+  name: gnomad-es-disk-2
+  labels:
+    role: es-persistent-disk
 spec:
   capacity:
-    storage: 3000G
+    storage: 4250G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain

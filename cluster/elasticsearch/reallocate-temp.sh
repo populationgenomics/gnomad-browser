@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ./config.sh
+. ../config.sh
 
 curl -XPUT $ES_URL/*/_settings -d '{
   "index.routing.allocation.exclude.data_node_hostname": "es-data-loading*",

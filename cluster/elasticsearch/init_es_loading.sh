@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ../config.sh
+. ./config.sh
 
 echo $ES_URL
 

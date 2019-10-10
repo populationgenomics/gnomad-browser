@@ -17,11 +17,11 @@ gcloud container clusters create $CLUSTER_NAME \
 Deploy elasticsearch
 
 ```
-kubectl create -f kube/es-discovery-svc.yaml
-kubectl create -f kube/es-svc.yaml
-kubectl create -f kube/es-master.yaml
+kubectl apply -f kube/es-discovery-svc.yaml
+kubectl apply -f kube/es-svc.yaml
+kubectl apply -f kube/es-master.yaml
 sleep 20
-kubectl create -f kube/es-client.yaml
+kubectl apply -f kube/es-client.yaml
 ```
 
 ## Load data
@@ -48,7 +48,7 @@ gcloud beta container node-pools create elastic-loading  \
 --local-ssd-count 1 
 ```
 
-`kubectl create -f kube/es-loading/es-loading-deployment.yaml`
+`kubectl apply -f kube/es-loading/es-loading-deployment.yaml`
 
 Configure elasticsearch:
 
@@ -97,11 +97,13 @@ gcloud dataproc jobs submit pyspark \
 
 ### Monitor loading in Stackdriver
 
+...
+
 ## Transfer shards to a smaller pool of temp nodes (optional)
 
-We could transfer the new shards directly to the production disks. However, shard transfer to a small number of disks can be slow. Here, we create an intermediate node pool (called temp nodes) so that we can get the shards off the massive loading cluster faster and take that down. We could skip this step, but I find it's useful.
+Create a temporary node pool and transfer the new shards off the large loading cluster. 
 
-The total disk size should be set to accommodate the the index you just loaded.
+The total disk size should be set to accommodate the new indices.
 
 ### Create fresh set of temp disks
 
@@ -109,35 +111,33 @@ The total disk size should be set to accommodate the the index you just loaded.
 gcloud beta compute disks create es-temp-1 \
 --project=$GCLOUD_PROJECT \
 --type=pd-standard \
---size=3000GB \
---zone=$GCLOUD_ZONE & \
+--size=1000GB \
+--zone=$GCLOUD_ZONE &
 gcloud beta compute disks create es-temp-2 \
 --project=$GCLOUD_PROJECT \
 --type=pd-standard \
---size=3000GB \
---zone=$GCLOUD_ZONE & \
+--size=1000GB \
+--zone=$GCLOUD_ZONE &
 gcloud beta compute disks create es-temp-3 \
 --project=$GCLOUD_PROJECT \
 --type=pd-standard \
---size=3000GB \
---zone=$GCLOUD_ZONE & \
+--size=1000GB \
+--zone=$GCLOUD_ZONE &
 gcloud beta compute disks create es-temp-4 \
 --project=$GCLOUD_PROJECT \
 --type=pd-standard \
---size=3000GB \
---zone=$GCLOUD_ZONE & \
+--size=1000GB \
+--zone=$GCLOUD_ZONE &
 gcloud beta compute disks create es-temp-5 \
 --project=$GCLOUD_PROJECT \
 --type=pd-standard \
---size=3000GB \
+--size=1000GB \
 --zone=$GCLOUD_ZONE
 
-kubectl create -f kube/es-temp/es-temp-pv.yaml
+kubectl apply -f kube/es-temp/es-temp-pv.yaml
 ```
 
 `NUM_TEMP_NODES` should match the number of replicas in `es-temp-deployment.yaml`.
-
-Deploy elasticsearch
 
 ```
 gcloud beta container node-pools create elastictemp  \
@@ -146,10 +146,7 @@ gcloud beta container node-pools create elastictemp  \
 --num-nodes $NUM_TEMP_NODES \
 --machine-type $TEMP_MACHINE_TYPE
 
-kubectl create -f kube/es-temp/es-temp-pv.yaml
-
-sleep 20
-kubectl create -f kube/es-temp/es-temp-statefulset.yaml
+kubectl apply -f kube/es-temp/es-temp-statefulset.yaml
 ```
 
 Start transfering the shards
@@ -159,9 +156,7 @@ Start transfering the shards
 When done transfering, veryify no more shards on loading nodes and delete them:
 
 ```
-kubectl delete -f kube/es-temp/es-temp-statefulset.yaml
-
-sleep 120
+kubectl delete -f kube/es-loading/es-loading-statefulset.yaml
 
 gcloud -q beta container node-pools delete elasticloading \
 --cluster $CLUSTER_NAME \
@@ -175,27 +170,27 @@ gcloud beta compute disks snapshot es-temp-1 \
 --project=$GCLOUD_PROJECT \
 --zone=$GCLOUD_ZONE \
 --snapshot-names=es-temp-1-$ts \
---storage-location=us & \
+--storage-location=us &
 gcloud beta compute disks snapshot es-temp-2 \
 --project=$GCLOUD_PROJECT \
 --zone=$GCLOUD_ZONE \
 --snapshot-names=es-temp-2-$ts \
---storage-location=us & \
+--storage-location=us &
 gcloud beta compute disks snapshot es-temp-3 \
 --project=$GCLOUD_PROJECT \
 --zone=$GCLOUD_ZONE \
---snapshot-names=es-temp-3-$ts\
---storage-location=us & \
+--snapshot-names=es-temp-3-$ts \
+--storage-location=us &
 gcloud beta compute disks snapshot es-temp-4 \
 --project=$GCLOUD_PROJECT \
 --zone=$GCLOUD_ZONE \
 --snapshot-names=es-temp-4-$ts \
---storage-location=us & \
+--storage-location=us &
 gcloud beta compute disks snapshot es-temp-5 \
 --project=$GCLOUD_PROJECT \
 --zone=$GCLOUD_ZONE \
 --snapshot-names=es-temp-5-$ts \
---storage-location=us  \
+--storage-location=us 
 ```
 
 ## Transfer shards from temp disks to production disks
@@ -203,42 +198,36 @@ gcloud beta compute disks snapshot es-temp-5 \
 ### Snapshots the current gnomAD production cluster disks
 
 ```
-gcloud beta compute disks create $PERSISTENT_DISK_GCE_NAME_1 \
+gcloud beta compute disks snapshot gnomad-es-disk-3 \
 --project=$GCLOUD_PROJECT \
---type=pd-standard \
---size=3000GB \
 --zone=$GCLOUD_ZONE \
---source-snapshot=$SOURCE_SNAPSHOT_1 \
---physical-block-size=4096
-
-gcloud beta compute disks create $PERSISTENT_DISK_GCE_NAME_2 \
+--snapshot-names=gnomad-es-disk-3-$ts \
+--storage-location=us &
+gcloud beta compute disks snapshot gnomad-es-disk-4 \
 --project=$GCLOUD_PROJECT \
---type=pd-standard \
---size=3000GB \
 --zone=$GCLOUD_ZONE \
---source-snapshot=$SOURCE_SNAPSHOT_2 \
---physical-block-size=4096 
+--snapshot-names=gnomad-es-disk-4-$ts \
+--storage-location=us 
 ```
 
 ### Create disks from those snapshots
 
-Decide what kind of storage to use, make sure it matches the PV files
+Decide what kind of storage to use, make sure it matches the pv files.
 
 ```
-gcloud beta compute disks create $PERSISTENT_DISK_GCE_NAME_1 \
+gcloud beta compute disks create gnomad-es-disk-1 \
 --project=$GCLOUD_PROJECT \
---type=pd-standard \
---size=3000GB \
+--type=pd-ssd \
+--size=4250GB \
 --zone=$GCLOUD_ZONE \
---source-snapshot=$SOURCE_SNAPSHOT_1 \
---physical-block-size=4096
-
-gcloud beta compute disks create $PERSISTENT_DISK_GCE_NAME_2 \
+--source-snapshot=gnomad-es-disk-3-$ts \
+--physical-block-size=4096 &
+gcloud beta compute disks create gnomad-es-disk-2 \
 --project=$GCLOUD_PROJECT \
---type=pd-standard \
---size=3000GB \
+--type=pd-ssd \
+--size=4250GB \
 --zone=$GCLOUD_ZONE \
---source-snapshot=$SOURCE_SNAPSHOT_2 \
+--source-snapshot=gnomad-es-disk-4-$ts \
 --physical-block-size=4096 
 ```
 
@@ -251,11 +240,8 @@ gcloud beta container node-pools create elasticpersistent \
 --num-nodes $NUM_PERSISTENT_NODES \
 --machine-type $PERSISTENT_MACHINE_TYPE
 
-kubectl create -f kube/es-persistent/es-gnomad-pv.yaml
-
-sleep 10
-kubectl create -f kube/es-persistent/es-data-svc.yaml
-kubectl create -f kube/es-persistent/es-data-persistent.yaml
+kubectl apply -f kube/es-persistent/es-persistent-pv.yaml
+kubectl apply -f kube/es-persistent/es-persistent-statefulset.yaml
 ```
 
 `./reallocate-persistent.sh`
@@ -263,17 +249,16 @@ kubectl create -f kube/es-persistent/es-data-persistent.yaml
 Snapshot persistent disks with new data
 
 ```
-gcloud beta compute disks snapshot $PERSISTENT_DISK_GCE_NAME_1 \
+gcloud beta compute disks snapshot gnomad-es-disk-1 \
 --project=$GCLOUD_PROJECT \
 --zone=$GCLOUD_ZONE \
---snapshot-names=es-temp-1-$ts \
+--snapshot-names=gnomad-es-disk-1-$ts \
+--storage-location=us &
+gcloud beta compute disks snapshot gnomad-es-disk-2 \
+--project=$GCLOUD_PROJECT \
+--zone=$GCLOUD_ZONE \
+--snapshot-names=gnomad-es-disk-2-$ts \
 --storage-location=us
-
-gcloud beta compute disks snapshot $PERSISTENT_DISK_GCE_NAME_2 \
---project=$GCLOUD_PROJECT \
---zone=$GCLOUD_ZONE \
---snapshot-names=$PERSISTENT_DISK_GCE_NAME_2-$ts \
---storage-location=us & \
 ```
 
 ### Clean up temp nodes/disks
@@ -296,16 +281,16 @@ gcloud -q beta container node-pools delete elastictemp \
 kubectl delete -f kube/es-temp/es-temp-disks.yaml
 gcloud -q beta compute disks delete es-temp-1 \
 --project=$GCLOUD_PROJECT \
---zone=$GCLOUD_ZONE & \
+--zone=$GCLOUD_ZONE &
 gcloud -q beta compute disks delete es-temp-2 \
 --project=$GCLOUD_PROJECT \
---zone=$GCLOUD_ZONE & \
+--zone=$GCLOUD_ZONE &
 gcloud -q beta compute disks delete es-temp-3 \
 --project=$GCLOUD_PROJECT \
---zone=$GCLOUD_ZONE & \
+--zone=$GCLOUD_ZONE &
 gcloud -q beta compute disks delete es-temp-4 \
 --project=$GCLOUD_PROJECT \
---zone=$GCLOUD_ZONE & \
+--zone=$GCLOUD_ZONE &
 gcloud -q beta compute disks delete es-temp-5 \
 --project=$GCLOUD_PROJECT \
 --zone=$GCLOUD_ZONE

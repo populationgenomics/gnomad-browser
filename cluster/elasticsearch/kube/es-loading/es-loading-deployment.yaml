@@ -6,7 +6,7 @@ metadata:
     component: elastic-loading
     role: data
 spec:
-  replicas: 64
+  replicas: 48
   template:
     metadata:
       labels:
@@ -60,7 +60,7 @@ spec:
         - name: HTTP_ENABLE
           value: "true"
         - name: "ES_JAVA_OPTS"
-          value: "-Xms30g -Xmx30g"
+          value: "-Xms26g -Xmx26g"
         - name: "SHARD_ALLOCATION_AWARENESS_ATTR"
           value: "/etc/hostname"
         - name: "SHARD_ALLOCATION_AWARENESS"
@@ -73,7 +73,7 @@ spec:
         - name: storage
           mountPath: /data
       nodeSelector:
-        cloud.google.com/gke-nodepool: "elasticloading"
+        cloud.google.com/gke-nodepool: "elastic-loading"
         cloud.google.com/gke-local-ssd: "true"
       volumes:
           - hostPath:

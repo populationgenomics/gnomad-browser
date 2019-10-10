@@ -48,7 +48,7 @@ spec:
         - name: HTTP_ENABLE
           value: "true"
         - name: "ES_JAVA_OPTS"
-          value: "-Xms7g -Xmx7g"
+          value: "-Xms26g -Xmx26g"
         - name: "SHARD_ALLOCATION_AWARENESS_ATTR"
           value: "/etc/hostname"
         - name: "SHARD_ALLOCATION_AWARENESS"
@@ -61,7 +61,7 @@ spec:
         - name: storage
           mountPath: /data
       nodeSelector:
-        cloud.google.com/gke-nodepool: "elasticpersistent"
+        cloud.google.com/gke-nodepool: "elastic-persistent"
   volumeClaimTemplates:
   - metadata:
       name: storage
@@ -73,4 +73,4 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 3000G
+          storage: 4250G
