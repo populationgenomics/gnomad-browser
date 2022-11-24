@@ -5,6 +5,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
 
 const isDev = process.env.NODE_ENV === 'development'
+const extraResolveOptions = isDev
+  ? {
+      alias: {
+        'react-dom': '@hot-loader/react-dom',
+      },
+    }
+  : {}
 
 const gaTrackingId = process.env.GA_TRACKING_ID
 if (process.env.NODE_ENV === 'production' && !gaTrackingId) {
@@ -34,23 +41,31 @@ const config = {
   },
   devtool: 'source-map',
   entry: {
-    bundle: path.resolve(__dirname, './src/index.js'),
+    bundle: path.resolve(__dirname, './src/index.tsx'),
   },
   mode: isDev ? 'development' : 'production',
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            rootMode: 'upward',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              rootMode: 'upward',
+            },
           },
-        },
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: 'tsconfig.build.json',
+            },
+          },
+        ],
       },
       {
-        test: /\.(gif|jpg|png|svg)$/,
+        test: /\.(pdf|gif|jpg|png|svg)$/,
         use: {
           loader: 'file-loader',
           options: {
@@ -66,6 +81,7 @@ const config = {
       },
     ],
   },
+  resolve: { extensions: ['.tsx', '.ts', '.js'], ...extraResolveOptions },
   output: {
     path: path.resolve(__dirname, './dist/public'),
     publicPath: '/',
@@ -74,6 +90,9 @@ const config = {
   plugins: [
     new CopyWebpackPlugin({
       patterns: [path.resolve(__dirname, './src/opensearch.xml')],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [path.resolve(__dirname, './src/robots.txt')],
     }),
     new EnvironmentPlugin({
       REPORT_VARIANT_URL: null,
@@ -95,14 +114,6 @@ const config = {
   // Use browserslist queries from .browserslistrc
   // Set to web in development as workaround for https://github.com/webpack/webpack-dev-server/issues/2758
   target: isDev ? 'web' : 'browserslist',
-}
-
-if (isDev) {
-  config.resolve = {
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
-  }
 }
 
 module.exports = config

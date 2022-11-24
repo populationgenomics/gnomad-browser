@@ -23,3 +23,16 @@ browser/dist
 
 # Hail logs
 hail-*.log
+
+# macOS Finder Info
+**/.DS_Store
+
+# vscode settings
+**/.vscode/
+
+# cypress generated test files
+browser/cypress/screenshots
+browser/cypress/videos
+browser/cypress/logs
+browser/cypress/fixtures/profile.json
+browser/cypress/fixtures/users.json

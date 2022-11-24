@@ -105,8 +105,18 @@ def _parse_variant(variant_element):
     location_elements = variant_element.findall("./InterpretedRecord/SimpleAllele/Location/SequenceLocation")
     for element in location_elements:
         try:
+            chromosome = element.attrib["Chr"]
+            # A release in August 2022 introduced several Variants with a Chromosome of 'Un'
+            #   which caused failure of this pipeline when compared to the reference genome
+            if chromosome == "Un":
+                variant["locations"] = {}
+                allele_element = variant_element.findall("./InterpretedRecord/SimpleAllele")
+                print(
+                    f'Skipping variant with Allele ID: {allele_element.attrib["AlleleID"]} due to anomalous Chromosome value of "Un"'
+                )
+                break
             variant["locations"][element.attrib["Assembly"]] = {
-                "locus": element.attrib["Chr"] + ":" + element.attrib["positionVCF"],
+                "locus": chromosome + ":" + element.attrib["positionVCF"],
                 "alleles": [element.attrib["referenceAlleleVCF"], element.attrib["alternateAlleleVCF"]],
             }
         except KeyError:
@@ -140,7 +150,9 @@ def _parse_variant(variant_element):
     evaluated_dates = [date for date in evaluated_dates if date]
     if evaluated_dates:
         variant["last_evaluated"] = sorted(
-            evaluated_dates, key=lambda date: datetime.datetime.strptime(date, "%Y-%m-%d"), reverse=True,
+            evaluated_dates,
+            key=lambda date: datetime.datetime.strptime(date, "%Y-%m-%d"),
+            reverse=True,
         )[0]
 
     submission_elements = variant_element.findall("./InterpretedRecord/ClinicalAssertionList/ClinicalAssertion")
@@ -197,7 +209,8 @@ def import_clinvar_xml(clinvar_xml_path):
                         pass
                     except Exception:
                         print(
-                            f"Failed to parse variant {element.attrib['VariationID']}", file=sys.stderr,
+                            f"Failed to parse variant {element.attrib['VariationID']}",
+                            file=sys.stderr,
                         )
                         raise
 

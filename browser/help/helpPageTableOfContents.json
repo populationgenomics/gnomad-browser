@@ -10,7 +10,9 @@
     "pext",
     "regional-constraint",
     "sv-overview",
-    "hgdp-1kg-annotations"
+    "hgdp-1kg-annotations",
+    "v3-ht-annotations",
+    "popmax"
   ],
   "faq": [
     {
@@ -67,7 +69,8 @@
         "can-i-filter-out-a-particular-cohort-for-my-analysis",
         "how-do-i-query-a-batch-of-variants-do-you-have-an-api",
         "when-are-exomes-going-to-be-available-on-grch38",
-        "how-do-i-download-the-data"
+        "how-do-i-download-the-data",
+        "how-do-i-access-the-gnomad-hail-table-frequency-annotation"
       ]
     },
     {
@@ -91,6 +94,7 @@
         "what-are-haplogroup-specific-frequencies",
         "what-nuclear-ancestral-populations-are-represented",
         "what-is-the-distribution-of-haplogroups-in-gnomad-v3-1",
+        "how-many-samples-are-in-each-mtdna-haplogroup-for-each-nuclear-ancestry-population",
         "what-are-the-meanings-of-the-mitochondrial-specific-filters-and-flags",
         "can-i-download-all-the-mtdna-variants"
       ]

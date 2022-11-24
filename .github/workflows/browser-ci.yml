@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '14.15.2'
+          node-version: '14.19.3'
       - name: Get yarn cache
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -32,8 +32,17 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile --non-interactive --no-progress
       - name: Run ESLint
-        run: yarn run eslint browser
+        run: yarn run eslint .
       - name: Run stylelint
-        run: yarn run stylelint 'browser/**/*.js'
-      - name: Run tests
-        run: yarn run jest --selectProjects browser
+        run: yarn run stylelint './**/*.(js|jsx|ts|tsx)'
+      - name: Verify clean build
+        run: cd browser && yarn build
+      - name: Run Jest tests
+        run: yarn run jest
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v4
+        with:
+          start: yarn start:browser
+          wait-on: 'http://localhost:8008'
+          wait-on-timeout: 150
+          project: ./browser

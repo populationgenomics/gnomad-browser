@@ -25,7 +25,7 @@
 - Dataproc clusters must connect to Elasticsearch through the internal load balancer. Get its IP address with:
 
   ```
-  ELASTICSEARCH_IP=$(kubectl get service gnomad-elasticsearch-lb --output=jsonpath={.status.loadBalancer.ingress[0].ip})
+  ELASTICSEARCH_IP=$(kubectl get service gnomad-elasticsearch-lb --output=jsonpath="{.status.loadBalancer.ingress[0].ip}")
   ```
 
 - Store the Elasticsearch password in [Secret Manager](https://cloud.google.com/secret-manager/docs).
@@ -46,7 +46,7 @@
 - Specify the service account when creating the Dataproc cluster. The secret value can be accessed from the Dataproc cluster using:
 
   ```
-  gcloud secrets versions access latest --secret=gnomad-elasticsearch-password"
+  gcloud secrets versions access latest --secret="gnomad-elasticsearch-password"
   ```
 
 - Make a request.

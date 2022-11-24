@@ -131,7 +131,8 @@ def create_cluster_service_account() -> None:
         # Deleting and recreating a service account with the same name can lead to unexpected behavior
         # https://cloud.google.com/iam/docs/understanding-service-accounts#deleting_and_recreating_service_accounts
         gcloud(
-            ["iam", "service-accounts", "describe", config.gke_service_account_full_name], stderr=subprocess.DEVNULL,
+            ["iam", "service-accounts", "describe", config.gke_service_account_full_name],
+            stderr=subprocess.DEVNULL,
         )
         print("Service account already exists")
         return
@@ -139,7 +140,13 @@ def create_cluster_service_account() -> None:
         pass
 
     gcloud(
-        ["iam", "service-accounts", "create", config.gke_service_account_name, "--display-name=gnomAD GKE nodes",]
+        [
+            "iam",
+            "service-accounts",
+            "create",
+            config.gke_service_account_name,
+            "--display-name=gnomAD GKE nodes",
+        ]
     )
 
     # GKE requires logging.logWriter, monitoring.metricWriter, and monitoring.viewer
@@ -218,6 +225,7 @@ def create_cluster() -> None:
             "--enable-stackdriver-kubernetes",
             "--enable-shielded-nodes",
             "--shielded-secure-boot",
+            "--shielded-integrity-monitoring",
             "--metadata=disable-legacy-endpoints=true",
             "--no-enable-basic-auth",
             "--no-enable-legacy-authorization",
@@ -266,6 +274,7 @@ def create_node_pool(node_pool_name: str, node_pool_args: typing.List[str]) -> N
             "--enable-autoupgrade",
             f"--service-account={config.gke_service_account_full_name}",
             "--shielded-secure-boot",
+            "--shielded-integrity-monitoring",
             "--metadata=disable-legacy-endpoints=true",
         ]
         + node_pool_args
@@ -326,7 +335,8 @@ def main(argv: typing.List[str]) -> None:
 
         # Install Elastic Cloud on Kubernetes operator
         # https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-overview.html
-        kubectl(["apply", "-f", "https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml"])
+        kubectl(["create", "-f", "https://download.elastic.co/downloads/eck/2.5.0/crds.yaml"])
+        kubectl(["apply", "-f", "https://download.elastic.co/downloads/eck/2.5.0/operator.yaml"])
 
         # Configure firewall rule for ECK admission webhook
         # https://github.com/elastic/cloud-on-k8s/issues/1437
