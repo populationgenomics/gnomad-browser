@@ -27,10 +27,10 @@ exports[`renderRoundedNumber uses proper highlight color 1`] = `
   tooltip="1.200"
   tooltipComponent={[Function]}
 >
-  <constraintMetrics__ConstraintHighlight
+  <styled.span
     highlightColor="#ABCDEF"
   >
     1.2
-  </constraintMetrics__ConstraintHighlight>
+  </styled.span>
 </TooltipAnchor>
 `;

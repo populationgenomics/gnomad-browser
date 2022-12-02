@@ -284,8 +284,7 @@ def create_node_pool(node_pool_name: str, node_pool_args: typing.List[str]) -> N
 def main(argv: typing.List[str]) -> None:
     parser = argparse.ArgumentParser(prog="deployctl")
 
-    parser.add_argument("--quiet", action="store_true")
-    args = parser.parse_args(argv)
+    parser.parse_args(argv)
 
     if not config.project:
         print("project configuration is required", file=sys.stderr)
@@ -305,7 +304,7 @@ def main(argv: typing.List[str]) -> None:
     print("- Service account 'gnomad-es-snapshots'")
     print("- Service account 'gnomad-data-pipeline'")
 
-    if args.quiet or input("Continue? (y/n) ").lower() == "y":
+    if input("Continue? (y/n) ").lower() == "y":
         print("Creating network...")
         create_network()
 
