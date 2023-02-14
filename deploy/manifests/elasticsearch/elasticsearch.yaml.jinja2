@@ -23,15 +23,6 @@ spec:
           labels:
             role: master
         spec:
-          affinity:
-            nodeAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                nodeSelectorTerms:
-                  - matchExpressions:
-                      - key: cloud.google.com/gke-nodepool
-                        operator: NotIn
-                        values:
-                          - es-data
           initContainers:
             - name: sysctl
               securityContext:
@@ -71,15 +62,6 @@ spec:
           labels:
             role: coordinating
         spec:
-          affinity:
-            nodeAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                nodeSelectorTerms:
-                  - matchExpressions:
-                      - key: cloud.google.com/gke-nodepool
-                        operator: NotIn
-                        values:
-                          - es-data
           initContainers:
             - name: sysctl
               securityContext:
@@ -102,15 +84,6 @@ spec:
           labels:
             role: data
         spec:
-          affinity:
-            nodeAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                nodeSelectorTerms:
-                  - matchExpressions:
-                      - key: cloud.google.com/gke-nodepool
-                        operator: In
-                        values:
-                          - es-data
           initContainers:
             - name: sysctl
               securityContext:
@@ -153,15 +126,6 @@ spec:
           labels:
             role: ingest
         spec:
-          affinity:
-            nodeAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                nodeSelectorTerms:
-                  - matchExpressions:
-                      - key: cloud.google.com/gke-nodepool
-                        operator: In
-                        values:
-                          - es-ingest
           initContainers:
             - name: sysctl
               securityContext:

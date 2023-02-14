@@ -8,6 +8,10 @@ from deployctl.config import config
 from deployctl.shell import gcloud, kubectl
 
 
+def enable_apis() -> None:
+    gcloud(["services", "enable", "compute.googleapis.com", "container.googleapis.com"])
+
+
 def create_network() -> None:
     # Create a VPC network
     # https://cloud.google.com/vpc/docs/using-vpc
@@ -205,38 +209,23 @@ def create_cluster() -> None:
         [
             "container",
             "clusters",
-            "create",
+            "create-auto",
             config.gke_cluster_name,
-            f"--zone={config.zone}",
-            "--release-channel=stable",
-            "--enable-autorepair",
-            "--enable-autoupgrade",
-            "--maintenance-window=7:00",
+            f"--region={config.region}",
             f"--service-account={config.gke_service_account_full_name}",
             f"--network={config.network_name}",
             f"--subnetwork={config.network_name}-gke",
             "--cluster-secondary-range-name=gke-pods",
             "--services-secondary-range-name=gke-services",
-            "--enable-ip-alias",
             "--enable-master-authorized-networks",
             "--enable-private-nodes",
             f"--master-authorized-networks={config.authorized_networks}",
             "--master-ipv4-cidr=172.16.0.0/28",
-            "--enable-stackdriver-kubernetes",
-            "--enable-shielded-nodes",
-            "--shielded-secure-boot",
-            "--shielded-integrity-monitoring",
-            "--metadata=disable-legacy-endpoints=true",
-            "--no-enable-basic-auth",
-            "--no-enable-legacy-authorization",
-            "--no-issue-client-certificate",
-            "--num-nodes=2",
-            "--machine-type=e2-standard-4",
         ]
     )
 
     # Configure kubectl
-    gcloud(["container", "clusters", "get-credentials", config.gke_cluster_name, f"--zone={config.zone}"])
+    gcloud(["container", "clusters", "get-credentials", config.gke_cluster_name, f"--region={config.region}"])
 
 
 def create_configmap():
@@ -259,26 +248,6 @@ def create_configmap():
     # 130.211.0.0/22
     ips = f"127.0.0.1,192.168.0.0/20,10.4.0.0/14,10.0.32.0/20,35.191.0.0/16,130.211.0.0/22,{ingress_ip}"
     kubectl(["create", "configmap", "proxy-ips", f"--from-literal=ips={ips}"])
-
-
-def create_node_pool(node_pool_name: str, node_pool_args: typing.List[str]) -> None:
-    gcloud(
-        [
-            "container",
-            "node-pools",
-            "create",
-            node_pool_name,
-            f"--cluster={config.gke_cluster_name}",
-            f"--zone={config.zone}",
-            "--enable-autorepair",
-            "--enable-autoupgrade",
-            f"--service-account={config.gke_service_account_full_name}",
-            "--shielded-secure-boot",
-            "--shielded-integrity-monitoring",
-            "--metadata=disable-legacy-endpoints=true",
-        ]
-        + node_pool_args
-    )
 
 
 def main(argv: typing.List[str]) -> None:
@@ -306,6 +275,9 @@ def main(argv: typing.List[str]) -> None:
     print("- Service account 'gnomad-data-pipeline'")
 
     if args.quiet or input("Continue? (y/n) ").lower() == "y":
+        print("Enabling APIs...")
+        enable_apis()
+
         print("Creating network...")
         create_network()
 
@@ -324,24 +296,19 @@ def main(argv: typing.List[str]) -> None:
         print("Creating configmap...")
         create_configmap()
 
-        print("Creating node pools...")
-        create_node_pool("redis", ["--num-nodes=1", "--machine-type=e2-custom-6-49152"])
-
-        create_node_pool("es-data", ["--machine-type=e2-highmem-8"])
-
-        print("Creating K8S resources...")
+        print("Creating K8s resources...")
         manifests_directory = os.path.realpath(os.path.join(os.path.dirname(__file__), "../../manifests"))
 
         kubectl(["apply", "-k", os.path.join(manifests_directory, "redis")])
 
-        # Install Elastic Cloud on Kubernetes operator
-        # https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-overview.html
+        ## Install Elastic Cloud on Kubernetes operator
+        ## https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-overview.html
         kubectl(["create", "-f", "https://download.elastic.co/downloads/eck/2.5.0/crds.yaml"])
         kubectl(["apply", "-f", "https://download.elastic.co/downloads/eck/2.5.0/operator.yaml"])
 
-        # Configure firewall rule for ECK admission webhook
-        # https://github.com/elastic/cloud-on-k8s/issues/1437
-        # https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#add_firewall_rules
+        ## Configure firewall rule for ECK admission webhook
+        ## https://github.com/elastic/cloud-on-k8s/issues/1437
+        ## https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#add_firewall_rules
         gke_firewall_rule_target_tags = gcloud(
             [
                 "compute",
@@ -402,7 +369,7 @@ def main(argv: typing.List[str]) -> None:
                     "iam",
                     "ch",
                     f"serviceAccount:gnomad-es-snapshots@{config.project}.iam.gserviceaccount.com:roles/storage.admin",
-                    "gs://gnomad-browser-elasticsearch-snapshots",  # TODO: The bucket to use for snapshots should be configurable
+                    "gs://ourdna-browser-autopilot-elasticsearch-snapshots",  # TODO: The bucket to use for snapshots should be configurable
                 ],
                 stdout=subprocess.DEVNULL,
             )
@@ -493,7 +460,7 @@ def main(argv: typing.List[str]) -> None:
                     "ch",
                     f"serviceAccount:gnomad-data-pipeline@{config.project}.iam.gserviceaccount.com:roles/storage.admin",
                     # TODO: This should use the same configuration as data pipeline output.
-                    "gs://gnomad-browser-data-pipeline",
+                    "gs://ourdna-browser-autopilot-data-pipeline",
                 ],
                 stdout=subprocess.DEVNULL,
             )

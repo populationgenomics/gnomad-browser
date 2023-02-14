@@ -73,8 +73,6 @@ spec:
           volumeMounts:
             - name: readviz
               mountPath: /readviz
-      nodeSelector:
-        cloud.google.com/gke-nodepool: 'default-pool'
       volumes:
         - name: readviz
           gcePersistentDisk:

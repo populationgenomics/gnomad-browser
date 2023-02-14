@@ -51,8 +51,6 @@ spec:
               name: redis-data
             - mountPath: /etc/redis
               name: config
-      nodeSelector:
-        cloud.google.com/gke-nodepool: redis
       volumes:
         - name: config
           configMap:

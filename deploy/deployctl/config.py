@@ -78,7 +78,7 @@ class Configuration:
 
     @property
     def kubectl_context(self):
-        return f"gke_{self.project}_{self.zone}_{self.gke_cluster_name}"
+        return f"gke_{self.project}_{self.region}_{self.gke_cluster_name}"
 
     @property
     def api_image_repository(self):

@@ -55,5 +55,3 @@ spec:
             requests:
               cpu: 100m
               memory: 25Mi
-      nodeSelector:
-        cloud.google.com/gke-nodepool: 'default-pool'

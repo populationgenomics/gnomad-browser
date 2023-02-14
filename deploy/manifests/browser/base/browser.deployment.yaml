@@ -42,5 +42,3 @@ spec:
               port: http
             initialDelaySeconds: 5
             periodSeconds: 30
-      nodeSelector:
-        cloud.google.com/gke-nodepool: 'default-pool'
