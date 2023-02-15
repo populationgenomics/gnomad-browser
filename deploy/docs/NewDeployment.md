@@ -120,6 +120,9 @@ After creating the cluster, store the password in a secret so that Dataproc jobs
 
 ### Create ingress
 
+- Edit the [ingess configuration file](../manifests/ingress/gnomad.ingress.yaml) setting `kubernetes.io/ingress.global-static-ip-name` 
+  to the resource name of your static external IP address created by `deployctl setup`, and `host` to your own domain.
+
 - Create NodePort services for browser and reads, Ingress, and FrontendConfig.
 
   The SSL certificate created by `deployctl setup` will only be provisioned after DNS records
