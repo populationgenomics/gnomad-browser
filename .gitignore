@@ -1,5 +1,7 @@
 # Dependencies
 node_modules
+env
+venv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -36,3 +38,6 @@ browser/cypress/videos
 browser/cypress/logs
 browser/cypress/fixtures/profile.json
 browser/cypress/fixtures/users.json
+
+# Secrets
+oauth-secrets.env
