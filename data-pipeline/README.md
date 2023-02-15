@@ -50,6 +50,7 @@ The ClinVar pipelines must be run on clusters with an appropriate version of VEP
   ./deployctl config set project <project-id>
   ./deployctl config set zone <zone>
   ./deployctl config set data_pipeline_output <gs://bucket/path/to/staging/directory>
+  ./deployctl config set elastic_snapshot_bucket <gs://bucket/path/to/elastic/snapshots/bucket>
   ```
 
 - Start a cluster.
