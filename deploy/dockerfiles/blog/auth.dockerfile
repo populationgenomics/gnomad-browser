@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM --platform=linux/amd64 python:3.7-alpine
 
 # Create app user and group
 RUN addgroup -S app && adduser -S app -G app
