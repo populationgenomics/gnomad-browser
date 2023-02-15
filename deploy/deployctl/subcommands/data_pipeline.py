@@ -15,7 +15,10 @@ DATA_PIPELINE_DIRECTORY = os.path.abspath(
 
 
 def run_pipeline(
-    pipeline: str, cluster: str, dry_run: bool, other_args: typing.Optional[typing.List[str]] = None
+    pipeline: str,
+    cluster: str,
+    dry_run: bool,
+    other_args: typing.Optional[typing.List[str]] = None,  # pylint: disable=unsubscriptable-object
 ) -> None:
     if not config.project:
         raise RuntimeError("project configuration is required")

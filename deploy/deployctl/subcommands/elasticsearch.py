@@ -14,7 +14,8 @@ def deployment_directory() -> str:
 
 
 def render_template_and_apply(
-    template_path: str, context: typing.Optional[typing.Dict[str, typing.Any]] = None
+    template_path: str,
+    context: typing.Optional[typing.Dict[str, typing.Any]] = None,  # pylint: disable=unsubscriptable-object
 ) -> None:
     if not context:
         context = {}
