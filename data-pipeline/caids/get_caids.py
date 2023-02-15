@@ -11,8 +11,9 @@ from concurrent.futures import ThreadPoolExecutor
 from typing import Awaitable, Callable, TypeVar
 
 import aiohttp
-from hailtop.aiotools import LocalAsyncFS, RouterAsyncFS
-from hailtop.aiogoogle import GoogleStorageAsyncFS
+from hailtop.aiotools import LocalAsyncFS
+from hailtop.aiotools.router_fs import RouterAsyncFS 
+from hailtop.aiocloud.aiogoogle import GoogleStorageAsyncFS
 from hailtop.utils import bounded_gather, sleep_and_backoff, tqdm
 
 
@@ -119,7 +120,7 @@ async def get_caids(sharded_vcf_url: str, output_url: str, *, parallelism: int =
 
     with ThreadPoolExecutor() as thread_pool:
         async with RouterAsyncFS(
-            "file", [LocalAsyncFS(thread_pool), GoogleStorageAsyncFS()]
+            "file", filesystems=[LocalAsyncFS(thread_pool), GoogleStorageAsyncFS()]
         ) as fs, aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=request_timeout * 60)) as session:
             # The ClinGen Allele Registry API does not accept VCFs with contigs other than 1-22, X, Y, and M.
             # Remove other contigs from the VCF header.
