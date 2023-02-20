@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM --platform=linux/amd64 nginx:stable-alpine
 
 COPY deploy/dockerfiles/blog/gcs-proxy.conf /etc/nginx/gcs-proxy.conf
 COPY deploy/dockerfiles/blog/blog.nginx.conf /etc/nginx/blog.conf.template

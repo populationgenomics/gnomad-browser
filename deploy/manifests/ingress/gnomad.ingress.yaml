@@ -5,12 +5,12 @@ metadata:
   labels:
     tier: production
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: exac-gnomad-prod
+    kubernetes.io/ingress.global-static-ip-name: gnomad-browser-dev
     ingress.gcp.kubernetes.io/pre-shared-cert: gnomad-browser-cert
     networking.gke.io/v1beta1.FrontendConfig: "gnomad-frontend-config"
 spec:
   rules:
-  - host: gnomad.broadinstitute.org
+  - host: ourdna-dev.popgen.rocks
     http:
       paths:
       - backend:
