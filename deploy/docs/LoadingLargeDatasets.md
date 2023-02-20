@@ -71,6 +71,12 @@ Then move ES shards from temporary pods onto permanent pods.
   ./deployctl elasticsearch apply --n-ingest-pods=0
   ```
 
+  **NOTE**: If this command does not trigger a tear-down of the `es-ingest` node-pool and its associated resources, try the following alternative command:
+  
+  ```
+  kubectl delete statefulset gnomad-es-ingest
+  ```
+
 - Delete ingest node pool.
 
   ```
