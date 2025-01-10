@@ -54,7 +54,8 @@ def start_cluster(name: str, cluster_args: typing.List[str]) -> None:
             f"--zone={config.zone}",
             f"--subnet={config.network_name}-dataproc",
             "--tags=dataproc-node",
-            "--max-idle=1h",
+            # "--max-idle=1h",
+            "--max-idle=2h",
             f"--packages={','.join(requirements)}",
             f"--service-account=gnomad-data-pipeline@{config.project}.iam.gserviceaccount.com",
             # Required to access Secret Manager
