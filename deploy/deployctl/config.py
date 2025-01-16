@@ -15,6 +15,7 @@ class Configuration:
     environment_tag: str = None
     authorized_networks: str = "0.0.0.0/0"
     data_pipeline_output: str = None
+    docker_registry: str = "us-docker.pkg.dev"
 
     def __init__(self, config_path):
         self._config_path = config_path
@@ -82,19 +83,19 @@ class Configuration:
 
     @property
     def api_image_repository(self):
-        return f"us-docker.pkg.dev/{self.project}/gnomad/gnomad-api"
+        return f"{self.docker_registry}/{self.project}/gnomad/gnomad-api"
 
     @property
     def browser_image_repository(self):
-        return f"us-docker.pkg.dev/{self.project}/gnomad/gnomad-browser"
+        return f"{self.docker_registry}/{self.project}/gnomad/gnomad-browser"
 
     @property
     def reads_server_image_repository(self):
-        return f"us-docker.pkg.dev/{self.project}/gnomad/gnomad-reads-server"
+        return f"{self.docker_registry}/{self.project}/gnomad/gnomad-reads-server"
 
     @property
     def reads_api_image_repository(self):
-        return f"us-docker.pkg.dev/{self.project}/gnomad/gnomad-reads-api"
+        return f"{self.docker_registry}/{self.project}/gnomad/gnomad-reads-api"
 
 
 config = Configuration(_CONFIG_PATH)  # pylint: disable=invalid-name
