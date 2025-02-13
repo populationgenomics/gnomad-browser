@@ -16,6 +16,7 @@ class Configuration:
     authorized_networks: str = "0.0.0.0/0"
     data_pipeline_output: str = None
     docker_registry: str = "us-docker.pkg.dev"
+    cluster_name: str = "gnomad"
 
     def __init__(self, config_path):
         self._config_path = config_path
@@ -51,20 +52,20 @@ class Configuration:
     @property
     def network_name(self):
         if self.environment_tag:
-            return f"gnomad-{self.environment_tag}"
+            return f"{self.cluster_name}-{self.environment_tag}"
 
-        return "gnomad"
+        return self.cluster_name
 
     @property
     def ip_address_name(self):
         if self.environment_tag:
-            return f"gnomad-browser-{self.environment_tag}"
+            return f"{self.cluster_name}-{self.environment_tag}"
 
-        return "gnomad-browser"
+        return f"{self.cluster_name}-browser"
 
     @property
     def gke_service_account_name(self):
-        return "gnomad-gke"
+        return f"{self.cluster_name}-gke"
 
     @property
     def gke_service_account_full_name(self):
@@ -73,9 +74,9 @@ class Configuration:
     @property
     def gke_cluster_name(self):
         if self.environment_tag:
-            return f"gnomad-{self.environment_tag}"
+            return f"{self.cluster_name}-{self.environment_tag}"
 
-        return "gnomad"
+        return self.cluster_name
 
     @property
     def kubectl_context(self):
