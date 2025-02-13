@@ -14,7 +14,7 @@ def get_elasticsearch_password(cluster_name: str, namespace: str) -> None:
                 f"-n={namespace}",
                 "get",
                 "secret",
-                f"{cluster_name}-es-elastic-user",
+                "gnomad-es-elastic-user",
                 "-o=go-template={{.data.elastic | base64decode}}",
             ]
         )
