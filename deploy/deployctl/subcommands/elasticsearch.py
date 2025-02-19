@@ -28,7 +28,7 @@ def load_datasets(cluster_name: str, namespace: str, dataproc_cluster: str, secr
             f"-n={namespace}",
             "get",
             "service",
-            f"{cluster_name}-elasticsearch-lb",
+            f"gnomad-elasticsearch-lb",
             "--output=jsonpath={.status.loadBalancer.ingress[0].ip}",
         ]
     )
