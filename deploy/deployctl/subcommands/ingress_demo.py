@@ -79,6 +79,7 @@ spec:
                   number: 80
 """
 
+
 def list_demo_ingresses() -> None:
     ingresses = kubectl(
         [
