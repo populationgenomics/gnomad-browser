@@ -92,7 +92,7 @@ const NavBar = () => {
     <Wrapper>
       <LogoWrapper>
         <Link to="/" onClick={closeMenu}>
-          <Logo>gnomAD browser</Logo>
+          <Logo>OurDNA Browser</Logo>
         </Link>
         <ToggleMenuButton onClick={toggleMenu}>☰</ToggleMenuButton>
       </LogoWrapper>
