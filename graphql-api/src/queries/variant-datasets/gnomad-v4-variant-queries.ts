@@ -157,7 +157,7 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
     pos: variant.locus.position,
     ref: variant.alleles[0],
     alt: variant.alleles[1],
-    colocated_variants: variant.colocated_variants[subset] || [],
+    colocated_variants: variant.colocated_variants?[subset] || [],
     exome: hasExomeVariant
       ? {
           ...variant.exome,
