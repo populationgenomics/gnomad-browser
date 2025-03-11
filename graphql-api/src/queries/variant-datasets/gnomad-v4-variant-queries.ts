@@ -104,11 +104,11 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
     throw new UserVisibleError('Variant not found in selected subset.')
   }
 
-  const exomeFilters = variant.exome.filters || []
+  const exomeFilters = variant.exome?.filters || []
   const genomeFilters = variant.genome.filters || []
-  const jointFilters = variant.joint.flags || []
+  const jointFilters = variant.joint?.flags || []
 
-  if (variant.exome.freq[subset].ac === 0 && !exomeFilters.includes('AC0')) {
+  if (variant.exome?.freq[subset].ac === 0 && !exomeFilters.includes('AC0')) {
     exomeFilters.push('AC0')
   }
   if (variant.genome.freq.all.ac === 0 && !genomeFilters.includes('AC0')) {
@@ -157,31 +157,31 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
     exome: hasExomeVariant
       ? {
           ...variant.exome,
-          ...variant.exome.freq[subset],
+          ...variant.exome?.freq[subset],
           filters: exomeFilters,
           flags: exomeFlags,
-          populations: variant.exome.freq[subset].ancestry_groups,
+          populations: variant.exome?.freq[subset].ancestry_groups,
           faf95: hasExomeVariant &&
-            variant.exome.faf95 && {
-              popmax_population: variant.exome.faf95.grpmax_gen_anc,
-              popmax: variant.exome.faf95.grpmax,
+            variant.exome?.faf95 && {
+              popmax_population: variant.exome?.faf95.grpmax_gen_anc,
+              popmax: variant.exome?.faf95.grpmax,
             },
           quality_metrics: {
             // TODO: An older version of the data pipeline stored only adj quality metric histograms.
             // Maintain the same behavior by returning the adj version until the API schema is updated to allow
             // selecting which version to return.
             allele_balance: {
-              alt: variant.exome.quality_metrics.allele_balance.alt_adj,
+              alt: variant.exome?.quality_metrics.allele_balance.alt_adj,
             },
             genotype_depth: {
-              alt: variant.exome.quality_metrics.genotype_depth.alt_adj,
-              all: variant.exome.quality_metrics.genotype_depth.all_adj,
+              alt: variant.exome?.quality_metrics.genotype_depth.alt_adj,
+              all: variant.exome?.quality_metrics.genotype_depth.all_adj,
             },
             genotype_quality: {
-              alt: variant.exome.quality_metrics.genotype_quality.alt_adj,
-              all: variant.exome.quality_metrics.genotype_quality.all_adj,
+              alt: variant.exome?.quality_metrics.genotype_quality.alt_adj,
+              all: variant.exome?.quality_metrics.genotype_quality.all_adj,
             },
-            site_quality_metrics: variant.exome.quality_metrics.site_quality_metrics.filter(
+            site_quality_metrics: variant.exome?.quality_metrics.site_quality_metrics.filter(
               (m: any) => Number.isFinite(m.value)
             ),
           },
