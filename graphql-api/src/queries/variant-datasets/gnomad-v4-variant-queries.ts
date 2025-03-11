@@ -14,6 +14,8 @@ import largeGenes from '../helpers/large-genes'
 
 const GNOMAD_V4_VARIANT_INDEX = 'gnomad_v4_variants'
 
+import logger from '../../logger'
+
 type Subset = 'all' | 'non_ukb'
 
 // ================================================================================================
@@ -88,6 +90,8 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
   }
 
   const variant = response.body.hits.hits[0]._source.value
+  
+  logger.info(`Variant found ${variant}`)
 
   const subsetGenomeFreq = variant.genome.freq.all || {}
   const subsetJointFreq = variant.joint.freq[subset] || {}
