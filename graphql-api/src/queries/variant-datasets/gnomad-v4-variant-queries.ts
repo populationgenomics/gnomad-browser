@@ -316,7 +316,7 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
       jointFilters.push('AC0')
     }
 
-    const inSilicoPredictorsList = createInSilicoPredictorsList(variant)
+    const inSilicoPredictorsList = variant.in_silico_predictors ?? createInSilicoPredictorsList(variant) : null
 
     return {
       ...omit(variant, 'transcript_consequences', 'locus', 'alleles'), // Omit full transcript consequences list to avoid caching it
