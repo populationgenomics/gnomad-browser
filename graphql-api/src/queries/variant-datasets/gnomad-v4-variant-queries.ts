@@ -138,7 +138,7 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
     )
   }
 
-  const inSilicoPredictorsList = createInSilicoPredictorsList(variant)
+  const inSilicoPredictorsList = variant.in_silico_predictors ? createInSilicoPredictorsList(variant) : null
 
   const localAncestryPopulations = await fetchLocalAncestryPopulationsByVariant(
     esClient,
