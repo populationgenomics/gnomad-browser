@@ -119,7 +119,7 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
 
   let genome_ancestry_groups = subsetGenomeFreq.ancestry_groups || []
   // Include HGDP and 1KG populations with gnomAD subsets
-  if (variant.genome.freq.hgdp.ac_raw > 0) {
+  if ('hgdp' in variant.genome.freq && variant.genome.freq.hgdp.ac_raw > 0) {
     genome_ancestry_groups = genome_ancestry_groups.concat(
       variant.genome.freq.hgdp.ancestry_groups.map((pop: any) => ({
         ...pop,
@@ -129,7 +129,7 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
   }
   // Some 1KG samples are included in v2. Since the 1KG population frequencies are based on the full v3.1 dataset,
   // they are invalid for the non-v2 subset.
-  if (variant.genome.freq.tgp.ac_raw > 0) {
+  if ('tgp' in variant.genome.freq && variant.genome.freq.tgp.ac_raw > 0) {
     genome_ancestry_groups = genome_ancestry_groups.concat(
       variant.genome.freq.tgp.ancestry_groups.map((pop: any) => ({
         ...pop,
