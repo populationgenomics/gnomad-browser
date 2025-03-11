@@ -146,6 +146,10 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
     variant.variant_id
   )
 
+  logger.info(`localAncestryPopulations: ${JSON.stringify(localAncestryPopulations)}`)
+
+  logger.info(`variant.colocated_variants: ${JSON.stringify(variant.colocated_variants)}`)
+
   const shapedVariant = {
     ...variant,
     reference_genome: 'GRCh38',
