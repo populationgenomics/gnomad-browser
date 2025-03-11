@@ -109,6 +109,11 @@ def export_table_to_elasticsearch(
     table = table.select_globals(exported_at=export_time.isoformat(timespec="seconds"), table_globals=table.globals)
     table = table.key_by()
 
+    print('table', table)
+    print('table.describe', table.describe())
+    print('table.globals.show()', table.globals.show())
+    print('table.show()', table.show())
+    
     if index_fields:
         if id_field and id_field not in [f.split(".")[-1] for f in index_fields]:
             raise RuntimeError("id_field must be included in index_fields")

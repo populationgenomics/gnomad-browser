@@ -72,6 +72,74 @@ def add_liftover_document_id(ds):
     )
 
 
+"""
+"""
+# import gzip
+# import cloudstorage as gcs
+# from collections import OrderedDict
+# from zlib import MAX_WBITS, decompress
+
+# import orjson
+# from os import path
+
+# def parse_schema(s):
+#     def parse_type(s: str, end_delimiter: str, element_type: str):
+#         keys: List[str] = []
+#         values = []
+#         i = 0
+#         while i < len(s):
+#             if s[i] == end_delimiter:
+#                 if s[:i]:
+#                     values.append(s[:i])
+#                 if element_type in ['Array', 'Set', 'Dict', 'Tuple', 'Interval']:
+#                     return {'type': element_type, 'value': values}, s[i + 1 :]
+#                 return {'type': element_type, 'value': OrderedDict(zip(keys, values))}, s[i + 1 :]
+
+#             if s[i] == ':':
+#                 keys.append(s[:i])
+#                 s = s[i + 1 :]
+#                 i = 0
+#             elif s[i] == '{':
+#                 struct, s = parse_type(s[i + 1 :], '}', s[:i])
+#                 values.append(struct)
+#                 i = 0
+#             elif s[i] == '[':
+#                 arr, s = parse_type(s[i + 1 :], ']', s[:i] if s[:i] else 'Array')
+#                 values.append(arr)
+#                 i = 0
+#             elif s[i] == ',':
+#                 if s[:i]:
+#                     values.append(s[:i])
+#                 s = s[i + 1 :]
+#                 i = 0
+#             else:
+#                 i += 1
+
+#         raise ValueError(f'End of {element_type} not found')
+
+#     start_schema_index = s.index('{')
+#     return parse_type(s[start_schema_index + 1 :], "}", s[:start_schema_index])[0]
+
+# def load_schema(path):
+#     # 
+#     filename = path + "/metadata.json.gz"
+#     #response = urllib.request.urlopen(filename)
+#     fs = gcs.open(filename)
+#     j = orjson.loads(gzip.decompress(fs.read()))
+
+#     print(j)
+
+#     fs.close()
+
+#     # j = orjson.loads(decompress(fs.read(path.join(file, filename)), 16 + MAX_WBITS))
+
+#     # Get the file schema
+#     file_schema = parse_schema(j[next(k for k in j.keys() if k.endswith('type'))])
+
+#     print(file_schema)
+#     return file_schema
+
+
 DATASETS_CONFIG = {
     ##############################################################################################################
     # Genes
@@ -484,6 +552,55 @@ DATASETS_CONFIG = {
             "id_field": "element_id",
         },
     },
+
+    ##############################################################################################################
+    # Genomic / Non Coding Constraints
+    ##############################################################################################################
+    "ourdna_bioheart_variants_v4": {
+        "get_table": lambda: subset_table(
+            add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
+        ),
+        "get_schema": lambda: load_schema("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/frequencies.ht"),
+        "args": {
+            "index": "gnomad_v4_variants",
+            "index_fields": [
+                "document_id",
+                "variant_id",
+                "rsids",
+                #"caid",
+                "locus",
+                #"transcript_consequences.gene_id",
+                #"transcript_consequences.transcript_id",
+                #"vrs.alt.allele_id",
+            ],
+            "id_field": "document_id",
+            # "num_shards": 48,
+            "block_size": 1_000,
+        },
+    },
+
+    "ourdna_bioheart_genes_grch38": {
+        "get_table": lambda: hl.read_table("gs://cpg-ourdna-browser-dev-test/genes/gnomad.genes.GRCh38.GENCODEv39.pext.ht"),
+        "args": {
+            "index": "genes_grch38",
+            "index_fields": ["gene_id", "symbol_upper_case", "search_terms", "xstart", "xstop"],
+            "id_field": "gene_id",
+            "block_size": 200,
+        },
+    },
+
+    "ourdna_bioheart_genes_grch38_noext": {
+        "get_table": lambda: hl.read_table("gs://cpg-ourdna-browser-dev-test/genes/gnomad.genes.GRCh38.GENCODEv39.ht"),
+        "args": {
+            "index": "genes_grch38_noext",
+            "index_fields": ["gene_id", "symbol_upper_case", "search_terms", "xstart", "xstop"],
+            "id_field": "gene_id",
+            "block_size": 200,
+        },
+    },
+
+
+    
 }
 
 
@@ -496,6 +613,11 @@ def export_datasets(elasticsearch_host, elasticsearch_auth, datasets):
     for dataset in datasets:
         logger.info("exporting dataset %s", dataset)
         dataset_config = DATASETS_CONFIG[dataset]
+
+        # logger.info("getting schema %s", dataset)
+        # table_schema = dataset_config["get_schema"]()
+        # logger.info("table_schema: %s", table_schema)
+
         table = dataset_config["get_table"]()
         export_table_to_elasticsearch(table, **base_args, **dataset_config.get("args", {}))
 
