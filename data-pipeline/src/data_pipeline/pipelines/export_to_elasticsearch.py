@@ -61,6 +61,8 @@ def add_variant_document_id(ds):
 
 
 def truncate_clinvar_variant_ids(ds):
+    # clinvar tables needs release meta data
+    ds = ds.annotate_globals(clinvar_release_date='2022-10-31')
     return ds.annotate(
         variant_id=hl.if_else(hl.len(ds.variant_id) >= 32_766, ds.variant_id[:32_632] + "...", ds.variant_id)
     )
