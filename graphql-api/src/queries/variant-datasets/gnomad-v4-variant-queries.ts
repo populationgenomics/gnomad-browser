@@ -151,7 +151,7 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
   logger.info(`variant.colocated_variants: ${JSON.stringify(variant.colocated_variants)}`)
 
   // if variant is missing coverage, then append empty one
-  if (!variant.includes('coverage')){
+  if (!('coverage' in variant)){
     variant.coverage = {
       exome: {
         mean: null,
