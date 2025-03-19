@@ -79,6 +79,10 @@ jobs:
           docker push $API_DOCKER:${{ github.sha }}
           docker push $BROWSER_DOCKER:${{ github.sha }}
 
+      # Configure kubectl
+      - name: "gcloud kubectl"
+        run: |-
+          gcloud container clusters get-credentials $(GKE_CLUSTER) --region=$(GKE_ZONE)
 
       # Deploy the Docker image to the GKE cluster
       - name: Deploy API
