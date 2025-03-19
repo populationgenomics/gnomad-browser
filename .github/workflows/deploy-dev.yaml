@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  PROJECT_ID: ourdna-browser-dev # ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: ourdna-dev    # Add your cluster name here.
   GKE_ZONE: australia-southeast1-a   # Add your cluster zone here.
   DEPLOYMENT_NAME: ourdna-browser-dev-green # Add your deployment name here.
