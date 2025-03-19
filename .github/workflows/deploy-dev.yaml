@@ -37,6 +37,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: "Setup env vars based on short SHA"
+        id: vars
+        run: |
+          calculatedSha=$(git rev-parse --short ${{ github.sha }})
+          echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
+
+          apiImageId=$DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ env.COMMIT_SHORT_SHA }}
+          echo "API_DOCKER_ID=$apiImageId" >> $GITHUB_ENV
+
+          webImageId=$DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:${{ env.COMMIT_SHORT_SHA }}
+          echo "BROWSER_DOCKER_ID=$webImageId" >> $GITHUB_ENV
+
+      - name: "Confirm git commit SHA output"
+        run: echo ${{ env.COMMIT_SHORT_SHA }}
+
       - id: "google-cloud-auth"
         name: "Authenticate to Google Cloud"
         uses: "google-github-actions/auth@v2"
@@ -54,11 +69,9 @@ jobs:
 
       - name: "build API image"
         run: |
-          echo "$DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ github.sha }}"
           docker build \
             --pull --provenance=false \
-            --tag $DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ github.sha }} \
-            --tag $DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:latest \
+            --tag ${{ env.API_DOCKER_ID }} \
             -f deploy/dockerfiles/browser/api.dockerfile \
             .
 
@@ -67,16 +80,15 @@ jobs:
           echo 'GNOMAD_API_URL="https://ourdna-dev.popgen.rocks/api"' > browser/build.env
           docker build \
             --pull --provenance=false \
-            --tag $DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:${{ github.sha }} \
-            --tag $DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:latest \
+            --tag ${{ env.BROWSER_DOCKER_ID }} \
             -f deploy/dockerfiles/browser/browser.dockerfile \
             .
 
       # Push the Docker image to Google Container Registry
       - name: Publish
         run: |-
-          docker push $DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ github.sha }}
-          docker push $DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:${{ github.sha }}
+          docker push ${{ env.API_DOCKER_ID }}
+          docker push ${{ env.BROWSER_DOCKER_ID }}
 
       # Configure kubectl
       - name: "gcloud kubectl"
@@ -86,11 +98,11 @@ jobs:
       # Deploy the Docker image to the GKE cluster
       - name: Deploy API
         run: |-
-          kubectl set image deployment/$DEPLOYMENT_NAME app=$DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ github.sha }}
+          kubectl set image deployment/$DEPLOYMENT_NAME app=${{ env.API_DOCKER_ID }}
           kubectl rollout status deployment/$DEPLOYMENT_NAME
 
       # Deploy the Docker image to the GKE cluster
       - name: Deploy Web
         run: |-
-          kubectl set image deployment/$DEPLOYMENT_NAME web=$DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:${{ github.sha }}
+          kubectl set image deployment/$DEPLOYMENT_NAME web=${{ env.BROWSER_DOCKER_ID }}
           kubectl rollout status deployment/$DEPLOYMENT_NAME
