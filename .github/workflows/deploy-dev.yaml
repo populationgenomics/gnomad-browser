@@ -28,8 +28,8 @@ jobs:
       BUILDKIT_PROGRESS: plain
       CLOUDSDK_CORE_DISABLE_PROMPTS: 1
       # used for generating API
-      API_DOCKER: $DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-api
-      BROWSER_DOCKER: $DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-browser
+      API_DOCKER: "$DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-api"
+      BROWSER_DOCKER: "$DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-browser"
 
     defaults:
       run:
@@ -56,8 +56,8 @@ jobs:
         run: |
           docker build \
             --pull --provenance=false \
-            --tag $API_DOCKER:${{ github.sha }} \
-            --tag $API_DOCKER:latest \
+            --tag "$API_DOCKER:${{ github.sha }}"" \
+            --tag "$API_DOCKER:latest" \
             -f deploy/dockerfiles/browser/api.dockerfile \
             .
 
