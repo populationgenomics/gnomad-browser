@@ -18,8 +18,8 @@ env:
   DEPLOYMENT_NAME: ourdna-browser-dev-green # Add your deployment name here.
   DOCKER_REGISTRY: australia-southeast1-docker.pkg.dev
   # used for generating API
-  API_DOCKER: ${DOCKER_REGISTRY}/${PROJECT_ID}/gnomad/gnomad-api
-  BROWSER_DOCKER: "$DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-browser"
+  API_DOCKER: $DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-api
+  BROWSER_DOCKER: "${DOCKER_REGISTRY}/${PROJECT_ID}/gnomad/gnomad-browser"
 
 jobs:
   setup-build-publish-deploy:
