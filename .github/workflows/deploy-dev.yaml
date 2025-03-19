@@ -54,9 +54,10 @@ jobs:
 
       - name: "build API image"
         run: |
+          echo "$API_DOCKER:${{ github.sha }}"
           docker build \
             --pull --provenance=false \
-            --tag "$API_DOCKER:${{ github.sha }}"" \
+            --tag "$API_DOCKER:${{ github.sha }}" \
             --tag "$API_DOCKER:latest" \
             -f deploy/dockerfiles/browser/api.dockerfile \
             .
