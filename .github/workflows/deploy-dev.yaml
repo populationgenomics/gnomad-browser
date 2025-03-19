@@ -47,12 +47,11 @@ jobs:
         run: |
           gcloud --quiet auth configure-docker australia-southeast1-docker.pkg.dev
 
- 
       - name: "build api image"
         run: |
           docker build --provenance=false --file="deploy/dockerfiles/browser/api.dockerfile" \
-            --tag "$DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-api:$GITHUB_SHA \
-            --tag "$DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-api:latest \
+            --tag "australia-southeast1-docker.pkg.dev/ourdna-browser-dev/gnomad/gnomad-api:$GITHUB_SHA \
+            --tag "australia-southeast1-docker.pkg.dev/ourdna-browser-dev/gnomad/gnomad-api:latest \
             --build-arg GITHUB_SHA="$GITHUB_SHA" \
             .
 
