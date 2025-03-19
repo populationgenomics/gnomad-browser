@@ -100,7 +100,7 @@ jobs:
       # Deploy the Docker image to the GKE cluster
       - name: Deploy API
         run: |-
-          kubectl set image deployment/gnomad-api--$DEPLOYMENT_NAME app=${{ env.API_DOCKER_ID }}
+          kubectl set image deployment/gnomad-api-$DEPLOYMENT_NAME app=${{ env.API_DOCKER_ID }}
           kubectl rollout status deployment/gnomad-api-$DEPLOYMENT_NAME
 
       # Deploy the Docker image to the GKE cluster
