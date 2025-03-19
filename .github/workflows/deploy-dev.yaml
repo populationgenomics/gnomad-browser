@@ -92,16 +92,10 @@ jobs:
           docker push ${{ env.API_DOCKER_ID }}
           docker push ${{ env.BROWSER_DOCKER_ID }}
 
-      - name: Authenticate to GKE cluster
-        uses: google-github-actions/get-gke-credentials@v2
-        with:
-          cluster_name: $GKE_CLUSTER
-          location: $GKE_ZONE
-
-      # # Configure kubectl
-      # - name: "gcloud kubectl"
-      #   run: |-
-      #     gcloud container clusters get-credentials $GKE_CLUSTER --region=$GKE_ZONE
+      # Configure kubectl
+      - name: "gcloud kubectl"
+        run: |-
+          gcloud container clusters get-credentials $GKE_CLUSTER --region=$GKE_ZONE
 
       # Deploy the Docker image to the GKE cluster
       - name: Deploy API
