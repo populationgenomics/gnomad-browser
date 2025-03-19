@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - ourdna-browser-dev
+      - ourdna-browser
       - milo-test
 
 permissions:
@@ -12,17 +12,17 @@ permissions:
   contents: read
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_DEV_PROJECT }}
-  GKE_CLUSTER: ourdna-dev    # Add your cluster name here.
+  PROJECT_ID: ${{ secrets.GKE_PRD_PROJECT }}
+  GKE_CLUSTER: ourdna-prod    # Add your cluster name here.
   GKE_ZONE: australia-southeast1-a   # Add your cluster zone here.
-  DEPLOYMENT_NAME: ourdna-browser-dev-green # Add your deployment name here.
+  DEPLOYMENT_NAME: ourdna-browser-green # Add your deployment name here.
   DOCKER_REGISTRY: australia-southeast1-docker.pkg.dev
 
 jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
-    environment: development
+    environment: production
     env:
       DOCKER_BUILDKIT: 1
       BUILDKIT_PROGRESS: plain
@@ -56,8 +56,8 @@ jobs:
         name: "Authenticate to Google Cloud"
         uses: "google-github-actions/auth@v2"
         with:
-          workload_identity_provider: "projects/891247401758/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
-          service_account: "github-deploy@${{ secrets.GKE_DEV_PROJECT }}.iam.gserviceaccount.com"
+          workload_identity_provider: "projects/609678389034/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+          service_account: "github-deploy@${{ secrets.GKE_PRD_PROJECT }}.iam.gserviceaccount.com"
 
       - id: "google-cloud-sdk-setup"
         name: "Set up Cloud SDK"
@@ -79,7 +79,7 @@ jobs:
 
       - name: "build Browser image"
         run: |
-          echo 'GNOMAD_API_URL="https://ourdna-dev.popgen.rocks/api"' > browser/build.env
+          echo 'GNOMAD_API_URL="https://ourdna.populationgenomics.org.au/api"' > browser/build.env
           docker build \
             --pull --provenance=false \
             --tag ${{ env.BROWSER_DOCKER_ID }} \
