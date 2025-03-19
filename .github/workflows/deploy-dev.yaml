@@ -28,8 +28,8 @@ jobs:
       BUILDKIT_PROGRESS: plain
       CLOUDSDK_CORE_DISABLE_PROMPTS: 1
       # used for generating API
-      API_DOCKER: ${{env.DOCKER_REGISTRY}}/${{env.PROJECT_ID}}/gnomad/gnomad-api
-      BROWSER_DOCKER: ${{env.DOCKER_REGISTRY}}/${{env.PROJECT_ID}}/gnomad/gnomad-browser
+      API_DOCKER: gnomad/gnomad-api
+      BROWSER_DOCKER: gnomad/gnomad-browser
 
     defaults:
       run:
@@ -54,14 +54,11 @@ jobs:
 
       - name: "build API image"
         run: |
-          echo $DOCKER_REGISTRY
-          echo $API_DOCKER
-          echo $BROWSER_DOCKER
-          echo "$API_DOCKER:${{ github.sha }}"
+          echo "$DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ github.sha }}"
           docker build \
             --pull --provenance=false \
-            --tag "$API_DOCKER:${{ github.sha }}" \
-            --tag "$API_DOCKER:latest" \
+            --tag $DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ github.sha }} \
+            --tag $DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:latest \
             -f deploy/dockerfiles/browser/api.dockerfile \
             .
 
@@ -70,16 +67,16 @@ jobs:
           echo 'GNOMAD_API_URL="https://ourdna-dev.popgen.rocks/api"' > browser/build.env
           docker build \
             --pull --provenance=false \
-            --tag $BROWSER_DOCKER:${{ github.sha }} \
-            --tag $BROWSER_DOCKER:latest \
+            --tag $DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:${{ github.sha }} \
+            --tag $DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:latest \
             -f deploy/dockerfiles/browser/browser.dockerfile \
             .
 
       # Push the Docker image to Google Container Registry
       - name: Publish
         run: |-
-          docker push $API_DOCKER:${{ github.sha }}
-          docker push $BROWSER_DOCKER:${{ github.sha }}
+          docker push $DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ github.sha }}
+          docker push $DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:${{ github.sha }}
 
       # Configure kubectl
       - name: "gcloud kubectl"
@@ -89,11 +86,11 @@ jobs:
       # Deploy the Docker image to the GKE cluster
       - name: Deploy API
         run: |-
-          kubectl set image deployment/$DEPLOYMENT_NAME app=$API_DOCKER:${{ github.sha }}
+          kubectl set image deployment/$DEPLOYMENT_NAME app=$DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ github.sha }}
           kubectl rollout status deployment/$DEPLOYMENT_NAME
 
       # Deploy the Docker image to the GKE cluster
       - name: Deploy Web
         run: |-
-          kubectl set image deployment/$DEPLOYMENT_NAME web=$BROWSER_DOCKER:${{ github.sha }}
+          kubectl set image deployment/$DEPLOYMENT_NAME web=$DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:${{ github.sha }}
           kubectl rollout status deployment/$DEPLOYMENT_NAME
