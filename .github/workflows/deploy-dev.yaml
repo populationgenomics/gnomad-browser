@@ -43,10 +43,10 @@ jobs:
           calculatedSha=$(git rev-parse --short ${{ github.sha }})
           echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
 
-          apiImageId=$DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:${{ env.COMMIT_SHORT_SHA }}
+          apiImageId=$DOCKER_REGISTRY/$PROJECT_ID/$API_DOCKER:$calculatedSha
           echo "API_DOCKER_ID=$apiImageId" >> $GITHUB_ENV
 
-          webImageId=$DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:${{ env.COMMIT_SHORT_SHA }}
+          webImageId=$DOCKER_REGISTRY/$PROJECT_ID/$BROWSER_DOCKER:$calculatedSha
           echo "BROWSER_DOCKER_ID=$webImageId" >> $GITHUB_ENV
 
       - name: "Confirm git commit SHA output"
