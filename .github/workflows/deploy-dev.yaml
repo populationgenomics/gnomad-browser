@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - ourdna-browser-dev
-      - milo-test
 
 permissions:
   id-token: write
@@ -20,7 +19,7 @@ env:
 
 jobs:
   setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+    name: Setup, Build, Publish, and Deploy to DEV
     runs-on: ubuntu-latest
     environment: development
     env:
