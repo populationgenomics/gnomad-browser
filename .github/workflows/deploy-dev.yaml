@@ -12,13 +12,11 @@ permissions:
   contents: read
 
 env:
-  PROJECT_ID: ourdna-browser-dev # ${{ secrets.GKE_PROJECT }}
+  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: ourdna-dev    # Add your cluster name here.
   GKE_ZONE: australia-southeast1-a   # Add your cluster zone here.
   DEPLOYMENT_NAME: ourdna-browser-dev-green # Add your deployment name here.
-  IMAGE: gnomad
   DOCKER_REGISTRY: australia-southeast1-docker.pkg.dev
-
 
 jobs:
   setup-build-publish-deploy:
@@ -30,8 +28,8 @@ jobs:
       BUILDKIT_PROGRESS: plain
       CLOUDSDK_CORE_DISABLE_PROMPTS: 1
       # used for generating API
-      API_DOCKER: australia-southeast1-docker.pkg.dev/ourdna-browser-dev/gnomad/gnomad-api
-      BROWSER_DOCKER: australia-southeast1-docker.pkg.dev/ourdna-browser-dev/gnomad/gnomad-browser
+      API_DOCKER: $DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-api
+      BROWSER_DOCKER: $DOCKER_REGISTRY/$PROJECT_ID/gnomad/gnomad-browser
 
     defaults:
       run:
@@ -52,7 +50,7 @@ jobs:
 
       - name: "gcloud docker auth"
         run: |
-          gcloud --quiet auth configure-docker australia-southeast1-docker.pkg.dev
+          gcloud --quiet auth configure-docker $DOCKER_REGISTRY
 
       - name: "build API image"
         run: |
@@ -82,7 +80,7 @@ jobs:
       # Configure kubectl
       - name: "gcloud kubectl"
         run: |-
-          gcloud container clusters get-credentials $(GKE_CLUSTER) --region=$(GKE_ZONE)
+          gcloud container clusters get-credentials $GKE_CLUSTER --region=$GKE_ZONE
 
       # Deploy the Docker image to the GKE cluster
       - name: Deploy API
