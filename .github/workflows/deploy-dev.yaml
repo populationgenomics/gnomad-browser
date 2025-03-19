@@ -100,11 +100,11 @@ jobs:
       # Deploy the Docker image to the GKE cluster
       - name: Deploy API
         run: |-
-          kubectl set image deployment/$DEPLOYMENT_NAME app=${{ env.API_DOCKER_ID }}
-          kubectl rollout status deployment/$DEPLOYMENT_NAME
+          kubectl set image deployment/gnomad-api--$DEPLOYMENT_NAME app=${{ env.API_DOCKER_ID }}
+          kubectl rollout status deployment/gnomad-api-$DEPLOYMENT_NAME
 
       # Deploy the Docker image to the GKE cluster
       - name: Deploy Web
         run: |-
-          kubectl set image deployment/$DEPLOYMENT_NAME web=${{ env.BROWSER_DOCKER_ID }}
-          kubectl rollout status deployment/$DEPLOYMENT_NAME
+          kubectl set image deployment/gnomad-browser-$DEPLOYMENT_NAME web=${{ env.BROWSER_DOCKER_ID }}
+          kubectl rollout status deployment/gnomad-browser-$DEPLOYMENT_NAME
