@@ -119,10 +119,10 @@ const App = () => {
           </Delayed>
         ) : (
           <Suspense fallback={null}>
-            <TopBarWrapper>
+            {/*<TopBarWrapper>
               <NavBar />
             </TopBarWrapper>
-            <Notifications />
+            <Notifications />*/}
 
             <Suspense fallback={<PageLoading />}>
               <Routes />
