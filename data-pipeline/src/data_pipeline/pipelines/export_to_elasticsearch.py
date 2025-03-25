@@ -47,6 +47,8 @@ from data_pipeline.pipelines.gnomad_v4_cnv_del_burden import pipeline as gnomad_
 
 from data_pipeline.pipelines.gnomad_v4_cnv_dup_burden import pipeline as gnomad_v4_cnv_dup_burden
 
+from data_pipeline.data_types.locus import x_position
+
 
 logger = logging.getLogger("gnomad_data_pipeline")
 
@@ -55,6 +57,9 @@ logger = logging.getLogger("gnomad_data_pipeline")
 def subset_table(ds):
     return ds
 
+
+def add_xpos(ds):
+    return ds.annotate(xpos=x_position(ds.locus))
 
 def add_variant_document_id(ds):
     return ds.annotate(document_id=compressed_variant_id(ds.locus, ds.alleles))
@@ -601,8 +606,22 @@ DATASETS_CONFIG = {
         },
     },
 
+    "ourdna_bioheart_v3_genome_coverage": {
+        "get_table": lambda: add_xpos(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/genome/merged_coverage.ht")),
+        "args": {"index": "gnomad_v3_genome_coverage", "id_field": "xpos", 
+        # "num_shards": 48, 
+        "block_size": 1_000
+        },
+    },
 
-    
+    "ourdna_bioheart_v4_exome_coverage": {
+        "get_table": lambda: add_xpos(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/merged_coverage.ht")),
+        "args": {"index": "gnomad_v4_exome_coverage", "id_field": "xpos", 
+        #"num_shards": 48, 
+        "block_size": 1_000
+        },
+    },
+
 }
 
 
