@@ -94,19 +94,11 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
   logger.info(`Variant found ${JSON.stringify(variant)}`)
 
   const subsetGenomeFreq = variant.genome.freq.all || {}
-
-  logger.info(`Variant subsetGenomeFreq: ${JSON.stringify(subsetGenomeFreq)}`)
-
-
   const subsetJointFreq = variant.joint?.freq[subset] || {}
-
-  logger.info(`Variant subsetJointFreq: ${JSON.stringify(subsetJointFreq)}`)
 
   const hasExomeVariant = variant.exome?.freq?.[subset]?.ac_raw || false
   const hasGenomeVariant = subsetGenomeFreq.ac_raw
   const hasJointFrequencyData = subsetJointFreq.ac_raw
-
-  logger.info(`Variant hasExomeVariant: ${hasExomeVariant}`)
 
   if (!subsetGenomeFreq.ac_raw && !(variant.exome?.freq[subset] || {}).ac_raw) {
     throw new UserVisibleError('Variant not found in selected subset.')
@@ -116,7 +108,7 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
   const genomeFilters = variant.genome.filters || []
   const jointFilters = variant.joint?.flags || []
 
-  if (variant.exome?.freq[subset].ac === 0 && !exomeFilters.includes('AC0')) {
+  if (hasExomeVariant && variant.exome.freq[subset].ac === 0 && !exomeFilters.includes('AC0')) {
     exomeFilters.push('AC0')
   }
   if (variant.genome.freq.all.ac === 0 && !genomeFilters.includes('AC0')) {
