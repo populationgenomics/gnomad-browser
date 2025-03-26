@@ -196,7 +196,7 @@ const Contributors = styled.div`
 const TeamPage = () => {
   return (
     <InfoPage>
-      <DocumentTitle title="The gnomAD Team" />
+      <DocumentTitle title="The Team" />
       {/* // @ts-expect-error */}
       <PageHeading
         // @ts-expect-error
