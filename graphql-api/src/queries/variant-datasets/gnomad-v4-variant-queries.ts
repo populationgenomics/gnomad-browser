@@ -97,12 +97,12 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
 
   logger.info(`Variant subsetGenomeFreq: ${JSON.stringify(subsetGenomeFreq)}`)
 
-  
+
   const subsetJointFreq = variant.joint?.freq[subset] || {}
 
   logger.info(`Variant subsetJointFreq: ${JSON.stringify(subsetJointFreq)}`)
 
-  const hasExomeVariant = variant.exome?.freq[subset].ac_raw
+  const hasExomeVariant = variant.exome?.freq?.[subset]?.ac_raw || false
   const hasGenomeVariant = subsetGenomeFreq.ac_raw
   const hasJointFrequencyData = subsetJointFreq.ac_raw
 
