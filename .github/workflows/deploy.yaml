@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - ourdna-browser-dev
+      - content-copy-initial-version
 
 permissions:
   id-token: write

@@ -45,11 +45,11 @@ export default () => (
     <DocumentTitle title="Policies" />
     <PageHeading>Policies</PageHeading>
 
-    <MarkdownContent dangerouslySetInnerHTML={{ __html: termsContent.html }} />
+    {/*<MarkdownContent dangerouslySetInnerHTML={{ __html: termsContent.html }} />
 
-    <br />
+    <br />*/}
 
-    <PrivacyPolicyWrapper>
+    {/*<PrivacyPolicyWrapper>
       <h2>gnomAD Privacy Policy (Draft)</h2>
       <p>
         gnomAD’s draft Privacy Policy that outlines what data we store while you are using our
@@ -61,7 +61,7 @@ export default () => (
       </p>
     </PrivacyPolicyWrapper>
 
-    <br />
+    <br />*/}
 
     <MarkdownContent dangerouslySetInnerHTML={{ __html: policiesContent.html }} />
   </PoliciesPage>

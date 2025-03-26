@@ -184,9 +184,12 @@ const StatsPage = () => {
     <InfoPage>
       <DocumentTitle title="Stats" />
       {/* @ts-expect-error */}
-      <PageHeading id="gnomad-stats">What&apos;s in gnomAD</PageHeading>
+      <PageHeading id="gnomad-stats">What&apos;s in OurDNA Browser</PageHeading>
       <div>
-        <StatsSection style={{ marginTop: '2em' }}>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+       {/* <StatsSection style={{ marginTop: '2em' }}>
           <TwoColumnLayout>
             <div>
               <h2>gnomAD v4 includes 807,162 individuals</h2>
@@ -227,9 +230,9 @@ const StatsPage = () => {
               </CenteredContainer>
             </ResponsiveHalfWidthColumn>
           </TwoColumnLayout>
-        </StatsSection>
+        </StatsSection>*/}
 
-        <StatsSection>
+       {/* <StatsSection>
           <SectionHeading id="age-and-sex-distribution">
             What is the age and sex distribution in gnomAD?
           </SectionHeading>
@@ -283,9 +286,9 @@ const StatsPage = () => {
             To learn more about how we calculate the sex and age distribution please see our{' '}
             <Link to="/help">FAQs</Link>
           </p>
-        </StatsSection>
+        </StatsSection>*/}
 
-        <StatsSection>
+       {/* <StatsSection>
           <SectionHeading id="samples">Where do gnomAD samples come from?</SectionHeading>
           <div style={{ width: '100%' }}>
             <TwoColumnLayout>
@@ -315,10 +318,10 @@ const StatsPage = () => {
             To see a list of studies included in gnomAD and data contributors please visit our{' '}
             <Link to="/about">about page</Link>.
           </p>
-        </StatsSection>
+        </StatsSection>*/}
 
-        <StatsSection>
-          <SectionHeading id="diversity">Diversity in gnomAD</SectionHeading>
+     {/*   <StatsSection>
+          <SectionHeading id="diversity">Diversity in OurDNA Browser</SectionHeading>
 
           <h3 style={{ marginBottom: '2em' }}>Genetic ancestry groups in gnomAD by version</h3>
 
@@ -337,7 +340,6 @@ const StatsPage = () => {
               <p>
                 To learn more about how we determine genetic ancestry groups please see our{' '}
                 <Link to="help/ancestry">help page</Link> and{' '}
-                {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
                 <ExternalLink href="https://gnomad.broadinstitute.org/news/2023-11-genetic-ancestry">
                   blog post
                 </ExternalLink>{' '}
@@ -393,9 +395,9 @@ const StatsPage = () => {
           <ResponsiveTable style={{ marginBottom: '3em' }}>
             <InferredSexNonUKBV4Table />
           </ResponsiveTable>
-        </StatsSection>
+        </StatsSection>*/}
 
-        <StatsSection>
+     {/*   <StatsSection>
           <SectionHeading id="study-provided-labels">
             Study-provided labels and genetic ancestry groups
           </SectionHeading>
@@ -416,9 +418,9 @@ const StatsPage = () => {
           <ResponsiveTable>
             <V4GeneticAncestryTable />
           </ResponsiveTable>
-        </StatsSection>
+        </StatsSection>*/}
 
-        <StatsSection>
+      {/*  <StatsSection>
           <SectionHeading id="study-diseases">Study Diseases in gnomAD</SectionHeading>
 
           <p style={{ marginBottom: '2em' }}>
@@ -433,9 +435,9 @@ const StatsPage = () => {
           <ResponsiveTable style={{ marginBottom: '3em' }}>
             <StudyDiseasesInGnomadTable />
           </ResponsiveTable>
-        </StatsSection>
+        </StatsSection>*/}
 
-        <StatsSection>
+       {/* <StatsSection>
           <SectionHeading id="browser">gnomAD Browser Stats</SectionHeading>
           <p>{`The gnomAD browser averages ~200,000 page views per week and had >377,000 unique users in the last year`}</p>
           <TwoColumnLayout>
@@ -446,7 +448,7 @@ const StatsPage = () => {
               <img alt="Browser users location" src={BrowserWorld} width="100%" />
             </ResponsiveHalfWidthColumn>
           </TwoColumnLayout>
-        </StatsSection>
+        </StatsSection>*/}
       </div>
     </InfoPage>
   )

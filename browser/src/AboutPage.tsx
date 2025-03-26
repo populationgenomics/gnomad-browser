@@ -77,25 +77,22 @@ const FundingSources = styled(Contributors)`
 
 export default () => (
   <InfoPage>
-    <DocumentTitle title="About gnomAD" />
+    <DocumentTitle title="About OurDNA Browser" />
     <PageHeading
       // @ts-expect-error
 
       id="about-gnomad"
     >
-      About gnomAD
+      About OurDNA Browser
     </PageHeading>
 
     {/* Import about blurb from .md file */}
     <MarkdownContent dangerouslySetInnerHTML={{ __html: aboutContent.html }} />
 
     {/* Funding Section */}
-    <SectionHeader>Funding</SectionHeader>
+    <SectionHeader id="funding">Funding</SectionHeader>
     <Credits>
-      <CreditsSection
-        // @ts-expect-error
-        width="45%"
-      >
+      <CreditsSection>
         <FundingSources
           aria-labelledby="funding"
           dangerouslySetInnerHTML={{ __html: fundingSources.html }}
@@ -106,15 +103,6 @@ export default () => (
         </p>
       </CreditsSection>
 
-      <CreditsSection
-        // @ts-expect-error
-        width="45%"
-      >
-        <FundingSources
-          aria-labelledby="gcbr"
-          dangerouslySetInnerHTML={{ __html: gcbrContent.html }}
-        />
-      </CreditsSection>
     </Credits>
 
     {/* Data Contributors and Projects Section (Formerly PI's and Projects) */}
@@ -122,22 +110,22 @@ export default () => (
     <Credits>
       <CreditsSection
         // @ts-expect-error
-        width="45%"
-      >
-        <h3 id="principal-investigators">Data Contributors</h3>
-        <PrincipalInvestigators
-          aria-labelledby="principal-investigators"
-          dangerouslySetInnerHTML={{ __html: dataContributorsList.html }}
-        />
-      </CreditsSection>
-      <CreditsSection
-        // @ts-expect-error
-        width="45%"
+        width="34%"
       >
         <h3 id="contributing-projects">Contributing projects</h3>
         <Contributors
           aria-labelledby="contributing-projects"
           dangerouslySetInnerHTML={{ __html: contributingProjectsList.html }}
+        />
+      </CreditsSection>
+      <CreditsSection
+        // @ts-expect-error
+        width="66%"
+      >
+        <h3 id="principal-investigators">Data Contributors</h3>
+        <PrincipalInvestigators
+          aria-labelledby="principal-investigators"
+          dangerouslySetInnerHTML={{ __html: dataContributorsList.html }}
         />
       </CreditsSection>
     </Credits>
