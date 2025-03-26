@@ -6,7 +6,7 @@ import typing
 from deployctl.shell import kubectl
 
 
-def get_elasticsearch_password(_cluster_name: str, namespace: str) -> None:
+def get_elasticsearch_password(cluster_name: str, namespace: str) -> None:
     # ECK creates this secret when the cluster is created.
     print(
         kubectl(
