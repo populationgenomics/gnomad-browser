@@ -94,11 +94,19 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
   logger.info(`Variant found ${JSON.stringify(variant)}`)
 
   const subsetGenomeFreq = variant.genome.freq.all || {}
+
+  logger.info(`Variant subsetGenomeFreq: ${JSON.stringify(subsetGenomeFreq)}`)
+
+  
   const subsetJointFreq = variant.joint?.freq[subset] || {}
+
+  logger.info(`Variant subsetJointFreq: ${JSON.stringify(subsetJointFreq)}`)
 
   const hasExomeVariant = variant.exome?.freq[subset].ac_raw
   const hasGenomeVariant = subsetGenomeFreq.ac_raw
   const hasJointFrequencyData = subsetJointFreq.ac_raw
+
+  logger.info(`Variant hasExomeVariant: ${hasExomeVariant}`)
 
   if (!subsetGenomeFreq.ac_raw && !(variant.exome?.freq[subset] || {}).ac_raw) {
     throw new UserVisibleError('Variant not found in selected subset.')
