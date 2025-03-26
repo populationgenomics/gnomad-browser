@@ -88,11 +88,11 @@ export default () => (
         <Link
           preserveSelectedDataset={false}
           to={{
-            pathname: '/variant/1-55051215-G-GA',
-            search: queryString.stringify({ dataset: 'gnomad_r4' }),
+            pathname: '/variant/1-1000079-A-G',
+            search: queryString.stringify({ dataset: 'gnomad_r4_ourdna' }),
           }}
         >
-          1-55051215-G-GA
+          1-1000079-A-G
         </Link>
       </ListItem>
     </List>

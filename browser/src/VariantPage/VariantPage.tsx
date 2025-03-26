@@ -475,10 +475,10 @@ export const VariantPageContent = ({ datasetId, variant }: VariantPageContentPro
         <h2>Site Quality Metrics</h2>
         <VariantSiteQualityMetrics datasetId={datasetId} variant={variant} />
       </ResponsiveSection>
-      <Section>
+      {/* <Section>
         <h2>Read Data</h2>
         <ReadData datasetId={datasetId} variantIds={[variant.variant_id]} />
-      </Section>
+      </Section> */}
     </FlexWrapper>
   )
 }
