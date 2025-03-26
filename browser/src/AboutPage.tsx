@@ -106,10 +106,9 @@ export default () => (
     </Credits>
 
     {/* Data Contributors and Projects Section (Formerly PI's and Projects) */}
-    <SectionHeader>Data Contributors</SectionHeader>
+    {/*<SectionHeader>Data Contributors</SectionHeader>
     <Credits>
       <CreditsSection
-        // @ts-expect-error
         width="34%"
       >
         <h3 id="contributing-projects">Contributing projects</h3>
@@ -119,7 +118,6 @@ export default () => (
         />
       </CreditsSection>
       <CreditsSection
-        // @ts-expect-error
         width="66%"
       >
         <h3 id="principal-investigators">Data Contributors</h3>
@@ -128,6 +126,6 @@ export default () => (
           dangerouslySetInnerHTML={{ __html: dataContributorsList.html }}
         />
       </CreditsSection>
-    </Credits>
+    </Credits>*/}
   </InfoPage>
 )

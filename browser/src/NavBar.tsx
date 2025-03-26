@@ -128,11 +128,11 @@ const NavBar = () => {
         <li>
           <a href="https://ourdna.populationgenomics.org.au/news/">Blog</a>
         </li>
-        <li>
+        {/*<li>
           <Link to="/data" onClick={closeMenu}>
             Data
           </Link>
-        </li>
+        </li>*/}
         <li>
           <Link to="/contact" onClick={closeMenu}>
             Contact
