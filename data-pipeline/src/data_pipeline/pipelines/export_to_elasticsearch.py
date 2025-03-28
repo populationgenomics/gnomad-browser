@@ -609,16 +609,16 @@ DATASETS_CONFIG = {
     "ourdna_bioheart_v3_genome_coverage": {
         "get_table": lambda: add_xpos(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/genome/merged_coverage.ht")),
         "args": {"index": "gnomad_v3_genome_coverage", "id_field": "xpos", 
-        # "num_shards": 48, 
-        "block_size": 1_000
+        "num_shards": 48, 
+        "block_size": 100_000
         },
     },
 
     "ourdna_bioheart_v4_exome_coverage": {
         "get_table": lambda: add_xpos(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/merged_coverage.ht")),
         "args": {"index": "gnomad_v4_exome_coverage", "id_field": "xpos", 
-        #"num_shards": 48, 
-        "block_size": 1_000
+        "num_shards": 48, 
+        "block_size": 200_000
         },
     },
 
