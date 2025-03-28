@@ -1061,9 +1061,9 @@ const metadata: Record<DatasetId, DatasetMetadata> = {
     hasRelatedVariants: true,
     showAllIndividualsInAgeDistributionByDefault: true,
     hasExons: true,
-    hasShortTandemRepeats: true,
-    hasMitochondrialGenomeCoverage: true,
-    hasMitochondrialVariants: true,
+    hasShortTandemRepeats: false,
+    hasMitochondrialGenomeCoverage: false,
+    hasMitochondrialVariants: false,
     hasNonCodingReadData: true,
     readsDatasetId: 'gnomad_r4',
     readsIncludeLowQualityGenotypes: false,
@@ -1076,7 +1076,7 @@ const metadata: Record<DatasetId, DatasetMetadata> = {
     copyNumberVariantDatasetId: 'gnomad_cnv_r4',
     hasCopyNumberVariantCoverage: false,
     hasJointFrequencyData: true,
-    hasVRSData: true,
+    hasVRSData: false,
   },
 }
 
