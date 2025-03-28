@@ -1206,7 +1206,7 @@ export const hasCopyNumberVariantCoverage = (datasetId: DatasetId) =>
   getMetadata(datasetId, 'hasCopyNumberVariantCoverage')
 
 export const baseDatasetForReferenceGenome = (genome: ReferenceGenome): DatasetId =>
-  genome === 'GRCh37' ? 'gnomad_r2_1' : 'gnomad_r4'
+  genome === 'GRCh37' ? 'gnomad_r2_1' : 'gnomad_r4_ourdna'
 
 export const hasJointFrequencyData = (datasetId: DatasetId): boolean =>
   getMetadata(datasetId, 'hasJointFrequencyData')

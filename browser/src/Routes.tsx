@@ -40,7 +40,7 @@ const LiftoverDisambiguationPage = lazy(() => import('./VariantPage/LiftoverDisa
 const PageNotFoundPage = lazy(() => import('./PageNotFoundPage'))
 const SearchRedirectPage = lazy(() => import('./SearchRedirectPage'))
 
-const defaultDataset = 'gnomad_r4'
+const defaultDataset = 'gnomad_r4_ourdna'
 
 const Routes = () => {
   // ==================================================================================
