@@ -42,7 +42,7 @@ from data_pipeline.datasets.gnomad_v4.gnomad_v4_constraint import (
 pipeline = Pipeline()
 
 external_sources_subdir = "external_sources"
-genes_subdir = "genes"
+genes_subdir = "genes_test"
 constraint_subdir = "constraint"
 
 

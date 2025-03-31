@@ -581,8 +581,8 @@ DATASETS_CONFIG = {
                 #"vrs.alt.allele_id",
             ],
             "id_field": "document_id",
-            # "num_shards": 48,
-            "block_size": 1_000,
+            "num_shards": 48,
+            "block_size": 10_000,
         },
     },
 
@@ -618,7 +618,7 @@ DATASETS_CONFIG = {
         "get_table": lambda: add_xpos(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/merged_coverage.ht")),
         "args": {"index": "gnomad_v4_exome_coverage", "id_field": "xpos", 
         "num_shards": 48, 
-        "block_size": 200_000
+        "block_size": 50_000
         },
     },
 
