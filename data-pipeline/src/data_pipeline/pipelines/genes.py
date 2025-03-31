@@ -240,7 +240,7 @@ pipeline.add_task(
     prepare_gtex_expression_data,
     "/gtex/gtex_v10_tissue_expression.ht",
     {
-        "transcript_tpms_path": "gs://gnomad-v4-data-pipeline/output/external_sources/gtex/v10/GTEx_Analysis_v10_RSEMv1.3.3_transcripts_tpm.txt.bgz",
+        "transcript_tpms_path": "gs://gcp-public-data--gnomad/resources/grch38/gtex/v10/GTEx_Analysis_2022-06-06_v10_RSEMv1.3.3_transcripts_tpm.txt.bgz",
         "sample_annotations_path": pipeline.get_task("download_gtex_v10_sample_attributes"),
     },
     {
@@ -258,14 +258,14 @@ pipeline.add_task(
     },
 )
 
-pipeline.add_task(
-    "reshape_pext_v4_data_to_tissue_array",
-    reshape_pext_data_to_tissue_array,
-    "/pext/pext_v4_tissue_array",
-    {
-        "pext_struct_path": "gs://gnomad-v4-data-pipeline/output/external_sources/pext/gnomad.pext.gtex_v10.browser.ht",
-    },
-)
+# pipeline.add_task(
+#     "reshape_pext_v4_data_to_tissue_array",
+#     reshape_pext_data_to_tissue_array,
+#     "/pext/pext_v4_tissue_array",
+#     {
+#         "pext_struct_path": "gs://gnomad-v4-data-pipeline/output/external_sources/pext/gnomad.pext.gtex_v10.browser.ht",
+#     },
+# )
 
 ###############################################
 # Constraint
@@ -418,7 +418,7 @@ pipeline.add_task(
         "table_path": pipeline.get_task("prepare_grch38_genes"),
         "canonical_transcript": pipeline.get_task("get_grch38_canonical_transcripts"),
         "mane_select_transcript": pipeline.get_task("import_mane_select_transcripts"),
-        "pext": pipeline.get_task("reshape_pext_v4_data_to_tissue_array"),
+        # "pext": pipeline.get_task("reshape_pext_v4_data_to_tissue_array"),
     },
 )
 
