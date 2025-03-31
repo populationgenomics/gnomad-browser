@@ -168,6 +168,7 @@ export const _fetchCoverageForGene = async (esClient: any, datasetId: any, gene:
   const bucketSize = Math.max(Math.floor(totalIntervalSize / 500), 1)
 
   logger.info(`datasetId ${datasetId}`)
+  // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   logger.info(`datasetId ${JSON.stringify(COVERAGE_INDICES[datasetId])}`)
   
   // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
