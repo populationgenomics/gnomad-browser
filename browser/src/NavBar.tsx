@@ -126,7 +126,7 @@ const NavBar = () => {
         </li>
         {/* two <a> tags instead of <Link>s because the blog is a separate application */}
         <li>
-          <a href="https://ourdna.populationgenomics.org.au/news/">Blog</a>
+          <a href="/news/">Blog</a>
         </li>
         {/*<li>
           <Link to="/data" onClick={closeMenu}>
