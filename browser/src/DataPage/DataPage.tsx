@@ -1,28 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ExternalLink, PageHeading } from '@gnomad/ui'
+import { /* ExternalLink, */ PageHeading } from '@gnomad/ui'
 
-import Link from '../Link'
+// import Link from '../Link'
 
 import DocumentTitle from '../DocumentTitle'
 import InfoPage from '../InfoPage'
 
-import { SectionTitle, StyledParagraph, CodeBlock } from './downloadsPageStyles'
+// import { SectionTitle, StyledParagraph, CodeBlock } from './downloadsPageStyles'
 
-import DataPageTableOfContents from './TableOfContents'
+// import DataPageTableOfContents from './TableOfContents'
 
 // @ts-expect-error
 import styles from './DataPage.module.css'
 
-import GnomadV4Downloads from './GnomadV4Downloads'
-import GnomadV3Downloads from './GnomadV3Downloads'
-import GnomadV2Downloads from './GnomadV2Downloads'
-import GnomadV2LiftoverDownloads from './GnomadV2LiftoverDownloads'
-import ExacDownloads from './ExacDownloads'
-import GraphQLDocs from './GraphQLDocs'
+// import GnomadV4Downloads from './GnomadV4Downloads'
+// import GnomadV3Downloads from './GnomadV3Downloads'
+// import GnomadV2Downloads from './GnomadV2Downloads'
+// import GnomadV2LiftoverDownloads from './GnomadV2LiftoverDownloads'
+// import ExacDownloads from './ExacDownloads'
+// import GraphQLDocs from './GraphQLDocs'
 
-const TextSection = styled.div`
+const _TextSection = styled.div`
   width: 70%;
 
   @media (max-width: 900px) {
@@ -30,7 +30,7 @@ const TextSection = styled.div`
   }
 `
 
-const TableOfContentsSection = styled.div`
+const _TableOfContentsSection = styled.div`
   /* stylelint-disable-next-line value-no-vendor-prefix */
   position: -webkit-sticky;
   position: sticky;
@@ -45,7 +45,7 @@ const TableOfContentsSection = styled.div`
   }
 `
 
-const BottomSpacer = styled.div`
+const _BottomSpacer = styled.div`
   margin-bottom: 40rem;
 `
 
@@ -61,10 +61,10 @@ const DataPage = () => {
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-{/*
+    {/* 
       <TableOfContentsSection>
         <DataPageTableOfContents />
-      </TableOfContentsSection>*/}
+      </TableOfContentsSection> */}
 
      {/* <TextSection>
         <div>
@@ -216,7 +216,7 @@ const DataPage = () => {
         <GraphQLDocs />
 
         <BottomSpacer />
-      </TextSection>*/}
+      </TextSection> */}
 
     </InfoPage>
   )
