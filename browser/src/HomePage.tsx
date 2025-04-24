@@ -99,6 +99,7 @@ export default () => (
 
     <h2>New to OurDNA Browser?</h2>
     <p>
+    {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
     The OurDNA browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please see the <ExternalLink href="https://www.ourdna.org.au">OurDNA website.</ExternalLink>
     </p>
     <p>
@@ -144,9 +145,11 @@ export default () => (
 
     <p>
       The{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://www.ourdna.org.au">OurDNA program</ExternalLink>
       {' '}
       is a flagship initiative of the{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://populationgenomics.org.au">Centre for Population Genomics</ExternalLink>
       {' '}to increase the genomic representation of multicultural communities. 
       The OurDNA program aims to aggregate and share genetic variation data from over 20,000 Australians, 
@@ -156,6 +159,7 @@ export default () => (
     <p>
       The goal of the OurDNA program is to fix a gap in genetic research. Many Australian ancestry groups are not included right now — and we’re working to change that. 
       Please see{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://www.ourdna.org.au">OurDNA</ExternalLink>
       {' '}
       for more information about the OurDNA Cohort and the Centre for Population Genomics&apos; mission to partner with multicultural communities to advance genetic research and medicine in Australia. 
@@ -179,6 +183,7 @@ export default () => (
     </p>
     <p>
     The OurDNA browser is part of the{' '}
+    {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
     <ExternalLink href="https://gnomad.broadinstitute.org/federated">
     federated gnomAD network
     </ExternalLink>.

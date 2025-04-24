@@ -74,6 +74,7 @@ const Banner = styled.div`
 const BANNER_CONTENT = (
   <>
     This is <b>DEVELOPMENT</b> version of OurDNA Browser! Please visit released version{' '}
+    {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
     <ExternalLink href="https://ourdna.populationgenomics.org.au">here</ExternalLink>.
   </>
 )
