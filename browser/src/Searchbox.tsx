@@ -48,7 +48,7 @@ export default withRouter((props: any) => {
 
   const currentParams = queryString.parse(location.search)
   const defaultSearchDataset = getDefaultSearchDataset(currentParams.dataset)
-  {/* @ts-expect-error TS(TS2345) FIXME: Argument of type 'string' is not assignable to parameter. */}
+  /* @ts-expect-error TS(TS2345) FIXME: Argument of type 'string' is not assignable to parameter. */
   const [searchDataset, setSearchDataset] = useState<DatasetId>(defaultSearchDataset)
 
   // Update search dataset when active dataset changes.
@@ -56,7 +56,7 @@ export default withRouter((props: any) => {
   useEffect(() => {
     return history.listen((newLocation: any) => {
       const newParams = queryString.parse(newLocation.search)
-      {/* @ts-expect-error TS(TS2345) FIXME: Argument of type 'string' is not assignable to parameter. */}
+      /* @ts-expect-error TS(TS2345) FIXME: Argument of type 'string' is not assignable to parameter. */
       setSearchDataset(getDefaultSearchDataset(newParams.dataset))
     })
   })
