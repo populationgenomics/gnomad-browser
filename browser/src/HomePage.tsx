@@ -25,7 +25,7 @@ const HeadingContainer = styled.div`
   margin-bottom: 1em;
 `
 
-const Heading = styled.h1`
+const _Heading = styled.h1`
   padding-top: 0;
   padding-bottom: 0;
   font-size: 1.2em;
@@ -40,7 +40,7 @@ export default () => (
     <HeadingContainer>
       {/* <GnomadLogo width="60%" /> */}
       <OurDNALogo width="100%" />
-      {/*<Heading>OurDNA Browser</Heading>*/}
+      {/* <Heading>OurDNA Browser</Heading> */}
     </HeadingContainer>
 
     <Searchbox width="100%" />
@@ -155,7 +155,10 @@ export default () => (
     </p>
     <p>
       The goal of the OurDNA program is to fix a gap in genetic research. Many Australian ancestry groups are not included right now — and we’re working to change that. 
-      Please see{' '}<ExternalLink href="https://www.ourdna.org.au">OurDNA</ExternalLink>{' '}for more information about the OurDNA Cohort and the Centre for Population Genomics' mission to partner with multicultural communities to advance genetic research and medicine in Australia. 
+      Please see{' '}
+      <ExternalLink href="https://www.ourdna.org.au">OurDNA</ExternalLink>
+      {' '}
+      for more information about the OurDNA Cohort and the Centre for Population Genomics&apos; mission to partner with multicultural communities to advance genetic research and medicine in Australia. 
       The OurDNA Browser provides access to harmonised, aggregated genome and exome sequences from the OurDNA program.
     </p>
     <p>

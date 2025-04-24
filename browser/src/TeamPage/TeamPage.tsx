@@ -13,17 +13,17 @@ import headshotImages from './headshotLoader'
 // @ts-expect-error
 import dataGenerationContributors from '../../about/contributors/data-generation.md'
 // @ts-expect-error
-import productionAndAnalysisContributors from '../../about/contributors/production-and-analysis.md'
+// import productionAndAnalysisContributors from '../../about/contributors/production-and-analysis.md'
 // @ts-expect-error
-import structuralVariantsContributors from '../../about/contributors/structural-variation.md'
+// import structuralVariantsContributors from '../../about/contributors/structural-variation.md'
 // @ts-expect-error
-import mitochondrialVariantsContributors from '../../about/contributors/mitochondrial-variation.md'
+// import mitochondrialVariantsContributors from '../../about/contributors/mitochondrial-variation.md'
 // @ts-expect-error
-import broadGenomicsPlatformContributors from '../../about/contributors/broad-genomics-platform.md'
+// import broadGenomicsPlatformContributors from '../../about/contributors/broad-genomics-platform.md'
 // @ts-expect-error
-import ethicsContributors from '../../about/contributors/ethics.md'
+// import ethicsContributors from '../../about/contributors/ethics.md'
 // @ts-expect-error
-import tandemRepeatContributors from '../../about/contributors/tandem-repeats.md'
+// import tandemRepeatContributors from '../../about/contributors/tandem-repeats.md'
 
 // Members of the 'Alumni' Section
 // @ts-expect-error

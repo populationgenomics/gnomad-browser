@@ -62,7 +62,7 @@ export default withRouter((props: any) => {
   const innerSearchbox = useRef(null)
 
   const grch38Datasets: DatasetId[] = ['gnomad_r4_ourdna']
-  const grch37Datasets: DatasetId[] = []
+  // const grch37Datasets: DatasetId[] = []
 
   return (
     // @ts-expect-error TS(2769) FIXME: No overload matches this call.

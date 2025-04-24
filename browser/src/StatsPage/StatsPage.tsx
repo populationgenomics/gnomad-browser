@@ -1,39 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import gnomadV4AgeDistribution from '@gnomad/dataset-metadata/datasets/gnomad-v4/ageDistribution.json'
-import { ExternalLink, PageHeading } from '@gnomad/ui'
+// import gnomadV4AgeDistribution from '@gnomad/dataset-metadata/datasets/gnomad-v4/ageDistribution.json'
+import { /* ExternalLink, */ PageHeading } from '@gnomad/ui'
 
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import BrowserPageviews from '../../about/stats/browser_pageviews.png'
+// import BrowserPageviews from '../../about/stats/browser_pageviews.png'
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import BrowserWorld from '../../about/stats/browser_world.png'
+// import BrowserWorld from '../../about/stats/browser_world.png'
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import DiversityBadge from '../../about/stats/diversity_badge.png'
+// import DiversityBadge from '../../about/stats/diversity_badge.png'
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import SnvsPerBPAvg from '../../about/stats/snvs_per_bp_avg.png'
+// import SnvsPerBPAvg from '../../about/stats/snvs_per_bp_avg.png'
 
 import DocumentTitle from '../DocumentTitle'
-import Histogram from '../Histogram'
-import { SectionHeading } from '../help/HelpPage'
+// import Histogram from '../Histogram'
+// import { SectionHeading } from '../help/HelpPage'
 import InfoPage from '../InfoPage'
-import Link from '../Link'
+// import Link from '../Link'
 
-import gnomadExomeGenomeCountsByVersion from './BarGraphData/gnomADExomeGenomeCountsByVersion.json'
-import gnomadV4GeneticAncestryCounts from './BarGraphData/gnomadV4GeneticAncestryCounts.json'
-import gnomadV4GeneticDiversityCounts from './BarGraphData/gnomadV4GeneticDiversityCounts.json'
-import NumberOfVariantsInGnomadList, { SectionList } from './NumberOfVariantsInGnomadList'
-import StackedBarGraph from './StackedBarGraph'
-import GeneticAncestryGroupsByVersionTable from './StatsPageTables/GeneticAncestryGroupsByVersionTable'
-import V4GeneticAncestryTable from './StatsPageTables/V4GeneticAncestryTable'
-import StudyDiseasesInGnomadTable from './StatsPageTables/StudyDiseasesInGnomadTable'
+// import gnomadExomeGenomeCountsByVersion from './BarGraphData/gnomADExomeGenomeCountsByVersion.json'
+// import gnomadV4GeneticAncestryCounts from './BarGraphData/gnomadV4GeneticAncestryCounts.json'
+// import gnomadV4GeneticDiversityCounts from './BarGraphData/gnomadV4GeneticDiversityCounts.json'
+// import NumberOfVariantsInGnomadList, { SectionList } from './NumberOfVariantsInGnomadList'
+// import StackedBarGraph from './StackedBarGraph'
+// import GeneticAncestryGroupsByVersionTable from './StatsPageTables/GeneticAncestryGroupsByVersionTable'
+// import V4GeneticAncestryTable from './StatsPageTables/V4GeneticAncestryTable'
+// import StudyDiseasesInGnomadTable from './StatsPageTables/StudyDiseasesInGnomadTable'
 
-import {
-  InferredSexAllV4Table,
-  InferredSexNonUKBV4Table,
-} from './StatsPageTables/InferredSexPerGeneticAncestryTables'
+// import {
+//   InferredSexAllV4Table,
+//   InferredSexNonUKBV4Table,
+// } from './StatsPageTables/InferredSexPerGeneticAncestryTables'
 
-const TwoColumnLayout = styled.div`
+const _TwoColumnLayout = styled.div`
   display: flex;
   justify-content: space-around;
 
@@ -42,7 +42,7 @@ const TwoColumnLayout = styled.div`
   }
 `
 
-const ResponsiveHalfWidthColumn = styled.div`
+const _ResponsiveHalfWidthColumn = styled.div`
   width: 50%;
 
   @media (max-width: 992px) {
@@ -50,7 +50,7 @@ const ResponsiveHalfWidthColumn = styled.div`
   }
 `
 
-const ResponsiveGnomadSamplesContainer = styled.div`
+const _ResponsiveGnomadSamplesContainer = styled.div`
   width: 70%;
 
   @media (max-width: 992px) {
@@ -58,7 +58,7 @@ const ResponsiveGnomadSamplesContainer = styled.div`
   }
 `
 
-const DiversityBarGraphContainer = styled.div`
+const _DiversityBarGraphContainer = styled.div`
   display: flex;
   justify-content: space-around;
 
@@ -68,7 +68,7 @@ const DiversityBarGraphContainer = styled.div`
   }
 `
 
-const DiversityBarGraph = styled.div`
+const _DiversityBarGraph = styled.div`
   width: 70%;
 
   @media (max-width: 992px) {
@@ -77,7 +77,7 @@ const DiversityBarGraph = styled.div`
   }
 `
 
-const SexDistributionList = styled.div`
+const _SexDistributionList = styled.div`
   width: 30%;
 
   @media (max-width: 992px) {
@@ -85,12 +85,12 @@ const SexDistributionList = styled.div`
   }
 `
 
-const CenteredContainer = styled.div`
+const _CenteredContainer = styled.div`
   display: flex;
   justify-content: space-around;
 `
 
-const ResponsiveTable = styled.div`
+const _ResponsiveTable = styled.div`
   display: flex;
   justify-content: space-around;
 
@@ -99,11 +99,11 @@ const ResponsiveTable = styled.div`
   }
 `
 
-const StatsSection = styled.div`
+const _StatsSection = styled.div`
   margin-bottom: 5em;
 `
 
-const StatsHighlightColorBlock = styled.div`
+const _StatsHighlightColorBlock = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,22 +116,22 @@ const StatsHighlightColorBlock = styled.div`
   text-align: center;
 `
 
-const StatsHighlightTitle = styled.h1`
+const _StatsHighlightTitle = styled.h1`
   margin: 0;
   font-size: 3.75em;
 `
 
-const StatsHighlightText = styled.p`
+const _StatsHighlightText = styled.p`
   margin: 0;
   font-size: 1.25em;
 `
 
-const CountriesColoredText = styled.span`
+const _CountriesColoredText = styled.span`
   color: #508a14;
   font-weight: bold;
 `
 
-const DiversityBarGraphTooltip = (row: any) => {
+const _DiversityBarGraphTooltip = (row: any) => {
   return (
     <>
       <b>{row.label}</b>
@@ -149,6 +149,7 @@ const DiversityBarGraphTooltip = (row: any) => {
   )
 }
 
+/*
 const StatsHighlightBlock = ({
   title,
   text,
@@ -167,17 +168,18 @@ const StatsHighlightBlock = ({
     </StatsHighlightColorBlock>
   )
 }
+*/
 
-const gnomadBlue = '#0E6FBF'
-const gnomadGreen = '#508A14'
+// const gnomadBlue = '#0E6FBF'
+// const gnomadGreen = '#508A14'
 
-const barGraphTooltip = (row: any) => (
-  <>
-    <b>{row.label}</b>
-    <div>{row.Exomes.toLocaleString()} exomes</div>
-    <div>{row.Genomes.toLocaleString()} genomes</div>
-  </>
-)
+// const barGraphTooltip = (row: any) => (
+//   <>
+//     <b>{row.label}</b>
+//     <div>{row.Exomes.toLocaleString()} exomes</div>
+//     <div>{row.Genomes.toLocaleString()} genomes</div>
+//   </>
+// )
 
 const StatsPage = () => {
   return (
@@ -230,7 +232,7 @@ const StatsPage = () => {
               </CenteredContainer>
             </ResponsiveHalfWidthColumn>
           </TwoColumnLayout>
-        </StatsSection>*/}
+        </StatsSection> */}
 
        {/* <StatsSection>
           <SectionHeading id="age-and-sex-distribution">
@@ -286,7 +288,7 @@ const StatsPage = () => {
             To learn more about how we calculate the sex and age distribution please see our{' '}
             <Link to="/help">FAQs</Link>
           </p>
-        </StatsSection>*/}
+        </StatsSection> */}
 
        {/* <StatsSection>
           <SectionHeading id="samples">Where do gnomAD samples come from?</SectionHeading>
@@ -318,7 +320,7 @@ const StatsPage = () => {
             To see a list of studies included in gnomAD and data contributors please visit our{' '}
             <Link to="/about">about page</Link>.
           </p>
-        </StatsSection>*/}
+        </StatsSection> */}
 
      {/*   <StatsSection>
           <SectionHeading id="diversity">Diversity in OurDNA Browser</SectionHeading>
@@ -395,7 +397,7 @@ const StatsPage = () => {
           <ResponsiveTable style={{ marginBottom: '3em' }}>
             <InferredSexNonUKBV4Table />
           </ResponsiveTable>
-        </StatsSection>*/}
+        </StatsSection> */}
 
      {/*   <StatsSection>
           <SectionHeading id="study-provided-labels">
@@ -418,7 +420,7 @@ const StatsPage = () => {
           <ResponsiveTable>
             <V4GeneticAncestryTable />
           </ResponsiveTable>
-        </StatsSection>*/}
+        </StatsSection> */}
 
       {/*  <StatsSection>
           <SectionHeading id="study-diseases">Study Diseases in gnomAD</SectionHeading>
@@ -435,7 +437,7 @@ const StatsPage = () => {
           <ResponsiveTable style={{ marginBottom: '3em' }}>
             <StudyDiseasesInGnomadTable />
           </ResponsiveTable>
-        </StatsSection>*/}
+        </StatsSection> */}
 
        {/* <StatsSection>
           <SectionHeading id="browser">gnomAD Browser Stats</SectionHeading>
@@ -448,7 +450,7 @@ const StatsPage = () => {
               <img alt="Browser users location" src={BrowserWorld} width="100%" />
             </ResponsiveHalfWidthColumn>
           </TwoColumnLayout>
-        </StatsSection>*/}
+        </StatsSection> */}
       </div>
     </InfoPage>
   )

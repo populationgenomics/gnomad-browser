@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ExternalLink, PageHeading } from '@gnomad/ui'
+import { /* ExternalLink, */ PageHeading } from '@gnomad/ui'
 
 import DocumentTitle from './DocumentTitle'
 import InfoPage from './InfoPage'
@@ -14,7 +14,7 @@ export default () => (
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
 
-    {/*<p>
+    {/* <p>
       Tell us how you use gnomAD and your wish list by filling out{' '}
       <ExternalLink href="http://broad.io/2024_survey">our user survey</ExternalLink>.
     </p>
@@ -61,6 +61,6 @@ export default () => (
       <ExternalLink href="mailto:gnomad@broadinstitute.org">email us</ExternalLink>. Please note
       that we prioritize answering issues on Github and topics on the Forum, so if you choose to
       email it may take us longer to respond.
-    </p>*/}
+    </p> */}
   </InfoPage>
 )

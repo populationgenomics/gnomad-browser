@@ -4,14 +4,11 @@ import { PageHeading } from '@gnomad/ui'
 
 // @ts-expect-error
 import aboutContent from '../about/about.md'
-// @ts-expect-error
-import contributingProjectsList from '../about/contributors/contributing-projects.md'
+// import contributingProjectsList from '../about/contributors/contributing-projects.md'
 // @ts-expect-error
 import fundingSources from '../about/contributors/funding.md'
-// @ts-expect-error
-import dataContributorsList from '../about/contributors/data-contributors.md'
-// @ts-expect-error
-import gcbrContent from '../about/contributors/gcbr/gcbr.md'
+// import dataContributorsList from '../about/contributors/data-contributors.md'
+// import gcbrContent from '../about/contributors/gcbr/gcbr.md'
 
 import DocumentTitle from './DocumentTitle'
 import InfoPage from './InfoPage'
@@ -61,7 +58,7 @@ const Contributors = styled.div`
   }
 `
 
-const PrincipalInvestigators = styled(Contributors)`
+const _PrincipalInvestigators = styled(Contributors)`
   columns: 2;
 
   @media (max-width: 992px) {
@@ -106,7 +103,7 @@ export default () => (
     </Credits>
 
     {/* Data Contributors and Projects Section (Formerly PI's and Projects) */}
-    {/*<SectionHeader>Data Contributors</SectionHeader>
+    {/* <SectionHeader>Data Contributors</SectionHeader>
     <Credits>
       <CreditsSection
         width="34%"
@@ -126,6 +123,6 @@ export default () => (
           dangerouslySetInnerHTML={{ __html: dataContributorsList.html }}
         />
       </CreditsSection>
-    </Credits>*/}
+    </Credits> */}
   </InfoPage>
 )
