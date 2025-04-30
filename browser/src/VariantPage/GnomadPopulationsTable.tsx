@@ -122,7 +122,6 @@ export class GnomadPopulationsTable extends Component<
     }).filter((mergedAncestry) => (mergedAncestry.id as string) !== '')
 
     const mergedPopulationsWithNames = addPopulationNames(mergedPopulations)
-
     const mergedNestedPopulationsWithNames = nestPopulations(mergedPopulationsWithNames)
     let populations = mergedNestedPopulationsWithNames
 
