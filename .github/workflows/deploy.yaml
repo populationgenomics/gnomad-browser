@@ -5,6 +5,7 @@ on:
     branches:
       - ourdna-browser
       - ourdna-browser-dev
+      - renaming-ancestry-groups
 
 permissions:
   id-token: write
