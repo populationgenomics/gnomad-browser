@@ -121,9 +121,17 @@ export class GnomadPopulationsTable extends Component<
         includeExomes && includeGenomes && jointPopulations ? jointPopulations : null,
     }).filter((mergedAncestry) => (mergedAncestry.id as string) !== '')
 
+    console.log(mergedPopulations)
+
     const mergedPopulationsWithNames = addPopulationNames(mergedPopulations)
+
+    console.log(mergedPopulationsWithNames)
+
     const mergedNestedPopulationsWithNames = nestPopulations(mergedPopulationsWithNames)
     let populations = mergedNestedPopulationsWithNames
+
+    console.log(populations)
+
 
     if (hasV2Genome(datasetId) && includeGenomes) {
       populations = populations.map((pop) => {
@@ -152,6 +160,8 @@ export class GnomadPopulationsTable extends Component<
         return pop
       })
     }
+
+    console.log(populations)
 
     // If there's Joint and Exome data, allow users to toggle off Genome data to see just the Exome contribution to the Joint data, but do not allow toggling off of Exome data
     const hasOnlyJointAndExomeData =
