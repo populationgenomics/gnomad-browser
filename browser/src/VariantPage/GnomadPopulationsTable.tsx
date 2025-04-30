@@ -121,6 +121,10 @@ export class GnomadPopulationsTable extends Component<
         includeExomes && includeGenomes && jointPopulations ? jointPopulations : null,
     }).filter((mergedAncestry) => (mergedAncestry.id as string) !== '')
 
+    console.log('render')
+
+    console.log(genomePopulations)
+
     console.log(mergedPopulations)
 
     const mergedPopulationsWithNames = addPopulationNames(mergedPopulations)

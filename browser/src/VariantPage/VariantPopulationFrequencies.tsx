@@ -21,6 +21,9 @@ type Props = {
 }
 
 const VariantPopulationFrequencies = ({ datasetId, variant }: Props) => {
+  console.log(datasetId)
+  console.log(variant)
+
   if (hasLocalAncestryPopulations(datasetId) && variant.genome) {
     const genome = variant.genome!
     const genomePopulations = genome.populations.filter(
@@ -137,6 +140,8 @@ const VariantPopulationFrequencies = ({ datasetId, variant }: Props) => {
       />
     )
   }
+
+  console.log(variant.genome.populations)
 
   return (
     <TableWrapper>
