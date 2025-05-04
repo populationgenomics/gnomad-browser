@@ -173,13 +173,7 @@ export default () => (
       Funding
       </Link>
       {' '}
-      and
-      {' '}
-      <Link to="/team">
-      Team
-      </Link>
-      {' '}
-      pages.
+      page.
     </p>
     <p>
     The OurDNA browser is part of the{' '}
