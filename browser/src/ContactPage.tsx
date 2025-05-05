@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { /* ExternalLink, */ PageHeading } from '@gnomad/ui'
+import { ExternalLink, Link, PageHeading } from '@gnomad/ui'
 
 import DocumentTitle from './DocumentTitle'
 import InfoPage from './InfoPage'
@@ -29,7 +29,7 @@ export default () => (
       <ExternalLink href="@ourdna_australia"></ExternalLink>.
     </p>
 
-    <br />
+    <br/>
     <p>
       For all other questions, please email us. 
     </p>
