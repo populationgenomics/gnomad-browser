@@ -18,15 +18,15 @@ export default () => (
     </p>
 
     <p>
-      For questions about the OurDNA dataset, please see our blog.{' '}
-      <Link href="/news"/>.
+      For questions about the OurDNA dataset, please see our{' '}
+      <Link href="/news">blog</Link>.
     </p>
 
     <p>
       Follow us on Instagram{' '}
       <ExternalLink href="https://www.instagram.com/ourdna_australia/">@ourdna_australia</ExternalLink>.
-     and Facebook{' '}
-      <ExternalLink href="@ourdna_australia"/>.
+     and{' '}
+      <ExternalLink href="@ourdna_australia">Facebook</ExternalLink>.
     </p>
 
     <br/>
