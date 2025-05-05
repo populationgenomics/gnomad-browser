@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { ExternalLink, Link, PageHeading } from '@gnomad/ui'
+import { ExternalLink, PageHeading } from '@gnomad/ui'
+
+import Link from './Link'
 
 import DocumentTitle from './DocumentTitle'
 import InfoPage from './InfoPage'
@@ -20,7 +22,7 @@ export default () => (
 
     <p>
       For questions about the OurDNA dataset, please see our{' '}
-      <Link href="/news">blog</Link>.
+      <Link to="/news">blog</Link>.
     </p>
 
     <p>
