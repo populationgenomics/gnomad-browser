@@ -59,7 +59,7 @@ export default () => (
         <StatsTableBody>
           {datasets.map((dataset) => {
             return (
-              <tr key={dataset.source}>
+              <tr key={dataset.resource}>
                 <td>{dataset.resource}</td>
                 <td>{dataset.description}</td>
               </tr>
