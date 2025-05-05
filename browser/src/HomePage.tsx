@@ -177,9 +177,8 @@ export default () => (
     </p>
     <p>
     The OurDNA browser is part of the{' '}
-    {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
     <Link to="/federated">
-    federated gnomAD network
+      federated gnomAD network
     </Link>.
     </p>
     <p>

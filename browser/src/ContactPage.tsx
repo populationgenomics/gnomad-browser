@@ -12,6 +12,7 @@ export default () => (
 
     <p>
       Report OurDNA browser errors via GitHub{' '}
+       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://github.com/populationgenomics/ourdna-browser/issues">
         GitHub.
       </ExternalLink>
@@ -24,6 +25,7 @@ export default () => (
 
     <p>
       Follow us on Instagram{' '}
+       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://www.instagram.com/ourdna_australia/">@ourdna_australia</ExternalLink>.
      and{' '}
       <ExternalLink href="@ourdna_australia">Facebook</ExternalLink>.

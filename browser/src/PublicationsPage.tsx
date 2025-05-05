@@ -9,7 +9,8 @@ export default () => (
     <DocumentTitle title="Publications" />
     <PageHeading>Publications</PageHeading>
     <p>
-      {' '}            
+      {' '}   
+       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}         
       <ExternalLink href="https://ardc.edu.au/resource/data-and-software-citation/">
       Datasets and software are premier, citable research outputs
       </ExternalLink>. 
@@ -41,6 +42,7 @@ export default () => (
       Publication of the OurDNA flagship paper is forthcoming. 
       <br/>
       We have a range of additional resources published in the{' '}
+       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://zenodo.org/communities/populationgenomics/records?q=&l=list&p=1&s=10&sort=newest">
       Centre for Populations Zenodo Community
       </ExternalLink>. 
