@@ -1,14 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
-import { ExternalLink, List, ListItem, PageHeading } from '@gnomad/ui'
+import { ExternalLink, PageHeading } from '@gnomad/ui'
 
 import DocumentTitle from './DocumentTitle'
 import InfoPage from './InfoPage'
-
-const Citation = styled.cite`
-  font-style: normal;
-  line-height: 1.4;
-`
 
 export default () => (
   <InfoPage>
@@ -45,7 +39,7 @@ export default () => (
 
     <p>
       Publication of the OurDNA flagship paper is forthcoming. 
-      <br></br>
+      <br>
       We have a range of additional resources published in the{' '}
       <ExternalLink href="https://zenodo.org/communities/populationgenomics/records?q=&l=list&p=1&s=10&sort=newest">
       Centre for Populations Zenodo Community
