@@ -11,56 +11,26 @@ export default () => (
     <PageHeading>Contact</PageHeading>
 
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-
-    {/* <p>
-      Tell us how you use gnomAD and your wish list by filling out{' '}
-      <ExternalLink href="http://broad.io/2024_survey">our user survey</ExternalLink>.
-    </p>
-
-    <p>
-      Use the gnomAD{' '}
-      <ExternalLink href="https://discuss.gnomad.broadinstitute.org/new-topic?category=General">
-        Forum
-      </ExternalLink>{' '}
-      to request help, discuss the data, and ask questions.*
-    </p>
-
-    <p>
-      Report errors in the website on{' '}
-      <ExternalLink href="https://github.com/broadinstitute/gnomad-browser/issues/new?labels=Type%3A%20Bug">
+      Report OurDNA browser errors via GitHub{' '}
+      <ExternalLink href="https://github.com/populationgenomics/ourdna-browser/issues">
         GitHub
-      </ExternalLink>{' '}
-      or the{' '}
-      <ExternalLink href="https://discuss.gnomad.broadinstitute.org/new-topic?category=Browser&tags=bug">
-        Forum
-      </ExternalLink>
     </p>
 
     <p>
-      For questions about gnomAD, check out the{' '}
-      <ExternalLink href="/help">help page</ExternalLink>.
+      For questions about the OurDNA dataset, please see our blog.{' '}
+      <Link href="/news"></Link>.
     </p>
 
     <p>
-      Note that, for many reasons (including consent and data usage restrictions), we do not have
-      (and cannot share) phenotype information. Overall, we have limited information that we can
-      share for some cohorts, such as last known age in bins of 5 years (when known) and chromosomal
-      sex.
-    </p>
-
-    <p>
-      Follow us on Twitter{' '}
-      <ExternalLink href="https://twitter.com/gnomad_project">@gnomad_project</ExternalLink>.
+      Follow us on Instagram{' '}
+      <ExternalLink href="https://www.instagram.com/ourdna_australia/">@ourdna_australia</ExternalLink>.
+     and Facebook{' '}
+      <ExternalLink href="@ourdna_australia"></ExternalLink>.
     </p>
 
     <br />
     <p>
-      *Alternately, you can{' '}
-      <ExternalLink href="mailto:gnomad@broadinstitute.org">email us</ExternalLink>. Please note
-      that we prioritize answering issues on Github and topics on the Forum, so if you choose to
-      email it may take us longer to respond.
-    </p> */}
+      For all other questions, please email us. 
+    </p>
   </InfoPage>
 )
