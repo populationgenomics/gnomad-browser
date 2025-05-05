@@ -13,7 +13,8 @@ export default () => (
     <p>
       Report OurDNA browser errors via GitHub{' '}
       <ExternalLink href="https://github.com/populationgenomics/ourdna-browser/issues">
-        GitHub
+        GitHub.
+      </ExternalLink>
     </p>
 
     <p>
