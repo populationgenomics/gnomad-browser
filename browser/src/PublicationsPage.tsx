@@ -39,7 +39,7 @@ export default () => (
 
     <p>
       Publication of the OurDNA flagship paper is forthcoming. 
-      <br>
+      <br/>
       We have a range of additional resources published in the{' '}
       <ExternalLink href="https://zenodo.org/communities/populationgenomics/records?q=&l=list&p=1&s=10&sort=newest">
       Centre for Populations Zenodo Community
