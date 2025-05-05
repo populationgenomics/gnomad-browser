@@ -28,6 +28,7 @@ export default () => (
        {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://www.instagram.com/ourdna_australia/">@ourdna_australia</ExternalLink>.
      and{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="@ourdna_australia">Facebook</ExternalLink>.
     </p>
 
