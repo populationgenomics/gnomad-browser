@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { ExternalLink, PageHeading } from '@gnomad/ui'
 
 import DocumentTitle from './DocumentTitle'
@@ -8,6 +9,11 @@ import {
   StatsTableHeaderRow,
   StatsTableBody,
 } from '../src/StatsPage/StatsPageTables/TableStyles'
+
+const CenteredContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
 
 type Dataset = {
   resource: string
