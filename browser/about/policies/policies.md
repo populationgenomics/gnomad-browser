@@ -17,15 +17,15 @@ This resource is designed for researchers and clinicians with formal training in
 
 ### Important Limitations
 
-1. *Biology is complex*: Most human traits and diseases are influenced by hundreds or thousands of genetic variants working together, in combination with environmental factors. Single variants rarely predict meaningful differences in physical traits or disease risk.
+1. **Biology is complex**: Most human traits and diseases are influenced by hundreds or thousands of genetic variants working together, in combination with environmental factors. Single variants rarely predict meaningful differences in physical traits or disease risk.
 
-2. *Context matters*: The effect of any single genetic variant depends on the broader genetic background in which it exists. A variant's association with a trait in one ancestry group may not translate to similar effects in another.
+2. **Context matters**: The effect of any single genetic variant depends on the broader genetic background in which it exists. A variant's association with a trait in one ancestry group may not translate to similar effects in another.
 
-3. *Many studies are biased*: Published associations between variants and traits often derive from studies with limited population diversity and sample sizes, which makes generalisations across populations scientifically unsound.
+3. **Many studies are biased**: Published associations between variants and traits often derive from studies with limited population diversity and sample sizes, which makes generalisations across populations scientifically unsound.
 
-4. *Population labels are overly simplistic*: The ancestry categories used in this database are practical groupings, not biologically distinct entities. Human genetic variation is continuous across populations, and these categories oversimplify this complexity.
+4. **Population labels are overly simplistic**: The ancestry categories used in this database are practical groupings, not biologically distinct entities. Human genetic variation is continuous across populations, and these categories oversimplify this complexity.
 
-5. *Statistical vs. clinical significance*: Statistical associations do not necessarily indicate biological mechanisms or clinical relevance.
+5. **Statistical vs. clinical significance**: Statistical associations do not necessarily indicate biological mechanisms or clinical relevance.
 
 ### Prohibited Uses
 This data should not be used to:
@@ -47,13 +47,13 @@ The OurDNA Browser includes data that have been collected in partnership with co
 
 We encourage users to consider the following principles when working with the data:
 
-* *Community benefit* - consider how your research will benefit OurDNA’s participating communities, either directly or indirectly
+* **Community benefit** - consider how your research will benefit OurDNA’s participating communities, either directly or indirectly
 
-* *Ethical reflection* - consider how your research may be used by others and what impact this will have on communities  
+* **Ethical reflection** - consider how your research may be used by others and what impact this will have on communities  
 
-* *Contextual interpretation* - consider whether you have appropriately considered historical, social, and environmental contexts in how you have interpreted population genetic differences
+* **Contextual interpretation** - consider whether you have appropriately considered historical, social, and environmental contexts in how you have interpreted population genetic differences
 
-* *Responsible reporting* - ensure that you are using appropriate terminology and framing that minimises the chance that your research will be misused  
+* **Responsible reporting** - ensure that you are using appropriate terminology and framing that minimises the chance that your research will be misused  
 
 ### Community Engagement
 
