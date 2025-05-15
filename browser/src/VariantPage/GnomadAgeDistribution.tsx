@@ -327,7 +327,9 @@ const GnomadAgeDistribution = ({ datasetId, variant }: GnomadAgeDistributionProp
             } else if (error) {
               pageContent = <StatusMessage>Unable to load age distribution</StatusMessage>
             } else {
-              pageContent = `dynamic age distribution data: ${data}`
+              const data_as_string = JSON.stringify(data, null, 2)
+              console.log(data_as_string)
+              pageContent = `<br><b>Dynamic age distribution data:</b><br>${data_as_string}`
             }
             return (
               <React.Fragment>
