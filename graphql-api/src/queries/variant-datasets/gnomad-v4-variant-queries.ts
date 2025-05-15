@@ -650,7 +650,7 @@ const fetchVariantsAgeDistribution = async (esClient: any, _subset: Subset) => {
 
   logger.info(`age_distribution: ${JSON.stringify(age_distribution)}`)
 
-  return age_distribution
+  return age_distribution[0]
 }
 
 const gnomadV4VariantQueries = {
