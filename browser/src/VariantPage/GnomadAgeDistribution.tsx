@@ -46,6 +46,7 @@ query ageDistribution($datasetId: DatasetId!) {
     bin_edges,
     n_smaller
   }
+}
 `
 
 const prepareVariantData = ({
@@ -211,36 +212,6 @@ const GnomadAgeDistribution = ({ datasetId, variant }: GnomadAgeDistributionProp
         )}
       </LegendWrapper>
 
-      <div>
-        <BaseQuery
-          key={datasetId}
-          query={ageDistributionQuery}
-          variables={{
-            datasetId,
-          }}
-        >
-          {({ data, error, _graphQLErrors, loading }: any) => {
-            let pageContent = null
-            if (loading) {
-              pageContent = (
-                <Delayed>
-                  <StatusMessage>Loading age distribution...</StatusMessage>
-                </Delayed>
-              )
-            } else if (error) {
-              pageContent = <StatusMessage>Unable to load age distribution</StatusMessage>
-            } else {
-              pageContent = `dynamic age distribution data: ${data}`
-            }
-            return (
-              <React.Fragment>
-                {pageContent}
-              </React.Fragment>
-            )
-          }}
-        </BaseQuery>
-      </div>
-
       <StackedHistogram
         // @ts-expect-error TS(2322) FIXME: Type '{ id: string; bins: string[]; values: any[][... Remove this comment to see the full error message
         id="age-distribution-plot"
@@ -336,6 +307,36 @@ const GnomadAgeDistribution = ({ datasetId, variant }: GnomadAgeDistributionProp
           </Select>
         </label>
       </ControlSection>
+
+      <div>
+        <BaseQuery
+          key={datasetId}
+          query={ageDistributionQuery}
+          variables={{
+            datasetId,
+          }}
+        >
+          {({ data, error, _graphQLErrors, loading }: any) => {
+            let pageContent = null
+            if (loading) {
+              pageContent = (
+                <Delayed>
+                  <StatusMessage>Loading age distribution...</StatusMessage>
+                </Delayed>
+              )
+            } else if (error) {
+              pageContent = <StatusMessage>Unable to load age distribution</StatusMessage>
+            } else {
+              pageContent = `dynamic age distribution data: ${data}`
+            }
+            return (
+              <React.Fragment>
+                {pageContent}
+              </React.Fragment>
+            )
+          }}
+        </BaseQuery>
+      </div>
     </div>
   )
 }
