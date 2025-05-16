@@ -65,13 +65,12 @@ For details on dataset releases, including methodologies for annotation and QC, 
 
 Aggregate data download is currently under development. Please check back for a release date.
 
-## Data contributors
+## Contributors
 
 ### Data contributors
 
-### Contributing projects
-- BioHEART
-- Mackenzie's Mission
-- OurDNA
-- Tasmanian Ophthalmic Biobank
+- BioHEART (Gemma Figtree)
+- Mackenzie's Mission (Martin Delatycki, Edwin Kirk, Nigel Laing)
+- OurDNA (Daniel MacArthur)
+- Tasmanian Ophthalmic Biobank Whole Genome Sequencing (Alex Hewitt)
 
