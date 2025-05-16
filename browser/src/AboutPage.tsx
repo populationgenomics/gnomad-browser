@@ -85,40 +85,6 @@ export default () => (
 
     {/* Import about blurb from .md file */}
     <MarkdownContent dangerouslySetInnerHTML={{ __html: aboutContent.html }} />
-
-    {/* Funding Section */}
-    <SectionHeader id="funding">Funding</SectionHeader>
-    <Credits>
-      <CreditsSection>
-        <FundingSources
-          aria-labelledby="funding"
-          dangerouslySetInnerHTML={{ __html: fundingSources.html }}
-        />
-      </CreditsSection>
-
-    </Credits>
-
-    {/* Data Contributors and Projects Section (Formerly PI's and Projects) */}
-    {/* <SectionHeader>Data Contributors</SectionHeader>
-    <Credits>
-      <CreditsSection
-        width="34%"
-      >
-        <h3 id="contributing-projects">Contributing projects</h3>
-        <Contributors
-          aria-labelledby="contributing-projects"
-          dangerouslySetInnerHTML={{ __html: contributingProjectsList.html }}
-        />
-      </CreditsSection>
-      <CreditsSection
-        width="66%"
-      >
-        <h3 id="principal-investigators">Data Contributors</h3>
-        <PrincipalInvestigators
-          aria-labelledby="principal-investigators"
-          dangerouslySetInnerHTML={{ __html: dataContributorsList.html }}
-        />
-      </CreditsSection>
-    </Credits> */}
+    
   </InfoPage>
 )
