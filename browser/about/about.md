@@ -80,6 +80,6 @@ The OurDNA program also receives support from Google’s Digital Future Initiati
 ### Data contributors
 
 - BioHEART (Gemma Figtree)
-- Mackenzie's Mission (Martin Delatycki, Edwin Kirk, Nigel Laing)
+- Mackenzie's Mission
 - OurDNA (Daniel MacArthur)
 - Tasmanian Ophthalmic Biobank Whole Genome Sequencing (Alex Hewitt)
