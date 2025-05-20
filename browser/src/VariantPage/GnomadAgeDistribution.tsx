@@ -41,8 +41,18 @@ const CheckboxWrapper = styled.div`
 const ageDistributionQuery = `
 query ageDistribution($datasetId: DatasetId!) {
   age_distribution(dataset: $datasetId, query: "") {
-    exome,
-    genome
+    exome {
+      n_smaller
+      n_larger
+      bin_freq
+      bin_edges
+    }
+    genome {
+      n_smaller
+      n_larger
+      bin_freq
+      bin_edges
+    }
   }
 }
 `
