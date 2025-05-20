@@ -650,7 +650,12 @@ const fetchVariantsAgeDistribution = async (esClient: any, _subset: Subset) => {
 
   logger.info(`age_distribution: ${JSON.stringify(age_distribution)}`)
 
-  return age_distribution[0]
+  // TODO, update once age_distribution contains genome/exome records, 
+  // ATM it is all combined, so we mockup those 2 records
+  return {
+      exome: age_distribution[0],
+      genome: age_distribution[0],
+  }
 }
 
 const gnomadV4VariantQueries = {
