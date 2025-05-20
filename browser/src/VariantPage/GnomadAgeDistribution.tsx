@@ -2,9 +2,6 @@ import { sum } from 'd3-array'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { BaseQuery } from '../Query'
-import Delayed from '../Delayed'
-import StatusMessage from '../StatusMessage'
 
 import { Checkbox, Select } from '@gnomad/ui'
 
@@ -23,7 +20,7 @@ import {
 import Legend, { StripedSwatch } from '../Legend'
 import StackedHistogram from '../StackedHistogram'
 import ControlSection from './ControlSection'
-import { Variant } from './VariantPage'
+import { Variant, GlobalData } from './VariantPage'
 
 const LegendWrapper = styled.div`
   display: flex;
@@ -36,25 +33,6 @@ const CheckboxWrapper = styled.div`
     display: block;
     line-height: 1.5;
   }
-`
-
-const ageDistributionQuery = `
-query ageDistribution($datasetId: DatasetId!) {
-  age_distribution(dataset: $datasetId, query: "") {
-    exome {
-      n_smaller
-      n_larger
-      bin_freq
-      bin_edges
-    }
-    genome {
-      n_smaller
-      n_larger
-      bin_freq
-      bin_edges
-    }
-  }
-}
 `
 
 const prepareVariantData = ({
@@ -104,25 +82,26 @@ const prepareVariantData = ({
   ]
 }
 
-const prepareOverallData = ({ datasetId, includeExomes, includeGenomes }: any) => {
-  let overallAgeDistribution = null
-  if (isV4(datasetId)) {
-    overallAgeDistribution = gnomadV4AgeDistribution
-  } else if (isV3(datasetId)) {
-    overallAgeDistribution = gnomadV3AgeDistribution
-  } else if (isV2(datasetId)) {
-    overallAgeDistribution = gnomadV2AgeDistribution
+const prepareOverallData = ({ datasetId, includeExomes, includeGenomes, globalAgeDistribution }: any) => {
+  let overallAgeDistribution = globalAgeDistribution
+
+  if (!overallAgeDistribution) {
+    if (isV4(datasetId)) {
+      overallAgeDistribution = gnomadV4AgeDistribution
+    } else if (isV3(datasetId)) {
+      overallAgeDistribution = gnomadV3AgeDistribution
+    } else if (isV2(datasetId)) {
+      overallAgeDistribution = gnomadV2AgeDistribution
+    }
   }
 
   if (!overallAgeDistribution) {
     return null
   }
 
-  // @ts-expect-error
   const nBins = (overallAgeDistribution.exome || overallAgeDistribution.genome).bin_freq.length
 
   const exomeData =
-    // @ts-expect-error
     includeExomes && overallAgeDistribution.exome ? overallAgeDistribution.exome : null
   const genomeData =
     includeGenomes && overallAgeDistribution.genome ? overallAgeDistribution.genome : null
@@ -153,9 +132,11 @@ const getDefaultSelectedSequencingType = (variant: any) => {
 type GnomadAgeDistributionProps = {
   datasetId: DatasetId
   variant: Variant
+  globalData: GlobalData
 }
 
-const GnomadAgeDistribution = ({ datasetId, variant }: GnomadAgeDistributionProps) => {
+const GnomadAgeDistribution = ({ datasetId, variant, globalData }: GnomadAgeDistributionProps) => {
+
   const [selectedSequencingType, setSelectedSequencingType] = useState(
     getDefaultSelectedSequencingType(variant)
   )
@@ -196,6 +177,7 @@ const GnomadAgeDistribution = ({ datasetId, variant }: GnomadAgeDistributionProp
     datasetId,
     includeExomes: selectedSequencingType.includes('e'),
     includeGenomes: selectedSequencingType.includes('g'),
+    globalAgeDistribution: globalData.age_distribution,
   })
 
   return (
@@ -315,38 +297,6 @@ const GnomadAgeDistribution = ({ datasetId, variant }: GnomadAgeDistributionProp
           </Select>
         </label>
       </ControlSection>
-
-      <div>
-        <BaseQuery
-          key={datasetId}
-          query={ageDistributionQuery}
-          variables={{
-            datasetId,
-          }}
-        >
-          {({ data, error, _graphQLErrors, loading }: any) => {
-            let pageContent = null
-            if (loading) {
-              pageContent = (
-                <Delayed>
-                  <StatusMessage>Loading age distribution...</StatusMessage>
-                </Delayed>
-              )
-            } else if (error) {
-              pageContent = <StatusMessage>Unable to load age distribution</StatusMessage>
-            } else {
-              const data_as_string = JSON.stringify(data, null, 2)
-              console.log(data_as_string)
-              pageContent = `<br><b>Dynamic age distribution data:</b><br>${data_as_string}`
-            }
-            return (
-              <React.Fragment>
-                {pageContent}
-              </React.Fragment>
-            )
-          }}
-        </BaseQuery>
-      </div>
     </div>
   )
 }
