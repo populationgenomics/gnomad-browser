@@ -8,7 +8,17 @@ import ethicsContent from '../about/policies/ethics-contact.md'
 
 import DocumentTitle from './DocumentTitle'
 import InfoPage from './InfoPage'
+import {
+  StatsTable,
+  StatsTableHeaderRow,
+  StatsTableBody,
+} from '../src/StatsPage/StatsPageTables/TableStyles'
 import MarkdownContent from './MarkdownContent'
+
+const CenteredContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
 
 const EthicsContactPage = styled(InfoPage)`
   h2 {
@@ -36,10 +46,56 @@ const _PrivacyPolicyWrapper = styled.div`
   }
 `
 
+type Dataset = {
+  ethics: string
+  description: string
+}
+
+const datasets: Dataset[] = [
+  {
+    ethics: "OurDNA program",
+    description: "(HREC/91986/RCHM-2023)"
+  },
+  {
+    ethics: "Large-scale genomic analysis of existing cohorts",
+    description: "HREC/84612/RCHM-2022"
+  },
+  {
+    ethics: "Aggregating and analysing data from existing cohort and biobank studies",
+    description: "2021/ETH00202"
+  },
+    {
+    ethics: "Genomic diagnosis and gene discovery in rare disease via analysis of existing samples and datasets",
+    description: "HREC/77735/RCHM-2021"
+  }
+]
+
 export default () => (
   <EthicsContactPage>
     <DocumentTitle title="Ethics Contact" />
     <PageHeading>Ethics Contact</PageHeading>
     <MarkdownContent dangerouslySetInnerHTML={{ __html: ethicsContent.html }} />
+    <br/>
+    <CenteredContainer>
+      <StatsTable>
+        <thead>
+          <StatsTableHeaderRow>
+            <th>Study program</th>
+            <th>Ethics approval reference number</th>
+          </StatsTableHeaderRow>
+        </thead>
+        <StatsTableBody>
+          {datasets.map((dataset) => {
+            return (
+              <tr key={dataset.ethics}>
+                <td>{dataset.ethics}</td>
+                <td>{dataset.description}</td>
+              </tr>
+            )
+          })}
+        </StatsTableBody>
+      </StatsTable>
+    </CenteredContainer>
+
   </EthicsContactPage>
 )
