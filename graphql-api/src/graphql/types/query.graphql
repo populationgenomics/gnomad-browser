@@ -40,6 +40,6 @@ type Query {
 
   meta: BrowserMetadata!
 
-  age_distribution(query: String!, dataset: DatasetId!): Histogram!
+  age_distribution(query: String!, dataset: DatasetId!): Distribution!
 
 }
