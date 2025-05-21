@@ -54,7 +54,7 @@ type Dataset = {
 const datasets: Dataset[] = [
   {
     ethics: "OurDNA program",
-    description: "(HREC/91986/RCHM-2023)"
+    description: "HREC/91986/RCHM-2023"
   },
   {
     ethics: "Large-scale genomic analysis of existing cohorts",
