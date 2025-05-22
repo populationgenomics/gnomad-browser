@@ -48,25 +48,25 @@ const _PrivacyPolicyWrapper = styled.div`
 
 type Dataset = {
   ethics: string
-  description: string
+  referenceNumber: string
+  datasets: string
 }
 
 const datasets: Dataset[] = [
   {
     ethics: "OurDNA program",
-    description: "HREC/91986/RCHM-2023"
+    referenceNumber: "HREC/91986/RCHM-2023",
+    datasets: "OurDNA"
   },
   {
     ethics: "Large-scale genomic analysis of existing cohorts",
-    description: "HREC/84612/RCHM-2022"
+    referenceNumber: "HREC/84612/RCHM-2022",
+    datasets: "BioHEART, Mackenzie's Mission, Tasmanian Ophthalmic Biobank (TOB) Whole Genome Sequencing"
   },
   {
     ethics: "Aggregating and analysing data from existing cohort and biobank studies",
-    description: "2021/ETH00202"
-  },
-    {
-    ethics: "Genomic diagnosis and gene discovery in rare disease via analysis of existing samples and datasets",
-    description: "HREC/77735/RCHM-2021"
+    referenceNumber: "2021/ETH00202",
+    datasets: ""
   }
 ]
 
@@ -80,8 +80,9 @@ export default () => (
       <StatsTable>
         <thead>
           <StatsTableHeaderRow>
-            <th>Study program</th>
+            <th>Protocol name</th>
             <th>Ethics approval reference number</th>
+            <th>Datasets</th>
           </StatsTableHeaderRow>
         </thead>
         <StatsTableBody>
@@ -89,7 +90,8 @@ export default () => (
             return (
               <tr key={dataset.ethics}>
                 <td>{dataset.ethics}</td>
-                <td>{dataset.description}</td>
+                <td>{dataset.referenceNumber}</td>
+                <td>{dataset.datasets}</td>
               </tr>
             )
           })}
