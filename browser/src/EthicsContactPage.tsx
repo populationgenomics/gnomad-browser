@@ -61,7 +61,7 @@ const datasets: Dataset[] = [
   {
     ethics: "Large-scale genomic analysis of existing cohorts",
     referenceNumber: "HREC/84612/RCHM-2022",
-    datasets: "BioHEART, Mackenzie's Mission, Tasmanian Ophthalmic Biobank (TOB) Whole Genome Sequencing"
+    datasets: "BioHEART, Mackenzie's Mission, Tasmanian Ophthalmic Biobank Whole Genome Sequencing"
   },
   {
     ethics: "Aggregating and analysing data from existing cohort and biobank studies",
