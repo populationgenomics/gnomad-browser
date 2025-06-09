@@ -67,6 +67,7 @@ def add_variant_document_id(ds):
 
 def truncate_clinvar_variant_ids(ds):
     # clinvar tables needs release meta data
+    # TODO: check if the same release date as used in upstream
     ds = ds.annotate_globals(clinvar_release_date='2022-10-31')
     return ds.annotate(
         variant_id=hl.if_else(hl.len(ds.variant_id) >= 32_766, ds.variant_id[:32_632] + "...", ds.variant_id)
@@ -567,7 +568,6 @@ def export_datasets(elasticsearch_host, elasticsearch_auth, datasets):
     for dataset in datasets:
         logger.info("exporting dataset %s", dataset)
         dataset_config = DATASETS_CONFIG[dataset]
-
         table = dataset_config["get_table"]()
         export_table_to_elasticsearch(table, **base_args, **dataset_config.get("args", {}))
 
