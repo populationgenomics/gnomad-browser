@@ -47,6 +47,8 @@ from data_pipeline.pipelines.gnomad_v4_cnv_del_burden import pipeline as gnomad_
 
 from data_pipeline.pipelines.gnomad_v4_cnv_dup_burden import pipeline as gnomad_v4_cnv_dup_burden
 
+from data_pipeline.data_types.locus import x_position
+
 
 logger = logging.getLogger("gnomad_data_pipeline")
 
@@ -56,11 +58,16 @@ def subset_table(ds):
     return ds
 
 
+def add_xpos(ds):
+    return ds.annotate(xpos=x_position(ds.locus))
+
 def add_variant_document_id(ds):
     return ds.annotate(document_id=compressed_variant_id(ds.locus, ds.alleles))
 
 
 def truncate_clinvar_variant_ids(ds):
+    # clinvar tables needs release meta data
+    ds = ds.annotate_globals(clinvar_release_date='2022-10-31')
     return ds.annotate(
         variant_id=hl.if_else(hl.len(ds.variant_id) >= 32_766, ds.variant_id[:32_632] + "...", ds.variant_id)
     )
@@ -484,6 +491,70 @@ DATASETS_CONFIG = {
             "id_field": "element_id",
         },
     },
+
+    ##############################################################################################################
+    # OurDNA Specific tables
+    ##############################################################################################################
+    "ourdna_bioheart_variants_v4": {
+        "get_table": lambda: subset_table(
+            add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
+        ),
+        "get_schema": lambda: load_schema("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/frequencies.ht"),
+        "args": {
+            "index": "gnomad_v4_variants",
+            "index_fields": [
+                "document_id",
+                "variant_id",
+                "rsids",
+                "locus",
+                # NA in OurDNA fields:
+                #"caid",
+                #"transcript_consequences.gene_id",
+                #"transcript_consequences.transcript_id",
+                #"vrs.alt.allele_id",
+            ],
+            "id_field": "document_id",
+            "num_shards": 48,
+            "block_size": 10_000,
+        },
+    },
+
+    "ourdna_bioheart_genes_grch38": {
+        "get_table": lambda: hl.read_table("gs://cpg-ourdna-browser-dev-test/genes/gnomad.genes.GRCh38.GENCODEv39.pext.ht"),
+        "args": {
+            "index": "genes_grch38",
+            "index_fields": ["gene_id", "symbol_upper_case", "search_terms", "xstart", "xstop"],
+            "id_field": "gene_id",
+            "block_size": 200,
+        },
+    },
+
+    "ourdna_bioheart_genes_grch38_noext": {
+        "get_table": lambda: hl.read_table("gs://cpg-ourdna-browser-dev-test/genes/gnomad.genes.GRCh38.GENCODEv39.ht"),
+        "args": {
+            "index": "genes_grch38_noext",
+            "index_fields": ["gene_id", "symbol_upper_case", "search_terms", "xstart", "xstop"],
+            "id_field": "gene_id",
+            "block_size": 200,
+        },
+    },
+
+    "ourdna_bioheart_v3_genome_coverage": {
+        "get_table": lambda: add_xpos(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/genome/merged_coverage.ht")),
+        "args": {"index": "gnomad_v3_genome_coverage", "id_field": "xpos", 
+        "num_shards": 48, 
+        "block_size": 100_000
+        },
+    },
+
+    "ourdna_bioheart_v4_exome_coverage": {
+        "get_table": lambda: add_xpos(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/merged_coverage.ht")),
+        "args": {"index": "gnomad_v4_exome_coverage", "id_field": "xpos", 
+        "num_shards": 48, 
+        "block_size": 50_000
+        },
+    },
+
 }
 
 
@@ -496,6 +567,7 @@ def export_datasets(elasticsearch_host, elasticsearch_auth, datasets):
     for dataset in datasets:
         logger.info("exporting dataset %s", dataset)
         dataset_config = DATASETS_CONFIG[dataset]
+
         table = dataset_config["get_table"]()
         export_table_to_elasticsearch(table, **base_args, **dataset_config.get("args", {}))
 
