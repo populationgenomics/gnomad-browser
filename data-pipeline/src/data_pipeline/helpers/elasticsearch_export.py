@@ -110,10 +110,10 @@ def export_table_to_elasticsearch(
     table = table.key_by()
 
     # show details when loading ES tables
-    print('table', table)
-    print('table.describe', table.describe())
-    print('table.globals.show()', table.globals.show())
-    print('table.show()', table.show())
+    print("table", table)
+    print("table.describe", table.describe())
+    print("table.globals.show()", table.globals.show())
+    print("table.show()", table.show())
 
     if index_fields:
         if id_field and id_field not in [f.split(".")[-1] for f in index_fields]:
