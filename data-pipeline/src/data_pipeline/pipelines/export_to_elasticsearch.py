@@ -500,7 +500,6 @@ DATASETS_CONFIG = {
         "get_table": lambda: subset_table(
             add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
         ),
-        "get_schema": lambda: load_schema("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/frequencies.ht"),
         "args": {
             "index": "gnomad_v4_variants",
             "index_fields": [
