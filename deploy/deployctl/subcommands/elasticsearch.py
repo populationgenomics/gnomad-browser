@@ -11,7 +11,8 @@ def get_elasticsearch_password(cluster_name: str, namespace: str) -> None:
     print(
         kubectl(
             [
-                f"--cluster {cluster_name}",
+                # TODO cluster name recognised, works without it
+                # f"--cluster {cluster_name}",
                 f"-n={namespace}",
                 "get",
                 "secret",
