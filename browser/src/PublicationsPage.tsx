@@ -46,6 +46,9 @@ export default () => (
       Datasets and software are premier, citable research outputs
       </ExternalLink>.
       There are several distinct outputs from the OurDNA program and we request that you cite the specific resource/s that have been used as input to your work. Please use Digital Object Identifiers (DOIs) in your citations to refer to definitive, persistent records of OurDNA resources.
+
+      The OurDNA dataset and OurDNA browser software are registered on Zenodo. Please take care to include the digital object identifier (DOI) in your references list when citing these resources.
+
     </p>
     <br/>
     <CenteredContainer>
@@ -69,8 +72,23 @@ export default () => (
       </StatsTable>
     </CenteredContainer>
 
-    <h2>Flagship paper</h2>
+    <h2>Dataset</h2>
+    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset (1.0)[Dataset]. www.doi.com
 
+    If relevant, Please include the gene symbol, transcript or variant in your citation of the OurDNA dataset.
+    <h3>Gene<h3>
+    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset(Gene: PCSK9) (1.0)[Dataset]. www.doi.com
+
+    <h3>Transcript</h3>
+    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset(Transcript: ENST00000302118.5) (1.0)[Dataset]. www.doi.com
+
+    <h3>Variant</h3>
+    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset(Variant: 1-1000079-A-G) (1.0)[Dataset]. www.doi.com
+
+    <h2>Software</h2>
+    Hyben, M., & Harper, M., Bakiris, V., et al. (2025, July 31). OurDNA BrowserVersion (1.0)[Software]. www.doi.com.
+
+    <h2>Flagship paper</h2>
     <p>
       Publication of the OurDNA flagship paper is forthcoming.
       <br/>
@@ -82,10 +100,5 @@ export default () => (
       </ExternalLink>.
     </p>
 
-    <h2>Dataset</h2>
-    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset (1.0)[Dataset]. www.doi.com
-
-    <h2>Software</h2>
-    Hyben, M., & Harper, M., Bakiris, V., et al. (2025, July 31). OurDNA BrowserVersion (1.0)[Software]. www.doi.com.
   </InfoPage>
 )
