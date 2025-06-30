@@ -250,7 +250,7 @@ const TeamPage = () => {
 
         {/* Section for Contributors */}
         <TeamSection>
-          <h2 id="gnomad-contributors">Contributors</h2>
+          <h2>CPG Staff</h2>
           <TeamSectionList>
             <ColumnList>
               <ResponsiveColumn>
@@ -264,20 +264,6 @@ const TeamPage = () => {
           </TeamSectionList>
         </TeamSection>
 
-        {/* Section for Alumni */}
-        <TeamSection>
-          <h2 id="gnomad-alumni">Alumni</h2>
-          <TeamSectionList>
-            <ColumnList>
-              <div>
-                <Contributors
-                  aria-labelledby="alumni"
-                  dangerouslySetInnerHTML={{ __html: alumni.html }}
-                />
-              </div>
-            </ColumnList>
-          </TeamSectionList>
-        </TeamSection>
       </Team>
     </InfoPage>
   )
