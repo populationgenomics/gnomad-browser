@@ -6,15 +6,24 @@ export const GNOMAD_POPULATION_NAMES = {
   ami: 'Amish',
   amr: 'Admixed American',
   asj: 'Ashkenazi Jewish',
-  eas: 'East Asian',
-  mid: 'Middle Eastern',
-  eur: 'European',
+  // eas: 'East Asian',
+  // mid: 'Middle Eastern',
+  // eur: 'European',
   nfe: 'European (non-Finnish)',
   fin: 'European (Finnish)',
   oth: 'Remaining individuals',
   sas: 'South Asian',
   rmi: 'Remaining',
   remaining: 'Remaining',
+
+  // Custom OurDNA definitions
+  csa: 'CSA (Central South Asian)',
+  eas: 'EAS (East Asian)',
+  eur: 'EUR (European)',
+  fil: 'FIL (Filipino)',
+  mid: 'MID (Middle Eastern)',
+  unclassified: 'Unclassified',
+
 
   // EAS subpopulations
   eas_jpn: 'Japanese',
@@ -48,7 +57,7 @@ export type PopulationIdAndChromosome =
   | 'XY'
 
 export const populationName = (populationId: string) =>
-  textOrMissingTextWarning('genetic ancestry group name', GNOMAD_POPULATION_NAMES, populationId)
+  textOrMissingTextWarning('genetic ancestry group name', GNOMAD_POPULATION_NAMES, populationId.toLowerCase())
 
 const ExACPopulations: PopulationId[] = ['sas', 'afr', 'amr', 'eas', 'fin', 'nfe', 'remaining']
 const v2Populations: PopulationId[] = ['amr', 'nfe', 'afr', 'asj', 'eas', 'fin', 'sas', 'oth']
@@ -65,16 +74,12 @@ const v3Populations: PopulationId[] = [
   'oth',
 ]
 const v4Populations: PopulationId[] = [
-  'afr',
-  'amr',
-  'asj',
+  'unclassified',
+  'csa',
   'eas',
-  'fin',
-  'mid',
-  'nfe',
-  'ami', // v4 does not directly include amish, but v3 does and v4 genomes are from v3
-  'sas',
-  'remaining',
+  'eur',
+  'fil',
+  'mid'
 ]
 
 export const populationsInDataset = {

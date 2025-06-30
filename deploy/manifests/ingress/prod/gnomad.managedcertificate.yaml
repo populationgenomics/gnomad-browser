@@ -1,0 +1,9 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: ourdna-prod-certificate
+  labels:
+    tier: production
+spec:
+  domains:
+    - ourdna.populationgenomics.org.au

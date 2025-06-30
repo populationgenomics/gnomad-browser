@@ -477,6 +477,7 @@ const getAvailableMetrics = (datasetId: any) => {
     return [
       'SiteQuality',
       'inbreeding_coeff',
+      'InbreedingCoeff',
       'AS_FS',
       'AS_MQ',
       'AS_MQRankSum',

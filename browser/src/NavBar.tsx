@@ -92,7 +92,7 @@ const NavBar = () => {
     <Wrapper>
       <LogoWrapper>
         <Link to="/" onClick={closeMenu}>
-          <Logo>gnomAD browser</Logo>
+          <Logo>OurDNA Browser</Logo>
         </Link>
         <ToggleMenuButton onClick={toggleMenu}>☰</ToggleMenuButton>
       </LogoWrapper>
@@ -107,6 +107,11 @@ const NavBar = () => {
         <li>
           <Link to="/team" onClick={closeMenu}>
             Team
+          </Link>
+        </li>
+        <li>
+          <Link to="/federated" onClick={closeMenu}>
+            Federated
           </Link>
         </li>
         <li>
@@ -126,33 +131,16 @@ const NavBar = () => {
         </li>
         {/* two <a> tags instead of <Link>s because the blog is a separate application */}
         <li>
-          <a href="https://gnomad.broadinstitute.org/news/">Blog</a>
+          <a href="/news/">Blog</a>
         </li>
-        <li>
-          <a href="https://gnomad.broadinstitute.org/news/changelog/">Changelog</a>
-        </li>
-        <li>
+        {/* <li>
           <Link to="/data" onClick={closeMenu}>
             Data
           </Link>
-        </li>
-        <li>
-          <a
-            href="https://discuss.gnomad.broadinstitute.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Forum
-          </a>
-        </li>
+        </li> */}
         <li>
           <Link to="/contact" onClick={closeMenu}>
             Contact
-          </Link>
-        </li>
-        <li>
-          <Link to="/help" onClick={closeMenu}>
-            Help/FAQ
           </Link>
         </li>
       </Menu>

@@ -2,7 +2,8 @@ name: Deploy scripts CI
 on:
   push:
     branches:
-      - main
+      - ourdna-browser-dev
+      - ourdna-browser
     paths:
       - 'deploy/deployctl/**'
   pull_request:
@@ -21,7 +22,7 @@ jobs:
         with:
           python-version: 3.9
       - name: Use pip cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: pip-${{ hashFiles('**/requirements*.txt') }}
