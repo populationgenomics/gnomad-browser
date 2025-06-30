@@ -40,12 +40,12 @@ export default () => (
     <DocumentTitle title="Publications" />
     <PageHeading>Publications</PageHeading>
     <p>
-      {' '}   
-       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}         
+      {' '}
+       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://ardc.edu.au/resource/data-and-software-citation/">
       Datasets and software are premier, citable research outputs
-      </ExternalLink>. 
-      There are several distinct outputs from the OurDNA program and we request that you cite the specific resource/s that have been used as input to your work. Please use Digital Object Identifiers (DOIs) in your citations to refer to definitive, persistent records of OurDNA resources. 
+      </ExternalLink>.
+      There are several distinct outputs from the OurDNA program and we request that you cite the specific resource/s that have been used as input to your work. Please use Digital Object Identifiers (DOIs) in your citations to refer to definitive, persistent records of OurDNA resources.
     </p>
     <br/>
     <CenteredContainer>
@@ -72,21 +72,20 @@ export default () => (
     <h2>Flagship paper</h2>
 
     <p>
-      Publication of the OurDNA flagship paper is forthcoming. 
+      Publication of the OurDNA flagship paper is forthcoming.
       <br/>
       <br/>
       We have a range of additional resources published in the{' '}
        {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://zenodo.org/communities/populationgenomics/records?q=&l=list&p=1&s=10&sort=newest">
       Centre for Populations Zenodo Community
-      </ExternalLink>. 
+      </ExternalLink>.
     </p>
 
     <h2>Dataset</h2>
-    <p>Example citation of dataset is forthcoming</p>
+    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset (1.0)[Dataset]. www.doi.com
 
     <h2>Software</h2>
-    <p>Example citation of software record is forthcoming</p>
-
+    Hyben, M., & Harper, M., Bakiris, V., et al. (2025, July 31). OurDNA BrowserVersion (1.0)[Software]. www.doi.com.
   </InfoPage>
 )
