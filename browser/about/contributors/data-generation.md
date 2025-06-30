@@ -4,26 +4,26 @@ Daniel MacArthur
 
 ## OurDNA team
 **Christopher	Richards**
+Maia Ambegaokar
 Samantha Croy
 Zuong Dang
 Bindu Madala
+Shenei Penaia
 Luke Seesink
 Rafal Shouly
 Bronwyn	Terrill
 Marijana Vanevski
-Maia Ambegaokar
-Shenei Penaia
 
 
 ## Operations
 Daniela	Bodemer
 
 ## Population Analysis Team
-**Katrina de Lange**
-**Jennifer Piscionere**
 Katalina Bobowik
+**Katrina de Lange**
 Michael	Harper
 Amy	Miniter
+**Jennifer Piscionere**
 Joshua Schmidt
 Michael	Silk
 Alex Stuckey
@@ -31,10 +31,10 @@ Alex Stuckey
 
 ## Project Management
 Stuart Cantsilieris
-Caitlin	Uren
 Sally Hartmanis
 Caitlin	Morrison
 Andreia	Pinho
+Caitlin	Uren
 
 
 ## Scientific Affairs
