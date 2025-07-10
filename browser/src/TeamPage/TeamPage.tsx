@@ -16,8 +16,8 @@ const TeamSection = styled.div`
 const TeamSectionList = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 80%;
+  align-items: left;
+  width: 100%;
   padding: 1rem;
   margin: 1rem auto;
 `

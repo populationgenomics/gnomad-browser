@@ -39,7 +39,7 @@ const ImageWrapper = styled.div`
 `
 
 const Footer = () => {
-  
+
   return (
     <Wrapper>
       <ImageWrapper>
@@ -54,7 +54,7 @@ const Footer = () => {
         </svg>
       </ImageWrapper>
       <p>
-      TODO: Acknowledgement of country
+      CPG acknowledges the First Australian peoples on whose traditional lands we live and work across the country and pay our respects to their elders past and present.
       </p>
     </Wrapper>
   )
