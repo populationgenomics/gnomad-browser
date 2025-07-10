@@ -75,24 +75,15 @@ export default () => (
     <h2>Dataset</h2>
     Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset (1.0)[Dataset]. www.doi.com
 
-    If relevant, Please include the gene symbol, transcript or variant in your citation of the OurDNA dataset.
-    <h3>Gene</h3>
-    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset(Gene: PCSK9) (1.0)[Dataset]. www.doi.com
-
-    <h3>Transcript</h3>
-    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset(Transcript: ENST00000302118.5) (1.0)[Dataset]. www.doi.com
-
-    <h3>Variant</h3>
-    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset(Variant: 1-1000079-A-G) (1.0)[Dataset]. www.doi.com
-
-    <h2>Software</h2>
-    Hyben, M., & Harper, M., Bakiris, V., et al. (2025, July 31). OurDNA BrowserVersion (1.0)[Software]. www.doi.com.
+    <h2>Browser (software)</h2>
+    Hyben, M., Harper, M., Bakiris, V., et al. (2025, July 31). OurDNA dataset (1.0)[Software]. www.doi.com
 
     <h2>Flagship paper</h2>
     <p>
       Publication of the OurDNA flagship paper is forthcoming.
-      <br/>
-      <br/>
+    </p>
+    <h2>Other resources</h2>
+    <p>
       We have a range of additional resources published in the{' '}
        {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://zenodo.org/communities/populationgenomics/records?q=&l=list&p=1&s=10&sort=newest">
