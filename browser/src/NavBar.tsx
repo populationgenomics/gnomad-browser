@@ -1,10 +1,9 @@
 import React, { useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-
 import { Button } from '@gnomad/ui'
-
 import Searchbox from './Searchbox'
+import logoImage from './OurDNA_Browser_Header.png'
 
 const Wrapper = styled.div`
   display: flex;
@@ -92,7 +91,11 @@ const NavBar = () => {
     <Wrapper>
       <LogoWrapper>
         <Link to="/" onClick={closeMenu}>
-          <Logo>OurDNA Browser</Logo>
+          <Logo>
+            <svg width="50" viewBox="0 0 341 228">
+              <image href={logoImage} />
+            </svg>
+          </Logo>
         </Link>
         <ToggleMenuButton onClick={toggleMenu}>☰</ToggleMenuButton>
       </LogoWrapper>
