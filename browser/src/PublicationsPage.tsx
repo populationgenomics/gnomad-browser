@@ -76,7 +76,7 @@ export default () => (
     Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset (1.0)[Dataset]. www.doi.com
 
     If relevant, Please include the gene symbol, transcript or variant in your citation of the OurDNA dataset.
-    <h3>Gene<h3>
+    <h3>Gene</h3>
     Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset(Gene: PCSK9) (1.0)[Dataset]. www.doi.com
 
     <h3>Transcript</h3>
