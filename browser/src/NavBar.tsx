@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Button } from '@gnomad/ui'
 import Searchbox from './Searchbox'
+
+// @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
 import logoImage from './OurDNA_Browser_Header.png'
 
 const Wrapper = styled.div`

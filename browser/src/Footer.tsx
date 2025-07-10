@@ -1,10 +1,9 @@
-import React, { useCallback, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import styled from 'styled-components'
+
 // TODO: images to be updated
+// @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
 import image1 from './OurDNA_Browser_Header.png'
-import image2 from './OurDNA_Browser_Header.png'
-import image3 from './OurDNA_Browser_Header.png'
 
 const Wrapper = styled.div`
   display: flex;
@@ -48,10 +47,10 @@ const Footer = () => {
           <image href={image1} />
         </svg>
         <svg width="200" viewBox="0 0 1500 300">
-          <image href={image2} />
+          <image href={image1} />
         </svg>
         <svg width="200" viewBox="0 0 1500 300">
-          <image href={image3} />
+          <image href={image1} />
         </svg>
       </ImageWrapper>
       <p>
