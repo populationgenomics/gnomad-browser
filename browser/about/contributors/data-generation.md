@@ -17,7 +17,7 @@ Marijana Vanevski<br>
 ## Operations
 Daniela	Bodemer
 
-## Population Analysis Team
+## Population Genomics Team
 Katalina Bobowik<br>
 **Katrina de Lange**<br>
 Michael	Harper<br>
