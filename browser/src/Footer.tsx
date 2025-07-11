@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 // TODO: images to be updated
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import image1 from './OurDNA_Browser_Header.png'
+import cpgLogo from './CPG_logo-01.png'
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 10px 30px;
-  background-color: black;
+  background-color:  #428bca;
   color: white;
 
   a {
@@ -43,19 +43,11 @@ const Footer = () => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <svg width="200" viewBox="0 0 1500 300">
-          <image href={image1} />
-        </svg>
-        <svg width="200" viewBox="0 0 1500 300">
-          <image href={image1} />
-        </svg>
-        <svg width="200" viewBox="0 0 1500 300">
-          <image href={image1} />
+        <svg width="200" viewBox="0 0 824 256">
+          <image href={cpgLogo} />
         </svg>
       </ImageWrapper>
-      <p>
-      CPG acknowledges the First Australian peoples on whose traditional lands we live and work across the country and pay our respects to their elders past and present.
-      </p>
+      <p>The Centre for Population Genomics values diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone. We pay our respects to all Aboriginal and Torres Strait Islander cultures and to their Elders past and present. We gratefully accept the invitation in the Uluru Statement from the Heart "to walk with us in a movement of the Australian people for a better future".</p>
     </Wrapper>
   )
 }
