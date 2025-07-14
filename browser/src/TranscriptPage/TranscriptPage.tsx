@@ -140,10 +140,10 @@ const TranscriptPage = ({ datasetId, transcript }: Props) => {
           datasetOptions={{
             includeShortVariants: true,
             includeStructuralVariants: false,
-            includeExac: transcript.chrom !== 'M',
-            includeGnomad2: transcript.chrom !== 'M',
-            includeGnomad3: true,
-            includeGnomad3Subsets: transcript.chrom !== 'M',
+            includeExac: false,
+            includeGnomad2: false,
+            includeGnomad3: false,
+            includeGnomad3Subsets: false,
             includeGnomad4Subsets: true,
           }}
         >
