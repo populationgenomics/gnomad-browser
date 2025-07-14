@@ -349,7 +349,7 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
               </p>
             )}
           </GeneInfoColumn>
-          <ConstraintOrCooccurrenceColumn>
+          {/*<ConstraintOrCooccurrenceColumn>
             <TableSelectorWrapper>
               <TableSelector
                 selectedTableName={selectedTableName}
@@ -379,7 +379,7 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
                 }
               />
             )}
-          </ConstraintOrCooccurrenceColumn>
+          </ConstraintOrCooccurrenceColumn>*/}
         </GeneInfoColumnWrapper>
       </TrackPageSection>
       <RegionViewer
@@ -560,6 +560,7 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
         )}
 
         {/* eslint-disable-next-line no-nested-ternary */}
+        
         {hasStructuralVariants(datasetId) ? (
           <StructuralVariantsInGene datasetId={datasetId} gene={gene} zoomRegion={zoomRegion} />
         ) : // eslint-disable-next-line no-nested-ternary
