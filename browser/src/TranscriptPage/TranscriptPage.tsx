@@ -154,10 +154,10 @@ const TranscriptPage = ({ datasetId, transcript }: Props) => {
             <TranscriptInfo transcript={transcript} />
             <GeneFlags gene={transcript.gene} />
           </div>
-          <div>
+          {/*<div>
             <h2>Constraint {transcript.chrom !== 'M' && <InfoButton topic="constraint" />}</h2>
             <ConstraintTable datasetId={datasetId} geneOrTranscript={transcript} />
-          </div>
+          </div>*/}
         </TranscriptInfoColumnWrapper>
       </TrackPageSection>
       <RegionViewer
