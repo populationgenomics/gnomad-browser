@@ -323,12 +323,12 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
           selectedDataset={datasetId}
           datasetOptions={{
             includeShortVariants: true,
-            includeStructuralVariants: gene.chrom !== 'M',
-            includeCopyNumberVariants: true,
-            includeExac: gene.chrom !== 'M',
-            includeGnomad2: gene.chrom !== 'M',
-            includeGnomad3: true,
-            includeGnomad3Subsets: gene.chrom !== 'M',
+            includeStructuralVariants: false,
+            includeCopyNumberVariants: false,
+            includeExac: false,
+            includeGnomad2: false,
+            includeGnomad3: false,
+            includeGnomad3Subsets: false,
             includeGnomad4Subsets: true,
           }}
         >
