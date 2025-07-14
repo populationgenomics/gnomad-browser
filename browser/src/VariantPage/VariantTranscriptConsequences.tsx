@@ -28,7 +28,7 @@ const VariantTranscriptConsequences = ({ variant }: Props) => {
 
       <p>
         <Badge level="info">Note</Badge> We will provide this information in a coming minor release.
-        {/*The gene symbols shown below are provided by VEP and may
+        {/* The gene symbols shown below are provided by VEP and may
         differ from the symbol shown on gene pages. */}
       </p>
 

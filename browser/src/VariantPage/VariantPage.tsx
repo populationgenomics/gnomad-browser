@@ -13,7 +13,7 @@ import {
   hasLocalAncestryPopulations,
   isLiftoverSource,
   isLiftoverTarget,
-  usesGrch37,
+  // usesGrch37,
   isV3,
   isV3Subset,
   isV4,

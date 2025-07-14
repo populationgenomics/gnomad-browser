@@ -10,12 +10,12 @@ import {
   labelForDataset,
   ReferenceGenome,
 } from '@gnomad/dataset-metadata/metadata'
-import ConstraintTable from '../ConstraintTable/ConstraintTable'
+// import ConstraintTable from '../ConstraintTable/ConstraintTable'
 
 import DocumentTitle from '../DocumentTitle'
 import GeneFlags from '../GenePage/GeneFlags'
 import GnomadPageHeading from '../GnomadPageHeading'
-import InfoButton from '../help/InfoButton'
+// import InfoButton from '../help/InfoButton'
 import RegionViewer from '../RegionViewer/ZoomableRegionViewer'
 import { TrackPage, TrackPageSection } from '../TrackPage'
 import { useWindowSize } from '../windowSize'
@@ -154,10 +154,10 @@ const TranscriptPage = ({ datasetId, transcript }: Props) => {
             <TranscriptInfo transcript={transcript} />
             <GeneFlags gene={transcript.gene} />
           </div>
-          {/*<div>
+          {/* <div>
             <h2>Constraint {transcript.chrom !== 'M' && <InfoButton topic="constraint" />}</h2>
             <ConstraintTable datasetId={datasetId} geneOrTranscript={transcript} />
-          </div>*/}
+          </div> */}
         </TranscriptInfoColumnWrapper>
       </TrackPageSection>
       <RegionViewer
