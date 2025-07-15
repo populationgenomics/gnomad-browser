@@ -79,8 +79,6 @@ const fetchCoverage = async (esClient: any, { index, contig, regions, bucketSize
       },
     })
 
-    logger.info(`response ${response}`)
-
     return response.body.aggregations.coverage.buckets.map((bucket: any) => ({
       pos: bucket.key,
       mean: bucket.mean.value || 0,
