@@ -41,6 +41,10 @@ const ImageWrapper = styled.div`
 const AckWrapper = styled.div`
   width: 30%;
 
+  p {
+    font-size: 10px;
+  }
+
   @media (max-width: 300px) {
     display: flex;
     flex-direction: row;
