@@ -34,6 +34,12 @@ Caitlin	Morrison<br>
 Andreia	Pinho<br>
 Caitlin	Uren<br>
 
+## Rare Disease
+Sam Bryen<br>
+Rocio Rius<br>
+Cas Simons<br>
+Laura Wedd<br>
+
 ## Scientific Affairs
 **Hannah Nicholas**
 
@@ -45,6 +51,7 @@ Leonhard Gruenschloss<br>
 Miloslav Hyben<br>
 **Chethana Krishnakumar**<br>
 Vladislav Savelyev<br>
+Vivian Bakiris<br>
 
 ## Data Contributors
 Martin Delatycki<br>
