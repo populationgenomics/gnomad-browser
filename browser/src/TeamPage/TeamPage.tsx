@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { PageHeading } from '@gnomad/ui'
+// @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
 import dataGenerationContributors from '../../about/contributors/data-generation.md'
 import DocumentTitle from '../DocumentTitle'
 import InfoPage from '../InfoPage'
@@ -15,8 +16,8 @@ const TeamSection = styled.div`
 const TeamSectionList = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 80%;
+  align-items: left;
+  width: 100%;
   padding: 1rem;
   margin: 1rem auto;
 `
