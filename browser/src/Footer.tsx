@@ -22,18 +22,30 @@ const Wrapper = styled.div`
     text-decoration: none;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     flex-direction: column;
     padding: 10px;
   }
 `
 
 const ImageWrapper = styled.div`
-  @media (max-width: 900px) {
+  @media (max-width: 300px) {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    width: 70%;
+    margin-bottom: 5px;
+  }
+`
+
+const AckWrapper = styled.div`
+  width: 30%;
+
+  @media (max-width: 300px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30%;
     margin-bottom: 5px;
   }
 `
@@ -47,7 +59,9 @@ const Footer = () => {
           <image href={cpgLogo} />
         </svg>
       </ImageWrapper>
-      <p>The Centre for Population Genomics values diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone. We pay our respects to all Aboriginal and Torres Strait Islander cultures and to their Elders past and present. We gratefully accept the invitation in the Uluru Statement from the Heart &quot;to walk with us in a movement of the Australian people for a better future&quot;.</p>
+      <AckWrapper>
+        <p>The Centre for Population Genomics values diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone. We pay our respects to all Aboriginal and Torres Strait Islander cultures and to their Elders past and present. We gratefully accept the invitation in the Uluru Statement from the Heart &quot;to walk with us in a movement of the Australian people for a better future&quot;.</p>
+      </AckWrapper>
     </Wrapper>
   )
 }
