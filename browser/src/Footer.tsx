@@ -47,7 +47,7 @@ const Footer = () => {
           <image href={cpgLogo} />
         </svg>
       </ImageWrapper>
-      <p>The Centre for Population Genomics values diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone. We pay our respects to all Aboriginal and Torres Strait Islander cultures and to their Elders past and present. We gratefully accept the invitation in the Uluru Statement from the Heart \"to walk with us in a movement of the Australian people for a better future\".</p>
+      <p>The Centre for Population Genomics values diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone. We pay our respects to all Aboriginal and Torres Strait Islander cultures and to their Elders past and present. We gratefully accept the invitation in the Uluru Statement from the Heart &quot;"to walk with us in a movement of the Australian people for a better future&quot;".</p>
     </Wrapper>
   )
 }
