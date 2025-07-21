@@ -337,6 +337,7 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
     if (hasExomeVariant && variant.exome.freq[subset].ac === 0 && !jointFilters.includes('AC0')) {
       jointFilters.push('AC0')
     }
+
     const inSilicoPredictorsList = variant.in_silico_predictors ? createInSilicoPredictorsList(variant) : null
 
     return {
@@ -666,7 +667,6 @@ const fetchVariantsAgeDistribution = async (esClient: any, _subset: Subset) => {
   
   // TODO, update once age_distribution contains genome/exome records, 
   // ATM it is all combined, so we mockup those 2 records
-
   return {
       exome: (exome_age_distribution && exome_age_distribution.length > 0 && exome_age_distribution[0] ? exome_age_distribution[0]: empty_hist_rec),
       genome: (genome_age_distribution && genome_age_distribution.length > 0 && genome_age_distribution[0] ? exome_age_distribution[0]: empty_hist_rec),
