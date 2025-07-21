@@ -308,6 +308,8 @@ const createInSilicoPredictorsList = (variant: any) => {
 const shapeVariantSummary = (subset: Subset, context: any) => {
   const getConsequence = getConsequenceForContext(context)
 
+  logger.info(`shapeVariantSummary called`)
+
   return (variant: any) => {
     const transcriptConsequence = getConsequence(variant) || {}
     const { variantFlags, exomeFlags, genomeFlags } = getFlagsForContext(context, variant)
@@ -334,6 +336,8 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
     if (hasExomeVariant && variant.exome.freq[subset].ac === 0 && !jointFilters.includes('AC0')) {
       jointFilters.push('AC0')
     }
+    
+    logger.info(`shapeVariantSummary: ${JSON.stringify(variant)}`)
 
     const inSilicoPredictorsList = variant.in_silico_predictors ? createInSilicoPredictorsList(variant) : null
 
@@ -466,7 +470,7 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
       },
     })
 
-    logger.info(`fetchVariantsByGene, hits: ${JSON.stringify(hits)}`)
+    logger.info(`fetchVariantsByGene, hits: ${hits.length}`)
 
     const shapedHits = hits
       .map((hit: any) => hit._source.value)
@@ -476,6 +480,8 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
           variant.exome?.freq?.[subset]?.ac > 0
       )
       .map(shapeVariantSummary(subset, { type: 'gene', geneId: gene.gene_id }))
+
+    logger.info(`fetchVariantsByGene, shapedHits: ${shapedHits.length}`)
 
     return shapedHits
   } catch (error) {
