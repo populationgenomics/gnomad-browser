@@ -318,10 +318,10 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
     const { variantFlags, exomeFlags, genomeFlags } = getFlagsForContext(context, variant)
 
     const exomeFilters = variant.exome?.filters || []
-    const genomeFilters = variant.genome.filters || []
+    const genomeFilters = variant.genome?.filters || []
     const jointFilters = variant.joint?.filter || []
 
-    const subsetGenomeFreq = variant.genome.freq.all || {}
+    const subsetGenomeFreq = variant.genome?.freq?.all || {}
     const subsetJointFreq = variant.joint?.freq[subset] || {}
 
     const hasExomeVariant = variant.exome?.freq?.[subset]?.ac || false 
