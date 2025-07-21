@@ -308,8 +308,6 @@ const createInSilicoPredictorsList = (variant: any) => {
 const shapeVariantSummary = (subset: Subset, context: any) => {
   const getConsequence = getConsequenceForContext(context)
 
-  logger.info(`shapeVariantSummary called`)
-
   return (variant: any) => {
 
     logger.info(`shapeVariantSummary: ${JSON.stringify(variant)}`)
@@ -431,6 +429,8 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
 
   const pageSize = isLargeGene ? 500 : 10000
 
+  logger.info(`fetchVariantsByGene called for gene: ${gene.gene_id}, subset: ${subset}`)
+
   try {
     const filteredRegions = gene.exons.filter((exon: any) => exon.feature_type === 'CDS')
     const sortedRegions = filteredRegions.sort((r1: any, r2: any) => r1.xstart - r2.xstart)
@@ -454,8 +454,6 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
       },
     }))
 
-    logger.info(`fetchVariantsByGene, rangeQueries: ${JSON.stringify(rangeQueries)}`)
-
     const hits = await fetchAllSearchResults(esClient, {
       index: GNOMAD_V4_VARIANT_INDEX,
       type: '_doc',
@@ -471,8 +469,6 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
       },
     })
 
-    logger.info(`fetchVariantsByGene, hits: ${hits.length}`)
-
     const shapedHits = hits
       .map((hit: any) => hit._source.value)
       .filter(
@@ -482,7 +478,6 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
       )
       .map(shapeVariantSummary(subset, { type: 'gene', geneId: gene.gene_id }))
 
-    logger.info(`fetchVariantsByGene, shapedHits: ${shapedHits.length}`)
 
     return shapedHits
   } catch (error) {
