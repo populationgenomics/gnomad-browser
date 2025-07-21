@@ -337,7 +337,6 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
     if (hasExomeVariant && variant.exome.freq[subset].ac === 0 && !jointFilters.includes('AC0')) {
       jointFilters.push('AC0')
     }
-    
     const inSilicoPredictorsList = variant.in_silico_predictors ? createInSilicoPredictorsList(variant) : null
 
     return {
@@ -477,7 +476,6 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
           variant.exome?.freq?.[subset]?.ac > 0
       )
       .map(shapeVariantSummary(subset, { type: 'gene', geneId: gene.gene_id }))
-
 
     return shapedHits
   } catch (error) {
