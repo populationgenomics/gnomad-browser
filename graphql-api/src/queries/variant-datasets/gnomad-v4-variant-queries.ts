@@ -449,6 +449,8 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
       },
     }))
 
+    logger.info(`fetchVariantsByGene, rangeQueries: ${JSON.stringify(rangeQueries)}`)
+
     const hits = await fetchAllSearchResults(esClient, {
       index: GNOMAD_V4_VARIANT_INDEX,
       type: '_doc',
@@ -464,11 +466,13 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
       },
     })
 
+    logger.info(`fetchVariantsByGene, hits: ${JSON.stringify(hits)}`)
+
     const shapedHits = hits
       .map((hit: any) => hit._source.value)
       .filter(
         (variant: any) =>
-          (variant.genome.freq.all && variant.genome.freq.all.ac > 0) ||
+          (variant.genome?.freq.all && variant.genome?.freq.all.ac > 0) ||
           variant.exome?.freq?.[subset]?.ac > 0
       )
       .map(shapeVariantSummary(subset, { type: 'gene', geneId: gene.gene_id }))
