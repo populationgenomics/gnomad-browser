@@ -311,6 +311,9 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
   logger.info(`shapeVariantSummary called`)
 
   return (variant: any) => {
+
+    logger.info(`shapeVariantSummary: ${JSON.stringify(variant)}`)
+    
     const transcriptConsequence = getConsequence(variant) || {}
     const { variantFlags, exomeFlags, genomeFlags } = getFlagsForContext(context, variant)
 
@@ -337,8 +340,6 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
       jointFilters.push('AC0')
     }
     
-    logger.info(`shapeVariantSummary: ${JSON.stringify(variant)}`)
-
     const inSilicoPredictorsList = variant.in_silico_predictors ? createInSilicoPredictorsList(variant) : null
 
     return {
