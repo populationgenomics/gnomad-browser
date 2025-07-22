@@ -5,6 +5,7 @@ on:
     branches:
       - ourdna-browser
       - ourdna-browser-dev
+      - fix-empty-genome-on-variant-page
 
 permissions:
   id-token: write
