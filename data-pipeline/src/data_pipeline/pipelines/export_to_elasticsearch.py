@@ -71,19 +71,19 @@ def add_variant_document_id(ds):
         # exome=ds.variant_id,
         # coverage=ds.variant_id,
 
-        joint=ds.joint.annotate(
-            freq_comparison_stats=ds.joint.freq_comparison_stats.annotate(
-                contingency_table_test=hl.empty_set(hl.tstr),
-                # stat_union=hl.empty_set(hl.tstr)
-                ),
-            faf=hl.empty_set(hl.tstr), # | joint.faf 
+        # joint=ds.joint.annotate(
+        #     freq_comparison_stats=ds.joint.freq_comparison_stats.annotate(
+        #         contingency_table_test=hl.empty_set(hl.tstr),
+        #         # stat_union=hl.empty_set(hl.tstr)
+        #         ),
+        #     faf=hl.empty_set(hl.tstr), # | joint.faf 
 
-            # histograms=ds.variant_id,
-            # freq=ds.variant_id,
-            # fafmax=ds.variant_id,
-            # grpmax=ds.variant_id,
-            # flags=ds.variant_id,
-        ),
+        #     # histograms=ds.variant_id,
+        #     # freq=ds.variant_id,
+        #     # fafmax=ds.variant_id,
+        #     # grpmax=ds.variant_id,
+        #     # flags=ds.variant_id,
+        # ),
         
     )
 
@@ -520,8 +520,8 @@ DATASETS_CONFIG = {
     ##############################################################################################################
     "ourdna_bioheart_variants_v4": {
         "get_table": lambda: subset_table(
-            # add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
-            add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/test/annotated_browser_ht.ht"))
+            add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
+            # add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/test/browser.ht"))
         ),
         "args": {
             "index": "gnomad_v4_variants",
@@ -533,7 +533,7 @@ DATASETS_CONFIG = {
                 # NA in OurDNA fields:
                 # "caid",
                 "transcript_consequences.gene_id",
-                # "transcript_consequences.transcript_id",
+                "transcript_consequences.transcript_id",
                 # "vrs.alt.allele_id",
             ],
             "id_field": "document_id",
