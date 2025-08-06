@@ -61,6 +61,8 @@ def subset_table(ds):
 def add_xpos(ds):
     return ds.annotate(xpos=x_position(ds.locus))
 
+def add_transcript_id(ds):
+    return ds.annotate(transcript_id=ds.preferred_transcript_id)
 
 def add_variant_document_id(ds):
     return ds.annotate(
@@ -518,7 +520,7 @@ DATASETS_CONFIG = {
     ##############################################################################################################
     # OurDNA Specific tables
     ##############################################################################################################
-    "ourdna_bioheart_variants_v4": {
+    "ourdna_variants_v4": {
         "get_table": lambda: subset_table(
             add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
             # add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/test/browser.ht"))
@@ -541,9 +543,10 @@ DATASETS_CONFIG = {
             "block_size": 10_000,
         },
     },
-    "ourdna_bioheart_genes_grch38": {
+    "ourdna_genes_grch38": {
         "get_table": lambda: hl.read_table(
-            "gs://cpg-ourdna-browser-dev-test/genes/gnomad.genes.GRCh38.GENCODEv39.pext.ht"
+            # "gs://cpg-ourdna-browser-dev-test/genes/gnomad.genes.GRCh38.GENCODEv39.pext.ht"
+            "gs://cpg-ourdna-browser-dev-test/ourDNA-browser/gene_table.ht"
         ),
         "args": {
             "index": "genes_grch38",
@@ -552,26 +555,28 @@ DATASETS_CONFIG = {
             "block_size": 200,
         },
     },
-    "ourdna_bioheart_genes_grch38_noext": {
-        "get_table": lambda: hl.read_table("gs://cpg-ourdna-browser-dev-test/genes/gnomad.genes.GRCh38.GENCODEv39.ht"),
-        "args": {
-            "index": "genes_grch38_noext",
-            "index_fields": ["gene_id", "symbol_upper_case", "search_terms", "xstart", "xstop"],
-            "id_field": "gene_id",
-            "block_size": 200,
-        },
-    },
-    "ourdna_bioheart_v3_genome_coverage": {
+    "ourdna_v3_genome_coverage": {
         "get_table": lambda: add_xpos(
             hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/genome/merged_coverage.ht")
         ),
         "args": {"index": "gnomad_v3_genome_coverage", "id_field": "xpos", "num_shards": 48, "block_size": 100_000},
     },
-    "ourdna_bioheart_v4_exome_coverage": {
+    "ourdna_v4_exome_coverage": {
         "get_table": lambda: add_xpos(
             hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/merged_coverage.ht")
         ),
         "args": {"index": "gnomad_v4_exome_coverage", "id_field": "xpos", "num_shards": 48, "block_size": 50_000},
+    },
+    "ourdna_transcripts_grch38": {
+        "get_table": lambda: add_transcript_id(
+            hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/transcripts_grch38_base.ht")
+        ),
+        "args": {
+            "index": "transcripts_grch38",
+            "index_fields": ["transcript_id"],
+            "id_field": "transcript_id",
+            "block_size": 1_000,
+        },
     },
 }
 

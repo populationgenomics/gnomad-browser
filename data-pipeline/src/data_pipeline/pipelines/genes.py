@@ -229,6 +229,11 @@ pipeline.add_download_task(
     f"/{external_sources_subdir}/gtex/v10/GTEx_Analysis_v10_RSEMv1.3.3_transcripts_tpm.txt.gz",
 )
 
+# MH: missing pipeline task
+# GTEx_Analysis_v10_RSEMv1.3.3_transcripts_tpm.txt.gz needs to be recompressed to bgz format for the next stage:
+# run this command and upload to output bucket:
+# gzip -dc GTEx_Analysis_v10_RSEMv1.3.3_transcripts_tpm.txt.gz | bgzip -o GTEx_Analysis_v10_RSEMv1.3.3_transcripts_tpm.txt.bgz         
+
 pipeline.add_download_task(
     "download_gtex_v10_sample_attributes",
     "https://storage.googleapis.com/adult-gtex/annotations/v10/metadata-files/GTEx_Analysis_v10_Annotations_SampleAttributesDS.txt",
@@ -241,12 +246,12 @@ pipeline.add_task(
     "/gtex/gtex_v10_tissue_expression.ht",
     {
         # "transcript_tpms_path": "gs://gnomad-v4-data-pipeline/output/external_sources/gtex/v10/GTEx_Analysis_v10_RSEMv1.3.3_transcripts_tpm.txt.bgz",
-        "transcript_tpms_path": "gs://cpg-ourdna-browser-dev-test/external_sources/gtex/v10/GTEx_Analysis_v10_RSEMv1.3.3_transcripts_tpm.txt.gz",
+        "transcript_tpms_path": "gs://cpg-ourdna-browser-dev-test/output/external_sources/gtex/v10/GTEx_Analysis_v10_RSEMv1.3.3_transcripts_tpm.txt.bgz",
         "sample_annotations_path": pipeline.get_task("download_gtex_v10_sample_attributes"),
     },
     {
         "tmp_path": "/tmp",
-        "recompress": True,
+        "recompress": False,
     },
 )
 

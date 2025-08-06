@@ -12,31 +12,15 @@ def prepare_gtex_expression_data(transcript_tpms_path, sample_annotations_path, 
     bgz_compressed_transcript_tpms_path = transcript_tpms_path
 
     if recompress:
+        # MH: this part of code would not work for hail table with ~10K columns
+        # rather re-compress bgz with:
+        # gzip -dc *.gz | bgzip -o *.bgz
+        # 
         # Recompress tpms file with block gzip so that import_matrix_table will read the file
         ds = hl.import_table(transcript_tpms_path, force=True)
-        print("import_table completed")
-        n_rows = ds.count()
-        print(f"Number of rows: {n_rows}")
-
-        # print("ds", ds)
-        print("ds.describe", ds.describe())
-
-        nds = ds.to_matrix_table(row_key=['transcript_id', 'gene_id'], col_key=['col_idx'])
-
-        print("nds.describe", nds.describe())
-
-        ds = nds
-
-        # print("ds.globals.show()", ds.globals.show())
-        # print("ds.show()", ds.show())
-        # tmp_transcript_tpms_path = tmp_path + "/" + transcript_tpms_path.split("/")[-1].replace(".gz", ".bgz")
-
-        # top_x_rows = ds.head(n_rows // 4)
-        # top_x_rows.export(tmp_transcript_tpms_path)
-
-        # # ds.export(tmp_transcript_tpms_path)
-        # print("export completed")
-        # bgz_compressed_transcript_tpms_path = tmp_transcript_tpms_path
+        tmp_transcript_tpms_path = tmp_path + "/" + transcript_tpms_path.split("/")[-1].replace(".gz", ".bgz")
+        ds.export(tmp_transcript_tpms_path)
+        bgz_compressed_transcript_tpms_path = tmp_transcript_tpms_path
 
     # Import data
     ds = hl.import_matrix_table(
