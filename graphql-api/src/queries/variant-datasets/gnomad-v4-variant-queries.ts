@@ -583,8 +583,6 @@ const fetchVariantsByTranscript = async (esClient: any, transcript: any, subset:
     },
   })
 
-  logger.info(`fetchVariantsByTranscript, hits: ${JSON.stringify(hits)}`)
-
   return hits
     .map((hit: any) => hit._source.value)
     .filter(
