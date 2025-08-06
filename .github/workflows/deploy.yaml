@@ -5,6 +5,7 @@ on:
     branches:
       - ourdna-browser
       - ourdna-browser-dev
+      - updating-ancestry-labels
 
 permissions:
   id-token: write
