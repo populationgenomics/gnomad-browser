@@ -19,7 +19,7 @@ import { SectionHeading } from '../help/HelpPage'
 import InfoPage from '../InfoPage'
 import Link from '../Link'
 
-import gnomadExomeGenomeCountsByVersion from './BarGraphData/gnomADExomeGenomeCountsByVersion.json'
+import ourdnaExomeGenomeCountsByVersion from './BarGraphData/ourdnaExomeGenomeCountsByVersion.json'
 import gnomadV4GeneticAncestryCounts from './BarGraphData/gnomadV4GeneticAncestryCounts.json'
 import gnomadV4GeneticDiversityCounts from './BarGraphData/gnomadV4GeneticDiversityCounts.json'
 import NumberOfVariantsInGnomadList, { SectionList } from './NumberOfVariantsInGnomadList'
@@ -207,9 +207,9 @@ const StatsPage = () => {
             <ResponsiveHalfWidthColumn>
               <div style={{ marginTop: '4em', marginBottom: '7em', minWidth: '550px' }}>
                 <StackedBarGraph
-                  title="Sample size across major ExAC/gnomAD releases"
-                  barColors={gnomadExomeGenomeCountsByVersion.colors}
-                  barValues={gnomadExomeGenomeCountsByVersion.data}
+                  title="Sample size across major OurDNA releases"
+                  barColors={ourdnaExomeGenomeCountsByVersion.colors}
+                  barValues={ourdnaExomeGenomeCountsByVersion.data}
                   height={400}
                   formatTooltip={barGraphTooltip}
                   xLabel=""
