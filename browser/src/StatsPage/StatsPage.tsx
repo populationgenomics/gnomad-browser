@@ -168,8 +168,8 @@ const StatsHighlightBlock = ({
   )
 }
 
-const gnomadBlue = '#0E6FBF'
-const gnomadGreen = '#508A14'
+const gnomadBlue = '#F05436'
+const gnomadGreen = '#3646A8'
 
 const barGraphTooltip = (row: any) => (
   <>
