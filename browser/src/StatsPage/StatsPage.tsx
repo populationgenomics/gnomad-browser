@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import gnomadV4AgeDistribution from '@gnomad/dataset-metadata/datasets/gnomad-v4/ageDistribution.json'
+import gnomadV4AgeDistribution from '@gnomad/dataset-metadata/datasets/ourdna-v1/ageDistribution.json'
 import { ExternalLink, PageHeading } from '@gnomad/ui'
 
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
