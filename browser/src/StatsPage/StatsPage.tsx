@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import gnomadV4AgeDistribution from '@gnomad/dataset-metadata/datasets/ourdna-v1/ageDistribution.json'
+import ourdnaAgeDistribution from '@gnomad/dataset-metadata/datasets/ourdna-v1/ageDistribution.json'
 import { ExternalLink, PageHeading } from '@gnomad/ui'
 
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
@@ -241,10 +241,10 @@ const StatsPage = () => {
                   <p>Exomes</p>
                   <Histogram
                     // @ts-expect-error TS(2322) FIXME: Type '{ binEdges: any; binValues: any; nSmaller: a... Remove this comment to see the full error message
-                    binEdges={gnomadV4AgeDistribution.exome.bin_edges}
-                    binValues={gnomadV4AgeDistribution.exome.bin_freq}
-                    nSmaller={gnomadV4AgeDistribution.exome.n_smaller}
-                    nLarger={gnomadV4AgeDistribution.exome.n_larger}
+                    binEdges={ourdnaAgeDistribution.exome.bin_edges}
+                    binValues={ourdnaAgeDistribution.exome.bin_freq}
+                    nSmaller={ourdnaAgeDistribution.exome.n_smaller}
+                    nLarger={ourdnaAgeDistribution.exome.n_larger}
                     barColor={ourdnaOrange}
                     xLabel="Age"
                     yLabel="Individuals"
@@ -257,10 +257,10 @@ const StatsPage = () => {
                   <p>Genomes</p>
                   <Histogram
                     // @ts-expect-error TS(2322) FIXME: Type '{ binEdges: any; binValues: any; nSmaller: a... Remove this comment to see the full error message
-                    binEdges={gnomadV4AgeDistribution.genome.bin_edges}
-                    binValues={gnomadV4AgeDistribution.genome.bin_freq}
-                    nSmaller={gnomadV4AgeDistribution.genome.n_smaller}
-                    nLarger={gnomadV4AgeDistribution.genome.n_larger}
+                    binEdges={ourdnaAgeDistribution.genome.bin_edges}
+                    binValues={ourdnaAgeDistribution.genome.bin_freq}
+                    nSmaller={ourdnaAgeDistribution.genome.n_smaller}
+                    nLarger={ourdnaAgeDistribution.genome.n_larger}
                     barColor={ourdnaPurple}
                     xLabel="Age"
                     yLabel="Individuals"
