@@ -19,12 +19,10 @@ export default () => (
         GitHub.
       </ExternalLink>
     </p>
-
-    <p>
+    {/* <p>
       For questions about the OurDNA dataset, please see our{' '}
       <Link to="/news">blog</Link>.
-    </p>
-
+    </p> */}
     <p>
       Follow us on Instagram{' '}
        {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
@@ -33,10 +31,8 @@ export default () => (
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="@ourdna_australia">Facebook</ExternalLink>.
     </p>
-
-    <br/>
     <p>
-      For all other questions, please email us.
+      For all other questions, please <ExternalLink href="servicedesk@populationgenomics.com">email us</ExternalLink>.
     </p>
   </InfoPage>
 )
