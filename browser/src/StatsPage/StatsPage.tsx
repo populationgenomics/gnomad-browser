@@ -184,24 +184,24 @@ const StatsPage = () => {
     <InfoPage>
       <DocumentTitle title="Stats" />
       {/* @ts-expect-error */}
-      <PageHeading id="gnomad-stats">What&apos;s in gnomAD</PageHeading>
+      <PageHeading id="OurDNA-stats">What&apos;s in OurDNA</PageHeading>
       <div>
         <StatsSection style={{ marginTop: '2em' }}>
           <TwoColumnLayout>
             <div>
-              <h2>gnomAD v4 includes 807,162 individuals</h2>
+              <h2>OurDNA v1 includes 12,885 individuals</h2>
               <SectionList>
                 <li>
                   730,947 <span style={{ color: gnomadBlue }}>exomes</span>
                   <SectionList>
-                    <li>314,392 in the non-UKB subset</li>
+                    <li>Lorem ipsum</li>
                   </SectionList>
                 </li>
                 <li>
                   76,215 <span style={{ color: gnomadGreen }}>genomes</span>
                 </li>
               </SectionList>
-              <h2>v4 variants</h2>
+              <h2>OurDNA v1 variants</h2>
               <NumberOfVariantsInGnomadList />
             </div>
             <ResponsiveHalfWidthColumn>
