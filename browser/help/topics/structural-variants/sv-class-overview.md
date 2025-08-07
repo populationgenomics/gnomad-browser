@@ -1,6 +1,6 @@
 ---
 id: sv-class-overview
-title: 'Classes of structural variants in gnomAD'
+title: 'Classes of structural variants in OurDNA'
 ---
 
 Structural variants (SVs) are defined as genomic rearrangements involving at least 50bp of DNA, and are categorized into mutational classes based on their breakpoint signature(s) and/or changes in copy number.
@@ -15,4 +15,4 @@ Additionally, each SV can be described as _canonical_ or _complex_:
 
 Each SV type indicated in the filter row has additional information on each class. Hover over each SV type with your mouse for now details. Each variant page also contains information for the SV class relevant for that SV.
 
-For more details on the detection and categorization of SVs in gnomAD, please refer to the [gnomAD SV paper](https://broad.io/gnomad_sv), this [blog post](https://gnomad.broadinstitute.org/news/2019-03-structural-variants-in-gnomad/), or the other help text fields located on this page.
+For more details on the detection and categorization of SVs in OurDNA, please refer to the [OurDNA SV paper](https://broad.io/gnomad_sv), this [blog post](https://gnomad.broadinstitute.org/news/2019-03-structural-variants-in-gnomad/), or the other help text fields located on this page.

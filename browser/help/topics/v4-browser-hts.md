@@ -1,27 +1,27 @@
 ---
 id: v4-browser-hts
-title: 'gnomAD v4 Browser Hail Tables'
+title: 'OurDNA v4 Browser Hail Tables'
 ---
 
-In addition to our [variants tables](/downloads#v4-variants), we release two data tables underlying the gnomAD browser. These tables enable our users to more easily incorporate gnomAD data into external pipelines and analyses in a manner consistent with what they see in the browser.
+In addition to our [variants tables](/downloads#v4-variants), we release two data tables underlying the OurDNA browser. These tables enable our users to more easily incorporate OurDNA data into external pipelines and analyses in a manner consistent with what they see in the browser.
 
-## gnomAD v4.1 exome/genome/joint variant table
+## OurDNA v4.1 exome/genome/joint variant table
 
-To convert the standard gnomAD variant release tables into a format more suitable for browser display, we join the exome, genome, and joint tables on locus/allele to create a single table. This process ensures that they share the same site-level annotations, thus saving space and optimizing database/API queries. Additionally, allele counts and frequencies are structured in a JSON-like format that is more easily consumable by web applications. The table may also include subset data not visible in the browser.
+To convert the standard OurDNA variant release tables into a format more suitable for browser display, we join the exome, genome, and joint tables on locus/allele to create a single table. This process ensures that they share the same site-level annotations, thus saving space and optimizing database/API queries. Additionally, allele counts and frequencies are structured in a JSON-like format that is more easily consumable by web applications. The table may also include subset data not visible in the browser.
 
 Each row (i.e., variant) in this table will have distinct allele frequency information and quality metrics depending whether it was present in the exome or genome callsets but will share common annotations such as [VEP annotations](https://useast.ensembl.org/info/docs/tools/vep/index.html) and _in silico_ predictors.
 
 The script for how this table is created can be found [here](https://github.com/broadinstitute/gnomad-browser/blob/main/data-pipeline/src/data_pipeline/pipelines/gnomad_v4_variants.py).
 
-## gnomAD v4.1/v2.1 genes tables
+## OurDNA v4.1/v2.1 genes tables
 
-These tables underlie the gene models data seen in the browser, which contains detailed information on exon-coding regions, transcripts, identifiers, gene constraint, and co-occurrence data. The data from these tables are derived from [GENCODE](https://www.gencodegenes.org/human/release_39.html), the [HUGO Gene Nomenclature Committee (HGNC)](https://www.genenames.org/), [MANE transcripts](https://www.ncbi.nlm.nih.gov/refseq/MANE/), [GTEx](https://gtexportal.org/home/) (coming soon), and from gnomAD secondary analyses.
+These tables underlie the gene models data seen in the browser, which contains detailed information on exon-coding regions, transcripts, identifiers, gene constraint, and co-occurrence data. The data from these tables are derived from [GENCODE](https://www.gencodegenes.org/human/release_39.html), the [HUGO Gene Nomenclature Committee (HGNC)](https://www.genenames.org/), [MANE transcripts](https://www.ncbi.nlm.nih.gov/refseq/MANE/), [GTEx](https://gtexportal.org/home/) (coming soon), and from OurDNA secondary analyses.
 
 The script for how this table is created can be found [here](https://github.com/broadinstitute/gnomad-browser/blob/main/data-pipeline/src/data_pipeline/pipelines/genes.py).
 
 # Browser Hail Table Field Descriptions
 
-#### gnomAD v4.1 browser variant Hail Table annotations
+#### OurDNA v4.1 browser variant Hail Table annotations
 
 Global fields:
 
@@ -39,7 +39,7 @@ Row fields:
   - `flags`: A set containing the flags about the region this variant falls in. See `region_flags` description on the v4 Hail Tables [help page](v4-hts#region-flags).
   - `freq`: A struct containing variant frequency information for each subset.
   - `all`: Struct containing variant frequency information calculated across all samples.
-    - `ac`: The alternate allele count for this variant calculated across high-quality genotypes (genotypes with depth >= 10, genotype quality >= 20 and minor allele balance > 0.2 for heterozygous genotypes). This is the allele count displayed in the gnomAD browser (not `ac_raw` below).
+    - `ac`: The alternate allele count for this variant calculated across high-quality genotypes (genotypes with depth >= 10, genotype quality >= 20 and minor allele balance > 0.2 for heterozygous genotypes). This is the allele count displayed in the OurDNA browser (not `ac_raw` below).
     - `ac_raw`: The alternate allele count for this variant calculated across unadjusted genotypes.
     - `an`: Total number of alleles for this locus.
     - `hemizygote_count`: Number of hemizygous alternate individuals.
@@ -86,19 +86,19 @@ Row fields:
 - `genome`: Struct containing information about this variant from genome data. Contains all the same fields as the exome data, with the exception that the subsets are (`all` `hgdp`, `tgp`) instead of (`all`, `non_ukb`).
 - `joint`: Struct containing information about this variant for the joint exome and genome data.
   - `freq`: A struct containing variant frequency information.
-    - `all`: Struct containing variant frequency information calculated across the combined (joint) gnomAD exomes and genomes. Contains the same fields as exomes `freq.all` struct.
+    - `all`: Struct containing variant frequency information calculated across the combined (joint) OurDNA exomes and genomes. Contains the same fields as exomes `freq.all` struct.
   - `faf`: Array of combined exomes and genomes filtering allele frequency information. See `faf` description on the v4 Hail Tables [help page](/v4-hts#joint-faf).
   - `fafmax`: Struct containing information about the maximum FAF. Contains same fields as exomes `fafmax.gnomad` struct.
   - `grpmax`: Allele frequency information for the non-bottlenecked genetic ancestry group with the maximum alelle frequency. See `grpmax` description on the v4 Hail Tables [help page](/v4-hts#joint-grpmax).
-  - `histograms`: Variant information histograms from the joint gnomAD exomes and genomes. See `histograms` description on the v4 Hail Tables [help page](v4-hts#joint-histograms).
+  - `histograms`: Variant information histograms from the joint OurDNA exomes and genomes. See `histograms` description on the v4 Hail Tables [help page](v4-hts#joint-histograms).
     - `qual_hists`: Genotype quality metric histograms for high quality genotypes. See v4 Hail Tables [help page](v4-hts#joint-histograms).
     - `raw_qual_hists`: Genotype quality metric histograms for all genotypes as opposed to high quality genotypes. See v4 Hail Tables [help page](v4-hts#joint-histograms).
     - `age_hists`: Histograms containing age information for release samples. See v4 Hail Tables [help page](v4-hts#joint-age-histograms)
   - `flags`: Set containing flags about joint exome and genome data, possible values are [`discrepant_frequencies`, `not_called_in_exomes`, and `not_called_in_genomes`].
-  - `freq_comparison_stats`: Struct containing results from contingency table and Cochran-Mantel-Haenszel tests comparing allele frequencies between the gnomAD exomes and genomes. See `freq_comparison_stats` description on the v4 Hail Tables [help page](/v4-hts#joint-freq-comparison-stats).
+  - `freq_comparison_stats`: Struct containing results from contingency table and Cochran-Mantel-Haenszel tests comparing allele frequencies between the OurDNA exomes and genomes. See `freq_comparison_stats` description on the v4 Hail Tables [help page](/v4-hts#joint-freq-comparison-stats).
 - `rsids`: dbSNP reference SNP identification (rsID) numbers.
 - `in_silico_predictors`: Variant prediction annotations. Struct contains prediction scores from multiple in silico predictors. See `in_silico_predictors` description on the v4 Hail Tables [help page](v4-hts#in-silico-predictors).
-- `variant_id`: gnomAD variant ID.
+- `variant_id`: OurDNA variant ID.
 - `faf95_joint`: A struct containing joint (exome + genome) FAF information (95% CI).
   - `grpmax`: Groupmax FAF value for all genetic ancestry groups across exomes + genomes.
   - `grpmax_gen_anc`: Genetic ancestry group associated with the value `grpmax` above.
@@ -145,7 +145,7 @@ Row fields:
     - `end`: The end position of the Allele.
     - `state`: A VRS Sequence Expression that corresponds to the nucleotide or amino acid sequence of the Allele.
 
-#### gnomAD v4.1. browser gene models Hail Table annotations
+#### OurDNA v4.1. browser gene models Hail Table annotations
 
 Global fields:
 
@@ -210,7 +210,7 @@ Row fields:
   - `refseq_version`: RefSeq version.
 - `preferred_transcript_id`: Transcript shown on the gene page by default. Field contains MANE Select transcript ID if it exists, otherwise contains Ensembl canonical transcript ID.
 - `preferred_transcript_source`: Source of transcript ID used for `preferred_transcript_id` field; either "`mane_select`" or "`ensembl_canonical`".
-- `gnomad_constraint`: Struct containing gnomAD constraint information for gene. Struct is only present on the GRCh37 Hail Table.
+- `gnomad_constraint`: Struct containing OurDNA constraint information for gene. Struct is only present on the GRCh37 Hail Table.
   - `gene`: Gene name.
   - `transcript`: Transcript ID.
   - `gene_id`: Unique gene ID.

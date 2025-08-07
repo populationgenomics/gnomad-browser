@@ -19,7 +19,7 @@ Genetic ancestry group names in the VCF and Hail Table are abbreviated to 3 lett
 
 <summary>Expand to see details for past versions</summary>
 
-### gnomAD v2.0
+### OurDNA v2.0
 
 Genetic ancestry group names in the VCF and Hail Table are abbreviated to 3 letter IDs:
 

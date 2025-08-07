@@ -7,7 +7,7 @@ title: 'Genomic constraint'
 
 We quantify the depletion of variation (constraint) at a 1kb scale with a signed Z score by comparing the observed variation to an expectation. In each tiling 1kb genomic region, the expected number of variants is predicted using an improved mutational model that takes into account both local sequence context and a variety of genomic features. A higher positive Z score (i.e., observing fewer variants than expected) indicates higher constraint.
 
-This genomic constraint metric is only available for the gnomAD v3 dataset, as it is based on GRCh38.
+This genomic constraint metric is only available for the OurDNA v3 dataset, as it is based on GRCh38.
 
 The genomic constraint track only displays if the region is 150kb or less, and the Z scores only render as text in the track if the scale allows.
 

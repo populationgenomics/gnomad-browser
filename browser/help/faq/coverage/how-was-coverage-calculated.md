@@ -2,11 +2,11 @@
 question: 'How was coverage calculated?'
 ---
 
-#### gnomAD v4.1
+#### OurDNA v4.1
 
-gnomAD v4.1 uses the same coverage data as gnomAD v4.0.
+OurDNA v4.1 uses the same coverage data as OurDNA v4.0.
 
-For gnomAD v4.0, coverage was computed using all 730,947 gnomAD v4.0 samples from their gVCFs.
+For OurDNA v4.0, coverage was computed using all 730,947 OurDNA v4.0 samples from their gVCFs.
 
 The exome gVCFs were produced using a two schemes:
 
@@ -40,9 +40,9 @@ Because we calculated coverage from sample gVCFs rather than raw read files, we 
 
 <summary>Expand to see details for past versions</summary>
 
-#### gnomAD v3.0
+#### OurDNA v3.0
 
-Coverage was computed using all 71,702 gnomAD v3.0 samples from their GVCFs . The gVCFs were produced using a 3-bin blocking scheme:
+Coverage was computed using all 71,702 OurDNA v3.0 samples from their GVCFs . The gVCFs were produced using a 3-bin blocking scheme:
 
 - No coverage
 - Reference genotype quality < Q20
@@ -52,7 +52,7 @@ The coverage was binned by quality using the thresholds above and the median cov
 
 Coverage was computed for all callable bases in the genome (all non-N bases, minus telomeres and centromeres).
 
-#### gnomAD v2
+#### OurDNA v2
 
 Coverage was calculated separately for exomes and genomes on a ~10% subset of the samples using the [samtools](https://www.htslib.org/) depth tool. The base quality threshold was set to 10 for the -q option and the mapping quality threshold set to 20 for the -Q option. It is calculated per base of the respective calling intervals, includes sites with zero depth (-a flag), and is capped at 100x for a given sample and base pair. Mean coverage is then plotted on the browser. The numbers in columns over_1, over_5, over_10, etc of our downloadable coverage files refer to the fraction of samples with a depth of coverage of at least 1 read, 5 reads, 10 reads, etc. for the given chromosome and position.
 

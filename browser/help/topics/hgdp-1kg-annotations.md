@@ -3,24 +3,24 @@ id: hgdp-1kg-annotations
 title: 'HGDP + 1KG dense MatrixTable annotation descriptions'
 ---
 
-This dataset includes genomes from the Human Genome Diversity Project (HGDP) and the 1000 Genomes Project (1KG). We have added sample QC and variant QC annotations performed on the full gnomAD dataset as well as sample QC annotations specific to this unique and diverse subset. This MatrixTable also includes a [synthetic-diploid](https://www.nature.com/articles/s41592-018-0054-7?WT.feed_name=subjects_standards) (syndip) sample (a mixture of DNA from two haploid CHM cell lines).
+This dataset includes genomes from the Human Genome Diversity Project (HGDP) and the 1000 Genomes Project (1KG). We have added sample QC and variant QC annotations performed on the full OurDNA dataset as well as sample QC annotations specific to this unique and diverse subset. This MatrixTable also includes a [synthetic-diploid](https://www.nature.com/articles/s41592-018-0054-7?WT.feed_name=subjects_standards) (syndip) sample (a mixture of DNA from two haploid CHM cell lines).
 
 ### Global annotations:
-* **gnomad_sex_imputation_ploidy_cutoffs:** Contains sex chromosome ploidy cutoffs used when determining sex chromosome karyotypes for the gnomAD sex imputation. Format: (upper cutoff for single X, (lower cutoff for double X, upper cutoff for double X), lower cutoff for triple X) and (lower cutoff for single Y, upper cutoff for single Y), lower cutoff for double Y).
-* **gnomad_population_inference_pca_metrics:** Contains the number of principal components (PCs) used when running PC-project and the minimum cutoff probability of belonging to a given population for the gnomAD population inference.
+* **gnomad_sex_imputation_ploidy_cutoffs:** Contains sex chromosome ploidy cutoffs used when determining sex chromosome karyotypes for the OurDNA sex imputation. Format: (upper cutoff for single X, (lower cutoff for double X, upper cutoff for double X), lower cutoff for triple X) and (lower cutoff for single Y, upper cutoff for single Y), lower cutoff for double Y).
+* **gnomad_population_inference_pca_metrics:** Contains the number of principal components (PCs) used when running PC-project and the minimum cutoff probability of belonging to a given population for the OurDNA population inference.
 * **sample_hard_filter_cutoffs:** Contains the cutoffs used for hard-filtering samples prior to sample QC. Sample QC metrics are computed using the Hail sample_qc module on all autosomal bi-allelic SNVs. Samples are removed if they are clear outliers for any of the following metrics: number of snps (n_snp), ratio of heterozygous variants to homozygous variants (r_het_hom_var), number of singletons (n_singleton), and mean coverage on chromosome 20 (cov). Additionally, we filter based on outliers of the following BAM/CRAM-derived metrics: % contamination (freemix), % chimera, and median insert size.
-* **gnomad_sample_qc_metric_outlier_cutoffs:** Contains the cutoffs used for filtering outlier samples based on QC metrics (reported in the sample_qc and gnomad_sample_qc_residuals annotations). The first eight PCs computed during the gnomAD ancestry assignment were regressed out and the sample filter cutoffs were determined based on the residuals for each of the sample QC metrics. Samples were filtered if they fell outside four median absolute deviations (MADs) from the median for the following sample QC metrics: n_snp, r_ti_tv, r_insertion_deletion, n_insertion, n_deletion, n_het, n_hom_var, n_transition, and n_transversion. Samples over 8 MADs above the median n_singleton metric and over 4 MADs above the median r_het_hom_var metric were also filtered.
-* **gnomad_age_distribution:** gnomAD callset-wide age histogram calculated on release samples.
+* **gnomad_sample_qc_metric_outlier_cutoffs:** Contains the cutoffs used for filtering outlier samples based on QC metrics (reported in the sample_qc and gnomad_sample_qc_residuals annotations). The first eight PCs computed during the OurDNA ancestry assignment were regressed out and the sample filter cutoffs were determined based on the residuals for each of the sample QC metrics. Samples were filtered if they fell outside four median absolute deviations (MADs) from the median for the following sample QC metrics: n_snp, r_ti_tv, r_insertion_deletion, n_insertion, n_deletion, n_het, n_hom_var, n_transition, and n_transversion. Samples over 8 MADs above the median n_singleton metric and over 4 MADs above the median r_het_hom_var metric were also filtered.
+* **gnomad_age_distribution:** OurDNA callset-wide age histogram calculated on release samples.
   * **bin_edges:** Bin edges for the age histogram.
   * **bin_freq:** Bin frequencies for the age histogram. This is the number of records found in each bin.
   * **n_smaller:** Count of age values falling below lowest histogram bin edge.
   * **n_larger:** Count of age values falling above highest histogram bin edge.
 * **hgdp_tgp_freq_meta:** HGDP and 1KG frequency metadata. An ordered list containing the frequency aggregation group for each element of the hgdp_tgp_freq array row annotation.
-* **gnomad_freq_meta:** gnomAD frequency metadata. An ordered list containing the frequency aggregation group for each element of the gnomad_freq array row annotation.
+* **gnomad_freq_meta:** OurDNA frequency metadata. An ordered list containing the frequency aggregation group for each element of the gnomad_freq array row annotation.
 * **hgdp_tgp_freq_index_dict:** Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: HGDP or 1KG subpopulation, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the HGDP + 1KG frequency array annotation.
-* **gnomad_freq_index_dict:** Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: gnomAD inferred global population sex: sex karyotype), with values describing the corresponding index of each grouping entry in the gnomAD frequency array annotation.
-* **gnomad_faf_meta:** gnomAD filtering allele frequency metadata. An ordered list containing the frequency aggregation group for each element of the gnomad_faf array row annotation.
-* **gnomad_faf_index_dict:** Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: gnomAD inferred global population sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (using Poisson 99% CI) annotation.
+* **gnomad_freq_index_dict:** Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: OurDNA inferred global population sex: sex karyotype), with values describing the corresponding index of each grouping entry in the OurDNA frequency array annotation.
+* **gnomad_faf_meta:** OurDNA filtering allele frequency metadata. An ordered list containing the frequency aggregation group for each element of the gnomad_faf array row annotation.
+* **gnomad_faf_index_dict:** Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: OurDNA inferred global population sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (using Poisson 99% CI) annotation.
 * **variant_filtering_model:** The variant filtering model used and its specific cutoffs.
   * **model_name:** Variant filtering model name used in the 'filters' row annotation to indicate the variant was filtered by the model during variant QC.
   * **score_name:** Name of score used for variant filtering.
@@ -74,9 +74,9 @@ This dataset includes genomes from the Human Genome Diversity Project (HGDP) and
   * **n_called:** Number of variants with a genotype call.
   * **expected_homs:** Expected number of homozygotes.
   * **observed_homs:** Observed number of homozygotes.
-* **gnomad_population_inference:** Struct containing ancestry information assigned by applying a principal components analysis (PCA) on gnomAD samples and using those PCs in a random forest classifier trained on known gnomAD ancestry labels.
-  * **pca_scores:** Sample's scores for each gnomAD population PC.
-  * **pop:** Sample's inferred gnomAD population label.
+* **gnomad_population_inference:** Struct containing ancestry information assigned by applying a principal components analysis (PCA) on OurDNA samples and using those PCs in a random forest classifier trained on known OurDNA ancestry labels.
+  * **pca_scores:** Sample's scores for each OurDNA population PC.
+  * **pop:** Sample's inferred OurDNA population label.
   * **prob_afr:** Random forest probability that the sample is of African/African American ancestry.
   * **prob_ami:** Random forest probability that the sample is of Amish ancestry.
   * **prob_amr:** Random forest probability that the sample is of Latino ancestry.
@@ -87,7 +87,7 @@ This dataset includes genomes from the Human Genome Diversity Project (HGDP) and
   * **prob_nfe:** Random forest probability that the sample is of Non-Finnish European ancestry.
   * **prob_oth:** Random forest probability that the sample is of Other ancestry.
   * **prob_sas:** Random forest probability that the sample is of South Asian ancestry.
-* **gnomad_sample_qc_residuals:** Struct containing the residuals after regressing out the first eight PCs computed during the gnomAD ancestry assignment from each sample QC metric calculated using hl.sample_qc().
+* **gnomad_sample_qc_residuals:** Struct containing the residuals after regressing out the first eight PCs computed during the OurDNA ancestry assignment from each sample QC metric calculated using hl.sample_qc().
   * **n_snp_residual:** Residuals after regressing out the first eight ancestry PCs from the number of SNP alternate alleles.
   * **r_ti_tv_residual:** Residuals after regressing out the first eight ancestry PCs from the Transition/Transversion ratio.
   * **r_insertion_deletion_residual:** Residuals after regressing out the first eight ancestry PCs from the Insertion/Deletion allele ratio.
@@ -96,13 +96,13 @@ This dataset includes genomes from the Human Genome Diversity Project (HGDP) and
   * **r_het_hom_var_residual:** Residuals after regressing out the first eight ancestry PCs from the Het/HomVar call ratio.
   * **n_transition_residual:** Residuals after regressing out the first eight ancestry PCs from the number of transition (A-G, C-T) alternate alleles.
   * **n_transversion_residual:** Residuals after regressing out the first eight ancestry PCs from the number of transversion alternate alleles.
-* **gnomad_sample_filters:** Sample QC filter annotations used for the gnomAD release.
+* **gnomad_sample_filters:** Sample QC filter annotations used for the OurDNA release.
   * **hard_filters:** Set of hard filters applied to each sample prior to additional sample QC. Samples are hard filtered if they are extreme outliers for any of the following metrics: number of snps (n_snp), ratio of heterozygous variants to homozygous variants (r_het_hom_var), number of singletons (n_singleton), and mean coverage on chromosome 20 (cov). Additionally, we filter based on outliers of the following Picard metrics: % contamination (freemix), % chimera, and median insert size.
   * **hard_filtered:** Whether a sample was hard filtered. The gnomad_sample_filters.hard_filters set is empty if this annotation is True.
-  * **release_related:** Whether a sample had a second-degree or greater relatedness to another sample in the gnomAD release.
-  * **qc_metrics_filters:** Set of all sample QC metrics for which each sample was found to be an outlier after computing sample QC metrics using the Hail sample_qc() module and regressing out the first 8 gnomAD ancestry assignment PCs.
-* **gnomad_high_quality:** Whether a sample has passed gnomAD sample QC metrics except for relatedness (i.e., gnomad_sample_filters.hard_filters and gnomad_sample_filters.qc_metrics_filters are empty sets).
-* **gnomad_release:** Whether the sample was included in the gnomAD release dataset. For the full gnomAD release, relatedness inference is performed on the full dataset, and release samples are chosen in a way that maximizes the number of samples retained while filtering the dataset to include only samples with less than second-degree relatedness. For the HGDP + 1KG subset, samples passing all other sample QC metrics are retained.
+  * **release_related:** Whether a sample had a second-degree or greater relatedness to another sample in the OurDNA release.
+  * **qc_metrics_filters:** Set of all sample QC metrics for which each sample was found to be an outlier after computing sample QC metrics using the Hail sample_qc() module and regressing out the first 8 OurDNA ancestry assignment PCs.
+* **gnomad_high_quality:** Whether a sample has passed OurDNA sample QC metrics except for relatedness (i.e., gnomad_sample_filters.hard_filters and gnomad_sample_filters.qc_metrics_filters are empty sets).
+* **gnomad_release:** Whether the sample was included in the OurDNA release dataset. For the full OurDNA release, relatedness inference is performed on the full dataset, and release samples are chosen in a way that maximizes the number of samples retained while filtering the dataset to include only samples with less than second-degree relatedness. For the HGDP + 1KG subset, samples passing all other sample QC metrics are retained.
 * **relatedness_inference:** Information about the sample’s relatedness to other samples within the callset.
   * **related_samples:** Set of all HGDP or 1KG samples that have a kinship estimate (kin) > 0.05 determined using Hail’s [pc_relate](https://hail.is/docs/0.2/methods/relatedness.html#hail.methods.pc_relate) module with this sample. More details on the relatedness inference can be found [here](https://github.com/atgu/hgdp_tgp/blob/master/tutorials/nb2.ipynb). This set is empty if the sample has no such relationships within this HGDP + 1KG subset. Each entry of the set consists of a struct containing the following information about this relationship:
     * **s:** Sample ID.
@@ -126,7 +126,7 @@ This dataset includes genomes from the Human Genome Diversity Project (HGDP) and
     * **pca_scores:** Array of the first 20 subcontinental PCA scores for the sample based on its value in the hgdp_tgp_meta.genetic_region annotation (one of: AFR, AMR, CSA, EAS, EUR, MID, or OCE).
     * **pca_scores_outliers_removed:** Array of the first 20 subcontinental PCA scores following the removal of samples labeled as subcontinental PCA outliers (hgdp_tgp_meta.subcontinental_pca.outlier).
   * **outlier:** Whether the sample was an outlier in the subcontinental PCAs.
-  * **gnomad_labeled_subpop:** Similar to the `hgdp_tgp_meta.population` annotation, this is the sample's population label supplied by HGDP or 1KG with slight modifications that were used to harmonize labels with other gnomAD samples.
+  * **gnomad_labeled_subpop:** Similar to the `hgdp_tgp_meta.population` annotation, this is the sample's population label supplied by HGDP or 1KG with slight modifications that were used to harmonize labels with other OurDNA samples.
 * **high_quality:** Samples that pass all ‘gnomad_sample_filters.hard_filters’ and were not found to be outliers in global population-specific principal component analysis `hgdp_tgp_meta.subcontinental_pca.outlier`.
 
 ### Row annotations (variants):
@@ -140,22 +140,22 @@ This dataset includes genomes from the Human Genome Diversity Project (HGDP) and
   * **AF:** Alternate allele frequency  in HGDP + 1KG samples that pass the high_quality sample annotation.
   * **AN:** Total number of alleles in HGDP + 1KG samples that pass the high_quality sample annotation.
   * **homozygote_count:** Count of homozygous individuals in HGDP + 1KG samples that pass the high_quality sample annotation.
-* **gnomad_freq:** Allele frequency information (AC, AN, AF, homozygote count) in gnomAD release.
-  * **AC:** Alternate allele count in gnomAD release.
-  * **AF:** Alternate allele frequency in gnomAD release.
-  * **AN:** Total number of alleles in gnomAD release.
-  * **homozygote_count:** Count of homozygous individuals in gnomAD release.
-* **gnomad_popmax:** Allele frequency information (AC, AN, AF, homozygote count) for the population with maximum AF in gnomAD.
-  * **AC:** Allele count in the population with the maximum AF in gnomAD.
-  * **AF:** Maximum allele frequency across populations in gnomAD.
-  * **AN:** Total number of alleles in the population with the maximum AF in gnomAD.
-  * **homozygote_count:** Count of homozygous individuals in the population with the maximum allele frequency in gnomAD.
-  * **pop:** Population with maximum AF in gnomAD.
-  * **faf95:** Filtering allele frequency (using Poisson 95% CI) for the population with the maximum allele frequency in gnomAD.
-* **gnomad_faf:** Filtering allele frequency in gnomAD release.
-  * **faf95:** Filtering allele frequency in gnomAD release (using Poisson 95% CI).
-  * **faf99:** Filtering allele frequency in gnomAD release (using Poisson 99% CI).
-* **gnomad_qual_hists:** gnomAD genotype quality metric histograms for high quality genotypes.
+* **gnomad_freq:** Allele frequency information (AC, AN, AF, homozygote count) in OurDNA release.
+  * **AC:** Alternate allele count in OurDNA release.
+  * **AF:** Alternate allele frequency in OurDNA release.
+  * **AN:** Total number of alleles in OurDNA release.
+  * **homozygote_count:** Count of homozygous individuals in OurDNA release.
+* **gnomad_popmax:** Allele frequency information (AC, AN, AF, homozygote count) for the population with maximum AF in OurDNA.
+  * **AC:** Allele count in the population with the maximum AF in OurDNA.
+  * **AF:** Maximum allele frequency across populations in OurDNA.
+  * **AN:** Total number of alleles in the population with the maximum AF in OurDNA.
+  * **homozygote_count:** Count of homozygous individuals in the population with the maximum allele frequency in OurDNA.
+  * **pop:** Population with maximum AF in OurDNA.
+  * **faf95:** Filtering allele frequency (using Poisson 95% CI) for the population with the maximum allele frequency in OurDNA.
+* **gnomad_faf:** Filtering allele frequency in OurDNA release.
+  * **faf95:** Filtering allele frequency in OurDNA release (using Poisson 95% CI).
+  * **faf99:** Filtering allele frequency in OurDNA release (using Poisson 99% CI).
+* **gnomad_qual_hists:** OurDNA genotype quality metric histograms for high quality genotypes.
   * **gq_hist_all:** Histogram for GQ calculated on high quality genotypes.
     * **bin_edges:** Bin edges for the GQ histogram calculated on high quality genotypes are: 0|5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95|100
     * **bin_freq:** Bin frequencies for the GQ histogram calculated on high quality genotypes. The number of records found in each bin.
@@ -181,7 +181,7 @@ This dataset includes genomes from the Human Genome Diversity Project (HGDP) and
     * **bin_freq:** Bin frequencies for the histogram of AB in heterozygous individuals calculated on high quality genotypes. The number of records found in each bin.
     * **n_smaller:** Count of AB values falling below lowest histogram bin edge, for AB in heterozygous individuals calculated on high quality genotypes.
     * **n_larger:** Count of AB values falling above highest histogram bin edge, for AB in heterozygous individuals calculated on high quality genotypes.
- * **gnomad_raw_qual_hists:** gnomAD genotype quality metric histograms.
+ * **gnomad_raw_qual_hists:** OurDNA genotype quality metric histograms.
   * **gq_hist_all:** Histogram for GQ calculated on all genotypes.
     * **bin_edges:** Bin edges for the GQ histogram calculated on all genotypes are: 0|5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95|100.
     * **bin_freq:** Bin frequencies for the GQ histogram calculated on all genotypes. The number of records found in each bin.
@@ -207,12 +207,12 @@ This dataset includes genomes from the Human Genome Diversity Project (HGDP) and
     * **bin_freq:** Bin frequencies for the histogram of AB in heterozygous individuals calculated on all genotypes. The number of records found in each bin.
     * **n_smaller:** Count of AB values falling below lowest histogram bin edge, for AB in heterozygous individuals calculated on all genotypes.
     * **n_larger:** Count of AB values falling above highest histogram bin edge, for AB in heterozygous individuals calculated on all genotypes.
-* **gnomad_age_hist_het:** Histogram for age in all heterozygous gnomAD release samples calculated on high quality genotypes.
+* **gnomad_age_hist_het:** Histogram for age in all heterozygous OurDNA release samples calculated on high quality genotypes.
   * **bin_edges:** Bin edges for the age histogram.
   * **bin_freq:** Bin frequencies for the age histogram. This is the number of records found in each bin.
   * **n_smaller:** Count of age values falling below lowest histogram bin edge.
   * **n_larger:** Count of age values falling above highest histogram bin edge.
-* **gnomad_age_hist_hom:** Histogram for age in all homozygous gnomAD release samples calculated on high quality genotypes.
+* **gnomad_age_hist_hom:** Histogram for age in all homozygous OurDNA release samples calculated on high quality genotypes.
   * **bin_edges:** Bin edges for the age histogram.
   * **bin_freq:** Bin frequencies for the age histogram. This is the number of records found in each bin.
   * **n_smaller:** Count of age values falling below lowest histogram bin edge.
@@ -278,5 +278,5 @@ This dataset includes genomes from the Human Genome Diversity Project (HGDP) and
 ### Additional annotations found on the variant annotation HT:
 These annotations are not present on the dense MT because all LowQual variants and variants in centromeres and telomeres are filtered.
 
-* **AS_lowqual:** Whether the variant falls below a low quality threshold and was excluded from the gnomAD dataset. We recommend filtering all such variants. This is similar to the GATK LowQual filter, but is allele-specific. GATK computes this annotation at the site level, which uses the least stringent prior for mixed sites.
-* **telomere_or_centromere:** Whether the variant falls within a telomere or centromere region. These variants were excluded from the gnomAD dataset. We recommend filtering all such variants.
+* **AS_lowqual:** Whether the variant falls below a low quality threshold and was excluded from the OurDNA dataset. We recommend filtering all such variants. This is similar to the GATK LowQual filter, but is allele-specific. GATK computes this annotation at the site level, which uses the least stringent prior for mixed sites.
+* **telomere_or_centromere:** Whether the variant falls within a telomere or centromere region. These variants were excluded from the OurDNA dataset. We recommend filtering all such variants.

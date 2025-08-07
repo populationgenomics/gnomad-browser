@@ -1,25 +1,25 @@
 ---
 id: v4-hts
-title: 'gnomAD v4 Hail Tables'
+title: 'OurDNA v4 Hail Tables'
 ---
 
-All of gnomAD’s files are stored as Hail tables. In this section we will review:
+All of OurDNA’s files are stored as Hail tables. In this section we will review:
 
 - [Background on Hail](/help/v4-hts#background)
-- [gnomAD Hail Table frequency annotations](/help/v4-hts#frequency-annotations)
-- [gnomAD v4.1 Hail Table annotation descriptions](/help/v4-hts#annotation-descriptions)
+- [OurDNA Hail Table frequency annotations](/help/v4-hts#frequency-annotations)
+- [OurDNA v4.1 Hail Table annotation descriptions](/help/v4-hts#annotation-descriptions)
 
 Note that Hail Tables (HT), MatrixTables (MT), and VariantDatasets (VDS) are all **directories** when viewed through a file manager, so you will need to download all of the associated files.
 
 ### <a id="background"></a>Background
 
-Hail is an open-source library that provides accessible interfaces for exploring genomic data, with a backend that automatically scales to take advantage of large compute clusters. Hail enables those without expertise in parallel computing to flexibly, efficiently, and interactively analyze large sequencing datasets. We recommend using Hail and our Hail utilities for gnomAD to work with the data listed in the gnomAD downloads page.
+Hail is an open-source library that provides accessible interfaces for exploring genomic data, with a backend that automatically scales to take advantage of large compute clusters. Hail enables those without expertise in parallel computing to flexibly, efficiently, and interactively analyze large sequencing datasets. We recommend using Hail and our Hail utilities for OurDNA to work with the data listed in the OurDNA downloads page.
 
 The Hail forum is a place to search for answers to Hail issues, post about any bugs found, engage with the Hail community and Hail team.
 
-### <a id="frequency-annotations"></a>gnomAD Hail Table frequency annotations
+### <a id="frequency-annotations"></a>OurDNA Hail Table frequency annotations
 
-The gnomAD release sites Hail Tables containing allele frequency information within the row annotation named '`freq`'.
+The OurDNA release sites Hail Tables containing allele frequency information within the row annotation named '`freq`'.
 
 The '`freq`' annotation is an array, and each element of the array is a struct that contains the alternate allele count (`AC`), alternate allele frequency (`AF`), total number of alleles (`AN`), and number of homozygous alternate individuals (`homozygote_count`) for a specific sample grouping.
 
@@ -30,14 +30,14 @@ Use the '`freq_index_dict`' global annotation to retrieve frequency information 
 | `group`                                  | Genotype's filter                      | adj<sup>1</sup>, raw                                                                                                                                                                                                                                                                           | adj<sup>1</sup>, raw                                                                                                                                                                                                                                                                                                                                                                                                                              | adj<sup>1</sup>, raw                                                        |
 | `sex`                                    | Inferred sex/sex karyotype             | XX, XY                                                                                                                                                                                                                                                                                         | XX, XY                                                                                                                                                                                                                                                                                                                                                                                                                                            | XX, XY                                                                      |
 | `subset`                                 | Sample subsets within release          | non-UK Biobank (Download only)                                                                                                                                                                                                                                                                 | HGDP, 1KG (Download Hail Table only)                                                                                                                                                                                                                                                                                                                                                                                                              | N/A                                                                         |
-| `gen_anc`                                | gnomAD inferred genetic ancestry group | `afr`, `amr`, `asj`, `eas`, `fin`, `mid`, `nfe`, `rmi`, `sas`                                                                                                                                                                                                                                  | `afr`, `ami`, `amr`, `asj`, `eas`, `fin`, `mid`, `nfe`, `rmi`,                                                                                                                                                                                                                                                                                                                                                                                    | `afr`, `amr`, `ami`, `asj`, `eas`, `fin`, `mid`, `nfe`, `rmi`, `sas`        |
+| `gen_anc`                                | OurDNA inferred genetic ancestry group | `afr`, `amr`, `asj`, `eas`, `fin`, `mid`, `nfe`, `rmi`, `sas`                                                                                                                                                                                                                                  | `afr`, `ami`, `amr`, `asj`, `eas`, `fin`, `mid`, `nfe`, `rmi`,                                                                                                                                                                                                                                                                                                                                                                                    | `afr`, `amr`, `ami`, `asj`, `eas`, `fin`, `mid`, `nfe`, `rmi`, `sas`        |
 | `gen_anc` (1KG subset only)<sup>2</sup>  | The 1KG project's ancestry             | N/A                                                                                                                                                                                                                                                                                            | `acb`, `asw`, `beb`, `cdx`, `ceu`, `chb`, `chs`, `clm`, `esn`, `fin`, `gbr`, `gih`, `gwd`, `ibs`, `itu`, `jpt`, `khv`, `lwk`, `msl`, `mxl`, `pel`, `pjl`, `pur`, `stu`, `tsi`, `yri`                                                                                                                                                                                                                                                              | N/A                                                                         |
 | `gen_anc` (HGDP subset only)<sup>2</sup> | The HGDP's ancestry labels             | N/A                                                                                                                                                                                                                                                                                            | adygei, balochi, bantukenya, bantusafrica, basque, bedouin, biakapygmy, brahui, burusho, cambodian, colombian, dai, daur, druze, french, han, hazara, hezhen, italian, japanese, kalash, karitiana, lahu, makrani, mandenka, maya, mbutipygmy, melanesian, miaozu, mongola, mozabite, naxi, orcadian, oroqen, palestinian, papuan, pathan, pima, russian, san, sardinian, she, sindhi, surui, tu, tujia, tuscan, uygur, xibo, yakut, yizu, yoruba | N/A                                                                         |
-| `downsampling`<sup>3</sup>               | Downsampled sample counts              | gnomAD: 10, 100, 500, 1000, 2000, 2884, 5000, 10000, 13068, 16740, 19850, 20000, 22362, 26710, 30198, 43129, 50000, 100000, 200000, 500000, 556006, non-UKB: 10, 100, 500, 1000, 2000, 2074, 5000, 8847, 10000, 10492, 16549, 18035, 20000, 21870, 26572, 34899, 50000, 100000, 175054, 200000 | The genomes release Hail Table does not contain downsampling information.                                                                                                                                                                                                                                                                                                                                                                         | The joint frequencies Hail Table does not contain downsampling information. |
+| `downsampling`<sup>3</sup>               | Downsampled sample counts              | OurDNA: 10, 100, 500, 1000, 2000, 2884, 5000, 10000, 13068, 16740, 19850, 20000, 22362, 26710, 30198, 43129, 50000, 100000, 200000, 500000, 556006, non-UKB: 10, 100, 500, 1000, 2000, 2074, 5000, 8847, 10000, 10492, 16549, 18035, 20000, 21870, 26572, 34899, 50000, 100000, 175054, 200000 | The genomes release Hail Table does not contain downsampling information.                                                                                                                                                                                                                                                                                                                                                                         | The joint frequencies Hail Table does not contain downsampling information. |
 
 #### Version 4.1 sample grouping combinations and '`freq`' array access
 
-The available v4.1 grouping combinations within the '`freq`' array annotation are listed below. adj<sup>1</sup> must be provided as the “group” for all combinations except when requesting raw frequency information, which is only available for the main gnomAD callsets and subsets.
+The available v4.1 grouping combinations within the '`freq`' array annotation are listed below. adj<sup>1</sup> must be provided as the “group” for all combinations except when requesting raw frequency information, which is only available for the main OurDNA callsets and subsets.
 
 - group, e.g. '`adj`', '`raw`'
 - sex-group, e.g. '`XX_adj`'
@@ -49,7 +49,7 @@ The available v4.1 grouping combinations within the '`freq`' array annotation ar
 - subset-sex-group, e.g. '`non_ukb_XY_adj`'
 - subset-gen-anc<sup>3</sup>-sex-group, e.g. '`non_ukb_mid_XX_adj`',
 
-To access the '`freq`' array using the '`freq_index_dict`', you need to retrieve the value of your desired label combination key. The example below accesses the entry of the high quality genotypes (group: adj) of XX individuals (sex: XX) clustered with the AFR genetic ancestry group in the gnomAD v4.1 exomes:
+To access the '`freq`' array using the '`freq_index_dict`', you need to retrieve the value of your desired label combination key. The example below accesses the entry of the high quality genotypes (group: adj) of XX individuals (sex: XX) clustered with the AFR genetic ancestry group in the OurDNA v4.1 exomes:
 
 ```
 # Load the v4.1 exomes public release HT
@@ -69,20 +69,20 @@ ht = ht.annotate(afr_XX_AC=ht.freq[ht.freq_index_dict["afr_XX_adj"].AC)
 This same approach can be applied to the filtering allele frequency (FAF) array, '`faf`', by using the '`faf_index_dict`'.
 
 1. Includes only genotypes with depth >= 10, genotype quality >= 20 and minor allele balance > 0.2 for heterozygous genotypes.
-2. For the HGDP and 1KG subsets in the gnomAD v4.1 genomes, project specified ancestry labels are available in place of gnomAD inferred genetic ancestry groups. The HGDP labels are detailed [here](https://science.sciencemag.org/content/367/6484/eaay5012). The 1KG labels are described [here](https://www.internationalgenome.org/category/population).
-3. Some downsamplings exceed genetic ancestry group counts and thus are not available for those groups. Also, downsamplings are available in the v4 exomes with two stratifications: across the full gnomAD release and across the non-UKB subset only. Note that the genomes Hail Table does not contain downsampling information.
+2. For the HGDP and 1KG subsets in the OurDNA v4.1 genomes, project specified ancestry labels are available in place of OurDNA inferred genetic ancestry groups. The HGDP labels are detailed [here](https://science.sciencemag.org/content/367/6484/eaay5012). The 1KG labels are described [here](https://www.internationalgenome.org/category/population).
+3. Some downsamplings exceed genetic ancestry group counts and thus are not available for those groups. Also, downsamplings are available in the v4 exomes with two stratifications: across the full OurDNA release and across the non-UKB subset only. Note that the genomes Hail Table does not contain downsampling information.
 
-### <a id="annotation-descriptions"></a>gnomAD v4.1 Hail Table annotation descriptions
+### <a id="annotation-descriptions"></a>OurDNA v4.1 Hail Table annotation descriptions
 
-#### gnomAD v4.1 exomes Hail Table annotations
+#### OurDNA v4.1 exomes Hail Table annotations
 
 Global fields:
 
 - `freq_meta`: Allele frequency metadata. An ordered list containing the frequency aggregation group for each element of the '`freq`' array row annotation.
-- `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: gnomAD inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the '`freq`' array row annotation.
+- `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: OurDNA inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the '`freq`' array row annotation.
 - `freq_meta_sample_count`: A sample count per sample grouping defined in the '`freq_meta`' global annotation.
 - `faf_meta`: Filtering allele frequency metadata. An ordered list containing the frequency aggregation group for each element of the '`faf`' array row annotation.
-- `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: gnomAD inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency ('`faf`') row annotation.
+- `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: OurDNA inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency ('`faf`') row annotation.
 - `age_distribution`: Callset-wide age histogram calculated on release samples.
   - `bin_edges`: Bin edges for the age histogram.
   - `bin_freq`: Bin frequencies for the age histogram. This is the number of records found in each bin.
@@ -130,27 +130,27 @@ Global fields:
   - `mane_select_version`: MANE select version used in VEP.
 - `frequency_README`: Explanation of how to use the '`freq_index_dict`' global annotation to extract frequencies from the '`freq`' row annotation.
 - `date`: Date Hail Table was created.
-- `version`: gnomAD data version.
+- `version`: OurDNA data version.
 
 Row fields:
 
 - `locus`: Variant locus. Contains contig and position information.
 - `alleles`: Variant alleles.
-- `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the gnomAD release.
+- `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the OurDNA release.
   - `AC`: Alternate allele count in release.
   - `AF`: Alternate allele frequency, (AC/AN), in release.
   - `AN`: Total number of alleles in release.
   - `homozygote_count`: Count of homozygous alternate individuals in release.
 - `grpmax`: Allele frequency information (AC, AN, AF, homozygote count) for the non-bottlenecked genetic ancestry group with maximum allele frequency. Excludes Ashkenazi Jewish (`asj`), European Finnish (`fin`), Middle Eastern (`mid`), and "Remaining individuals" (`remaining`) groups.
-  - `gnomAD`: grpmax information across the full gnomAD release dataset.
+  - `OurDNA`: grpmax information across the full OurDNA release dataset.
     - `AC`: Alternate allele count in the group with the maximum allele frequency.
-    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in gnomAD.
+    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in OurDNA.
     - `AN`: Total number of alleles in the group with the maximum allele frequency.
     - `homozygote_count`: Count of homozygous individuals in the group with the maximum allele frequency.
     - `gen_anc`: Genetic ancestry group with maximum allele frequency.
   - `non_ukb`: grpmax information across the non-UKB subset.
     - `AC`: Alternate allele count in the group with the maximum allele frequency.
-    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in gnomAD.
+    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in OurDNA.
     - `AN`: Total number of alleles in the group with the maximum allele frequency.
     - `homozygote_count`: Count of homozygous individuals in the group with the maximum allele frequency.
     - `gen_anc`: Genetic ancestry group with maximum allele frequency
@@ -158,7 +158,7 @@ Row fields:
   - `faf95`: Filtering allele frequency (using Poisson 95% CI).
   - `faf99`: Filtering allele frequency (using Poisson 99% CI).
 - `fafmax`: Information about the genetic ancestry group with the maximum filtering allele frequency.
-  - `gnomAD`: Information about the genetic ancestry group with the maximum filtering allele frequency across the full gnomAD release dataset.
+  - `OurDNA`: Information about the genetic ancestry group with the maximum filtering allele frequency across the full OurDNA release dataset.
     - `faf95_max`: Maximum filtering allele frequency (using Poisson 95% CI).
     - `faf95_max_gen_anc`: Genetic ancestry group with the maximum filtering allele frequency (95% CI).
     - `faf99_max`: Maximum filtering allele frequency (using Poisson 99% CI).
@@ -300,7 +300,7 @@ Row fields:
   - `sift_max`: [Score](https://www.nature.com/articles/nprot.2009.86) reflecting the scaled probability of the amino acid substitution being tolerated, ranging from 0 to 1. Scores below 0.05 are predicted to impact protein function. We prioritize max scores for MANE Select transcripts where possible and otherwise report a score for the canonical transcript.
   - `polyphen_max`: [Score](https://www.nature.com/articles/nmeth0410-248) that predicts the possible impact of an amino acid substitution on the structure and function of a human protein, ranging from 0.0 (tolerated) to 1.0 (deleterious). We prioritize max scores for MANE Select transcripts where possible and otherwise report a score for the canonical transcript.
 
-#### gnomAD v4.1 genomes Hail Table annotations
+#### OurDNA v4.1 genomes Hail Table annotations
 
 The v4.1 genomes Hail Table annotation schema is the same as the exomes schema, with only a few minor differences:
 
@@ -318,7 +318,7 @@ Row fields
 - `allele_info`: The v4 exomes Hail Table has an additional field in this struct, 'has_star', that is not present in the struct on the v4 genomes Hail Table.
 - `info`: Sibling singletons were used to train the variant QC models for the v4 exomes but were not used in the v4 genomes variant QC.
 
-#### gnomAD v4.1 joint frequency Hail Table annotations
+#### OurDNA v4.1 joint frequency Hail Table annotations
 
 The v4.1 joint (combined exomes + genomes) frequency Hail Table only contains frequencies for the following groupings:
 
@@ -331,35 +331,35 @@ The v4.1 joint (combined exomes + genomes) frequency Hail Table only contains fr
 
 Global fields
 
-- `exomes_globals`: Global fields from the gnomAD exomes.
-  - `freq_meta`: Allele frequency metadata for the gnomAD exomes. An ordered list containing the frequency aggregation group for each element of the `exomes.freq` array row annotation.
-  - `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: gnomAD inferred genetic ancestry group [adj only], sex: sex karyotype [adj only]), with values describing the corresponding index of each grouping entry in the `exomes.freq` array row annotation.
+- `exomes_globals`: Global fields from the OurDNA exomes.
+  - `freq_meta`: Allele frequency metadata for the OurDNA exomes. An ordered list containing the frequency aggregation group for each element of the `exomes.freq` array row annotation.
+  - `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: OurDNA inferred genetic ancestry group [adj only], sex: sex karyotype [adj only]), with values describing the corresponding index of each grouping entry in the `exomes.freq` array row annotation.
   - `freq_meta_sample_count`: A sample count per sample grouping defined in the exomes `exomes.freq_meta` global annotation.
-  - `faf_meta`: Filtering allele frequency metadata for the gnomAD exomes. An ordered list containing the frequency aggregation group for each element of the `exomes.faf` array row annotation.
-  - `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: gnomAD inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (`exomes.faf`) row annotation.
-  - `age_distribution`: Callset-wide age histogram calculated on the gnomAD exomes.
+  - `faf_meta`: Filtering allele frequency metadata for the OurDNA exomes. An ordered list containing the frequency aggregation group for each element of the `exomes.faf` array row annotation.
+  - `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: OurDNA inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (`exomes.faf`) row annotation.
+  - `age_distribution`: Callset-wide age histogram calculated on the OurDNA exomes.
     - `bin_edges`: Bin edges for the age histogram.
     - `bin_freq`: Bin frequencies for the age histogram. This is the number of records found in each bin.
     - `n_smaller`: Count of age values falling below lowest histogram bin edge.
     - `n_larger`: Count of age values falling above highest histogram bin edge.
-- `genomes_globals`: Global fields from the gnomAD genomes.
-  - `freq_meta`: Allele frequency metadata for the gnomAD genomes. An ordered list containing the frequency aggregation group for each element of the `genomes.freq` array row annotation.
-  - `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: gnomAD inferred genetic ancestry group [adj only], sex: sex karyotype [adj only]), with values describing the corresponding index of each grouping entry in the `genomes.freq` array row annotation.
+- `genomes_globals`: Global fields from the OurDNA genomes.
+  - `freq_meta`: Allele frequency metadata for the OurDNA genomes. An ordered list containing the frequency aggregation group for each element of the `genomes.freq` array row annotation.
+  - `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: OurDNA inferred genetic ancestry group [adj only], sex: sex karyotype [adj only]), with values describing the corresponding index of each grouping entry in the `genomes.freq` array row annotation.
   - `freq_meta_sample_count`: A sample count per sample grouping defined in the genomes `genomes.freq_meta` global annotation.
-  - `faf_meta`: Filtering allele frequency metadata for the gnomAD genomes. An ordered list containing the frequency aggregation group for each element of the `genomes.faf` array row annotation.
-  - `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: gnomAD inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (`genomes.faf`) row annotation.
-  - `age_distribution`: Callset-wide age histogram calculated on the gnomAD genomes.
+  - `faf_meta`: Filtering allele frequency metadata for the OurDNA genomes. An ordered list containing the frequency aggregation group for each element of the `genomes.faf` array row annotation.
+  - `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: OurDNA inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (`genomes.faf`) row annotation.
+  - `age_distribution`: Callset-wide age histogram calculated on the OurDNA genomes.
     - `bin_edges`: Bin edges for the age histogram.
     - `bin_freq`: Bin frequencies for the age histogram. This is the number of records found in each bin.
     - `n_smaller`: Count of age values falling below lowest histogram bin edge.
     - `n_larger`: Count of age values falling above highest histogram bin edge.
-- `joint_globals`: Global fields from the combined (joint) gnomAD exomes and genomes.
-  - `freq_meta`: Allele frequency metadata for the joint gnomAD exomes and genomes. An ordered list containing the frequency aggregation group for each element of the `joint.freq` array row annotation.
-  - `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: gnomAD inferred genetic ancestry group [adj only], sex: sex karyotype [adj only]), with values describing the corresponding index of each grouping entry in the `joint.freq` array row annotation.
-  - `faf_meta`: Filtering allele frequency metadata for the combined gnomAD exomes and genomes. An ordered list containing the frequency aggregation group for each element of the `joint.faf` array row annotation.
-  - `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: gnomAD inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (`joint.faf`) row annotation.
+- `joint_globals`: Global fields from the combined (joint) OurDNA exomes and genomes.
+  - `freq_meta`: Allele frequency metadata for the joint OurDNA exomes and genomes. An ordered list containing the frequency aggregation group for each element of the `joint.freq` array row annotation.
+  - `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: OurDNA inferred genetic ancestry group [adj only], sex: sex karyotype [adj only]), with values describing the corresponding index of each grouping entry in the `joint.freq` array row annotation.
+  - `faf_meta`: Filtering allele frequency metadata for the combined OurDNA exomes and genomes. An ordered list containing the frequency aggregation group for each element of the `joint.faf` array row annotation.
+  - `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: OurDNA inferred genetic ancestry group, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (`joint.faf`) row annotation.
   - `freq_meta_sample_count`: A sample count per sample grouping defined in the joint `joint.freq_meta` global annotation.
-  - `age_distribution`: Callset-wide age histogram calculated on the combined gnomAD exomes and genomes.
+  - `age_distribution`: Callset-wide age histogram calculated on the combined OurDNA exomes and genomes.
     - `bin_edges`: Bin edges for the age histogram.
     - `bin_freq`: Bin frequencies for the age histogram. This is the number of records found in each bin.
     - `n_smaller`: Count of age values falling below lowest histogram bin edge.
@@ -375,20 +375,20 @@ Row fields
   - `outside_broad_capture_region`: Variant falls outside of Broad exome capture regions.
   - `outside_ukb_calling_region`: Variant falls outside of UK Biobank exome capture regions plus 150 bp padding.
   - `outside_broad_calling_region`: Variant falls outside of Broad exome capture regions plus 150 bp padding.
-  - `not_called_in_exomes`: Variant was not called in the gnomAD exomes.
-  - `not_called_in_genomes`: Variant was not called in the gnomAD genomes.
-- `exomes`: Struct of allele frequency information from the gnomAD exomes.
-  - `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the gnomAD exomes.
+  - `not_called_in_exomes`: Variant was not called in the OurDNA exomes.
+  - `not_called_in_genomes`: Variant was not called in the OurDNA genomes.
+- `exomes`: Struct of allele frequency information from the OurDNA exomes.
+  - `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the OurDNA exomes.
     - `AC`: Alternate allele count in release.
     - `AF`: Alternate allele frequency, (AC/AN), in release.
     - `AN`: Total number of alleles in release.
     - `homozygote_count`: Count of homozygous alternate individuals in release.
-  - `faf`: Filtering allele frequency in the gnomAD exomes.
+  - `faf`: Filtering allele frequency in the OurDNA exomes.
     - `faf95`: Filtering allele frequency (using Poisson 95% CI).
     - `faf99`: Filtering allele frequency (using Poisson 99% CI).
-  - `grpmax`: Allele frequency information (AC, AN, AF, homozygote count) for the non-bottlenecked genetic ancestry group with maximum allele frequency in the gnomAD exomes. Excludes Ashkenazi Jewish (`asj`), European Finnish (`fin`), and "Remaining individuals" (`remaining`) groups.
+  - `grpmax`: Allele frequency information (AC, AN, AF, homozygote count) for the non-bottlenecked genetic ancestry group with maximum allele frequency in the OurDNA exomes. Excludes Ashkenazi Jewish (`asj`), European Finnish (`fin`), and "Remaining individuals" (`remaining`) groups.
     - `AC`: Alternate allele count in the group with the maximum allele frequency.
-    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in gnomAD.
+    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in OurDNA.
     - `AN`: Total number of alleles in the group with the maximum allele frequency.
     - `homozygote_count`: Count of homozygous individuals in the group with the maximum allele frequency.
     - `gen_anc`: Genetic ancestry group with maximum allele frequency
@@ -397,7 +397,7 @@ Row fields
     - `faf95_max_gen_anc`: Genetic ancestry group with the maximum filtering allele frequency (95% CI).
     - `faf99_max`: Maximum filtering allele frequency (using Poisson 99% CI).
     - `faf99_max_gen_anc`: Genetic ancestry group with the maximum filtering allele frequency (99% CI).
-  - `histograms`: Variant information histograms from the gnomAD exomes.
+  - `histograms`: Variant information histograms from the OurDNA exomes.
     - `qual_hists`: Genotype quality metric histograms for high quality genotypes.
       - `gq_hist_all`: Histogram for GQ calculated on high quality genotypes.
         - `bin_edges`: Bin edges for the GQ histogram calculated on high quality genotypes are: 0|5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95|100.
@@ -461,18 +461,18 @@ Row fields
         - `bin_freq`: Bin frequencies for the age histogram. This is the number of records found in each bin.
         - `n_smaller`: Count of age values falling below lowest histogram bin edge.
         - `n_larger`: Count of age values falling above highest histogram bin edge.
-- `genomes`: Struct of allele frequency information from the gnomAD genomes.
-  - `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the gnomAD genomes.
+- `genomes`: Struct of allele frequency information from the OurDNA genomes.
+  - `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the OurDNA genomes.
     - `AC`: Alternate allele count in release.
     - `AF`: Alternate allele frequency, (AC/AN), in release.
     - `AN`: Total number of alleles in release.
     - `homozygote_count`: Count of homozygous alternate individuals in release.
-  - `faf`: Filtering allele frequency in the gnomAD genomes.
+  - `faf`: Filtering allele frequency in the OurDNA genomes.
     - `faf95`: Filtering allele frequency (using Poisson 95% CI).
     - `faf99`: Filtering allele frequency (using Poisson 99% CI).
-  - `grpmax`: Allele frequency information (AC, AN, AF, homozygote count) for the non-bottlenecked genetic ancestry group with maximum allele frequency in the gnomAD genomes. Excludes Amish (`ami`), Ashkenazi Jewish (`asj`), European Finnish (`fin`), Middle Eastern (`mid`), and "Remaining individuals" (`remaining`) groups.
+  - `grpmax`: Allele frequency information (AC, AN, AF, homozygote count) for the non-bottlenecked genetic ancestry group with maximum allele frequency in the OurDNA genomes. Excludes Amish (`ami`), Ashkenazi Jewish (`asj`), European Finnish (`fin`), Middle Eastern (`mid`), and "Remaining individuals" (`remaining`) groups.
     - `AC`: Alternate allele count in the group with the maximum allele frequency.
-    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in gnomAD.
+    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in OurDNA.
     - `AN`: Total number of alleles in the group with the maximum allele frequency.
     - `homozygote_count`: Count of homozygous individuals in the group with the maximum allele frequency.
     - `gen_anc`: Genetic ancestry group with maximum allele frequency
@@ -481,7 +481,7 @@ Row fields
     - `faf95_max_gen_anc`: Genetic ancestry group with the maximum filtering allele frequency (95% CI).
     - `faf99_max`: Maximum filtering allele frequency (using Poisson 99% CI).
     - `faf99_max_gen_anc`: Genetic ancestry group with the maximum filtering allele frequency (99% CI).
-  - `histograms`: Variant information histograms from the gnomAD genomes.
+  - `histograms`: Variant information histograms from the OurDNA genomes.
     - `qual_hists`: Genotype quality metric histograms for high quality genotypes.
       - `gq_hist_all`: Histogram for GQ calculated on high quality genotypes.
         - `bin_edges`: Bin edges for the GQ histogram calculated on high quality genotypes are: 0|5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95|100.
@@ -546,21 +546,21 @@ Row fields
         - `n_smaller`: Count of age values falling below lowest histogram bin edge.
         - `n_larger`: Count of age values falling above highest histogram bin edge.
 - `joint`: Struct of combined (joint) exomes and genomes allele frequency information.
-  - `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) across the combined (joint) gnomAD exomes and genomes and for each genetic ancestry group.
+  - `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) across the combined (joint) OurDNA exomes and genomes and for each genetic ancestry group.
     - `AC`: Combined (exomes + genomes) alternate allele count in release.
     - `AF`: Combined (exomes + genomes) alternate allele frequency, (AC/AN), in release.
     - `AN`: Total number of alleles across exomes and genomes in release.
     - `homozygote_count`: Count of homozygous alternate individuals across exomes and genomes in release.
   - <a id="joint-grpmax"></a>`grpmax`: Allele frequency information (AC, AN, AF, homozygote count) for the non-bottlenecked genetic ancestry group with maximum allele frequency across both exomes and genomes. Excludes Amish (`ami`), Ashkenazi Jewish (`asj`), European Finnish (`fin`), and "Remaining individuals" (`remaining`) groups.
     - `AC`: Alternate allele count in the group with the maximum allele frequency.
-    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in gnomAD.
+    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in OurDNA.
     - `AN`: Total number of alleles in the group with the maximum allele frequency.
     - `homozygote_count`: Count of homozygous individuals in the group with the maximum allele frequency.
     - `gen_anc`: Genetic ancestry group with maximum allele frequency.
   - <a id="joint-faf"></a>`faf`: Array of combined exomes and genomes filtering allele frequency information (AC, AN, AF, homozygote count). Note that the values in array will correspond to the joint or combined value if the variant had a defined filtering allele frequency in both data types, otherwise this array will contain filtering allele frequencies only for the data type associated with the Hail Table (in this case, exomes).
     - `faf95`: Combined exomes and genomes filtering allele frequency (using Poisson 95% CI).
     - `faf99`: Combined exomes and genomes filtering allele frequency (using Poisson 99% CI).
-  - <a id="joint-histograms"></a>`histograms`: Variant information histograms of the combined (joint) gnomAD exomes and genomes.
+  - <a id="joint-histograms"></a>`histograms`: Variant information histograms of the combined (joint) OurDNA exomes and genomes.
     - `qual_hists`: Genotype quality metric histograms for high quality genotypes.
       - `gq_hist_all`: Histogram for GQ calculated on high quality genotypes.
         - `bin_edges`: Bin edges for the GQ histogram calculated on high quality genotypes are: 0|5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95|100.
@@ -624,7 +624,7 @@ Row fields
         - `bin_freq`: Bin frequencies for the age histogram. This is the number of records found in each bin.
         - `n_smaller`: Count of age values falling below lowest histogram bin edge.
         - `n_larger`: Count of age values falling above highest histogram bin edge.
-- <a id="joint-freq-comparison-stats"></a>`freq_comparison_stats`: Struct containing results from contingency table and Cochran-Mantel-Haenszel tests comparing allele frequencies between the gnomAD exomes and genomes.
+- <a id="joint-freq-comparison-stats"></a>`freq_comparison_stats`: Struct containing results from contingency table and Cochran-Mantel-Haenszel tests comparing allele frequencies between the OurDNA exomes and genomes.
   - `contingency_table_test`: Array of results from Hail's [`contingency_table_test`](https://hail.is/docs/0.2/functions/stats.html#hail.expr.functions.contingency_table_test) with `min_cell_count=100` comparing allele frequencies between exomes and genomes. Each element in the array corresponds to the comparasion of a specific frequency aggregation group defined by the `joint.freq_meta` global field.
     - `odds_ratio`: Odds ratio from the contingency table test.
     - `p_value`: P-value from the contingency table test.
@@ -642,24 +642,24 @@ Row fields
 
 <summary>Expand to see details for past versions</summary>
 
-### <a id="annotation-descriptions"></a>gnomAD v4.0 Hail Table annotation descriptions
+### <a id="annotation-descriptions"></a>OurDNA v4.0 Hail Table annotation descriptions
 
-#### gnomAD v4.0 exomes Hail Table annotations
+#### OurDNA v4.0 exomes Hail Table annotations
 
 Note that joint frequency, including filtering allele frequency, is available on this table. However, for the most up to date version of joint frequencies, please see our [new resource](https://gnomad.broadinstitute/downloads#v4-standalone-joint-faf)
 
 Global fields:
 
 - `freq_meta`: Allele frequency metadata. An ordered list containing the frequency aggregation group for each element of the ‘freq’ array row annotation.
-- `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: gnomAD inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the ‘freq’ array row annotation.
+- `freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: OurDNA inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the ‘freq’ array row annotation.
 - `freq_meta_sample_count`: A sample count per sample grouping defined in the '`freq_meta`' global annotation.
 - `faf_meta`: Filtering allele frequency metadata. An ordered list containing the frequency aggregation group for each element of the ‘faf’ array row annotation.
-- `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: gnomAD inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (‘faf’) row annotation.
+- `faf_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: OurDNA inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (‘faf’) row annotation.
 - `joint_freq_meta`: Joint allele frequency across the exomes and genomes metadata. An ordered list containing the frequency aggregation group for each element of the ‘joint_freq’ array row annotation.
-- `joint_freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: gnomAD inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the ‘joint_freq’ array row annotation.
+- `joint_freq_index_dict`: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: OurDNA inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the ‘joint_freq’ array row annotation.
 - `joint_freq_meta_sample_count`: A sample count per sample grouping defined in the 'joint_freq_meta' global annotation.
 - `joint_faf_meta`: Joint filtering allele frequency across the exomes and genomes metadata. An ordered list containing the frequency aggregation group for each element of the ‘joint_faf’ array row annotation.
-  joint_faf_index_dict: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: gnomAD inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (‘joint_faf’) row annotation.
+  joint_faf_index_dict: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: OurDNA inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (‘joint_faf’) row annotation.
 - `age_distribution`: Callset-wide age histogram calculated on release samples.
   - `bin_edges`: Bin edges for the age histogram.
   - `bin_freq`: Bin frequencies for the age histogram. This is the number of records found in each bin.
@@ -707,27 +707,27 @@ Global fields:
   - `mane_select_version`: MANE select version used in VEP.
 - `frequency_README`: Explanation of how to use the 'freq_index_dict' global annotation to extract frequencies from the 'freq' row annotation.
 - `date`: Date Hail Table was created.
-- `version`: gnomAD data version.
+- `version`: OurDNA data version.
 
 Row fields:
 
 - `locus`: Variant locus. Contains contig and position information.
 - `alleles`: Variant alleles.
-- `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the gnomAD release.
+- `freq`: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the OurDNA release.
   - `AC`: Alternate allele count in release.
   - `AF`: Alternate allele frequency, (AC/AN), in release.
   - `AN`: Total number of alleles in release.
   - `homozygote_count`: Count of homozygous alternate individuals in release.
 - `grpmax`: Allele frequency information (AC, AN, AF, homozygote count) for the non-bottlenecked genetic ancestry group with maximum allele frequency. Excludes Ashkenazi Jewish (`asj`), European Finnish (`fin`), Middle Eastern (`mid`), and "Remaining individuals" (`remaining`) groups.
-  - `gnomAD`: grpmax information across the full gnomAD release dataset.
+  - `OurDNA`: grpmax information across the full OurDNA release dataset.
     - `AC`: Alternate allele count in the group with the maximum allele frequency.
-    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in gnomAD.
+    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in OurDNA.
     - `AN`: Total number of alleles in the group with the maximum allele frequency.
     - `homozygote_count`: Count of homozygous individuals in the group with the maximum allele frequency.
     - `gen_anc`: Genetic ancestry group with maximum allele frequency
   - `non_ukb`: grpmax information across the non-UKB subset.
     - `AC`: Alternate allele count in the group with the maximum allele frequency.
-    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in gnomAD.
+    - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in OurDNA.
     - `AN`: Total number of alleles in the group with the maximum allele frequency.
     - `homozygote_count`: Count of homozygous individuals in the group with the maximum allele frequency.
     - `gen_anc`: Genetic ancestry group with maximum allele frequency
@@ -735,7 +735,7 @@ Row fields:
   - `faf95`: Filtering allele frequency (using Poisson 95% CI).
   - `faf99`: Filtering allele frequency (using Poisson 99% CI).
 - `fafmax`: Information about the genetic ancestry group with the maximum filtering allele frequency.
-  - `gnomAD`: Information about the genetic ancestry group with the maximum filtering allele frequency across the full gnomAD release dataset.
+  - `OurDNA`: Information about the genetic ancestry group with the maximum filtering allele frequency across the full OurDNA release dataset.
     - `faf95_max`: Maximum filtering allele frequency (using Poisson 95% CI).
     - `faf95_max_gen_anc`: Genetic ancestry group with the maximum filtering allele frequency (95% CI).
     - `faf99_max`: Maximum filtering allele frequency (using Poisson 99% CI).
@@ -745,14 +745,14 @@ Row fields:
     - `faf95_max_gen_anc`: Genetic ancestry group with the maximum filtering allele frequency (95% CI).
     - `faf99_max`: Maximum filtering allele frequency (using Poisson 99% CI).
     - `faf99_max_gen_anc`: Genetic ancestry group with the maximum filtering allele frequency (99% CI).
-- `joint_freq`: Array of combined exomes and genomes allele frequency information (AC, AN, AF, homozygote count) for the full gnomAD release and for each genetic ancestry group. Note that the values in array will correspond to combined or joint value if the variant was present in both data types, otherwise this array will contain frequencies only for the data type associated with the Hail Table (in this case, exomes).
+- `joint_freq`: Array of combined exomes and genomes allele frequency information (AC, AN, AF, homozygote count) for the full OurDNA release and for each genetic ancestry group. Note that the values in array will correspond to combined or joint value if the variant was present in both data types, otherwise this array will contain frequencies only for the data type associated with the Hail Table (in this case, exomes).
   - `AC`: Combined (exomes + genomes) alternate allele count in release.
   - `AF`: Combined (exomes + genomes) alternate allele frequency, (AC/AN), in release.
   - `AN`: Total number of alleles across exomes and genomes in release.
   - `homozygote_count`: Count of homozygous alternate individuals across exomes and genomes in release.
 - `joint_grpmax`: Allele frequency information (AC, AN, AF, homozygote count) for the non-bottlenecked genetic ancestry group with maximum allele frequency across both exomes and genomes. Excludes Amish (ami), Ashkenazi Jewish (asj), European Finnish (fin), Middle Eastern (mid), and "Remaining individuals" (remaining) groups.
   - `AC`: Alternate allele count in the group with the maximum allele frequency.
-  - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in gnomAD.
+  - `AF`: Maximum alternate allele frequency, (AC/AN), across groups in OurDNA.
   - `AN`: Total number of alleles in the group with the maximum allele frequency.
   - `homozygote_count`: Count of homozygous individuals in the group with the maximum allele frequency.
   - `gen_anc`: Genetic ancestry group with maximum allele frequency.
@@ -898,7 +898,7 @@ Row fields:
   - `sift_max`: [Score](https://www.nature.com/articles/nprot.2009.86) reflecting the scaled probability of the amino acid substitution being tolerated, ranging from 0 to 1. Scores below 0.05 are predicted to impact protein function. We prioritize max scores for MANE Select transcripts where possible and otherwise report a score for the canonical transcript.
   - `polyphen_max`: [Score](https://www.nature.com/articles/nmeth0410-248) that predicts the possible impact of an amino acid substitution on the structure and function of a human protein, ranging from 0.0 (tolerated) to 1.0 (deleterious). We prioritize max scores for MANE Select transcripts where possible and otherwise report a score for the canonical transcript.
 
-#### gnomAD v4.0 genomes Hail Table annotations
+#### OurDNA v4.0 genomes Hail Table annotations
 
 The v4 genomes Hail Table annotation schema is the same as the exomes schema, with only a few minor differences:
 
@@ -922,8 +922,8 @@ Row fields
 | `group`                  | Genotype's filter                          | raw                                                                                                                                                                                      | adj<sup>1</sup>, raw                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `sex`                    | Inferred sex/sex karyotype<sub>2</sub>     | female, male                                                                                                                                                                             | XX, XY                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `subset`                 | Sample subsets within release              | `gnomad`, `controls`, `non_neuro`, `non_topmed`, `non_cancer` (exomes only)                                                                                                              | `non_v2`, non_topmed, `non_neuro`, `non_cancer`, `controls_and_biobanks`                                                                                                                                                                                                                                                                                                                                                                          |
-| `pop`                    | gnomAD inferred global ancestry            | `afr`, `ami`, `amr`, `asj`, `eas`, `fin`, `nfe`, `oth`, `sas`                                                                                                                            | `afr`, `ami`, `amr`, `asj`, `eas`, `fin`, `mid`, `nfe`, `oth`, `sas`                                                                                                                                                                                                                                                                                                                                                                              |
-| `subpops`                | gnomAD inferred sub-continental ancestries | **Exomes**: </br>_nfe options_: `bgr`, `est`, `nwe`, `onf`, `seu`, `swe` <br/> _eas options_: `kor`, `jpn`, `oea` </br></br>**Genomes**: </br> _nfe options_: `est`, `nwe`, `seu`, `onf` | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `pop`                    | OurDNA inferred global ancestry            | `afr`, `ami`, `amr`, `asj`, `eas`, `fin`, `nfe`, `oth`, `sas`                                                                                                                            | `afr`, `ami`, `amr`, `asj`, `eas`, `fin`, `mid`, `nfe`, `oth`, `sas`                                                                                                                                                                                                                                                                                                                                                                              |
+| `subpops`                | OurDNA inferred sub-continental ancestries | **Exomes**: </br>_nfe options_: `bgr`, `est`, `nwe`, `onf`, `seu`, `swe` <br/> _eas options_: `kor`, `jpn`, `oea` </br></br>**Genomes**: </br> _nfe options_: `est`, `nwe`, `seu`, `onf` | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `pop` (1KG subset only)  | The 1KG project's population labels        | N/A                                                                                                                                                                                      | `acb`, `asw`, `beb`, `cdx`, `ceu`, `chb`, `chs`, `clm`, `esn`, `fin`, `gbr`, `gih`, `gwd`, `ibs`, `itu`, `jpt`, `khv`, `lwk`, `msl`, `mxl`, `pel`, `pjl`, `pur`, `stu`, `tsi`, `yri`                                                                                                                                                                                                                                                              |
 | `pop` (HGDP subset only) | The HGDP's population labels               | N/A                                                                                                                                                                                      | adygei, balochi, bantukenya, bantusafrica, basque, bedouin, biakapygmy, brahui, burusho, cambodian, colombian, dai, daur, druze, french, han, hazara, hezhen, italian, japanese, kalash, karitiana, lahu, makrani, mandenka, maya, mbutipygmy, melanesian, miaozu, mongola, mozabite, naxi, orcadian, oroqen, palestinian, papuan, pathan, pima, russian, san, sardinian, she, sindhi, surui, tu, tujia, tuscan, uygur, xibo, yakut, yizu, yoruba |
 | `downsampling`           | Downsampled sample counts                  | N/A                                                                                                                                                                                      | 10, 20, 50, 100, 158, 200, 456, 500, 1000, 1047, 1736, 2000, 2419, 2604, 5000, 5316, 7647, 10000, 15000, 20000, 25000, 30000, 34029 40000, 50000, 60000, 70000, 75000                                                                                                                                                                                                                                                                             |
@@ -940,7 +940,7 @@ The available v2.1 grouping combinations within the '`freq`' array annotation ar
 - `subset_pop_subpop`, e.g. “`non_topmed_eas_jpn`”
 - `subset_pop_sex`, e.g. “`non_neuro_nfe_female`”
 
-To access the 'freq' array using the '`freq_index_dict`', you need to retrieve the value of your desired label combination key. The example below accesses the entry of the high quality genotypes of XX individuals (sex: female2) labeled as `AFR` (pop: `AFR`) in the entire callset (subset: gnomad) for gnomAD v2.1.1 genomes:
+To access the 'freq' array using the '`freq_index_dict`', you need to retrieve the value of your desired label combination key. The example below accesses the entry of the high quality genotypes of XX individuals (sex: female2) labeled as `AFR` (pop: `AFR`) in the entire callset (subset: gnomad) for OurDNA v2.1.1 genomes:
 
 ```
 # Load the v2.1.1 public release HT
@@ -973,7 +973,7 @@ The available v3 grouping combinations within the 'freq' array annotation are li
 - `subset-sex-group`, e.g. “`non_cancer-XY-adj`”
 - `subset-pop4-sex-group`, e.g. “`controls_and_biobanks-mid-XX-adj`”,
 
-To access the '`freq`' array using the '`freq_index_dict`', you need to retrieve the value of your desired label combination key. The example below accesses the entry of the high quality genotypes (group: adj) of XX individuals (sex: XX) labeled as AFR (pop: AFR) in gnomAD v3.1.2:
+To access the '`freq`' array using the '`freq_index_dict`', you need to retrieve the value of your desired label combination key. The example below accesses the entry of the high quality genotypes (group: adj) of XX individuals (sex: XX) labeled as AFR (pop: AFR) in OurDNA v3.1.2:
 
 ```
 # Load the v3.1.2 public release HT
@@ -995,17 +995,17 @@ This same approach can be applied to the filtering allele frequency (FAF) array,
 1. Includes only genotypes with depth >= 10, genotype quality >= 20 and minor allele balance > 0.2 for heterozygous genotypes.
 2. The labels we use to classify individuals by chromosomal sex changed from “male” and “female” to “XY” and “XX.” More details available in this [blog post](https://gnomad.broadinstitute.org/news/2020-10-gnomad-v3-1-new-content-methods-annotations-and-data-availability/#tweaks-and-updates).
 3. Some downsamplings exceed population counts and thus are not available for those populations.
-4. For HGDP and 1KG subsets, project specified populations are available in place of gnomAD inferred global populations. The HGDP populations are detailed [here](https://science.sciencemag.org/content/367/6484/eaay5012). The 1KG populations are described [here](https://www.internationalgenome.org/category/population).
+4. For HGDP and 1KG subsets, project specified populations are available in place of OurDNA inferred global populations. The HGDP populations are detailed [here](https://science.sciencemag.org/content/367/6484/eaay5012). The 1KG populations are described [here](https://www.internationalgenome.org/category/population).
 
 ### Hail Table annotation descriptions
 
-The gnomAD v3 Hail Table annotations are defined below:
+The OurDNA v3 Hail Table annotations are defined below:
 
 **Global fields**:
 
 - **freq_meta**: Allele frequency metadata. An ordered list containing the frequency aggregation group for each element of the ‘freq’ array row annotation.
-- **freq_index_dict**: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: gnomAD inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the ‘freq’ array row annotation.
-- **faf_index_dict**: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: gnomAD inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (‘faf’) row annotation.
+- **freq_index_dict**: Dictionary keyed by specified label grouping combinations (group: adj/raw, gen_anc: OurDNA inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the ‘freq’ array row annotation.
+- **faf_index_dict**: Dictionary keyed by specified label grouping combinations (group: adj/raw, pop: OurDNA inferred global population, sex: sex karyotype), with values describing the corresponding index of each grouping entry in the filtering allele frequency (‘faf’) row annotation.
 - **faf_meta**: Filtering allele frequency metadata. An ordered list containing the frequency aggregation group for each element of the ‘faf’ array row annotation.
 - **VEP version**: VEP version that was run on the callset.
 - **vep_csq_header**: VEP header for VCF export.
@@ -1033,7 +1033,7 @@ The gnomAD v3 Hail Table annotations are defined below:
 
 - **locus**: Variant locus. Contains contig and position information.
 - **alleles**: Variant alleles.
-- **freq**: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the gnomAD release.
+- **freq**: Array of allele frequency information (AC, AN, AF, homozygote count) for each frequency aggregation group in the OurDNA release.
   - **AC**: Alternate allele count in release.
   - **AF**: Alternate allele frequency, (AC/AN), in release.
   - **AN**: Total number of alleles in release.
@@ -1066,7 +1066,7 @@ The gnomAD v3 Hail Table annotations are defined below:
     - **n_larger**: Count of AB values in heterozygous individuals falling above highest histogram bin edge, calculated on all genotypes.
 - **grpmax**: Allele frequency information (AC, AN, AF, homozygote count) for the non-bottlenecked genetic ancestry group with maximum allele frequency. Excludes Amish (ami), Ashkenazi Jewish (asj), European Finnish (fin), Middle Eastern (mid), and "Other" (oth) group.
   - **AC**: Alternate allele count in the population with the maximum allele frequency.
-  - **AF**: Maximum alternate allele frequency, (AC/AN), across populations in gnomAD.
+  - **AF**: Maximum alternate allele frequency, (AC/AN), across populations in OurDNA.
   - **AN**: Total number of alleles in the population with the maximum allele frequency.
   - **homozygote_count**: Count of homozygous individuals in the population with the maximum allele frequency.
   - **pop**: Population with maximum allele frequency

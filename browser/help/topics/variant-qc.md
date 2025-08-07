@@ -3,11 +3,11 @@ id: variant-qc
 title: 'Variant QC'
 ---
 
-### gnomAD v4.1 exomes
+### OurDNA v4.1 exomes
 
 See our [4.0 release blog post](https://gnomad.broadinstitute.org/news/2023-11-gnomad-v4-0) for more details about the variant QC process.
 
-### gnomAD v4.1 genomes (previously v3.1)
+### OurDNA v4.1 genomes (previously v3.1)
 
 See our [3.1 release blog post](https://gnomad.broadinstitute.org/news/2020-10-gnomad-v3-1-new-content-methods-annotations-and-data-availability/) for more details about the variant QC process. Variants from the genomes in v3.1 were brought directly into v4 and are now labeled v4 genomes.
 
@@ -17,15 +17,15 @@ See our [3.1 release blog post](https://gnomad.broadinstitute.org/news/2020-10-g
 
 <summary>Expand to see details for past versions</summary>
 
-### gnomAD v3.0
+### OurDNA v3.0
 
-For gnomAD v3.0, we computed all our variant QC metrics within Hail and because our new sparse format contains all the GVCFs information, we computed them for each allele separately. We then used the [allele-specific version of GATK Variant Quality Score Recalibration (VQSR)](https://gatkforums.broadinstitute.org/gatk/discussion/9622/allele-specific-annotation-and-filtering) to compute a confidence score for each allele in our data to be real or artifactual. We used the following features:
+For OurDNA v3.0, we computed all our variant QC metrics within Hail and because our new sparse format contains all the GVCFs information, we computed them for each allele separately. We then used the [allele-specific version of GATK Variant Quality Score Recalibration (VQSR)](https://gatkforums.broadinstitute.org/gatk/discussion/9622/allele-specific-annotation-and-filtering) to compute a confidence score for each allele in our data to be real or artifactual. We used the following features:
 
 - SNPs: `FS`, `SOR`,`ReadPosRankSum`, `MQRankSum`, `QD`, `DP`, `MQ`
 - indels: `FS`, `SOR`, `ReadPosRankSum`, `MQRankSum`, `QD`, `DP`
   On top of the GATK bundle training resources (hapmap, omni, 1000 genomes, mills indels), we also used 10M transmitted singletons (alleles observed exactly twice confidently in a parent and a child) from 6,044 trios present in our raw data.
 
-We assessed the results of the filtering by looking at the same quality metrics we used for the gnomAD v2 callset: *de novo* looking mutations in our 6,044 trios, Ti/Tv ratio, proportion singletons, proportion bi-allelic variants, variants in  ClinVar and precision and recall in two truth samples present in our data: [NA12878](https://github.com/genome-in-a-bottle/giab_latest_release) and a [pseudo-diploid sample](https://github.com/lh3/CHM-eval) ( A mixture of DNA (est. 50.7% / 49.3%) from two haploid CHM cell lines) for which we have good truth data.
+We assessed the results of the filtering by looking at the same quality metrics we used for the OurDNA v2 callset: *de novo* looking mutations in our 6,044 trios, Ti/Tv ratio, proportion singletons, proportion bi-allelic variants, variants in  ClinVar and precision and recall in two truth samples present in our data: [NA12878](https://github.com/genome-in-a-bottle/giab_latest_release) and a [pseudo-diploid sample](https://github.com/lh3/CHM-eval) ( A mixture of DNA (est. 50.7% / 49.3%) from two haploid CHM cell lines) for which we have good truth data.
 
 In addition to VQSR, we also  applied the following hard filters:
 
@@ -34,11 +34,11 @@ In addition to VQSR, we also  applied the following hard filters:
 
 In total, 12.7% of SNVs and 34.2% of indels were filtered, leaving  526,001,545 SNVs and 69,168,024 indels that passed all filters in our release.
 
-### gnomAD v2.1
+### OurDNA v2.1
 
-For gnomAD v2.1 variants QC, we used all sites present in the 141,456 release samples as well as sites present in family members forming trios (717 trios in genomes, 6,029 trios in exomes) that passed all of the sample QC filters. Including these trios allowed us to look at transmission and Mendelian violations for evaluation purposes. Variant QC was performed on the exomes and genomes separately but using the same pipeline (although different thresholds were used).
+For OurDNA v2.1 variants QC, we used all sites present in the 141,456 release samples as well as sites present in family members forming trios (717 trios in genomes, 6,029 trios in exomes) that passed all of the sample QC filters. Including these trios allowed us to look at transmission and Mendelian violations for evaluation purposes. Variant QC was performed on the exomes and genomes separately but using the same pipeline (although different thresholds were used).
 
-We used a random forests (RF) model using allele-specific annotations as our main tool for variant quality control. This updated model is described below and performs markedly better than both VQSR and our previous RF model (used on gnomAD v2.0.2) on all the evaluation metrics we used. In addition to our RF filter, we also excluded all sites failing the following two hard filters:
+We used a random forests (RF) model using allele-specific annotations as our main tool for variant quality control. This updated model is described below and performs markedly better than both VQSR and our previous RF model (used on OurDNA v2.0.2) on all the evaluation metrics we used. In addition to our RF filter, we also excluded all sites failing the following two hard filters:
 
 - `InbreedingCoeff`: Excess heterozygotes defined by an inbreeding coefficient < -0.3
 - `AC0`: No sample had a high quality genotype (depth >= 10, genotype quality >= 20 and minor allele balance > 0.2 for heterozygous genotypes)
@@ -150,7 +150,7 @@ Note that since random forests don't tolerate missing data, we have naively impu
 
 ##### Random forest training examples
 
-Our strategy for selecting training sites was the same as for gnomAD v2.0.2; however, because we had an increase in our number of trios, we had more positive transmitted singletons alleles than previously. The table below summarizes our training examples.
+Our strategy for selecting training sites was the same as for OurDNA v2.0.2; however, because we had an increase in our number of trios, we had more positive transmitted singletons alleles than previously. The table below summarizes our training examples.
 
 <table>
   <tr>

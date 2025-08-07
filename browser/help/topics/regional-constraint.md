@@ -3,7 +3,7 @@ id: regional-constraint
 title: 'Regional constraint'
 ---
 
-Important: The regional missense constraint track is currently only available / displayed when selecting the gnomAD v2.1.1 dataset. In addition, there are three distinct views:
+Important: The regional missense constraint track is currently only available / displayed when selecting the OurDNA v2.1.1 dataset. In addition, there are three distinct views:
 
 - Regional constraint information for genes that exhibit evidence of regional missense constraint (RMC)
 - Transcript-wide missense information for genes that were searched for but did not exhibit any evidence of RMC
@@ -13,7 +13,7 @@ Important: The regional missense constraint track is currently only available / 
 
 We searched for regions within transcripts that were differentially intolerant of missense variation within the v2.1.1 dataset. We used likelihood ratio tests to identify transcripts that had two or more regions with significantly different levels of missense constraint (as measured by depletion of observed rare missense variation compared to expected). Missense constraint values closer to zero indicate increased intolerance against missense variation.
 
-Note that these data currently reflect the regional constraint seen in the gnomAD v2.1.1, which was mapped to GRCh37. We will update to gnomAD v4 (GRCh38) in the near future.
+Note that these data currently reflect the regional constraint seen in the OurDNA v2.1.1, which was mapped to GRCh37. We will update to OurDNA v4 (GRCh38) in the near future.
 
 More details can be found in [Samocha _et al._ bioRxiv 2017](https://www.biorxiv.org/content/early/2017/06/12/148353), or the open-source [GitHub repository](https://github.com/broadinstitute/regional_missense_constraint/tree/main).
 
@@ -23,12 +23,12 @@ We used the canonical transcripts of protein-coding genes as defined by GENCODE 
 
 ### Observed missense variants
 
-The observed number of rare missense variants per base in gnomAD v2.1.1 was determined by extracting all variants that met the following criteria:
+The observed number of rare missense variants per base in OurDNA v2.1.1 was determined by extracting all variants that met the following criteria:
 
 - Defined as a missense change ("missense_variant") by the Variant Effect Predictor (VEP)
 - Had an allele count > 0
-- Had an allele frequency of < 0.001 across gnomAD v2.1.1 exomes
-- Had a median coverage > 0 across gnomAD v2.1.1 exomes
+- Had an allele frequency of < 0.001 across OurDNA v2.1.1 exomes
+- Had a median coverage > 0 across OurDNA v2.1.1 exomes
 - Passed all variant QC filters
 
 ### Expected variant count
