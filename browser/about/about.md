@@ -48,8 +48,8 @@ The aggregation and release of summary data from the genomes collected by the Ou
 The OurDNA dataset is composed of:
 
 - v1 (GRCh38)
-  - 6,101 genomes
-  - 11,945 exomes
+  - 2,214 genomes
+  - 10,671 exomes
 
 [See our stats page](/stats) for additional summary statistics.
 <br />
