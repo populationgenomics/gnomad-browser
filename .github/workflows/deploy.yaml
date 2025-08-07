@@ -5,6 +5,7 @@ on:
     branches:
       - ourdna-browser
       - ourdna-browser-dev
+      - remove-gnomad_v4-text
 
 permissions:
   id-token: write
