@@ -168,8 +168,8 @@ const StatsHighlightBlock = ({
   )
 }
 
-const gnomadBlue = '#F05436'
-const gnomadGreen = '#3646A8'
+const ourdnaOrange = '#F05436'
+const ourdnaPurple = '#3646A8'
 
 const barGraphTooltip = (row: any) => (
   <>
@@ -192,13 +192,13 @@ const StatsPage = () => {
               <h2>OurDNA v1 includes 12,885 individuals</h2>
               <SectionList>
                 <li>
-                  730,947 <span style={{ color: gnomadBlue }}>exomes</span>
+                  730,947 <span style={{ color: ourdnaOrange }}>exomes</span>
                   <SectionList>
                     <li>Lorem ipsum</li>
                   </SectionList>
                 </li>
                 <li>
-                  76,215 <span style={{ color: gnomadGreen }}>genomes</span>
+                  76,215 <span style={{ color: ourdnaPurple }}>genomes</span>
                 </li>
               </SectionList>
               <h2>OurDNA v1 variants</h2>
@@ -245,7 +245,7 @@ const StatsPage = () => {
                     binValues={gnomadV4AgeDistribution.exome.bin_freq}
                     nSmaller={gnomadV4AgeDistribution.exome.n_smaller}
                     nLarger={gnomadV4AgeDistribution.exome.n_larger}
-                    barColor={gnomadBlue}
+                    barColor={ourdnaOrange}
                     xLabel="Age"
                     yLabel="Individuals"
                     formatTooltip={(bin: any) =>
@@ -261,7 +261,7 @@ const StatsPage = () => {
                     binValues={gnomadV4AgeDistribution.genome.bin_freq}
                     nSmaller={gnomadV4AgeDistribution.genome.n_smaller}
                     nLarger={gnomadV4AgeDistribution.genome.n_larger}
-                    barColor={gnomadGreen}
+                    barColor={ourdnaPurple}
                     xLabel="Age"
                     yLabel="Individuals"
                     formatTooltip={(bin: any) =>
@@ -289,9 +289,9 @@ const StatsPage = () => {
           <SectionHeading id="samples">Where do gnomAD samples come from?</SectionHeading>
           <div style={{ width: '100%' }}>
             <TwoColumnLayout>
-              <StatsHighlightBlock color={gnomadBlue} title="308" text="Data Contributors" />
+              <StatsHighlightBlock color={ourdnaOrange} title="308" text="Data Contributors" />
               <StatsHighlightBlock
-                color={gnomadGreen}
+                color={ourdnaPurple}
                 title=">100"
                 text="Studies from around the world"
               />
