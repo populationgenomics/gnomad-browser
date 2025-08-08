@@ -50,7 +50,7 @@
     },
     {
       "geneticAncestryGroup": "na",
-      "optionalSymbol": "",
+      "optionalSymbol": "*",
       "OurDNAv1": {
         "sampleCount": 929,
         "percentOfSamples": 0
