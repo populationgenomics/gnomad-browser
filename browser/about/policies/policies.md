@@ -70,6 +70,6 @@ The CPG is firmly committed to Open Science and maximising the community benefit
 
 ## Licence
 
-The OurDNA aggregate data is available free under the [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+The OurDNA aggregate data will be available free under the [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en). Aggregate data download is currently under development. Please check back for a release date.
 
 Citation instructions will be provided on our Publications page (forthcoming).
