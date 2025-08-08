@@ -1,12 +1,12 @@
 ---
 id: ancestry
-title: 'Genetic Ancestry in AGDD'
+title: 'Genetic Ancestry in the OurDNA browser'
 ---
 
 ### Genetic ancestry Groups
 In our next release, we will have a blog post on genetic ancestry that will explain our process in more detail, and provide additional commentary on the benefits and limitations of using genetically-derived ancestry.
 
-In AGDD we provide the following genetic ancestry groups:
+In OurDNA browser we provide the following genetic ancestry groups:
 
 #### OurDNA
 Individuals in OurDNA recruited following participatory community engagement.
