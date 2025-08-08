@@ -12,14 +12,14 @@
   "data": [
     {
       "label": "OurDNA v1.0",
-      "Central and South Asian": 65222,
-      "East and South East Asian": 80879,
-      "Middle Eastern and North African": 93553,
-      "African, African American and African Caribbean": 118500,
-      "Central and South American": 90691,
-      "Australian Filipino": 75910,
-      "Unclassified": 91847,
-      "European": 64635
+      "Central and South Asian": 0,
+      "East and South East Asian": 0,
+      "Middle Eastern and North African": 0,
+      "African, African American and African Caribbean": 0,
+      "Central and South American": 0,
+      "Australian Filipino": 0,
+      "Unclassified": 0,
+      "European": 0
     }
   ]
 }
