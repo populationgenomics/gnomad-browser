@@ -4,7 +4,6 @@ The OurDNA browser is a resource intended for clinicians and researchers. If you
 
 ## The Centre for Population Genomics
 
-
 [The Centre for Population Genomics](https://populationgenomics.org.au) (CPG) is a not-for-profit research initiative, jointly based at the Garvan Institute of Medical Research and the Murdoch Children’s Research Institute, working to build a more equitable future for genomic medicine. At CPG, we celebrate and respect diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone.
 
 Our principles:
@@ -18,8 +17,8 @@ Our principles:
 4. **Scalability**: CPG builds platforms and approaches that are robust for use at population scale;
 
 5. **Connectedness**: CPG is part of and helps to build a global network of leading genomic research teams.
-<br />
-<br />
+   <br />
+   <br />
 
 ## The OurDNA program
 
@@ -29,13 +28,13 @@ The OurDNA program is overseen by the director of the Centre for Population Geno
 
 The OurDNA program is currently producing three key resources:
 
-* OurDNA Samples - a lab that stores participants’ donated blood and cells for future health and medical research according to participants’ consent
+- OurDNA Samples - a lab that stores participants’ donated blood and cells for future health and medical research according to participants’ consent
 
-* OurDNA Data - a controlled-access repository of participants’ individual-level genomic information for future research according to participants’ consent
+- OurDNA Data - a controlled-access repository of participants’ individual-level genomic information for future research according to participants’ consent
 
-* OurDNA Browser - an open access genome reference database for use by clinicians and researchers to guide disease prediction, diagnosis and treatment
-<br />
-<br />
+- OurDNA Browser - an open access genome reference database for use by clinicians and researchers to guide disease prediction, diagnosis and treatment
+  <br />
+  <br />
 
 ## The OurDNA Browser
 
@@ -48,8 +47,8 @@ The aggregation and release of summary data from the genomes collected by the Ou
 The OurDNA dataset is composed of:
 
 - v1 (GRCh38)
-  - 6,101 genomes
-  - 11,945 exomes
+  - 2,214 genomes
+  - 10,671 exomes
 
 [See our stats page](/stats) for additional summary statistics.
 <br />
