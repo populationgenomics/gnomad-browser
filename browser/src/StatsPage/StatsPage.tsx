@@ -217,14 +217,6 @@ const StatsPage = () => {
                   displayNumbers
                 />
               </div>
-              <CenteredContainer>
-                <img
-                  alt="2.9x increase in non-European individuals"
-                  src={SnvsPerBPAvg}
-                  width="250px"
-                  height="250px"
-                />
-              </CenteredContainer>
             </ResponsiveHalfWidthColumn>
           </TwoColumnLayout>
         </StatsSection>
