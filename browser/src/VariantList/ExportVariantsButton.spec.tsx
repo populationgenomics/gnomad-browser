@@ -85,7 +85,6 @@ const EXOME_GROUPMAX_FREQ_LABEL = 'Exome GroupMax FAF frequency'
 const GENOME_GROUPMAX_GROUP_LABEL = 'Genome GroupMax FAF group'
 const GENOME_GROUPMAX_FREQ_LABEL = 'Genome GroupMax FAF frequency'
 
-/* @ts-expect-error TS(TS2741) FIXME: Property 'ourdna' is missing in type. */
 const expectedVersionSpecificColumns: Record<DatasetId, Column[]> = {
   exac: [],
   gnomad_r2_1: [
