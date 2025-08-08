@@ -233,10 +233,12 @@ const VariantGenotypeQualityMetrics = ({
   // loop through the bin edges, convert to string and find the max string length
   const maxBinEdgeLength = Math.max(...binEdgesRaw.map((edge: number) => edge.toString().length))
   
-  // if the max length is greater than 5, convert to exponential notation
-  // otherwise keep the original number format
-  // this is to ensure that the bin edges are displayed in a readable format
-  const binEdges: (number | string)[] = maxBinEdgeLength > 5 ? binEdgesRaw.map((edge: number) => edge.toExponential(2)) : binEdgesRaw
+  // Only convert toFixed(2) when maxBinEdgeLength > 5 and all edge values are less than 10
+  const shouldConvertToFixed =
+    maxBinEdgeLength > 5 && binEdgesRaw.every((edge: number) => edge < 10)
+  const binEdges: (number | string)[] = shouldConvertToFixed
+    ? binEdgesRaw.map((edge: number) => edge.toFixed(2))
+    : binEdgesRaw
 
   const tabs: Tab[] = [
     createTab(
