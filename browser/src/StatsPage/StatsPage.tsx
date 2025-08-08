@@ -192,13 +192,13 @@ const StatsPage = () => {
               <h2>OurDNA v1 includes 12,885 individuals</h2>
               <SectionList>
                 <li>
-                  730,947 <span style={{ color: ourdnaOrange }}>exomes</span>
+                  10,671 <span style={{ color: ourdnaOrange }}>exomes</span>
                   <SectionList>
                     <li>Lorem ipsum</li>
                   </SectionList>
                 </li>
                 <li>
-                  76,215 <span style={{ color: ourdnaPurple }}>genomes</span>
+                  2,214 <span style={{ color: ourdnaPurple }}>genomes</span>
                 </li>
               </SectionList>
               <h2>OurDNA v1 variants</h2>
