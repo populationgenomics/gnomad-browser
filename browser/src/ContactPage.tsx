@@ -2,8 +2,6 @@ import React from 'react'
 
 import { ExternalLink, PageHeading } from '@gnomad/ui'
 
-import Link from './Link'
-
 import DocumentTitle from './DocumentTitle'
 import InfoPage from './InfoPage'
 

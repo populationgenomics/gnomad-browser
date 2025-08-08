@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import DatasetSelector, { DatasetOptions } from './DatasetSelector'
-import InfoButton from './help/InfoButton'
 
 import { DatasetId } from '@gnomad/dataset-metadata/metadata'
 
