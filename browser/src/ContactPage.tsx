@@ -29,10 +29,10 @@ export default () => (
       <ExternalLink href="https://www.instagram.com/ourdna_australia/">@ourdna_australia </ExternalLink>
       and{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="@ourdna_australia">Facebook</ExternalLink>.
+      <ExternalLink href="https://www.facebook.com/people/Our-DNA/61563734916751/">Facebook</ExternalLink>.
     </p>
     <p>
-      For all other questions, please <ExternalLink href="servicedesk@populationgenomics.com">email us</ExternalLink>.
+      For all other questions, please <ExternalLink href="mailto:servicedesk@populationgenomics.com">email us</ExternalLink>.
     </p>
   </InfoPage>
 )
