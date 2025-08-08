@@ -25,7 +25,7 @@ Our principles:
 
 The OurDNA program is a flagship initiative of the Centre for Population Genomics to increase the genomic representation of Australian multicultural communities. The OurDNA program aims to aggregate and share genetic variation data from over 20,000 Australians, including 8,000 new high-quality whole genome sequences from participants from genomically underrepresented groups recruited following participatory community engagement.
 
-The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please visit our [Funding](/about) and [Team](/team) pages.
+The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please see see information on the Centre's [Funding](#funding) and Team pages.
 
 The OurDNA program is currently producing three key resources:
 
