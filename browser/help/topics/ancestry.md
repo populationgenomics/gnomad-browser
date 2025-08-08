@@ -40,4 +40,5 @@ We assigned an ancestry label when the probability of group assignment was >= 0.
 
 Any samples that we were unable to cluster using these probabilities were grouped into "Unclassified".
 
-We have not performed genetic ancestry sub-group clustering at this time.
+### Sub-group genetic ancestry identification and local ancestry
+We have not performed genetic ancestry sub-group clustering nor local ancestry inferernce at this time, however this is on our roadmap for future releases.
