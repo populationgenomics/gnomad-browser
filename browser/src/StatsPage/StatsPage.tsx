@@ -266,77 +266,77 @@ const StatsPage = () => {
             <SexDistributionList>
               <h3>Sex</h3>
               <ul>
-                <li>406,265 XX individuals</li>
-                <li>400,897 XY individuals</li>
+                <li>6,404 XX individuals</li>
+                <li>6,481 XY individuals</li>
               </ul>
             </SexDistributionList>
           </TwoColumnLayout>
-          <p style={{ marginTop: '5em' }}>
-            To learn more about how we calculate the sex and age distribution please see our{' '}
-            <Link to="/help">FAQs</Link>
-          </p>
+          {/* <p style={{ marginTop: '5em' }}>
+                          To learn more about how we calculate the sex and age distribution please see our{' '}
+                          <Link to="/help">FAQs</Link>
+                          </p> */}
         </StatsSection>
 
-        <StatsSection>
-          <SectionHeading id="samples">Where do gnomAD samples come from?</SectionHeading>
-          <div style={{ width: '100%' }}>
-            <TwoColumnLayout>
-              <StatsHighlightBlock color={ourdnaOrange} title="308" text="Data Contributors" />
-              <StatsHighlightBlock
-                color={ourdnaPurple}
-                title=">100"
-                text="Studies from around the world"
-              />
-            </TwoColumnLayout>
-          </div>
-          <p>
-            The gnomAD project brings in samples recruited for various studies based around the
-            world. We are not always provided information about where samples are obtained, but we
-            are often provided the country of the study&apos;s institutional review board (IRB).{' '}
-          </p>
-          <p>
-            Version 4 of gnomAD contains samples with IRBs based in at least 25 different countries,
-            including:{' '}
-            <CountriesColoredText>
-              Australia, Bangladesh, Belgium, Canada, China, England, Finland, France, Germany,
-              Israel, Italy, Japan, Kenya, Korea, Lithuania, Mexico, Netherlands, Pakistan,
-              Scotland, Singapore, Spain, Sweden, United Arab Emirates, United States, Wales.
-            </CountriesColoredText>
-          </p>
-          <p>
-            To see a list of studies included in gnomAD and data contributors please visit our{' '}
-            <Link to="/about">about page</Link>.
-          </p>
-        </StatsSection>
+        {/* <StatsSection>
+                          <SectionHeading id="samples">Where do gnomAD samples come from?</SectionHeading>
+                          <div style={{ width: '100%' }}>
+                          <TwoColumnLayout>
+                          <StatsHighlightBlock color={ourdnaOrange} title="308" text="Data Contributors" />
+                          <StatsHighlightBlock
+                          color={ourdnaPurple}
+                          title=">100"
+                          text="Studies from around the world"
+                          />
+                          </TwoColumnLayout>
+                          </div>
+                          <p>
+                          The gnomAD project brings in samples recruited for various studies based around the
+                          world. We are not always provided information about where samples are obtained, but we
+                          are often provided the country of the study&apos;s institutional review board (IRB).{' '}
+                          </p>
+                          <p>
+                          Version 4 of gnomAD contains samples with IRBs based in at least 25 different countries,
+                          including:{' '}
+                          <CountriesColoredText>
+                          Australia, Bangladesh, Belgium, Canada, China, England, Finland, France, Germany,
+                          Israel, Italy, Japan, Kenya, Korea, Lithuania, Mexico, Netherlands, Pakistan,
+                          Scotland, Singapore, Spain, Sweden, United Arab Emirates, United States, Wales.
+                          </CountriesColoredText>
+                          </p>
+                          <p>
+                          To see a list of studies included in gnomAD and data contributors please visit our{' '}
+                          <Link to="/about">about page</Link>.
+                          </p>
+                          </StatsSection> */}
 
         <StatsSection>
-          <SectionHeading id="diversity">Diversity in gnomAD</SectionHeading>
+          <SectionHeading id="diversity">Diversity in OurDNA</SectionHeading>
 
-          <h3 style={{ marginBottom: '2em' }}>Genetic ancestry groups in gnomAD by version</h3>
+          <h3 style={{ marginBottom: '2em' }}>Genetic ancestry groups in OurDNA by version</h3>
 
-          <TwoColumnLayout style={{ marginBottom: '5em' }}>
-            <img
+          {/* <TwoColumnLayout style={{ marginBottom: '5em' }}>
+              <img
               alt="2.9x increase in non-European individuals"
               src={DiversityBadge}
               width="275px"
-            />
-            <ResponsiveHalfWidthColumn>
+              />
+              <ResponsiveHalfWidthColumn>
               <p>
-                We continue to improve the diversity of the genetic ancestry groups within gnomAD.
-                While v4 does have some improvements we continue to strive to increase
-                representation of historically underrepresented populations.
+              We continue to improve the diversity of the genetic ancestry groups within gnomAD.
+              While v4 does have some improvements we continue to strive to increase
+              representation of historically underrepresented populations.
               </p>
               <p>
-                To learn more about how we determine genetic ancestry groups please see our{' '}
-                <Link to="help/ancestry">help page</Link> and{' '}
-                {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-                <ExternalLink href="https://gnomad.broadinstitute.org/news/2023-11-genetic-ancestry">
-                  blog post
-                </ExternalLink>{' '}
-                on genetic ancestry.
+              To learn more about how we determine genetic ancestry groups please see our{' '}
+              <Link to="help/ancestry">help page</Link> and{' '}
+              <ExternalLink href="https://gnomad.broadinstitute.org/news/2023-11-genetic-ancestry">
+              blog post
+              </ExternalLink>{' '}
+              on genetic ancestry.
               </p>
-            </ResponsiveHalfWidthColumn>
-          </TwoColumnLayout>
+              </ResponsiveHalfWidthColumn>
+              </TwoColumnLayout>
+            */}
 
           <ResponsiveTable style={{ marginBottom: '3em' }}>
             <GeneticAncestryGroupsByVersionTable />
