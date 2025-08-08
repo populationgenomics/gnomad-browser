@@ -24,19 +24,12 @@ const GeneticAncestryGroupsByVersionTable = () => {
         <thead>
           <StatsTableHeaderRow>
             <th>&nbsp;</th>
-            <th>ExAC</th>
-            <th>gnomAD v2</th>
-            <th>gnomAD v3</th>
-            <th colSpan={5}>gnomAD v4*</th>
+            <th>OurDNA v1.0</th>
+            {/* <th colSpan={5}>gnomAD v4*</th> */}
           </StatsTableHeaderRow>
           <StatsTableSubHeaderRow>
             <th className="rb">&nbsp;</th>
             <th className="rb">Sample count</th>
-            <th className="rb">Sample count</th>
-            <th className="rb">Sample count</th>
-            <th>Sample count</th>
-            <th>%</th>
-            <th>Increase from v2</th>
           </StatsTableSubHeaderRow>
         </thead>
         <StatsTableBody>
@@ -48,12 +41,7 @@ const GeneticAncestryGroupsByVersionTable = () => {
                   <td className="rb">{`${populationName(tableRow.geneticAncestryGroup)}${
                     tableRow.optionalSymbol
                   }`}</td>
-                  <td className="rb">{renderNumberOrDash(tableRow.EXaC.sampleCount)}</td>
-                  <td className="rb">{renderNumberOrDash(tableRow.gnomADV2.sampleCount)}</td>
-                  <td className="rb">{renderNumberOrDash(tableRow.gnomADV3.sampleCount)}</td>
-                  <td>{renderNumberOrDash(tableRow.gnomADV4.sampleCount)}</td>
-                  <td>{`${tableRow.gnomADV4.percentOfSamples}%`}</td>
-                  <td>{`${tableRow.gnomADV4.foldIncreaseFromV2}x`}</td>
+                  <td>{renderNumberOrDash(tableRow.OurDNAv1.sampleCount)}</td>
                 </tr>
               )
             })}
@@ -65,24 +53,14 @@ const GeneticAncestryGroupsByVersionTable = () => {
               return (
                 <tr>
                   <td>Total</td>
-                  <td>{renderNumberOrDash(tableRow.EXaC.sampleCount)}</td>
-                  <td>{renderNumberOrDash(tableRow.gnomADV2.sampleCount)}</td>
-                  <td>{renderNumberOrDash(tableRow.gnomADV3.sampleCount)}</td>
-                  <td>{renderNumberOrDash(tableRow.gnomADV4.sampleCount)}</td>
-                  <td>-</td>
-                  <td>-</td>
+                  <td>{renderNumberOrDash(tableRow.OurDNAv1.sampleCount)}</td>
                 </tr>
               )
             })}
         </StatsTableFooter>
-        <StatsTableCaption>
-          <div>*v4 includes all v3 samples.</div>
-          <div>
-            ^ Due to small sample size, Amish are included in remaining individuals, and based on
-            population proximity Finns are included in European totals. Both are presented
-            separately in the v4 browser as before.
-          </div>
-        </StatsTableCaption>
+        {/* <StatsTableCaption>
+            <div>* Description here</div>
+            </StatsTableCaption> */}
       </StatsTable>
       <div>
         <DownloadElementAsPNGButton elementId={elementId} />
