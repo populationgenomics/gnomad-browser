@@ -4,7 +4,7 @@ title: 'Genetic Ancestry in AGDD'
 ---
 
 ### Genetic ancestry Groups
-See our [blog post](/news/2025-08-genetic-ancestry) on genetic ancestry for more details on our process and additional commentary on the benefits and limitations of using genetically-derived ancestry.
+In our next release, we will have a blog post on genetic ancestry that will explain our process in more detail, and provide additional commentary on the benefits and limitations of using genetically-derived ancestry.
 
 In AGDD we provide the following genetic ancestry groups:
 
