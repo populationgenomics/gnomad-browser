@@ -20,9 +20,9 @@ import InfoPage from '../InfoPage'
 import Link from '../Link'
 
 import ourdnaExomeGenomeCountsByVersion from './BarGraphData/ourdnaExomeGenomeCountsByVersion.json'
-import ourDNAV1GeneticAncestryCounts from './BarGraphData/ourdnaV1GeneticAncestryCounts.json'
-import gnomadV4GeneticDiversityCounts from './BarGraphData/gnomadV4GeneticDiversityCounts.json'
-import NumberOfVariantsInGnomadList, { SectionList } from './NumberOfVariantsInGnomadList'
+import ourdnaV1GeneticAncestryCounts from './BarGraphData/ourdnaV1GeneticAncestryCounts.json'
+import ourdnaV1GeneticDiversityCounts from './BarGraphData/ourdnaV1GeneticDiversityCounts.json'
+import NumberOfVariantsInOurDNAList, { SectionList } from './NumberOfVariantsInOurDNAList'
 import StackedBarGraph from './StackedBarGraph'
 import GeneticAncestryGroupsByVersionTable from './StatsPageTables/GeneticAncestryGroupsByVersionTable'
 import V4GeneticAncestryTable from './StatsPageTables/V4GeneticAncestryTable'
@@ -137,13 +137,18 @@ const DiversityBarGraphTooltip = (row: any) => {
       <b>{row.label}</b>
       {/* eslint-disable dot-notation */}
       <div>{row['European'].toLocaleString()} European</div>
-      <div>{row['Remaining'].toLocaleString()} Remaining</div>
-      <div>{row['Ashkenazi Jewish'].toLocaleString()} Ashkenazi Jewish</div>
-      <div>{row['Admixed American'].toLocaleString()} Admixed American</div>
-      <div>{row['African'].toLocaleString()} African</div>
-      <div>{row['Middle Eastern'].toLocaleString()} Middle Eastern</div>
-      <div>{row['South Asian'].toLocaleString()} South Asian</div>
-      <div>{row['East Asian'].toLocaleString()} East Asian</div>
+      <div>{row['Unclassified'].toLocaleString()} Unclassified</div>
+      <div>{row['Australian Filipino'].toLocaleString()} Australian Filipino</div>
+      <div>{row['Central and South American'].toLocaleString()} Central and South American</div>
+      <div>
+        {row['African, African American and African Caribbean'].toLocaleString()} African, African
+        American and African Caribbean
+      </div>
+      <div>
+        {row['Middle Eastern and North African'].toLocaleString()} Middle Eastern and North African
+      </div>
+      <div>{row['East and South East Asian'].toLocaleString()} East and South East Asian</div>
+      <div>{row['Central and South Asian'].toLocaleString()} Central and South Asian</div>
       {/* eslint-enable dot-notation */}
     </>
   )
@@ -202,7 +207,7 @@ const StatsPage = () => {
                 </li>
               </SectionList>
               <h2>OurDNA v1 variants</h2>
-              <NumberOfVariantsInGnomadList />
+              <NumberOfVariantsInOurDNAList />
             </div>
             <ResponsiveHalfWidthColumn>
               <div style={{ marginTop: '4em', marginBottom: '7em', minWidth: '550px' }}>
@@ -223,7 +228,7 @@ const StatsPage = () => {
 
         <StatsSection>
           <SectionHeading id="age-and-sex-distribution">
-            What is the age and sex distribution in gnomAD?
+            What is the age and sex distribution in OurDNA?
           </SectionHeading>
           <TwoColumnLayout>
             <ResponsiveGnomadSamplesContainer>
@@ -346,8 +351,8 @@ const StatsPage = () => {
             <DiversityBarGraph style={{ marginTop: '1em', marginBottom: '1em' }}>
               <StackedBarGraph
                 title="Per genetic ancestry group count of samples in gnomAD releases"
-                barColors={ourDNAV1GeneticAncestryCounts.colors}
-                barValues={ourDNAV1GeneticAncestryCounts.data}
+                barColors={ourdnaV1GeneticAncestryCounts.colors}
+                barValues={ourdnaV1GeneticAncestryCounts.data}
                 height={400}
                 formatTooltip={DiversityBarGraphTooltip}
                 xLabel=""
@@ -360,9 +365,9 @@ const StatsPage = () => {
           <DiversityBarGraphContainer style={{ marginBottom: '6em' }}>
             <DiversityBarGraph style={{ marginTop: '1em', marginBottom: '0' }}>
               <StackedBarGraph
-                title="Per genetic ancestry group count of non-synonymous coding variants in canonical transcripts with a overall gnomAD (within version) AF >0.1"
-                barColors={gnomadV4GeneticDiversityCounts.colors}
-                barValues={gnomadV4GeneticDiversityCounts.data}
+                title="Per genetic ancestry group count of non-synonymous coding variants in canonical transcripts with a overall AF > 0.1"
+                barColors={ourdnaV1GeneticDiversityCounts.colors}
+                barValues={ourdnaV1GeneticDiversityCounts.data}
                 height={400}
                 formatTooltip={DiversityBarGraphTooltip}
                 xLabel=""
