@@ -10,9 +10,11 @@ In OurDNA browser we provide the following genetic ancestry groups:
 
 #### OurDNA
 Individuals in OurDNA recruited following participatory community engagement.
+
 - Australian Filipino
 
 #### Genetic ancestry regions
+Individuals from our other contributing projects
 
 - Middle Eastern and North African
 - East and South East Asian
