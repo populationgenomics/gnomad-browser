@@ -1,9 +1,9 @@
 ---
 id: vep
-title: 'Annotations in gnomAD'
+title: 'Annotations in OurDNA'
 ---
 
-### gnomAD v4.1
+### OurDNA v4.1
 
 #### VEP
 
@@ -29,32 +29,32 @@ The segmental duplication regions we used are from the Global Alliance for Genom
 
 ### VEP
 
-#### gnomAD v3.1
+#### OurDNA v3.1
 
 Variants in the browser (and all current VCFs available for download) were annotated using VEP version 101 using GENCODE v35 on GRCh38, with the [LOFTEE](https://github.com/konradjk/loftee) (Loss-Of-Function Transcript Effect Estimator) plugin.
 
-#### gnomAD v3.0
+#### OurDNA v3.0
 
 Variants in the browser (and all current VCFs available for download) were annotated using VEP version 95 using GENCODE v29 on GRCh38, with the [LOFTEE](https://github.com/konradjk/loftee) (Loss-Of-Function Transcript Effect Estimator) plugin.
 
-#### gnomAD v2
+#### OurDNA v2
 
 Variants in the browser (and all current VCFs available for download) were annotated using VEP version 85 using GENCODE v19 on GRCh37, with the [LOFTEE](https://github.com/konradjk/loftee) (Loss-Of-Function Transcript Effect Estimator) plugin.
 
-### MNVs (gnomAD v2 only)
+### MNVs (OurDNA v2 only)
 
 Multi-nucleotide variants (MNVs) were identified using [Hail's window_by_locus](https://hail.is/docs/0.2/methods/genetics.html#hail.methods.window_by_locus) function. We exhaustively looked for variants that appear in the same individual, in the same haplotype, and within 2 bp distance for the exome dataset and 10 bp distance for the genome dataset. More information can be found in ["Landscape of multi-nucleotide variants in 125,748 human exomes and 15,708 genomes"](https://broad.io/gnomad_mnv).
 
 ### LCR, SEGDUP and DECOY flags
 
-#### gnomAD v3
+#### OurDNA v3
 
 Variants have been flagged according to whether they fall into low-complexity regions (LCRs).
 
 These [regions](https://storage.googleapis.com/gcp-public-data--gnomad/intervals/LCRFromHengHg38.bed) were identified
 with the [symmetric DUST algorithm](https://www.ncbi.nlm.nih.gov/pubmed/16796549) on GRCh38 at a score threshold of 30.
 
-#### gnomAD v2
+#### OurDNA v2
 
 Variants have been flagged according to whether they fall into low-complexity regions (LCRs) or segmental duplication (SEGDUP) regions.
 

@@ -1,5 +1,5 @@
 ---
-question: 'Why are two variants predicted as occurring on the same haplotype when the majority of the samples in gnomAD only have a single variant?'
+question: 'Why are two variants predicted as occurring on the same haplotype when the majority of the samples in OurDNA only have a single variant?'
 ---
 
 The variant co-occurrence tool assesses the probability of whether we would observe the given allele counts for each rare variant if the two rare variants were present on different haplotypes. For the two variants in question, the probability that the two variants are on different haplotypes is very low (<1%), which is why the co-occurrence prediction is that these variants occur on the same haplotype.

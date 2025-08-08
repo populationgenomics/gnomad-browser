@@ -1,5 +1,5 @@
 ---
-question: 'How do you pronounce gnomAD?'
+question: 'How do you pronounce OurDNA?'
 ---
 
 ˈnōˌmad

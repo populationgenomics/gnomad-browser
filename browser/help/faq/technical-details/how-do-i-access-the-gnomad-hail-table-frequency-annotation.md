@@ -1,5 +1,5 @@
 ---
-question: How do I access the gnomAD Hail Table frequency annotation?
+question: How do I access the OurDNA Hail Table frequency annotation?
 ---
 
-Please see our gnomAD Hail Table [help text](/help/v4-hts)
+Please see our OurDNA Hail Table [help text](/help/v4-hts)

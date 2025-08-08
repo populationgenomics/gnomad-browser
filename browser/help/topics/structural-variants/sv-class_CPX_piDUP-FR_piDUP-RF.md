@@ -5,12 +5,12 @@ title: 'Complex SV subclass: palindromic inverted duplications (piDUP-FR & piDUP
 
 #### Configuration A (piDUP-FR)
 
-![Palindromic inverted duplication (piDUP-FR)](gnomAD_browser.SV_schematics_piDUP_FR.png)
+![Palindromic inverted duplication (piDUP-FR)](OurDNA_browser.SV_schematics_piDUP_FR.png)
 
 #### Configuration B (piDUP-RF)
 
-![Palindromic inverted duplication (piDUP-RF)](gnomAD_browser.SV_schematics_piDUP_RF.png)
+![Palindromic inverted duplication (piDUP-RF)](OurDNA_browser.SV_schematics_piDUP_RF.png)
 
-Palindromic inverted duplications are complex SVs involving the simultaneous duplication and inversion of at least 1kb of genomic sequence. In gnomAD, we specify two configurations, depending on the orientation of the duplicated copy relative to the reference copy:
+Palindromic inverted duplications are complex SVs involving the simultaneous duplication and inversion of at least 1kb of genomic sequence. In OurDNA, we specify two configurations, depending on the orientation of the duplicated copy relative to the reference copy:
   - `piDUP-FR` if the reference (unduplicated) copy comes before the duplicated copy (i.e., head-to-head orientation)
   - `piDUP-RF` if the duplicated copy comes before the reference copy (i.e., tail-to-tail orientation)

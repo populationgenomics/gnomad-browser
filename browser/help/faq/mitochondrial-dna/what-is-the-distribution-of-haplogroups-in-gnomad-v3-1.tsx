@@ -242,6 +242,6 @@ const HaplogroupLineageTables = () => {
   )
 }
 
-export const question = 'What is the distribution of haplogroups in gnomAD v3.1?'
+export const question = 'What is the distribution of haplogroups in OurDNA v3.1?'
 
 export const renderAnswer = () => <HaplogroupLineageTables />

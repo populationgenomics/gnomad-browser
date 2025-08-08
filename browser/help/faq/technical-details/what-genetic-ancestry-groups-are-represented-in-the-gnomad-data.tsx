@@ -26,11 +26,11 @@ const SampleCountTable = styled(BaseTable)`
 const SampleCountTables = () => (
   <div>
     <div>
-      <h4>gnomAD v4</h4>
+      <h4>OurDNA v4</h4>
       <p>
         For current stats on genetic ancestry groups present in v4, please see the{' '}
         <Link to="/stats#diversity">stats page</Link>. For technical details, please see our{' '}
-        <Link to="/help/ancestry">Genetic Ancestry in gnomAD</Link> help text.
+        <Link to="/help/ancestry">Genetic Ancestry in OurDNA</Link> help text.
       </p>
     </div>
 
@@ -39,7 +39,7 @@ const SampleCountTables = () => (
     <details>
       <summary>Expand to see details for past versions</summary>
       <div>
-        <h4>gnomAD v3</h4>
+        <h4>OurDNA v3</h4>
         <TableWrapper>
           <SampleCountTable>
             <thead>
@@ -112,7 +112,7 @@ const SampleCountTables = () => (
           </SampleCountTable>
         </TableWrapper>
 
-        <h4>gnomAD v2</h4>
+        <h4>OurDNA v2</h4>
         <TableWrapper>
           <SampleCountTable>
             <thead>
@@ -236,6 +236,6 @@ const SampleCountTables = () => (
   </div>
 )
 
-export const question = 'What genetic ancestry groups are represented in the gnomAD data?'
+export const question = 'What genetic ancestry groups are represented in the OurDNA data?'
 
 export const renderAnswer = () => <SampleCountTables />

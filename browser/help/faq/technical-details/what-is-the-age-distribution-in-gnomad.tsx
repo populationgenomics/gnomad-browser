@@ -24,11 +24,11 @@ const Column = styled.div`
   }
 `
 
-export const question = 'What is the age distribution in gnomAD?'
+export const question = 'What is the age distribution in OurDNA?'
 
 export const renderAnswer = () => (
   <>
-    <p>For gnomAD v4, the age distribution is:</p>
+    <p>For OurDNA v4, the age distribution is:</p>
     <ColumnsWrapper>
       <Column>
         <p>Exomes</p>
@@ -61,7 +61,7 @@ export const renderAnswer = () => (
     </ColumnsWrapper>
     <p>
       Please note that cohorts vary in how they report age (some report the age at diagnosis, others
-      report the age of last visit, etc), so the ages associated with the gnomAD data can be thought
+      report the age of last visit, etc), so the ages associated with the OurDNA data can be thought
       of as the last known age of the individual. Information on age was not available for all
       samples. We have age data for 477,065 exome samples and 31,168 genome samples.
     </p>
@@ -69,7 +69,7 @@ export const renderAnswer = () => (
     <details>
       <summary>Expand to see details for past versions</summary>
 
-      <p>For gnomAD v3, the age distribution is:</p>
+      <p>For OurDNA v3, the age distribution is:</p>
 
       <ColumnsWrapper>
         <Column>
@@ -86,7 +86,7 @@ export const renderAnswer = () => (
           />
         </Column>
       </ColumnsWrapper>
-      <p>For gnomAD v2, the age distribution is:</p>
+      <p>For OurDNA v2, the age distribution is:</p>
       <ColumnsWrapper>
         <Column>
           <p>Exomes</p>
@@ -119,7 +119,7 @@ export const renderAnswer = () => (
       </ColumnsWrapper>
       <p>
         Please note that cohorts vary in how they report age (some report the age at diagnosis,
-        others report the age of last visit, etc), so the ages associated with the gnomAD data can
+        others report the age of last visit, etc), so the ages associated with the OurDNA data can
         be thought of as the last known age of the individual. Information on age was not available
         for all samples. We have age data for 85,462 exome samples and 11,242 genome samples.
       </p>

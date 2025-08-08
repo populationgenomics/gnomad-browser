@@ -37,6 +37,6 @@ Also note that for the browser, we have only added expression values for protein
 ### More information
 
 #### GTEx versions
-gnomAD v4 used GTEx v10 to calculate pext scores. gnomAD v2 used GTEx v7 data.
+OurDNA v4 used GTEx v10 to calculate pext scores. OurDNA v2 used GTEx v7 data.
 
-Check our [paper](https://broad.io/tx_annotation) for details on development, validation and utility of pext values for interpretation. We also have [utility functions](https://github.com/broadinstitute/gnomad_methods/blob/main/gnomad/utils/transcript_annotation.py) in the gnomAD Hail utilities GitHub repository and a detailed [GitHub repository](https://github.com/macarthur-lab/tx_annotation/) that outlines the commands to create these files, and includes steps to annotate your own variant file with pext values with any isoform expression matrix.
+Check our [paper](https://broad.io/tx_annotation) for details on development, validation and utility of pext values for interpretation. We also have [utility functions](https://github.com/broadinstitute/gnomad_methods/blob/main/gnomad/utils/transcript_annotation.py) in the OurDNA Hail utilities GitHub repository and a detailed [GitHub repository](https://github.com/macarthur-lab/tx_annotation/) that outlines the commands to create these files, and includes steps to annotate your own variant file with pext values with any isoform expression matrix.
