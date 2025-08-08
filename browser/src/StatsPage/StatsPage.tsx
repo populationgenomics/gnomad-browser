@@ -20,7 +20,7 @@ import InfoPage from '../InfoPage'
 import Link from '../Link'
 
 import ourdnaExomeGenomeCountsByVersion from './BarGraphData/ourdnaExomeGenomeCountsByVersion.json'
-import gnomadV4GeneticAncestryCounts from './BarGraphData/gnomadV4GeneticAncestryCounts.json'
+import ourDNAV1GeneticAncestryCounts from './BarGraphData/ourdnaV1GeneticAncestryCounts.json'
 import gnomadV4GeneticDiversityCounts from './BarGraphData/gnomadV4GeneticDiversityCounts.json'
 import NumberOfVariantsInGnomadList, { SectionList } from './NumberOfVariantsInGnomadList'
 import StackedBarGraph from './StackedBarGraph'
@@ -346,8 +346,8 @@ const StatsPage = () => {
             <DiversityBarGraph style={{ marginTop: '1em', marginBottom: '1em' }}>
               <StackedBarGraph
                 title="Per genetic ancestry group count of samples in gnomAD releases"
-                barColors={gnomadV4GeneticAncestryCounts.colors}
-                barValues={gnomadV4GeneticAncestryCounts.data}
+                barColors={ourDNAV1GeneticAncestryCounts.colors}
+                barValues={ourDNAV1GeneticAncestryCounts.data}
                 height={400}
                 formatTooltip={DiversityBarGraphTooltip}
                 xLabel=""
