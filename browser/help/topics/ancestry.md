@@ -23,7 +23,7 @@ Individuals from our other contributing projects
 - African, African American, and African Caribbean
 - Unclassified
 
-These labels/groupings correspond to the harmonised labels proposed by Koenig et. al, but modified in accordance with our attempts to minimise misinformation regarding genetic ancestry.
+These labels/groupings correspond to the harmonised labels proposed by [Koenig *et. al.*](https://pubmed.ncbi.nlm.nih.gov/38749656/), but modified in accordance with our attempts to minimise misinformation regarding genetic ancestry.
 
 We emphasise that each of these genetic ancestry groups should be thought of as a grouping of *ancestries*, and that these groupings could be either too broad or too narrow with respect to the particular scientific question relevant to an analyst.
 
