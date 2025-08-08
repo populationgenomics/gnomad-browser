@@ -5,6 +5,7 @@ on:
     branches:
       - ourdna-browser
       - ourdna-browser-dev
+      - fixing-clinvar
 
 permissions:
   id-token: write
