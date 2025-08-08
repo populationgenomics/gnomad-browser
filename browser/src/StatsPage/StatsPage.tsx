@@ -380,11 +380,6 @@ const StatsPage = () => {
           <ResponsiveTable style={{ marginBottom: '6em' }}>
             <InferredSexAllV4Table />
           </ResponsiveTable>
-
-          <h4 style={{ marginBottom: '2em' }}>gnomAD v4 non-UKB</h4>
-          <ResponsiveTable style={{ marginBottom: '3em' }}>
-            <InferredSexNonUKBV4Table />
-          </ResponsiveTable>
         </StatsSection>
 
         <StatsSection>
@@ -410,35 +405,35 @@ const StatsPage = () => {
           </ResponsiveTable>
         </StatsSection>
 
-        <StatsSection>
-          <SectionHeading id="study-diseases">Study Diseases in gnomAD</SectionHeading>
+        {/* <StatsSection>
+                          <SectionHeading id="study-diseases">Study Diseases in gnomAD</SectionHeading>
 
-          <p style={{ marginBottom: '2em' }}>
-            During the sample aggregation phase of v4 we began collecting study-disease of interest
-            and case/control status at the individual level. This enabled us to provide a better
-            sense of the phenotype breakdown in gnomAD (see table below). While we are provided high
-            level study phenotype and case/control status for some exome samples,{' '}
-            <b>we do not have comprehensive phenotype metadata for gnomAD samples</b> and many
-            samples are now derived from large biobanks which can include individuals with disease.{' '}
-          </p>
+                          <p style={{ marginBottom: '2em' }}>
+                          During the sample aggregation phase of v4 we began collecting study-disease of interest
+                          and case/control status at the individual level. This enabled us to provide a better
+                          sense of the phenotype breakdown in gnomAD (see table below). While we are provided high
+                          level study phenotype and case/control status for some exome samples,{' '}
+                          <b>we do not have comprehensive phenotype metadata for gnomAD samples</b> and many
+                          samples are now derived from large biobanks which can include individuals with disease.{' '}
+                          </p>
 
-          <ResponsiveTable style={{ marginBottom: '3em' }}>
-            <StudyDiseasesInGnomadTable />
-          </ResponsiveTable>
-        </StatsSection>
+                          <ResponsiveTable style={{ marginBottom: '3em' }}>
+                          <StudyDiseasesInGnomadTable />
+                          </ResponsiveTable>
+                          </StatsSection> */}
 
-        <StatsSection>
-          <SectionHeading id="browser">gnomAD Browser Stats</SectionHeading>
-          <p>{`The gnomAD browser averages ~200,000 page views per week and had >377,000 unique users in the last year`}</p>
-          <TwoColumnLayout>
-            <ResponsiveHalfWidthColumn>
-              <img alt="Browser weekly pageviews" src={BrowserPageviews} width="100%" />
-            </ResponsiveHalfWidthColumn>
-            <ResponsiveHalfWidthColumn>
-              <img alt="Browser users location" src={BrowserWorld} width="100%" />
-            </ResponsiveHalfWidthColumn>
-          </TwoColumnLayout>
-        </StatsSection>
+        {/* <StatsSection>
+                          <SectionHeading id="browser">gnomAD Browser Stats</SectionHeading>
+                          <p>{`The gnomAD browser averages ~200,000 page views per week and had >377,000 unique users in the last year`}</p>
+                          <TwoColumnLayout>
+                          <ResponsiveHalfWidthColumn>
+                          <img alt="Browser weekly pageviews" src={BrowserPageviews} width="100%" />
+                          </ResponsiveHalfWidthColumn>
+                          <ResponsiveHalfWidthColumn>
+                          <img alt="Browser users location" src={BrowserWorld} width="100%" />
+                          </ResponsiveHalfWidthColumn>
+                          </TwoColumnLayout>
+                          </StatsSection> */}
       </div>
     </InfoPage>
   )
