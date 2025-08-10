@@ -217,6 +217,26 @@ const prepareDataGnomadV4 = ({ metric, variant }: { metric: string; variant: Var
       throw new Error('Could not derive exome metrics even though there is a exome variant')
     binEdges = exomeMetrics.binEdges
     description = exomeMetrics.description
+
+    // loop through the bin edges, convert to string and find the max string length
+    const maxBinEdgeLength = Math.max(...binEdges.map((edge: number) => edge.toString().length))
+    
+    // Only convert toFixed(2) when maxBinEdgeLength > 5 and all edge values are less than 10
+    const shouldConvertToFixed =
+      maxBinEdgeLength > 5 && binEdges.every((edge: number) => edge < 10)
+    const shouldConvertToScientific =
+      maxBinEdgeLength > 5 && binEdges.every((edge: number) => edge >= 1)
+
+    // Convert binEdges to fixed or scientific notation if needed
+    if (shouldConvertToFixed) {
+      console.log('Format to fixed')
+      binEdges = binEdges.map((edge: number) => Number(edge).toFixed(2))
+    } else if (shouldConvertToScientific) {
+      console.log('Format to scientific') 
+      binEdges = binEdges.map((edge: number) => Number(edge).toExponential(2))
+    }
+    
+    console.log('Exome metrics prepared2: ', { shouldConvertToScientific, maxBinEdgeLength, binEdges, description })
   }
 
   if (variant.genome) {
@@ -229,6 +249,26 @@ const prepareDataGnomadV4 = ({ metric, variant }: { metric: string; variant: Var
       throw new Error('Could not derive genome metrics even though there is a genome variant')
     binEdges = genomeMetrics && genomeMetrics.binEdges
     description = genomeMetrics && genomeMetrics.description
+
+    // loop through the bin edges, convert to string and find the max string length
+    const maxBinEdgeLength = Math.max(...binEdges.map((edge: number) => edge.toString().length))
+    
+    // Only convert toFixed(2) when maxBinEdgeLength > 5 and all edge values are less than 10
+    const shouldConvertToFixed =
+      maxBinEdgeLength > 5 && binEdges.every((edge: number) => edge < 10)
+    const shouldConvertToScientific =
+      maxBinEdgeLength > 5 && binEdges.every((edge: number) => edge >= 1)
+
+    // Convert binEdges to fixed or scientific notation if needed
+    if (shouldConvertToFixed) {
+      console.log('Format to fixed')
+      binEdges = binEdges.map((edge: number) => Number(edge).toFixed(2))
+    } else if (shouldConvertToScientific) {
+      console.log('Format to scientific') 
+      binEdges = binEdges.map((edge: number) => Number(edge).toExponential(2))
+    }
+
+    console.log('Genome metrics prepared 2:', {shouldConvertToScientific, maxBinEdgeLength, binEdges, description })
   }
 
   return {
@@ -675,6 +715,7 @@ const SiteQualityMetricsHistogram = ({
   const bins = [...Array(binEdges.length + 1)].map((_, i) => i)
 
   const formatBinEdge = isLogScale ? (edge: any) => `1e${edge}` : (edge: any) => `${edge}`
+
   const binLabels = [
     `< ${formatBinEdge(binEdges[0])}`,
     ...[...Array(binEdges.length - 1)].map(
@@ -682,6 +723,8 @@ const SiteQualityMetricsHistogram = ({
     ),
     `> ${formatBinEdge(binEdges[binEdges.length - 1])}`,
   ]
+
+  console.log('Bin labels: ', binLabels)
 
   let formatTooltip: any
   if (exomeBinValues && genomeBinValues) {
@@ -785,6 +828,11 @@ const SiteQualityMetricsHistogram = ({
   const primaryMetricValueX = getMetricValueX(primaryMetricValue)
   const secondaryMetricValueX = secondaryMetricValue ? getMetricValueX(secondaryMetricValue) : null
 
+  console.log('Primary metric value: ', primaryMetricValue)
+  console.log('Secondary metric value: ', secondaryMetricValue)
+
+  console.log('labelProps: ', labelProps)
+
   const primaryLabelOnLeft = secondaryMetricValue
     ? secondaryMetricValue > primaryMetricValue
     : primaryMetricValueX > plotWidth * 0.8
@@ -808,6 +856,7 @@ const SiteQualityMetricsHistogram = ({
         top={margin.top + plotHeight}
         scale={xScale}
         stroke="#333"
+        // tickFormat={isLogScale ? (value) => `1e${value}` : (value) => `${value}`}
         tickFormat={isLogScale ? (value) => `1e${value}` : (value) => `${value}`}
         tickLabelProps={(value) => ({
           dx: '-0.25em',
@@ -1052,6 +1101,8 @@ const VariantSiteQualityMetricsDistribution = ({
     metric: selectedMetric,
     variant,
   })
+
+  console.log(`final binEdges metric: ${binEdges}`)
 
   const includeExomes = selectedSequencingType.includes('e')
   const includeGenomes = selectedSequencingType.includes('g')
