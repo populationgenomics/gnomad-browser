@@ -5,6 +5,7 @@ on:
     branches:
       - ourdna-browser
       - ourdna-browser-dev
+      - preparing-for-production
 
 permissions:
   id-token: write
