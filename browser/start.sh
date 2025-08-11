@@ -7,6 +7,7 @@ cd $PROJECT_DIR
 
 export NODE_ENV="development"
 export IS_OFFLINE="false"
+export GA_TRACKING_ID=""
 
 # export NODE_ENV="production"
 # export IS_OFFLINE="true"
