@@ -129,6 +129,9 @@ const config = {
   // Use browserslist queries from .browserslistrc
   // Set to web in development as workaround for https://github.com/webpack/webpack-dev-server/issues/2758
   target: isDev ? 'web' : 'browserslist',
+  performance : {
+      hints : false
+  },
 }
 
 module.exports = config
