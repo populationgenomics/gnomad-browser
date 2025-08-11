@@ -377,39 +377,39 @@ const StatsPage = () => {
             </DiversityBarGraph>
           </DiversityBarGraphContainer>
 
-          <h3 style={{ marginBottom: '2em' }}>
-            Inferred sex in gnomAD v4 per genetic ancestry group
-          </h3>
+          {/* <h3 style={{ marginBottom: '2em' }}>
+                          Inferred sex in gnomAD v4 per genetic ancestry group
+                          </h3>
 
-          <h4 style={{ marginBottom: '2em' }}>gnomAD v4</h4>
-          <ResponsiveTable style={{ marginBottom: '6em' }}>
-            <InferredSexAllV4Table />
-          </ResponsiveTable>
+                          <h4 style={{ marginBottom: '2em' }}>gnomAD v4</h4>
+                          <ResponsiveTable style={{ marginBottom: '6em' }}>
+                          <InferredSexAllV4Table />
+                          </ResponsiveTable> */}
         </StatsSection>
 
-        <StatsSection>
-          <SectionHeading id="study-provided-labels">
-            Study-provided labels and genetic ancestry groups
-          </SectionHeading>
+        {/* <StatsSection>
+                          <SectionHeading id="study-provided-labels">
+                          Study-provided labels and genetic ancestry groups
+                          </SectionHeading>
 
-          <p>
-            The following table is provided in order to present how our inferred genetic ancestry
-            groups correspond to descriptors provided by each contributing
-            <Link to="/about"> study</Link>. The table below lists the total number of individuals
-            in each genetic ancestry group and the percentage of samples per group with each
-            study-provided descriptor.{' '}
-          </p>
-          <p>
-            It is of note that imputed ancestry groups are genetically derived, while the
-            study-provided labels are either self-reported or researcher assigned. As such, these
-            values have no equivalency.
-          </p>
+                          <p>
+                          The following table is provided in order to present how our inferred genetic ancestry
+                          groups correspond to descriptors provided by each contributing
+                          <Link to="/about"> study</Link>. The table below lists the total number of individuals
+                          in each genetic ancestry group and the percentage of samples per group with each
+                          study-provided descriptor.{' '}
+                          </p>
+                          <p>
+                          It is of note that imputed ancestry groups are genetically derived, while the
+                          study-provided labels are either self-reported or researcher assigned. As such, these
+                          values have no equivalency.
+                          </p>
 
-          <ResponsiveTable>
-            <V4GeneticAncestryTable />
-          </ResponsiveTable>
-        </StatsSection>
-
+                          <ResponsiveTable>
+                          <V4GeneticAncestryTable />
+                          </ResponsiveTable>
+                          </StatsSection>
+                        */}
         {/* <StatsSection>
                           <SectionHeading id="study-diseases">Study Diseases in gnomAD</SectionHeading>
 
