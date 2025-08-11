@@ -268,7 +268,7 @@ const Variants = ({
     return (
       <TrackPageSection>
         <h2 style={{ margin: '2em 0 0.25em' }}>OurDNA variants</h2>
-        <p>No gnomAD variants found.</p>
+        <p>No matching variants found.</p>
       </TrackPageSection>
     )
   }
