@@ -665,8 +665,6 @@ const fetchVariantsAgeDistribution = async (esClient: any, _subset: Subset) => {
     n_smaller: 0,
   }
   
-  // TODO, update once age_distribution contains genome/exome records, 
-  // ATM it is all combined, so we mockup those 2 records
   return {
       exome: (exome_age_distribution && exome_age_distribution.length > 0 && exome_age_distribution[0] ? exome_age_distribution[0]: empty_hist_rec),
       genome: (genome_age_distribution && genome_age_distribution.length > 0 && genome_age_distribution[0] ? genome_age_distribution[0]: empty_hist_rec),
