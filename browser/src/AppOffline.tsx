@@ -1,15 +1,9 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { hot } from 'react-hot-loader/root'
-import { BrowserRouter as Router, Route, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
-import Delayed from './Delayed'
-import ErrorBoundary from './ErrorBoundary'
-
-import Notifications, { showNotification } from './Notifications'
-import StatusMessage from './StatusMessage'
 import userPreferences from './userPreferences'
-import { PageHeading } from '@gnomad/ui'
+import { showNotification } from './Notifications'
 
 import OurDNALogo from './OurDnaLogo'
 
@@ -40,7 +34,7 @@ const BANNER_CONTENT = (
 )
 
 const AppOffline = () => {
-  const [isLoading, setIsLoading] = useState(true)
+  const [_isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     userPreferences.loadPreferences().then(
       () => {
