@@ -198,9 +198,9 @@ const StatsPage = () => {
               <SectionList>
                 <li>
                   10,671 <span style={{ color: ourdnaOrange }}>exomes</span>
-                  <SectionList>
-                    <li>Lorem ipsum</li>
-                  </SectionList>
+                  {/* <SectionList>
+                      <li>Lorem ipsum</li>
+                      </SectionList> */}
                 </li>
                 <li>
                   2,214 <span style={{ color: ourdnaPurple }}>genomes</span>
