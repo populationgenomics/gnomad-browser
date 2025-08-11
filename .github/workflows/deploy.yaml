@@ -5,7 +5,6 @@ on:
     branches:
       - ourdna-browser
       - ourdna-browser-dev
-      - preparing-for-production
 
 permissions:
   id-token: write
@@ -22,7 +21,7 @@ jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
-    environment: ${{ github.ref_name == 'preparing-for-production' && 'production' || 'development' }}
+    environment: ${{ github.ref_name == 'ourdna-browser' && 'production' || 'development' }}
     env:
       DOCKER_BUILDKIT: 1
       BUILDKIT_PROGRESS: plain
