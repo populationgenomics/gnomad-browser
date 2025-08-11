@@ -57,7 +57,7 @@ The OurDNA dataset is composed of:
 
 ## Methods
 
-The OurDNA dataset contains individuals sequenced using a mix of exome and genome capture methods and sequencing chemistries, so coverage varies between individuals and across sites. This variation in coverage is incorporated into the variant frequency calculations for each variant. gnomAD was QCed and analyzed using the [Hail](https://hail.is) open-source framework for scalable genetic analysis.
+The OurDNA dataset contains individuals sequenced using a mix of exome and genome capture methods and sequencing chemistries, so coverage varies between individuals and across sites. This variation in coverage is incorporated into the variant frequency calculations for each variant. OurDNA was QCed and analyzed using the [Hail](https://hail.is) open-source framework for scalable genetic analysis.
 
 All of the raw data from contributing projects and the OurDNA project have been (re)processed through equivalent pipelines to increase consistency across projects. Short-read whole genome sequencing data was processed according to the DRAGEN-GATK Best Practices guidelines. This includes alignment to GRCh38 using the open-source DRAGEN mapper (DRAGMAP, v1.3.0), and variant calling with GATK v4.2.6.1 HaplotypeCaller to discover single-nucleotide variants (SNVs) and insertion-deletions (indels). All samples were aggregated using the hail gVCF Combiner, and then sample and variant quality control was performed on the joint call set in line with gnomAD best practices.
 
