@@ -81,6 +81,7 @@ jobs:
           echo 'GNOMAD_API_URL="${{ secrets.GNOMAD_API_URL }}"' > browser/build.env
           echo 'IS_OFFLINE="${{ secrets.IS_OFFLINE }}"' >> browser/build.env
           echo 'GA_TRACKING_ID="${{ secrets.GA_TRACKING_ID }}"' >> browser/build.env
+          echo 'NODE_ENV="${{ secrets.NODE_ENV }}"' >> browser/build.env
           docker build \
             --pull --provenance=false \
             --tag ${{ env.BROWSER_DOCKER_ID }} \
