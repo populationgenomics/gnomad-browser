@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: "Setup env vars based on short SHA"
+      - name: "Setup env vars based on short SHA "
         id: vars
         run: |
           calculatedSha=$(git rev-parse --short ${{ github.sha }})
