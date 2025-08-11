@@ -203,7 +203,7 @@ const StatsPage = () => {
                       </SectionList> */}
                 </li>
                 <li>
-                  2,214 <span style={{ color: ourdnaPurple }}>genomes</span>
+                  2,211 <span style={{ color: ourdnaPurple }}>genomes</span>
                 </li>
               </SectionList>
               <h2>OurDNA v1 variants</h2>
