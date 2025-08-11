@@ -12,6 +12,7 @@ services:
       - NODE_ENV=development
       - GNOMAD_API_URL
       - READS_API_URL
+      - IS_OFFLINE
     ports:
       - 8008:8008
     volumes:

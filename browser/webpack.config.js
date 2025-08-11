@@ -112,6 +112,7 @@ const config = {
       REPORT_VARIANT_URL: null,
       REPORT_VARIANT_VARIANT_ID_PARAMETER: null,
       REPORT_VARIANT_DATASET_PARAMETER: null,
+      IS_OFFLINE: null,
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'),
