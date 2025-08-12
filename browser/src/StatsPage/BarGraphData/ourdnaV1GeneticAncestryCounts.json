@@ -1,0 +1,25 @@
+{
+  "colors": {
+    "Central and South Asian": "#0e8b45",
+    "East and South East Asian": "#ff9a10",
+    "Middle Eastern and North African": "#050080",
+    "African, African American and African Caribbean": "#931193",
+    "Central and South American": "#ed1e23",
+    "Australian Filipino": "#edc800",
+    "European": "#6aa5ce",
+    "Unclassified": "#acb8b9"
+  },
+  "data": [
+    {
+      "label": "OurDNA v1.0",
+      "Central and South Asian": 730,
+      "East and South East Asian": 1005,
+      "Middle Eastern and North African": 189,
+      "African, African American and African Caribbean": 29,
+      "Central and South American": 139,
+      "Australian Filipino": 85,
+      "Unclassified": 929,
+      "European": 9779
+    }
+  ]
+}
