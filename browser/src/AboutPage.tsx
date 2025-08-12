@@ -43,7 +43,7 @@ export default () => (
 
       id="about-gnomad"
     >
-      About OurDNA Browser
+      About the OurDNA Browser
     </PageHeading>
 
     <div
