@@ -88,7 +88,7 @@ export default () => (
         <Link
           preserveSelectedDataset={false}
           to={{
-            pathname: '/variant/1-55043912-C-T,
+            pathname: '/variant/1-55043912-C-T',
             search: queryString.stringify({ dataset: 'ourdna' }),
           }}
         >
