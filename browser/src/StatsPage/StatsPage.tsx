@@ -198,9 +198,6 @@ const StatsPage = () => {
               <SectionList>
                 <li>
                   10,671 <span style={{ color: ourdnaOrange }}>exomes</span>
-                  {/* <SectionList>
-                      <li>Lorem ipsum</li>
-                      </SectionList> */}
                 </li>
                 <li>
                   2,211 <span style={{ color: ourdnaPurple }}>genomes</span>
@@ -210,7 +207,7 @@ const StatsPage = () => {
               <NumberOfVariantsInOurDNAList />
             </div>
             <ResponsiveHalfWidthColumn>
-              <div style={{ marginTop: '4em', marginBottom: '7em', minWidth: '550px' }}>
+              <div style={{ marginTop: '4em', marginBottom: '0em', minWidth: '550px' }}>
                 <StackedBarGraph
                   title="Sample size across major OurDNA releases"
                   barColors={ourdnaExomeGenomeCountsByVersion.colors}
