@@ -1,4 +1,4 @@
-> The OurDNA browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please visit the [OurDNA website](https://www.ourdna.org.au) to learn more.
+*The OurDNA browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please visit the [OurDNA website](https://www.ourdna.org.au) to learn more.*
 
 ## The Centre for Population Genomics
 
