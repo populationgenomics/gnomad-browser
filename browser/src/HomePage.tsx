@@ -114,8 +114,13 @@ export default () => (
     </div>
     <p>
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      The <ExternalLink href="https://www.ourdna.org.au">OurDNA program</ExternalLink> is led by the
-      <ExternalLink href="https://populationgenomics.org.au">Centre for Population Genomics</ExternalLink>, a joint initiative of the <ExternalLink href="https://www.garvan.org.au/">Garvan Institute of Medical Research</ExternalLink> and the <ExternalLink href="https://www.mcri.edu.au/">Murdoch Children&apos;s Research Institute</ExternalLink>, and is aiming to increase the genomic representation of multicultural communities. 
+      The <ExternalLink href="https://www.ourdna.org.au">OurDNA program</ExternalLink> is led by the{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://populationgenomics.org.au">Centre for Population Genomics</ExternalLink>, a joint initiative of the{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://www.garvan.org.au/">Garvan Institute of Medical Research</ExternalLink> and the{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://www.mcri.edu.au/">Murdoch Children&apos;s Research Institute</ExternalLink>, and is aiming to increase the genomic representation of multicultural communities. 
       The goal is to fix a gap in genetic research: many Australian ancestry groups are not included right now, and we’re working to change that.
     </p>
     <p>
