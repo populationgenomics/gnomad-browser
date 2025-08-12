@@ -176,8 +176,10 @@ const DiversityBarGraphTooltip = (row: any) => {
  *   )
  * } */
 
-const ourdnaOrange = '#F05436'
-const ourdnaPurple = '#3646A8'
+/* const ourdnaOrange = '#F05436' */
+/* const ourdnaPurple = '#3646A8' */
+const gnomadBlue = '#0E6FBF'
+const gnomadGreen = '#508A14'
 
 const barGraphTooltip = (row: any) => (
   <>
@@ -200,10 +202,10 @@ const StatsPage = () => {
               <h2>OurDNA v1 includes 12,882 individuals</h2>
               <SectionList>
                 <li>
-                  10,671 <span style={{ color: ourdnaOrange }}>exomes</span>
+                  10,671 <span style={{ color: gnomadBlue }}>exomes</span>
                 </li>
                 <li>
-                  2,211 <span style={{ color: ourdnaPurple }}>genomes</span>
+                  2,211 <span style={{ color: gnomadGreen }}>genomes</span>
                 </li>
               </SectionList>
               <h2>OurDNA v1 variants</h2>
@@ -242,7 +244,7 @@ const StatsPage = () => {
                     binValues={ourdnaAgeDistribution.exome.bin_freq}
                     nSmaller={ourdnaAgeDistribution.exome.n_smaller}
                     nLarger={ourdnaAgeDistribution.exome.n_larger}
-                    barColor={ourdnaOrange}
+                    barColor={gnomadBlue}
                     xLabel="Age"
                     yLabel="Individuals"
                     formatTooltip={(bin: any) =>
@@ -258,7 +260,7 @@ const StatsPage = () => {
                     binValues={ourdnaAgeDistribution.genome.bin_freq}
                     nSmaller={ourdnaAgeDistribution.genome.n_smaller}
                     nLarger={ourdnaAgeDistribution.genome.n_larger}
-                    barColor={ourdnaPurple}
+                    barColor={gnomadGreen}
                     xLabel="Age"
                     yLabel="Individuals"
                     formatTooltip={(bin: any) =>
