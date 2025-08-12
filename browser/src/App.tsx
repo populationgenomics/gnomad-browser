@@ -72,13 +72,19 @@ const Banner = styled.div`
   }
 `
 
-const BANNER_CONTENT = (
-  <>
-    This is <b>DEVELOPMENT</b> version of OurDNA Browser! Please visit released version{' '}
-    {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-    <ExternalLink href="https://ourdna.populationgenomics.org.au">here</ExternalLink>.
-  </>
-)
+let BANNER_CONTENT: React.ReactNode = ''
+
+if (process.env.NODE_ENV === 'development') {
+  BANNER_CONTENT = (
+    <>
+      This is <b>DEVELOPMENT</b> version of OurDNA Browser! Please visit released version{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://ourdna.populationgenomics.org.au">here</ExternalLink>.
+    </>
+  )
+}
+
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
