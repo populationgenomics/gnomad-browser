@@ -37,6 +37,22 @@ const datasetQueries: Record<string, any> = {
     fetchMatchingVariants: (...args: QueryArgs) =>
       gnomadV4VariantQueries.fetchMatchingVariants(...args, 'non_ukb'),
   },
+  ourdna: {
+    countVariantsInRegion: (...args: QueryArgs) =>
+      gnomadV4VariantQueries.countVariantsInRegion(...args, 'all'),
+    fetchVariantById: (...args: QueryArgs) =>
+      gnomadV4VariantQueries.fetchVariantById(...args, 'all'),
+    fetchVariantsByGene: (...args: QueryArgs) =>
+      gnomadV4VariantQueries.fetchVariantsByGene(...args, 'all'),
+    fetchVariantsByRegion: (...args: QueryArgs) =>
+      gnomadV4VariantQueries.fetchVariantsByRegion(...args, 'all'),
+    fetchVariantsByTranscript: (...args: QueryArgs) =>
+      gnomadV4VariantQueries.fetchVariantsByTranscript(...args, 'all'),
+    fetchMatchingVariants: (...args: QueryArgs) =>
+      gnomadV4VariantQueries.fetchMatchingVariants(...args, 'all'),
+    fetchVariantsAgeDistribution: (...args: QueryArgs) =>
+      gnomadV4VariantQueries.fetchVariantsAgeDistribution(...args),
+  },
   gnomad_r3: {
     countVariantsInRegion: (...args: QueryArgs) =>
       gnomadV3VariantQueries.countVariantsInRegion(...args, 'all'),
@@ -156,4 +172,9 @@ export const fetchVariantsByTranscript = withCache(
 export const fetchMatchingVariants = (esClient: any, datasetId: DatasetId, search: any) => {
   const query = datasetQueries[datasetId].fetchMatchingVariants
   return query(esClient, search)
+}
+
+export const fetchVariantsAgeDistribution = (esClient: any, datasetId: DatasetId) => {
+  const query = datasetQueries[datasetId].fetchVariantsAgeDistribution
+  return query(esClient)
 }

@@ -11,10 +11,11 @@ def get_elasticsearch_password(cluster_name: str, namespace: str) -> None:
     print(
         kubectl(
             [
+                f"--cluster {cluster_name}",
                 f"-n={namespace}",
                 "get",
                 "secret",
-                f"{cluster_name}-es-elastic-user",
+                "gnomad-es-elastic-user",
                 "-o=go-template={{.data.elastic | base64decode}}",
             ]
         )
@@ -25,10 +26,11 @@ def load_datasets(cluster_name: str, namespace: str, dataproc_cluster: str, secr
     # Matches service name in deploy/manifests/elasticsearch.load-balancer.yaml.jinja2
     elasticsearch_load_balancer_ip = kubectl(
         [
+            f"--cluster {cluster_name}",
             f"-n={namespace}",
             "get",
             "service",
-            f"{cluster_name}-elasticsearch-lb",
+            "gnomad-elasticsearch-lb",
             "--output=jsonpath={.status.loadBalancer.ingress[0].ip}",
         ]
     )

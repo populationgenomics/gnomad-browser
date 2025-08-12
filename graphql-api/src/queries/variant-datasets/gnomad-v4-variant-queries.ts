@@ -5,12 +5,15 @@ import { isRsId } from '@gnomad/identifiers'
 import { UserVisibleError } from '../../errors'
 
 import { fetchLocalAncestryPopulationsByVariant } from '../local-ancestry-queries'
-import { fetchAllSearchResults } from '../helpers/elasticsearch-helpers'
+import { fetchAllSearchResults, fetchIndexMetadata } from '../helpers/elasticsearch-helpers'
+
 import { mergeOverlappingRegions } from '../helpers/region-helpers'
 
 import { getFlagsForContext } from './shared/flags'
 import { getConsequenceForContext } from './shared/transcriptConsequence'
 import largeGenes from '../helpers/large-genes'
+
+import logger from '../../logger'
 
 const GNOMAD_V4_VARIANT_INDEX = 'gnomad_v4_variants'
 
@@ -88,26 +91,28 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
   }
 
   const variant = response.body.hits.hits[0]._source.value
+  
+  logger.info(`Variant found ${JSON.stringify(variant)}`)
 
-  const subsetGenomeFreq = variant.genome.freq.all || {}
-  const subsetJointFreq = variant.joint.freq[subset] || {}
+  const subsetGenomeFreq = variant.genome?.freq?.all || {}
+  const subsetJointFreq = variant.joint?.freq[subset] || {}
 
-  const hasExomeVariant = variant.exome.freq[subset].ac_raw
-  const hasGenomeVariant = subsetGenomeFreq.ac_raw
-  const hasJointFrequencyData = subsetJointFreq.ac_raw
+  const hasExomeVariant = variant.exome?.freq?.[subset]?.ac || false
+  const hasGenomeVariant = subsetGenomeFreq.ac
+  const hasJointFrequencyData = subsetJointFreq.ac
 
-  if (!subsetGenomeFreq.ac_raw && !(variant.exome.freq[subset] || {}).ac_raw) {
+  if (!subsetGenomeFreq.ac && !(variant.exome?.freq?.[subset] || {}).ac) {
     throw new UserVisibleError('Variant not found in selected subset.')
   }
 
-  const exomeFilters = variant.exome.filters || []
-  const genomeFilters = variant.genome.filters || []
-  const jointFilters = variant.joint.flags || []
+  const exomeFilters = variant.exome?.filters || []
+  const genomeFilters = variant.genome?.filters || []
+  const jointFilters = variant.joint?.flags || []
 
-  if (variant.exome.freq[subset].ac === 0 && !exomeFilters.includes('AC0')) {
+  if (hasExomeVariant && variant.exome?.freq?.[subset]?.ac === 0 && !exomeFilters.includes('AC0')) {
     exomeFilters.push('AC0')
   }
-  if (variant.genome.freq.all.ac === 0 && !genomeFilters.includes('AC0')) {
+  if (hasGenomeVariant && variant.genome?.freq?.all.ac === 0 && !genomeFilters.includes('AC0')) {
     genomeFilters.push('AC0')
   }
 
@@ -115,7 +120,7 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
 
   let genome_ancestry_groups = subsetGenomeFreq.ancestry_groups || []
   // Include HGDP and 1KG populations with gnomAD subsets
-  if (variant.genome.freq.hgdp.ac_raw > 0) {
+  if (hasGenomeVariant && 'hgdp' in variant.genome.freq && variant.genome.freq.hgdp.ac_raw > 0) {
     genome_ancestry_groups = genome_ancestry_groups.concat(
       variant.genome.freq.hgdp.ancestry_groups.map((pop: any) => ({
         ...pop,
@@ -125,7 +130,7 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
   }
   // Some 1KG samples are included in v2. Since the 1KG population frequencies are based on the full v3.1 dataset,
   // they are invalid for the non-v2 subset.
-  if (variant.genome.freq.tgp.ac_raw > 0) {
+  if (hasGenomeVariant && 'tgp' in variant.genome.freq && variant.genome.freq.tgp.ac_raw > 0) {
     genome_ancestry_groups = genome_ancestry_groups.concat(
       variant.genome.freq.tgp.ancestry_groups.map((pop: any) => ({
         ...pop,
@@ -134,13 +139,31 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
     )
   }
 
-  const inSilicoPredictorsList = createInSilicoPredictorsList(variant)
+  const inSilicoPredictorsList = variant.in_silico_predictors ? createInSilicoPredictorsList(variant) : null
 
   const localAncestryPopulations = await fetchLocalAncestryPopulationsByVariant(
     esClient,
     'gnomad_r3',
     variant.variant_id
   )
+
+  logger.info(`localAncestryPopulations: ${JSON.stringify(localAncestryPopulations)}`)
+
+  logger.info(`variant.colocated_variants: ${JSON.stringify(variant.colocated_variants)}`)
+
+  // if variant is missing coverage, then append empty one
+  if (!('coverage' in variant)){
+    variant.coverage = {
+      exome: {
+        mean: null,
+        over_20: null
+      },
+      genome: {
+        mean: null,
+        over_20: null
+      }
+    }
+  }
 
   const shapedVariant = {
     ...variant,
@@ -149,35 +172,35 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
     pos: variant.locus.position,
     ref: variant.alleles[0],
     alt: variant.alleles[1],
-    colocated_variants: variant.colocated_variants[subset] || [],
+    colocated_variants: variant.colocated_variants ? variant.colocated_variants[subset] : [],
     exome: hasExomeVariant
       ? {
           ...variant.exome,
-          ...variant.exome.freq[subset],
+          ...variant.exome?.freq?.[subset],
           filters: exomeFilters,
           flags: exomeFlags,
-          populations: variant.exome.freq[subset].ancestry_groups,
+          populations: variant.exome?.freq?.[subset]?.ancestry_groups,
           faf95: hasExomeVariant &&
-            variant.exome.faf95 && {
-              popmax_population: variant.exome.faf95.grpmax_gen_anc,
-              popmax: variant.exome.faf95.grpmax,
+            variant.exome?.faf95 && {
+              popmax_population: variant.exome?.faf95.grpmax_gen_anc,
+              popmax: variant.exome?.faf95.grpmax,
             },
           quality_metrics: {
             // TODO: An older version of the data pipeline stored only adj quality metric histograms.
             // Maintain the same behavior by returning the adj version until the API schema is updated to allow
             // selecting which version to return.
             allele_balance: {
-              alt: variant.exome.quality_metrics.allele_balance.alt_adj,
+              alt: variant.exome?.quality_metrics.allele_balance.alt_adj,
             },
             genotype_depth: {
-              alt: variant.exome.quality_metrics.genotype_depth.alt_adj,
-              all: variant.exome.quality_metrics.genotype_depth.all_adj,
+              alt: variant.exome?.quality_metrics.genotype_depth.alt_adj,
+              all: variant.exome?.quality_metrics.genotype_depth.all_adj,
             },
             genotype_quality: {
-              alt: variant.exome.quality_metrics.genotype_quality.alt_adj,
-              all: variant.exome.quality_metrics.genotype_quality.all_adj,
+              alt: variant.exome?.quality_metrics.genotype_quality.alt_adj,
+              all: variant.exome?.quality_metrics.genotype_quality.all_adj,
             },
-            site_quality_metrics: variant.exome.quality_metrics.site_quality_metrics.filter(
+            site_quality_metrics: variant.exome?.quality_metrics.site_quality_metrics.filter(
               (m: any) => Number.isFinite(m.value)
             ),
           },
@@ -193,25 +216,25 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
           populations: genome_ancestry_groups,
           faf95: hasGenomeVariant &&
             variant.genome.faf95 && {
-              popmax_population: variant.genome.faf95.grpmax_gen_anc,
-              popmax: variant.genome.faf95.grpmax,
+              popmax_population: variant.genome?.faf95?.grpmax_gen_anc,
+              popmax: variant.genome?.faf95?.grpmax,
             },
           quality_metrics: {
             // TODO: An older version of the data pipeline stored only adj quality metric histograms.
             // Maintain the same behavior by returning the adj version until the API schema is updated to allow
             // selecting which version to return.
             allele_balance: {
-              alt: variant.genome.quality_metrics.allele_balance.alt_adj,
+              alt: variant.genome?.quality_metrics?.allele_balance.alt_adj,
             },
             genotype_depth: {
-              alt: variant.genome.quality_metrics.genotype_depth.alt_adj,
-              all: variant.genome.quality_metrics.genotype_depth.all_adj,
+              alt: variant.genome?.quality_metrics?.genotype_depth.alt_adj,
+              all: variant.genome?.quality_metrics?.genotype_depth.all_adj,
             },
             genotype_quality: {
-              alt: variant.genome.quality_metrics.genotype_quality.alt_adj,
-              all: variant.genome.quality_metrics.genotype_quality.all_adj,
+              alt: variant.genome?.quality_metrics?.genotype_quality.alt_adj,
+              all: variant.genome?.quality_metrics?.genotype_quality.all_adj,
             },
-            site_quality_metrics: variant.genome.quality_metrics.site_quality_metrics.filter(
+            site_quality_metrics: variant.genome?.quality_metrics?.site_quality_metrics.filter(
               (m: any) => Number.isFinite(m.value)
             ),
           },
@@ -286,21 +309,24 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
   const getConsequence = getConsequenceForContext(context)
 
   return (variant: any) => {
+
+    logger.info(`shapeVariantSummary: ${JSON.stringify(variant)}`)
+    
     const transcriptConsequence = getConsequence(variant) || {}
     const { variantFlags, exomeFlags, genomeFlags } = getFlagsForContext(context, variant)
 
-    const exomeFilters = variant.exome.filters || []
-    const genomeFilters = variant.genome.filters || []
-    const jointFilters = variant.joint.filter || []
+    const exomeFilters = variant.exome?.filters || []
+    const genomeFilters = variant.genome?.filters || []
+    const jointFilters = variant.joint?.filter || []
 
-    const subsetGenomeFreq = variant.genome.freq.all || {}
-    const subsetJointFreq = variant.joint.freq[subset] || {}
+    const subsetGenomeFreq = variant.genome?.freq?.all || {}
+    const subsetJointFreq = variant.joint?.freq[subset] || {}
 
-    const hasExomeVariant = variant.exome.freq[subset].ac_raw
-    const hasGenomeVariant = subsetGenomeFreq.ac_raw
-    const hasJointVariant = subsetJointFreq.ac_raw
+    const hasExomeVariant = variant.exome?.freq?.[subset]?.ac || false 
+    const hasGenomeVariant = subsetGenomeFreq.ac
+    const hasJointVariant = subsetJointFreq.ac
 
-    if (variant.exome.freq[subset].ac === 0 && !exomeFilters.includes('AC0')) {
+    if (hasExomeVariant && variant.exome.freq[subset].ac === 0 && !exomeFilters.includes('AC0')) {
       exomeFilters.push('AC0')
     }
 
@@ -308,11 +334,11 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
       genomeFilters.push('AC0')
     }
 
-    if (variant.exome.freq[subset].ac === 0 && !jointFilters.includes('AC0')) {
+    if (hasExomeVariant && variant.exome.freq[subset].ac === 0 && !jointFilters.includes('AC0')) {
       jointFilters.push('AC0')
     }
 
-    const inSilicoPredictorsList = createInSilicoPredictorsList(variant)
+    const inSilicoPredictorsList = variant.in_silico_predictors ? createInSilicoPredictorsList(variant) : null
 
     return {
       ...omit(variant, 'transcript_consequences', 'locus', 'alleles'), // Omit full transcript consequences list to avoid caching it
@@ -403,6 +429,8 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
 
   const pageSize = isLargeGene ? 500 : 10000
 
+  logger.info(`fetchVariantsByGene called for gene: ${gene.gene_id}, subset: ${subset}`)
+
   try {
     const filteredRegions = gene.exons.filter((exon: any) => exon.feature_type === 'CDS')
     const sortedRegions = filteredRegions.sort((r1: any, r2: any) => r1.xstart - r2.xstart)
@@ -445,8 +473,8 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
       .map((hit: any) => hit._source.value)
       .filter(
         (variant: any) =>
-          (variant.genome.freq.all && variant.genome.freq.all.ac_raw > 0) ||
-          variant.exome.freq[subset].ac_raw > 0
+          (variant.genome?.freq.all && variant.genome?.freq.all.ac > 0) ||
+          variant.exome?.freq?.[subset]?.ac > 0
       )
       .map(shapeVariantSummary(subset, { type: 'gene', geneId: gene.gene_id }))
 
@@ -494,8 +522,8 @@ const fetchVariantsByRegion = async (esClient: any, region: any, subset: Subset)
     .map((hit: any) => hit._source.value)
     .filter(
       (variant: any) =>
-        (variant.genome.freq.all && variant.genome.freq.all.ac_raw > 0) ||
-        variant.exome.freq[subset].ac_raw > 0
+        (variant.genome.freq.all && variant.genome.freq.all.ac > 0) ||
+        variant.exome?.freq?.[subset]?.ac > 0
     )
     .map(shapeVariantSummary(subset, { type: 'region' }))
 }
@@ -559,8 +587,8 @@ const fetchVariantsByTranscript = async (esClient: any, transcript: any, subset:
     .map((hit: any) => hit._source.value)
     .filter(
       (variant: any) =>
-        (variant.genome.freq.all && variant.genome.freq.all.ac_raw > 0) ||
-        variant.exome.freq[subset].ac_raw > 0
+        (variant.genome?.freq?.all && variant.genome?.freq?.all.ac > 0) ||
+        variant.exome?.freq?.[subset]?.ac > 0
     )
     .map(
       shapeVariantSummary(subset, { type: 'transcript', transcriptId: transcript.transcript_id })
@@ -605,12 +633,42 @@ const fetchMatchingVariants = async (
     .map((hit: any) => hit._source.value)
     .filter(
       (variant: any) =>
-        (variant.genome.freq.all && variant.genome.freq.all.ac_raw > 0) ||
-        variant.exome.freq[subset].ac_raw > 0
+        (variant.genome.freq.all && variant.genome.freq.all.ac > 0) ||
+        variant.exome?.freq?.[subset]?.ac > 0
     )
     .map((variant: any) => ({
       variant_id: variant.variant_id,
     }))
+}
+
+// ================================================================================================
+// Age Distribution
+// ================================================================================================
+
+const fetchVariantsAgeDistribution = async (esClient: any, _subset: Subset) => {
+
+  const metadata = await Promise.all([
+    fetchIndexMetadata(esClient, GNOMAD_V4_VARIANT_INDEX),
+  ])
+
+  const genome_age_distribution = metadata.map((m) => m.table_globals.genome_age_distribution)
+  const exome_age_distribution = metadata.map((m) => m.table_globals.exome_age_distribution)
+
+  logger.info(`genome age_distribution: ${JSON.stringify(genome_age_distribution)}`)
+  logger.info(`exome age_distribution: ${JSON.stringify(exome_age_distribution)}`)
+
+  // Empty histogram record, when distr is not defined
+  const empty_hist_rec = {
+    bin_edges: [],
+    bin_freq: [],
+    n_larger: 0,
+    n_smaller: 0,
+  }
+  
+  return {
+      exome: (exome_age_distribution && exome_age_distribution.length > 0 && exome_age_distribution[0] ? exome_age_distribution[0]: empty_hist_rec),
+      genome: (genome_age_distribution && genome_age_distribution.length > 0 && genome_age_distribution[0] ? genome_age_distribution[0]: empty_hist_rec),
+  }
 }
 
 const gnomadV4VariantQueries = {
@@ -620,6 +678,7 @@ const gnomadV4VariantQueries = {
   fetchVariantsByRegion,
   fetchVariantsByTranscript,
   fetchMatchingVariants,
+  fetchVariantsAgeDistribution,
 }
 
 export default gnomadV4VariantQueries

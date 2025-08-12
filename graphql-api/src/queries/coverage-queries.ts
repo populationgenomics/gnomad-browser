@@ -1,5 +1,6 @@
 import { withCache } from '../cache'
 import { UserVisibleError } from '../errors'
+import logger from '../logger'
 
 import { extendRegions, mergeOverlappingRegions, totalRegionSize } from './helpers/region-helpers'
 
@@ -62,6 +63,7 @@ const fetchCoverage = async (esClient: any, { index, contig, regions, bucketSize
             aggregations: {
               mean: { avg: { field: 'mean' } },
               median: { avg: { field: 'median' } },
+              median_approx: { avg: { field: 'median_approx' } },
               over_1: { avg: { field: 'over_1' } },
               over_5: { avg: { field: 'over_5' } },
               over_10: { avg: { field: 'over_10' } },
@@ -81,6 +83,7 @@ const fetchCoverage = async (esClient: any, { index, contig, regions, bucketSize
       pos: bucket.key,
       mean: bucket.mean.value || 0,
       median: bucket.median.value || 0,
+      median_approx: bucket.median_approx.value || 0,
 
       over_x: [
         Math.ceil((bucket.over_1.value || 0) * 100) / 100,
@@ -112,6 +115,8 @@ export const fetchExomeCoverageForRegion = (esClient: any, datasetId: any, regio
   // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   const exomeCoverageIndex = COVERAGE_INDICES[datasetId].exome
 
+  logger.info(`exomeCoverageIndex ${exomeCoverageIndex}`)
+
   const regionSize = region.stop - region.start + 150
   const bucketSize = Math.max(Math.floor(regionSize / 500), 1)
 
@@ -134,6 +139,8 @@ export const fetchGenomeCoverageForRegion = (esClient: any, datasetId: any, regi
 
   // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   const genomeCoverageIndex = COVERAGE_INDICES[datasetId].genome
+
+  logger.info(`genomeCoverageIndex ${genomeCoverageIndex}`)
 
   const regionSize = region.stop - region.start + 150
   const bucketSize = Math.max(Math.floor(regionSize / 500), 1)
@@ -166,10 +173,18 @@ export const _fetchCoverageForGene = async (esClient: any, datasetId: any, gene:
   const totalIntervalSize = totalRegionSize(mergedExons)
   const bucketSize = Math.max(Math.floor(totalIntervalSize / 500), 1)
 
+  logger.info(`datasetId ${datasetId}`)
+  // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+  logger.info(`datasetId ${JSON.stringify(COVERAGE_INDICES[datasetId])}`)
+  
   // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   const exomeCoverageIndex = COVERAGE_INDICES[datasetId].exome
   // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   const genomeCoverageIndex = COVERAGE_INDICES[datasetId].genome
+
+
+  logger.info(`exomeCoverageIndex ${exomeCoverageIndex}`)
+  logger.info(`genomeCoverageIndex ${genomeCoverageIndex}`)
 
   const exomeCoverage = exomeCoverageIndex
     ? await fetchCoverage(esClient, {
@@ -222,6 +237,9 @@ const _fetchCoverageForTranscript = async (esClient: any, datasetId: any, transc
   const exomeCoverageIndex = COVERAGE_INDICES[datasetId].exome
   // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   const genomeCoverageIndex = COVERAGE_INDICES[datasetId].genome
+
+  logger.info(`exomeCoverageIndex ${exomeCoverageIndex}`)
+  logger.info(`genomeCoverageIndex ${genomeCoverageIndex}`)
 
   const exomeCoverage = exomeCoverageIndex
     ? await fetchCoverage(esClient, {

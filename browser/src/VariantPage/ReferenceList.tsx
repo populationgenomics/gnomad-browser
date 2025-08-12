@@ -72,10 +72,19 @@ export const ReferenceList = ({ variant }: Props) => {
     pos + (ref.length - 1)
   }&position=chr${chrom}%3A${pos - 25}-${pos + (ref.length - 1) + 25}`
   const allOfUsURL = `https://databrowser.researchallofus.org/variants/${variant.variant_id}`
+  const gnomadURL = `https://gnomad.broadinstitute.org/variant/${variant.variant_id}?dataset=gnomad_r4`
 
   return (
     // @ts-expect-error TS(2746) FIXME: This JSX tag's 'children' prop expects a single ch... Remove this comment to see the full error message
     <List>
+      {variant.reference_genome === 'GRCh38' && (
+        // @ts-expect-error TS(2745) FIXME: This JSX tag's 'children' prop expects type 'never... Remove this comment to see the full error message
+        <ListItem>
+          {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+          <ExternalLink href={gnomadURL}>gnomAD v4</ExternalLink>
+        </ListItem>
+      )}
+
       {variant.rsids && NcbiReference(variant.rsids)}
 
       {/* @ts-expect-error TS(2745) FIXME: This JSX tag's 'children' prop expects type 'never... Remove this comment to see the full error message */}
@@ -105,6 +114,7 @@ export const ReferenceList = ({ variant }: Props) => {
           <ExternalLink href={allOfUsURL}>All of Us</ExternalLink>
         </ListItem>
       )}
+
     </List>
   )
 }
