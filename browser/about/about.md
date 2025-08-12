@@ -35,7 +35,7 @@ The OurDNA program is currently producing three key resources:
 
 To read more, please see the [program website](https://www.ourdna.org.au) and the [CPG Zenodo Community](https://zenodo.org/communities/populationgenomics/records).
 
-The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please see the information on the Centre's [Funding](##funding) and Team pages.
+The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please see the information on the Centre's Funding below and our Team page.
 <br />
 <br />
 
