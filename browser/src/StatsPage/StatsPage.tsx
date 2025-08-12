@@ -23,7 +23,7 @@ import InfoPage from '../InfoPage'
 
 import ourdnaExomeGenomeCountsByVersion from './BarGraphData/ourdnaExomeGenomeCountsByVersion.json'
 import ourdnaV1GeneticAncestryCounts from './BarGraphData/ourdnaV1GeneticAncestryCounts.json'
-import ourdnaV1GeneticDiversityCounts from './BarGraphData/ourdnaV1GeneticDiversityCounts.json'
+// import ourdnaV1GeneticDiversityCounts from './BarGraphData/ourdnaV1GeneticDiversityCounts.json'
 // @ts-ignore TS2307 - ignore Cannot find module
 import NumberOfVariantsInOurDNAList, { SectionList } from './NumberOfVariantsInOurDNAList'
 import StackedBarGraph from './StackedBarGraph'
