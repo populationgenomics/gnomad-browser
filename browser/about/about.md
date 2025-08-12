@@ -1,5 +1,5 @@
-The OurDNA browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please visit the [OurDNA website](https://www.ourdna.org.au) to learn more.
-<br />
+| *The OurDNA browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please visit the [OurDNA website](https://www.ourdna.org.au) to learn more.* |
+|-------------------------------------------|
 <br />
 
 ## The Centre for Population Genomics
@@ -18,6 +18,8 @@ Our principles:
 4. **Scalability**: CPG builds platforms and approaches that are robust for use at population scale;
 
 5. **Connectedness**: CPG is part of and helps to build a global network of leading genomic research teams.
+
+For links to some of our [publications](https://populationgenomics.org.au/about-us/resources/publications/), some [talks](https://populationgenomics.org.au/about-us/resources/talks/) by our team members, and for information on the CPG’s open source [software tools](https://populationgenomics.org.au/about-us/resources/software-tools-2/) that support our work, please see the [Centre for Population Genomics](https://populationgenomics.org.au) website.
 <br />
 <br />
 
@@ -25,45 +27,50 @@ Our principles:
 
 The OurDNA program is a flagship initiative of the Centre for Population Genomics to increase the genomic representation of Australian multicultural communities. The OurDNA program aims to aggregate and share genetic variation data from over 20,000 Australians, including 8,000 new high-quality whole genome sequences from participants from genomically underrepresented groups recruited following participatory community engagement.
 
-The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please see see information on the Centre's [Funding](#funding) and Team pages.
-
 The OurDNA program is currently producing three key resources:
 
-* OurDNA Samples - a lab that stores participants’ donated blood and cells for future health and medical research according to participants’ consent
+* **OurDNA Samples** - a lab that stores participants’ donated blood and cells for future health and medical research according to participants’ consent
 
-* OurDNA Data - a controlled-access repository of participants’ individual-level genomic information for future research according to participants’ consent
+* **OurDNA Data** - a controlled-access repository of participants’ individual-level genomic information for future research according to participants’ consent
 
-* OurDNA Browser - an open access genome reference database for use by clinicians and researchers to guide disease prediction, diagnosis and treatment
+* **OurDNA Browser** - an open access genetic variation reference database for use by clinicians and researchers to guide disease prediction, diagnosis and treatment
+
+To read more, please see the [program website](https://www.ourdna.org.au) and the [CPG Zenodo Community](https://zenodo.org/communities/populationgenomics/records). 
+
+The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please see the information on the Centre's [Funding](##funding) and Team pages. 
 <br />
 <br />
 
 ## The OurDNA Browser
 
-The OurDNA browser provides access to harmonised, aggregated genome and exome sequences from the OurDNA program and contributing projects. The OurDNA browser will contain data from healthy individuals that self-identify as having ancestry from from Australian multicultural communities represented in the OurDNA program. The current browser release (August 2025) contains data from OurDNA participants who self-identify as having Australian Filipino ancestry only. Data from the OurDNA browser is designed to integrate with clinical pipelines to support researchers and doctors to find disease-causing genes, understand diversity and improve medical treatments for Australians of diverse backgrounds.
+### Overview
+The OurDNA browser provides access to key summary statistics and allele frequency information from from the OurDNA program and contributing projects. It contains data from healthy individuals that self-identify as having ancestry from Australian multicultural communities represented in the OurDNA program. Data from the OurDNA browser is designed to integrate with clinical pipelines to support researchers and doctors to find disease-causing genes, understand diversity and improve medical treatments for Australians of diverse backgrounds.
 
-To read more about OurDNA program, please see the [program website](https://www.ourdna.org.au) and the [CPG Zenodo Community](https://zenodo.org/communities/populationgenomics/records). For a [select bibliography](https://populationgenomics.org.au/about-us/resources/publications/) for the Centre for Population Genomics, Centre [talks](https://populationgenomics.org.au/about-us/resources/talks/), and for information on the CPG’s open source [software tools](https://populationgenomics.org.au/about-us/resources/software-tools-2/) that support the OurDNA dataset, please see the [Centre for Population Genomics](https://populationgenomics.org.au) website.
-
-The aggregation and release of summary data from the genomes collected by the OurDNA program has been approved by the Royal Children's Hospital Human Research Ethics Committee (HREC/91986/RCHM-2023).
-
-The OurDNA dataset is composed of:
-
-- v1 (GRCh38)
-  - 2,214 genomes
+The current browser release (August 2025) contains data from OurDNA participants who self-identify as having Australian Filipino ancestry only. Version 1 of the OurDNA dataset is composed of:
+  - 2,211 genomes
   - 10,671 exomes
 
 [See our stats page](/stats) for additional summary statistics.
-<br />
-<br />
 
-## Methods
+### Community Engagement
 
-The OurDNA dataset contains individuals sequenced using a mix of exome and genome capture methods and sequencing chemistries, so coverage varies between individuals and across sites. This variation in coverage is incorporated into the variant frequency calculations for each variant. OurDNA was QCed and analyzed using the [Hail](https://hail.is) open-source framework for scalable genetic analysis.
+Community engagement and participation have been central to building the OurDNA Browser. Some of our approaches to partnering with communities are described on the [OurDNA website](https://ourdna.org.au/ourdna-communities/partnering-with-communities), and a detailed report on the process and outcomes of Multicultural Community Consultation specifically relating to this browser can be found [here](https://zenodo.org/records/16757504).
 
-All of the raw data from contributing projects and the OurDNA project have been (re)processed through equivalent pipelines to increase consistency across projects. Short-read whole genome sequencing data was processed according to the DRAGEN-GATK Best Practices guidelines. This includes alignment to GRCh38 using the open-source DRAGEN mapper (DRAGMAP, v1.3.0), and variant calling with GATK v4.2.6.1 HaplotypeCaller to discover single-nucleotide variants (SNVs) and insertion-deletions (indels). All samples were aggregated using the hail gVCF Combiner, and then sample and variant quality control was performed on the joint call set in line with gnomAD best practices.
+We also strongly encourage all users to read our [Policies and Expectations for Data Use](/policies) page for more information. 
 
-For details on dataset releases, including methodologies for annotation and QC, please refer to the OurDNA browser [blog](/news). For details on the software releases that support the browser, please see the browser’s [GitHub page](https://github.com/populationgenomics/gnomad-browser). Further description of methodologies will be included in a forthcoming flagship paper.
+### Methods
+
+All of the raw data from OurDNA and other contributing projects have been (re)processed through CPG's pipelines to create a harmonised callset. Short-read sequencing data was processed according to the DRAGEN-GATK Best Practices guidelines, which includes alignment to GRCh38 using the open-source DRAGEN mapper, DRAGMAP, and variant calling with GATK HaplotypeCaller to discover single-nucleotide variants (SNVs) and insertion-deletions (indels). All samples were aggregated using the hail gVCF Combiner, and then sample and variant quality control was performed on the joint call set in line with gnomAD best practices.
+
+For full details on dataset releases, including methodologies for annotation and QC, please refer to the OurDNA browser [blog](/news). For details on the software releases that support the browser, please see the browser’s [GitHub page](https://github.com/populationgenomics/gnomad-browser). Further description of methodologies will be included in a forthcoming flagship paper.
 
 Aggregate data download is currently under development. Please check back for a release date.
+
+### Ethics approval
+
+The aggregation and release of summary data from the exomes and genomes included in this browser has been approved by the Royal Children's Hospital Human Research Ethics Committee (HREC/84612/RCHM-2022, HREC/91986/RCHM-2023).
+<br />
+<br />
 
 ## Funding
 
