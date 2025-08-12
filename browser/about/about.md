@@ -2,7 +2,6 @@
 
 ## The Centre for Population Genomics
 
-
 [The Centre for Population Genomics](https://populationgenomics.org.au) (CPG) is a not-for-profit research initiative, jointly based at the Garvan Institute of Medical Research and the Murdoch Children’s Research Institute, working to build a more equitable future for genomic medicine. At CPG, we celebrate and respect diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone.
 
 Our principles:
@@ -27,11 +26,11 @@ The OurDNA program is a flagship initiative of the Centre for Population Genomic
 
 The OurDNA program is currently producing three key resources:
 
-* **OurDNA Samples** - a lab that stores participants’ donated blood and cells for future health and medical research according to participants’ consent
+- **OurDNA Samples** - a lab that stores participants’ donated blood and cells for future health and medical research according to participants’ consent
 
-* **OurDNA Data** - a controlled-access repository of participants’ individual-level genomic information for future research according to participants’ consent
+- **OurDNA Data** - a controlled-access repository of participants’ individual-level genomic information for future research according to participants’ consent
 
-* **OurDNA Browser** - an open access genetic variation reference database for use by clinicians and researchers to guide disease prediction, diagnosis and treatment
+- **OurDNA Browser** - an open access genetic variation reference database for use by clinicians and researchers to guide disease prediction, diagnosis and treatment
 
 To read more, please see the [program website](https://www.ourdna.org.au) and the [CPG Zenodo Community](https://zenodo.org/communities/populationgenomics/records).
 
@@ -42,11 +41,13 @@ The OurDNA program is overseen by the director of the Centre for Population Geno
 ## The OurDNA Browser
 
 ### Overview
-The OurDNA Browser provides access to key summary statistics and allele frequency information from from the OurDNA program and contributing projects. It contains data from healthy individuals that self-identify as having ancestry from Australian multicultural communities represented in the OurDNA program. Data from the OurDNA Browser is designed to integrate with clinical pipelines to support researchers and doctors to find disease-causing genes, understand diversity and improve medical treatments for Australians of diverse backgrounds.
+
+The OurDNA browser provides access to key summary statistics and allele frequency information from from the OurDNA program and contributing projects. It contains data from healthy individuals that self-identify as having ancestry from Australian multicultural communities represented in the OurDNA program. Data from the OurDNA browser is designed to integrate with clinical pipelines to support researchers and doctors to find disease-causing genes, understand diversity and improve medical treatments for Australians of diverse backgrounds.
 
 The current browser release (August 2025) contains data from OurDNA participants who self-identify as having Australian Filipino ancestry only. Version 1 of the OurDNA dataset is composed of:
-  - 2,211 genomes
-  - 10,671 exomes
+
+- 2,211 genomes
+- 10,671 exomes
 
 [See our stats page](/stats) for additional summary statistics.
 

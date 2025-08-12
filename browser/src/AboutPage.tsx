@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { PageHeading } from '@gnomad/ui'
+import { ExternalLink, PageHeading } from '@gnomad/ui'
 
 // @ts-expect-error
 import aboutContent from '../about/about.md'
@@ -43,11 +43,29 @@ export default () => (
 
       id="about-gnomad"
     >
-      About OurDNA Browser
+      About the OurDNA Browser
     </PageHeading>
+
+    <div
+      style={{
+        margin: '0px 0',
+        padding: '20px',
+        backgroundColor: '#f5f5f5',
+        borderLeft: '4px solid #0066cc',
+        borderRadius: '4px',
+        fontStyle: 'italic',
+      }}
+    >
+      <p>
+        Please note that the OurDNA browser is a resource intended for clinicians and researchers.
+        If you are part of one of our OurDNA communities and you would like to learn more about the
+        program, please see the{' '}
+        {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+        <ExternalLink href="https://www.ourdna.org.au">OurDNA website.</ExternalLink>
+      </p>
+    </div>
 
     {/* Import about blurb from .md file */}
     <MarkdownContent dangerouslySetInnerHTML={{ __html: aboutContent.html }} />
-    
   </InfoPage>
 )
