@@ -1,7 +1,7 @@
 {
   "colors": {
-    "Exomes": "#F05436",
-    "Genomes": "#3646A8"
+    "Exomes": "#0E6FBF",
+    "Genomes": "#508A14"
   },
   "data": [{ "label": "OurDNA v1", "Exomes": 10671, "Genomes": 2211 }]
 }

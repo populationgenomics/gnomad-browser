@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// @ts-ignore TS2307 - ignore Cannot find module
 import ourdnaAgeDistribution from '@gnomad/dataset-metadata/datasets/ourdna-v1/ageDistribution.json'
 /* import { ExternalLink, PageHeading } from '@gnomad/ui' */
 import { PageHeading } from '@gnomad/ui'
@@ -22,7 +23,8 @@ import InfoPage from '../InfoPage'
 
 import ourdnaExomeGenomeCountsByVersion from './BarGraphData/ourdnaExomeGenomeCountsByVersion.json'
 import ourdnaV1GeneticAncestryCounts from './BarGraphData/ourdnaV1GeneticAncestryCounts.json'
-import ourdnaV1GeneticDiversityCounts from './BarGraphData/ourdnaV1GeneticDiversityCounts.json'
+// import ourdnaV1GeneticDiversityCounts from './BarGraphData/ourdnaV1GeneticDiversityCounts.json'
+// @ts-ignore TS2307 - ignore Cannot find module
 import NumberOfVariantsInOurDNAList, { SectionList } from './NumberOfVariantsInOurDNAList'
 import StackedBarGraph from './StackedBarGraph'
 import GeneticAncestryGroupsByVersionTable from './StatsPageTables/GeneticAncestryGroupsByVersionTable'
@@ -174,8 +176,10 @@ const DiversityBarGraphTooltip = (row: any) => {
  *   )
  * } */
 
-const ourdnaOrange = '#F05436'
-const ourdnaPurple = '#3646A8'
+/* const ourdnaOrange = '#F05436' */
+/* const ourdnaPurple = '#3646A8' */
+const gnomadBlue = '#0E6FBF'
+const gnomadGreen = '#508A14'
 
 const barGraphTooltip = (row: any) => (
   <>
@@ -195,13 +199,13 @@ const StatsPage = () => {
         <StatsSection style={{ marginTop: '2em' }}>
           <TwoColumnLayout>
             <div>
-              <h2>OurDNA v1 includes 12,885 individuals</h2>
+              <h2>OurDNA v1 includes 12,882 individuals</h2>
               <SectionList>
                 <li>
-                  10,671 <span style={{ color: ourdnaOrange }}>exomes</span>
+                  10,671 <span style={{ color: gnomadBlue }}>exomes</span>
                 </li>
                 <li>
-                  2,211 <span style={{ color: ourdnaPurple }}>genomes</span>
+                  2,211 <span style={{ color: gnomadGreen }}>genomes</span>
                 </li>
               </SectionList>
               <h2>OurDNA v1 variants</h2>
@@ -240,7 +244,7 @@ const StatsPage = () => {
                     binValues={ourdnaAgeDistribution.exome.bin_freq}
                     nSmaller={ourdnaAgeDistribution.exome.n_smaller}
                     nLarger={ourdnaAgeDistribution.exome.n_larger}
-                    barColor={ourdnaOrange}
+                    barColor={gnomadBlue}
                     xLabel="Age"
                     yLabel="Individuals"
                     formatTooltip={(bin: any) =>
@@ -256,7 +260,7 @@ const StatsPage = () => {
                     binValues={ourdnaAgeDistribution.genome.bin_freq}
                     nSmaller={ourdnaAgeDistribution.genome.n_smaller}
                     nLarger={ourdnaAgeDistribution.genome.n_larger}
-                    barColor={ourdnaPurple}
+                    barColor={gnomadGreen}
                     xLabel="Age"
                     yLabel="Individuals"
                     formatTooltip={(bin: any) =>
@@ -269,8 +273,8 @@ const StatsPage = () => {
             <SexDistributionList>
               <h3>Sex</h3>
               <ul>
-                <li>6,404 XX individuals</li>
-                <li>6,481 XY individuals</li>
+                <li>6,402 XX individuals</li>
+                <li>6,480 XY individuals</li>
               </ul>
             </SexDistributionList>
           </TwoColumnLayout>
@@ -348,7 +352,7 @@ const StatsPage = () => {
           <DiversityBarGraphContainer style={{ marginBottom: '0.5em', width: '100%' }}>
             <DiversityBarGraph style={{ marginTop: '1em', marginBottom: '1em' }}>
               <StackedBarGraph
-                title="Per genetic ancestry group count of samples in gnomAD releases"
+                title="Per genetic ancestry group count of samples in OurDNA releases"
                 barColors={ourdnaV1GeneticAncestryCounts.colors}
                 barValues={ourdnaV1GeneticAncestryCounts.data}
                 height={400}
@@ -360,21 +364,21 @@ const StatsPage = () => {
             </DiversityBarGraph>
           </DiversityBarGraphContainer>
 
-          <DiversityBarGraphContainer style={{ marginBottom: '6em' }}>
-            <DiversityBarGraph style={{ marginTop: '1em', marginBottom: '0' }}>
+          {/* <DiversityBarGraphContainer style={{ marginBottom: '6em' }}>
+              <DiversityBarGraph style={{ marginTop: '1em', marginBottom: '0' }}>
               <StackedBarGraph
-                title="Per genetic ancestry group count of non-synonymous coding variants in canonical transcripts with a overall AF > 0.1"
-                barColors={ourdnaV1GeneticDiversityCounts.colors}
-                barValues={ourdnaV1GeneticDiversityCounts.data}
-                height={400}
-                formatTooltip={DiversityBarGraphTooltip}
-                xLabel=""
-                yLabel="Number of samples"
-                displayNumbers={false}
+              title="Per genetic ancestry group count of non-synonymous coding variants in canonical transcripts with a overall AF > 0.1"
+              barColors={ourdnaV1GeneticDiversityCounts.colors}
+              barValues={ourdnaV1GeneticDiversityCounts.data}
+              height={400}
+              formatTooltip={DiversityBarGraphTooltip}
+              xLabel=""
+              yLabel="Number of variants"
+              displayNumbers={false}
               />
-            </DiversityBarGraph>
-          </DiversityBarGraphContainer>
-
+              </DiversityBarGraph>
+              </DiversityBarGraphContainer>
+            */}
           {/* <h3 style={{ marginBottom: '2em' }}>
                           Inferred sex in gnomAD v4 per genetic ancestry group
                           </h3>
