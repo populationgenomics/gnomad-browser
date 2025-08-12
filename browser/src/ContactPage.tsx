@@ -11,7 +11,7 @@ export default () => (
     <PageHeading>Contact</PageHeading>
 
     <p>
-      Report OurDNA browser errors via{' '}
+      Report OurDNA Browser errors via{' '}
        {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://github.com/populationgenomics/ourdna-browser/issues">
         GitHub.
@@ -24,10 +24,13 @@ export default () => (
     <p>
       Follow us on Instagram{' '}
        {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://www.instagram.com/ourdna_australia/">@ourdna_australia </ExternalLink>
+      <ExternalLink href="https://www.instagram.com/ourdna_australia/">@ourdna_australia</ExternalLink>
+      ,{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://www.facebook.com/people/Our-DNA/61563734916751/">Facebook </ExternalLink>
       and{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://www.facebook.com/people/Our-DNA/61563734916751/">Facebook</ExternalLink>.
+      <ExternalLink href="https://www.linkedin.com/company/centrepopgen/">LinkedIn</ExternalLink>.
     </p>
     <p>
       For all other questions, or to raise issues with the browser or data, please{' '}

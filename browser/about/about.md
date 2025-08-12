@@ -1,3 +1,5 @@
+*The OurDNA Browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please visit the [OurDNA website](https://www.ourdna.org.au) to learn more.*
+
 ## The Centre for Population Genomics
 
 [The Centre for Population Genomics](https://populationgenomics.org.au) (CPG) is a not-for-profit research initiative, jointly based at the Garvan Institute of Medical Research and the Murdoch Children’s Research Institute, working to build a more equitable future for genomic medicine. At CPG, we celebrate and respect diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone.
@@ -32,7 +34,7 @@ The OurDNA program is currently producing three key resources:
 
 To read more, please see the [program website](https://www.ourdna.org.au) and the [CPG Zenodo Community](https://zenodo.org/communities/populationgenomics/records).
 
-The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please see the information on the Centre's [Funding](##funding) and Team pages.
+The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please see the information on the Centre's Funding below and our Team page.
 <br />
 <br />
 
@@ -59,13 +61,13 @@ We also strongly encourage all users to read our [Policies and Expectations for 
 
 All of the raw data from OurDNA and other contributing projects have been (re)processed through CPG's pipelines to create a harmonised callset. Short-read sequencing data was processed according to the DRAGEN-GATK Best Practices guidelines, which includes alignment to GRCh38 using the open-source DRAGEN mapper, DRAGMAP, and variant calling with GATK HaplotypeCaller to discover single-nucleotide variants (SNVs) and insertion-deletions (indels). All samples were aggregated using the hail gVCF Combiner, and then sample and variant quality control was performed on the joint call set in line with gnomAD best practices.
 
-For full details on dataset releases, including methodologies for annotation and QC, please refer to the OurDNA browser [blog](/news). For details on the software releases that support the browser, please see the browser’s [GitHub page](https://github.com/populationgenomics/gnomad-browser). Further description of methodologies will be included in a forthcoming flagship paper.
+For full details on dataset releases, including methodologies for annotation and QC, please refer to the OurDNA Browser [blog](/news). For details on the software releases that support the browser, please see the browser’s [GitHub page](https://github.com/populationgenomics/gnomad-browser). Further description of methodologies will be included in a forthcoming flagship paper.
 
 Aggregate data download is currently under development. Please check back for a release date.
 
 ### Ethics approval
 
-The aggregation and release of summary data from the exomes and genomes included in this browser has been approved by the Royal Children's Hospital Human Research Ethics Committee (HREC/84612/RCHM-2022, HREC/91986/RCHM-2023).
+The aggregation and release of summary data from the exomes and genomes included in this browser has been approved by [the Royal Children's Hospital Human Research Ethics Committee](/ethics-contact) (HREC/84612/RCHM-2022, HREC/91986/RCHM-2023).
 <br />
 <br />
 

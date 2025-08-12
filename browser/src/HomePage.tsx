@@ -97,7 +97,7 @@ export default () => (
       </ListItem>
     </List>
 
-    <h2>About the OurDNA browser</h2>
+    <h2>About the OurDNA Browser</h2>
 
     <div style={{
       margin: '0px 0',
@@ -109,7 +109,7 @@ export default () => (
     }}>
       <p>
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      Please note that the OurDNA browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please see the <ExternalLink href="https://www.ourdna.org.au">OurDNA website.</ExternalLink>
+      Please note that the OurDNA Browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please see the <ExternalLink href="https://www.ourdna.org.au">OurDNA website.</ExternalLink>
       </p>
     </div>
     <p>
@@ -120,19 +120,19 @@ export default () => (
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://www.garvan.org.au/">Garvan Institute of Medical Research</ExternalLink> and the{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://www.mcri.edu.au/">Murdoch Children&apos;s Research Institute</ExternalLink>, and is aiming to increase the genomic representation of multicultural communities. 
+      <ExternalLink href="https://www.mcri.edu.au/">Murdoch Children&apos;s Research Institute</ExternalLink>, and is aiming to increase the genomic representation of multicultural communities.
       The goal is to fix a gap in genetic research: many Australian ancestry groups are not included right now, and we’re working to change that.
     </p>
     <p>
       The OurDNA program aims to harmonise and aggregate genetic variation data from over 20,000 Australians,
       including 8,000 new high-quality whole genome sequences from participants from
-      genomically underrepresented groups recruited following participatory community engagement. 
+      genomically underrepresented groups recruited following participatory community engagement.
     </p>
-    <p> 
+    <p>
       The OurDNA Browser provides access to key summary statistics and allele frequency information from this dataset. Aggregate data download is currently under development: please check back for a release date.
     </p>
     <p>
-      The OurDNA browser is part of the{' '}
+      The OurDNA Browser is part of the{' '}
       <Link to="/federated">
         federated gnomAD network
       </Link>.
@@ -141,7 +141,7 @@ export default () => (
     <h3>New to variant interpretation?</h3>
     <p>
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      Here are some helpful resources from <ExternalLink href="https://gnomad.broadinstitute.org/">gnomAD</ExternalLink> that explain more about this sort of browser and how to use it for variant interpretation.      
+      Here are some helpful resources from <ExternalLink href="https://gnomad.broadinstitute.org/">gnomAD</ExternalLink> that explain more about this sort of browser and how to use it for variant interpretation.
     </p>
     {/* @ts-expect-error TS(2746) FIXME: This JSX tag's 'children' prop expects a single ch... Remove this comment to see the full error message */}
     <List>
@@ -178,7 +178,7 @@ export default () => (
         </ExternalLink>
       </ListItem>
     </List>
-    
+
     <h2>Learn more about the OurDNA program</h2>
     <p>
       Please see the{' '}
