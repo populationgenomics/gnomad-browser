@@ -88,11 +88,11 @@ export default () => (
         <Link
           preserveSelectedDataset={false}
           to={{
-            pathname: '/variant/1-1000079-A-G',
+            pathname: '/variant/1-55043912-C-T,
             search: queryString.stringify({ dataset: 'ourdna' }),
           }}
         >
-          1-1000079-A-G
+          1-55043912-C-T
         </Link>
       </ListItem>
     </List>
@@ -117,10 +117,10 @@ export default () => (
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://www.ourdna.org.au">OurDNA program</ExternalLink>
       {' '}
-      is a flagship initiative of the{' '}
+      is led by the{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://populationgenomics.org.au">Centre for Population Genomics</ExternalLink>
-      {' '}to increase the genomic representation of multicultural communities. 
+      {' '}, a joint initiative of the <ExternalLink href="https://www.garvan.org.au/">Garvan Institute of Medical Research</ExternalLink> and the <ExternalLink href="https://www.mcri.edu.au/">Murdoch Children’s Research Institute</ExternalLink>, and is aiming to increase the genomic representation of multicultural communities. 
       The goal is to fix a gap in genetic research: many Australian ancestry groups are not included right now, and we’re working to change that.
     </p>
     <p>
