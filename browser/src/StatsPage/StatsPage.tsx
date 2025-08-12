@@ -197,7 +197,7 @@ const StatsPage = () => {
         <StatsSection style={{ marginTop: '2em' }}>
           <TwoColumnLayout>
             <div>
-              <h2>OurDNA v1 includes 12,885 individuals</h2>
+              <h2>OurDNA v1 includes 12,882 individuals</h2>
               <SectionList>
                 <li>
                   10,671 <span style={{ color: ourdnaOrange }}>exomes</span>
@@ -271,8 +271,8 @@ const StatsPage = () => {
             <SexDistributionList>
               <h3>Sex</h3>
               <ul>
-                <li>6,404 XX individuals</li>
-                <li>6,481 XY individuals</li>
+                <li>6,402 XX individuals</li>
+                <li>6,480 XY individuals</li>
               </ul>
             </SexDistributionList>
           </TwoColumnLayout>
@@ -362,21 +362,21 @@ const StatsPage = () => {
             </DiversityBarGraph>
           </DiversityBarGraphContainer>
 
-          <DiversityBarGraphContainer style={{ marginBottom: '6em' }}>
-            <DiversityBarGraph style={{ marginTop: '1em', marginBottom: '0' }}>
+          {/* <DiversityBarGraphContainer style={{ marginBottom: '6em' }}>
+              <DiversityBarGraph style={{ marginTop: '1em', marginBottom: '0' }}>
               <StackedBarGraph
-                title="Per genetic ancestry group count of non-synonymous coding variants in canonical transcripts with a overall AF > 0.1"
-                barColors={ourdnaV1GeneticDiversityCounts.colors}
-                barValues={ourdnaV1GeneticDiversityCounts.data}
-                height={400}
-                formatTooltip={DiversityBarGraphTooltip}
-                xLabel=""
-                yLabel="Number of samples"
-                displayNumbers={false}
+              title="Per genetic ancestry group count of non-synonymous coding variants in canonical transcripts with a overall AF > 0.1"
+              barColors={ourdnaV1GeneticDiversityCounts.colors}
+              barValues={ourdnaV1GeneticDiversityCounts.data}
+              height={400}
+              formatTooltip={DiversityBarGraphTooltip}
+              xLabel=""
+              yLabel="Number of samples"
+              displayNumbers={false}
               />
-            </DiversityBarGraph>
-          </DiversityBarGraphContainer>
-
+              </DiversityBarGraph>
+              </DiversityBarGraphContainer>
+            */}
           {/* <h3 style={{ marginBottom: '2em' }}>
                           Inferred sex in gnomAD v4 per genetic ancestry group
                           </h3>
