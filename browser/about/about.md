@@ -68,7 +68,7 @@ Aggregate data download is currently under development. Please check back for a 
 
 ### Ethics approval
 
-The aggregation and release of summary data from the genomes collected by the OurDNA program has been approved by the Royal Children's Hospital Human Research Ethics Committee (HREC/91986/RCHM-2023).
+The aggregation and release of summary data from the exomes and genomes included in this browser has been approved by the Royal Children's Hospital Human Research Ethics Committee (HREC/84612/RCHM-2022, HREC/91986/RCHM-2023).
 <br />
 <br />
 
