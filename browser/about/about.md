@@ -33,9 +33,9 @@ The OurDNA program is currently producing three key resources:
 
 * **OurDNA Browser** - an open access genetic variation reference database for use by clinicians and researchers to guide disease prediction, diagnosis and treatment
 
-To read more, please see the [program website](https://www.ourdna.org.au) and the [CPG Zenodo Community](https://zenodo.org/communities/populationgenomics/records). 
+To read more, please see the [program website](https://www.ourdna.org.au) and the [CPG Zenodo Community](https://zenodo.org/communities/populationgenomics/records).
 
-The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please see the information on the Centre's [Funding](##funding) and Team pages. 
+The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur. To learn more about program governance and institutional support, please see the information on the Centre's [Funding](##funding) and Team pages.
 <br />
 <br />
 
@@ -54,7 +54,7 @@ The current browser release (August 2025) contains data from OurDNA participants
 
 Community engagement and participation have been central to building the OurDNA Browser. Some of our approaches to partnering with communities are described on the [OurDNA website](https://ourdna.org.au/ourdna-communities/partnering-with-communities), and a detailed report on the process and outcomes of Multicultural Community Consultation specifically relating to this browser can be found [here](https://zenodo.org/records/16757504).
 
-We also strongly encourage all users to read our [Policies and Expectations for Data Use](/policies) page for more information. 
+We also strongly encourage all users to read our [Policies and Expectations for Data Use](/policies) page for more information.
 
 ### Methods
 
@@ -66,7 +66,7 @@ Aggregate data download is currently under development. Please check back for a 
 
 ### Ethics approval
 
-The aggregation and release of summary data from the exomes and genomes included in this browser has been approved by the Royal Children's Hospital Human Research Ethics Committee (HREC/84612/RCHM-2022, HREC/91986/RCHM-2023).
+The aggregation and release of summary data from the exomes and genomes included in this browser has been approved by [the Royal Children's Hospital Human Research Ethics Committee](/ethics-contact) (HREC/84612/RCHM-2022, HREC/91986/RCHM-2023).
 <br />
 <br />
 
