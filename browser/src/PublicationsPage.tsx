@@ -30,8 +30,8 @@ const datasets: Dataset[] = [
     description: 'Details on individual variants or genes; summary of population distributions; use of dataset for population programmatic annotation of OurDNA variants with global allele frequencies from gnomAD.'
   },
   {
-    resource: 'OurDNA browser (software)',
-    description: 'Descriptions of software functionality; data access methods; comparisons of OurDNA browser to gnomAD browser; references to statistics or visualisations listed in the browser.'
+    resource: 'OurDNA Browser (software)',
+    description: 'Descriptions of software functionality; data access methods; comparisons of OurDNA Browser to gnomAD browser; references to statistics or visualisations listed in the browser.'
   }
 ]
 
@@ -47,7 +47,7 @@ export default () => (
       </ExternalLink>.
       There are several distinct outputs from the OurDNA program and we request that you cite the specific resource/s that have been used as input to your work. Please use Digital Object Identifiers (DOIs) in your citations to refer to definitive, persistent records of OurDNA resources.
 
-      The OurDNA dataset and OurDNA browser software are registered on Zenodo. Please take care to include the digital object identifier (DOI) in your references list when citing these resources.
+      The OurDNA dataset and OurDNA Browser software are registered on Zenodo. Please take care to include the digital object identifier (DOI) in your references list when citing these resources.
 
     </p>
     <br/>

@@ -11,7 +11,7 @@ export default () => (
     <PageHeading>Contact</PageHeading>
 
     <p>
-      Report OurDNA browser errors via{' '}
+      Report OurDNA Browser errors via{' '}
        {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://github.com/populationgenomics/ourdna-browser/issues">
         GitHub.

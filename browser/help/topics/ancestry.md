@@ -1,11 +1,11 @@
 ---
 id: ancestry
-title: 'Genetic Ancestry in the OurDNA browser'
+title: 'Genetic Ancestry in the OurDNA Browser'
 ---
 
 ### Genetic ancestry groups
 
-In the OurDNA browser we provide the following genetic ancestry groups:
+In the OurDNA Browser we provide the following genetic ancestry groups:
 
 #### Individuals recruited via the OurDNA program
 More fine-grained community groupings are available for individuals recruited into OurDNA following participatory community engagement.
@@ -34,7 +34,7 @@ To define a set of high quality sites for genetic ancestry identification, we:
     - AF > 0.0005
     - Inbreeding coefficient > -0.8
     - HWE p-value > 1e-8
-    - Call rate > 99%  
+    - Call rate > 99%
 
 For each callset (exomes and genomes) we separately subsetted to those pre-determined high-quality sites present in the callset, joined these with the HGDP and 1000 Genomes Project reference data, and computed the first 25 principal components across all high-quality, unrelated (no second degree or closer relationships) samples using the [`hwe_normalised_pca`](https://hail.is/docs/0.2/methods/genetics.html#hail.methods.hwe_normalized_pca) function in hail.
 
