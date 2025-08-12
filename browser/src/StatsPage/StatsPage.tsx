@@ -2,22 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 
 import ourdnaAgeDistribution from '@gnomad/dataset-metadata/datasets/ourdna-v1/ageDistribution.json'
-import { ExternalLink, PageHeading } from '@gnomad/ui'
+/* import { ExternalLink, PageHeading } from '@gnomad/ui' */
+import { PageHeading } from '@gnomad/ui'
 
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import BrowserPageviews from '../../about/stats/browser_pageviews.png'
+/* import BrowserPageviews from '../../about/stats/browser_pageviews.png' */
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import BrowserWorld from '../../about/stats/browser_world.png'
+/* import BrowserWorld from '../../about/stats/browser_world.png' */
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import DiversityBadge from '../../about/stats/diversity_badge.png'
+/* import DiversityBadge from '../../about/stats/diversity_badge.png' */
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import SnvsPerBPAvg from '../../about/stats/snvs_per_bp_avg.png'
+/* import SnvsPerBPAvg from '../../about/stats/snvs_per_bp_avg.png' */
 
 import DocumentTitle from '../DocumentTitle'
 import Histogram from '../Histogram'
 import { SectionHeading } from '../help/HelpPage'
 import InfoPage from '../InfoPage'
-import Link from '../Link'
+/* import Link from '../Link' */
 
 import ourdnaExomeGenomeCountsByVersion from './BarGraphData/ourdnaExomeGenomeCountsByVersion.json'
 import ourdnaV1GeneticAncestryCounts from './BarGraphData/ourdnaV1GeneticAncestryCounts.json'
@@ -25,13 +26,13 @@ import ourdnaV1GeneticDiversityCounts from './BarGraphData/ourdnaV1GeneticDivers
 import NumberOfVariantsInOurDNAList, { SectionList } from './NumberOfVariantsInOurDNAList'
 import StackedBarGraph from './StackedBarGraph'
 import GeneticAncestryGroupsByVersionTable from './StatsPageTables/GeneticAncestryGroupsByVersionTable'
-import V4GeneticAncestryTable from './StatsPageTables/V4GeneticAncestryTable'
-import StudyDiseasesInGnomadTable from './StatsPageTables/StudyDiseasesInGnomadTable'
+/* import V4GeneticAncestryTable from './StatsPageTables/V4GeneticAncestryTable' */
+/* import StudyDiseasesInGnomadTable from './StatsPageTables/StudyDiseasesInGnomadTable' */
 
-import {
-  InferredSexAllV4Table,
-  InferredSexNonUKBV4Table,
-} from './StatsPageTables/InferredSexPerGeneticAncestryTables'
+/* import {
+ *   InferredSexAllV4Table,
+ *   InferredSexNonUKBV4Table,
+ * } from './StatsPageTables/InferredSexPerGeneticAncestryTables' */
 
 const TwoColumnLayout = styled.div`
   display: flex;
@@ -85,10 +86,10 @@ const SexDistributionList = styled.div`
   }
 `
 
-const CenteredContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-`
+/* const CenteredContainer = styled.div`
+ *   display: flex;
+ *   justify-content: space-around;
+ * ` */
 
 const ResponsiveTable = styled.div`
   display: flex;
@@ -103,33 +104,33 @@ const StatsSection = styled.div`
   margin-bottom: 5em;
 `
 
-const StatsHighlightColorBlock = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 200px;
-  margin: 1em 0 2em 0;
-  background-color: ${(props) => props.theme.color};
-  color: white;
-  border-radius: 1.5em;
-  text-align: center;
-`
+/* const StatsHighlightColorBlock = styled.div`
+ *   display: flex;
+ *   justify-content: center;
+ *   align-items: center;
+ *   width: 200px;
+ *   height: 200px;
+ *   margin: 1em 0 2em 0;
+ *   background-color: ${(props) => props.theme.color};
+ *   color: white;
+ *   border-radius: 1.5em;
+ *   text-align: center;
+ * ` */
 
-const StatsHighlightTitle = styled.h1`
-  margin: 0;
-  font-size: 3.75em;
-`
+/* const StatsHighlightTitle = styled.h1`
+ *   margin: 0;
+ *   font-size: 3.75em;
+ * ` */
 
-const StatsHighlightText = styled.p`
-  margin: 0;
-  font-size: 1.25em;
-`
+/* const StatsHighlightText = styled.p`
+ *   margin: 0;
+ *   font-size: 1.25em;
+ * ` */
 
-const CountriesColoredText = styled.span`
-  color: #508a14;
-  font-weight: bold;
-`
+/* const CountriesColoredText = styled.span`
+ *   color: #508a14;
+ *   font-weight: bold;
+ * ` */
 
 const DiversityBarGraphTooltip = (row: any) => {
   return (
@@ -154,24 +155,24 @@ const DiversityBarGraphTooltip = (row: any) => {
   )
 }
 
-const StatsHighlightBlock = ({
-  title,
-  text,
-  color,
-}: {
-  title: string
-  text: string
-  color: string
-}) => {
-  return (
-    <StatsHighlightColorBlock theme={{ color }}>
-      <div>
-        <StatsHighlightTitle>{title}</StatsHighlightTitle>
-        <StatsHighlightText>{text}</StatsHighlightText>
-      </div>
-    </StatsHighlightColorBlock>
-  )
-}
+/* const StatsHighlightBlock = ({
+ *   title,
+ *   text,
+ *   color,
+ * }: {
+ *   title: string
+ *   text: string
+ *   color: string
+ * }) => {
+ *   return (
+ *     <StatsHighlightColorBlock theme={{ color }}>
+ *       <div>
+ *         <StatsHighlightTitle>{title}</StatsHighlightTitle>
+ *         <StatsHighlightText>{text}</StatsHighlightText>
+ *       </div>
+ *     </StatsHighlightColorBlock>
+ *   )
+ * } */
 
 const ourdnaOrange = '#F05436'
 const ourdnaPurple = '#3646A8'
