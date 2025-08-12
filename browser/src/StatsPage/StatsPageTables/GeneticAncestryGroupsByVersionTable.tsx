@@ -10,7 +10,6 @@ import {
   StatsTableHeaderRow,
   StatsTableSubHeaderRow,
   StatsTableBody,
-  StatsTableCaption,
   StatsTableFooter,
 } from './TableStyles'
 import { populationName } from '@gnomad/dataset-metadata/gnomadPopulations'
