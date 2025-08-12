@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// @ts-ignore TS2307 - ignore Cannot find module
 import ourdnaAgeDistribution from '@gnomad/dataset-metadata/datasets/ourdna-v1/ageDistribution.json'
 /* import { ExternalLink, PageHeading } from '@gnomad/ui' */
 import { PageHeading } from '@gnomad/ui'
@@ -23,6 +24,7 @@ import InfoPage from '../InfoPage'
 import ourdnaExomeGenomeCountsByVersion from './BarGraphData/ourdnaExomeGenomeCountsByVersion.json'
 import ourdnaV1GeneticAncestryCounts from './BarGraphData/ourdnaV1GeneticAncestryCounts.json'
 import ourdnaV1GeneticDiversityCounts from './BarGraphData/ourdnaV1GeneticDiversityCounts.json'
+// @ts-ignore TS2307 - ignore Cannot find module
 import NumberOfVariantsInOurDNAList, { SectionList } from './NumberOfVariantsInOurDNAList'
 import StackedBarGraph from './StackedBarGraph'
 import GeneticAncestryGroupsByVersionTable from './StatsPageTables/GeneticAncestryGroupsByVersionTable'
