@@ -1,5 +1,3 @@
-*The OurDNA Browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please visit the [OurDNA website](https://www.ourdna.org.au) to learn more.*
-
 ## The Centre for Population Genomics
 
 [The Centre for Population Genomics](https://populationgenomics.org.au) (CPG) is a not-for-profit research initiative, jointly based at the Garvan Institute of Medical Research and the Murdoch Children’s Research Institute, working to build a more equitable future for genomic medicine. At CPG, we celebrate and respect diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone.
