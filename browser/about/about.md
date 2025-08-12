@@ -1,18 +1,16 @@
+## OurDNA v1 data contributors
+
+The OurDNA v1 release shown in this browser combines DNA sequencing data from several Australian cohorts:
+- 10,671 exomes generated as part of [Mackenzie's Mission](https://www.mackenziesmission.org.au/) (led by Martin Delatycki, Edwin Kirk, and Nigel Laing)
+- 1,254 genomes from the BioHEART cohort (led by Gemma Figtree), generated and analysed by the Centre for Population Genomics
+- 868 genomes from the Tasmanian Ophthalmic Biobank (led by Alex Hewitt), generated and analysed by the Centre for Population Genomics
+- 89 genomes from members of the Australian Filipino community recruited as part of the [OurDNA program](https://www.ourdna.org.au) (led by Daniel MacArthur)
+<br />
+<br />
+
 ## The Centre for Population Genomics
 
-[The Centre for Population Genomics](https://populationgenomics.org.au) (CPG) is a not-for-profit research initiative, jointly based at the Garvan Institute of Medical Research and the Murdoch Children’s Research Institute, working to build a more equitable future for genomic medicine. At CPG, we celebrate and respect diversity in our team and our work. We believe that including all human diversity in genomic research will empower medical care that benefits everyone.
-
-Our principles:
-
-1. **Respect**: CPG respects the rights and agency of individuals and communities with regard to their data and scientific results;
-
-2. **Diversity**: CPG works to expand representation of diverse communities in genomic datasets;
-
-3. **Openness**: CPG practices open science, releasing data, code, and scientific results as rapidly and openly as possible;
-
-4. **Scalability**: CPG builds platforms and approaches that are robust for use at population scale;
-
-5. **Connectedness**: CPG is part of and helps to build a global network of leading genomic research teams.
+The OurDNA program is led by the [The Centre for Population Genomics](https://populationgenomics.org.au) (CPG), a not-for-profit research initiative jointly based at the Garvan Institute of Medical Research and the Murdoch Children’s Research Institute that is working with Australian communities to build a more equitable future for genomic medicine. 
 
 For links to some of our [publications](https://populationgenomics.org.au/about-us/resources/publications/), some [talks](https://populationgenomics.org.au/about-us/resources/talks/) by our team members, and for information on the CPG’s open source [software tools](https://populationgenomics.org.au/about-us/resources/software-tools-2/) that support our work, please see the [Centre for Population Genomics](https://populationgenomics.org.au) website.
 <br />
@@ -20,7 +18,7 @@ For links to some of our [publications](https://populationgenomics.org.au/about-
 
 ## The OurDNA program
 
-The OurDNA program is a flagship initiative of the Centre for Population Genomics to increase the genomic representation of Australian multicultural communities. The OurDNA program aims to aggregate and share genetic variation data from over 20,000 Australians, including 8,000 new high-quality whole genome sequences from participants from genomically underrepresented groups recruited following participatory community engagement.
+The OurDNA program, led by the Centre for Population Genomics, is designed to increase the genomic representation for diverse Australian communities. The OurDNA program aims to aggregate and share genetic variation data from over 20,000 Australians, including 8,000 new high-quality whole genome sequences from participants from genomically underrepresented groups recruited following participatory community engagement.
 
 The OurDNA program is currently producing three key resources:
 
@@ -71,19 +69,10 @@ The aggregation and release of summary data from the exomes and genomes included
 
 ## Funding
 
-Garvan Institute of Medical Research (https://ror.org/01b3dvp57) and Murdoch Children’s Research Institute (https://ror.org/048fyec77) contribute to the development of this resource via their significant funding support for the Centre for Population Genomics, enabled through the generosity of donors.
+The [Garvan Institute of Medical Research](https://www.garvan.org.au/) and [Murdoch Children’s Research Institute](https://www.mcri.edu.au/) have contributed substantially to the development of this resource via their significant funding support for the Centre for Population Genomics, enabled by the generosity of donors.
 
-Funding for this research has also been provided by the Australian Government’s Medical Research Future Fund (MRFF) grant 2015969 (CIA Daniel MacArthur; 2022-2027) from the Genomics Health Futures Mission and by the National Health and Medical Research Council (NHMRC) investigator grant 2009982 (CIA Daniel MacArthur; 2022-2026).
+Funding for this research has also been provided by the Australian Government’s Medical Research Future Fund (MRFF) grant 2015969 (CIA Daniel MacArthur; 2022-2027) from the Genomics Health Futures Mission and by  National Health and Medical Research Council (NHMRC) investigator grant 2009982 (CIA Daniel MacArthur; 2022-2026).
 
 The contents of this published material are solely the responsibility of the authors and do not reflect the views of the Commonwealth of Australia or the NHMRC.
 
-The OurDNA program also receives support from Google’s Digital Future Initiative.
-
-## Contributors
-
-### Data contributors
-
-- BioHEART (Gemma Figtree)
-- Mackenzie's Mission (Martin Delatycki, Edwin Kirk, Nigel Laing)
-- OurDNA (Daniel MacArthur)
-- Tasmanian Ophthalmic Biobank Whole Genome Sequencing (Alex Hewitt)
+The OurDNA program also receives support from Google’s [Digital Future Initiative](https://blog.google/intl/en-au/company-news/googles-digital-future-initiative/).
