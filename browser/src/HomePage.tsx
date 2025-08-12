@@ -100,7 +100,7 @@ export default () => (
     <h2>About the OurDNA browser</h2>
 
     <div style={{
-      margin: '20px 0',
+      margin: '0px 0',
       padding: '20px',
       backgroundColor: '#f5f5f5',
       borderLeft: '4px solid #0066cc',
