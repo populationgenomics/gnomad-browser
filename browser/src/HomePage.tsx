@@ -88,22 +88,61 @@ export default () => (
         <Link
           preserveSelectedDataset={false}
           to={{
-            pathname: '/variant/1-1000079-A-G',
+            pathname: '/variant/1-55043912-C-T',
             search: queryString.stringify({ dataset: 'ourdna' }),
           }}
         >
-          1-1000079-A-G
+          1-55043912-C-T
         </Link>
       </ListItem>
     </List>
 
-    <h2>New to OurDNA Browser?</h2>
+    <h2>About the OurDNA browser</h2>
+
+    <div style={{
+      margin: '20px 0',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderLeft: '4px solid #0066cc',
+      borderRadius: '4px',
+      fontStyle: 'italic'
+    }}>
+      <p>
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      Please note that the OurDNA browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please see the <ExternalLink href="https://www.ourdna.org.au">OurDNA website.</ExternalLink>
+      </p>
+    </div>
     <p>
-    {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-    The OurDNA browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please see the <ExternalLink href="https://www.ourdna.org.au">OurDNA website.</ExternalLink>
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      The <ExternalLink href="https://www.ourdna.org.au">OurDNA program</ExternalLink> is led by the{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://populationgenomics.org.au">Centre for Population Genomics</ExternalLink>, a joint initiative of the{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://www.garvan.org.au/">Garvan Institute of Medical Research</ExternalLink> and the{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://www.mcri.edu.au/">Murdoch Children&apos;s Research Institute</ExternalLink>, and is aiming to increase the genomic representation of multicultural communities. 
+      The goal is to fix a gap in genetic research: many Australian ancestry groups are not included right now, and we’re working to change that.
     </p>
     <p>
-      Check out these resources to learn about gnomAD and how to use it for variant interpretation.
+      The OurDNA program aims to harmonise and aggregate genetic variation data from over 20,000 Australians,
+      including 8,000 new high-quality whole genome sequences from participants from
+      genomically underrepresented groups recruited following participatory community engagement. 
+      The OurDNA Browser provides access to key summary statistics and allele frequency information from this dataset.
+    </p>
+    <p>
+      The OurDNA browser is part of the{' '}
+      <Link to="/federated">
+        federated gnomAD network
+      </Link>.
+    </p>
+    <p>
+    Aggregate data download is currently under development. Please check back for a release date.
+    </p>
+
+    <h3>New to variant interpretation?</h3>
+    <p>
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      Here are some helpful resources from <ExternalLink href="https://gnomad.broadinstitute.org/">gnomAD</ExternalLink> that explain more about this sort of browser how to use it for variant interpretation.      
     </p>
     {/* @ts-expect-error TS(2746) FIXME: This JSX tag's 'children' prop expects a single ch... Remove this comment to see the full error message */}
     <List>
@@ -140,30 +179,14 @@ export default () => (
         </ExternalLink>
       </ListItem>
     </List>
-
-    <h2>About the OurDNA Browser</h2>
-
+    
+    <h2>Learn more about the OurDNA program</h2>
     <p>
-      The{' '}
+      Please see the{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://www.ourdna.org.au">OurDNA program</ExternalLink>
-      {' '}
-      is a flagship initiative of the{' '}
-      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://populationgenomics.org.au">Centre for Population Genomics</ExternalLink>
-      {' '}to increase the genomic representation of multicultural communities.
-      The OurDNA program aims to aggregate and share genetic variation data from over 20,000 Australians,
-      including 8,000 new high-quality whole genome sequences from participants from
-      genomically underrepresented groups recruited following participatory community engagement.
-    </p>
-    <p>
-      The goal of the OurDNA program is to fix a gap in genetic research. Many Australian ancestry groups are not included right now — and we’re working to change that.
-      Please see{' '}
-      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://www.ourdna.org.au">OurDNA</ExternalLink>
+      <ExternalLink href="https://www.ourdna.org.au">OurDNA website</ExternalLink>
       {' '}
       for more information about the OurDNA Cohort and the Centre for Population Genomics&apos; mission to partner with multicultural communities to advance genetic research and medicine in Australia.
-      The OurDNA Browser provides access to harmonised, aggregated genome and exome sequences from the OurDNA program.
     </p>
     <p>
       The OurDNA program is overseen by the director of the Centre for Population Genomics, Daniel MacArthur.
@@ -174,15 +197,6 @@ export default () => (
       </Link>
       {' '}
       page.
-    </p>
-    <p>
-    The OurDNA browser is part of the{' '}
-    <Link to="/federated">
-      federated gnomAD network
-    </Link>.
-    </p>
-    <p>
-    Aggregate data download is currently under development. Please check back for a release date.
     </p>
   </HomePage>
 )
