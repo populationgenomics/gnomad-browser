@@ -348,7 +348,7 @@ const StatsPage = () => {
           <DiversityBarGraphContainer style={{ marginBottom: '0.5em', width: '100%' }}>
             <DiversityBarGraph style={{ marginTop: '1em', marginBottom: '1em' }}>
               <StackedBarGraph
-                title="Per genetic ancestry group count of samples in gnomAD releases"
+                title="Per genetic ancestry group count of samples in OurDNA releases"
                 barColors={ourdnaV1GeneticAncestryCounts.colors}
                 barValues={ourdnaV1GeneticAncestryCounts.data}
                 height={400}
