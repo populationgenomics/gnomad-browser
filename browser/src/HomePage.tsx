@@ -120,7 +120,7 @@ export default () => (
       is led by the{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://populationgenomics.org.au">Centre for Population Genomics</ExternalLink>
-      {' '}, a joint initiative of the <ExternalLink href="https://www.garvan.org.au/">Garvan Institute of Medical Research</ExternalLink> and the <ExternalLink href="https://www.mcri.edu.au/">Murdoch Children’s Research Institute</ExternalLink>, and is aiming to increase the genomic representation of multicultural communities. 
+      {' '}, a joint initiative of the <ExternalLink href="https://www.garvan.org.au/">Garvan Institute of Medical Research</ExternalLink> and the <ExternalLink href="https://www.mcri.edu.au/">Murdoch Children&aposs Research Institute</ExternalLink>, and is aiming to increase the genomic representation of multicultural communities. 
       The goal is to fix a gap in genetic research: many Australian ancestry groups are not included right now, and we’re working to change that.
     </p>
     <p>
