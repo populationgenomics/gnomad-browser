@@ -120,7 +120,7 @@ export default () => (
       is led by the{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://populationgenomics.org.au">Centre for Population Genomics</ExternalLink>
-      {' '}, a joint initiative of the <ExternalLink href="https://www.garvan.org.au/">Garvan Institute of Medical Research</ExternalLink> and the <ExternalLink href="https://www.mcri.edu.au/">Murdoch Children&apos;s Research Institute</ExternalLink>, and is aiming to increase the genomic representation of multicultural communities. 
+      {' '}, a joint initiative of the{' '}{/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}<ExternalLink href="https://www.garvan.org.au/">Garvan Institute of Medical Research</ExternalLink>{' '} and the {' '}{/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}<ExternalLink href="https://www.mcri.edu.au/">Murdoch Children&apos;s Research Institute</ExternalLink>{' '}, and is aiming to increase the genomic representation of multicultural communities. 
       The goal is to fix a gap in genetic research: many Australian ancestry groups are not included right now, and we’re working to change that.
     </p>
     <p>
@@ -141,7 +141,7 @@ export default () => (
 
     <h3>New to variant interpretation?</h3>
     <p>
-      Here are some helpful resources from <ExternalLink href="https://gnomad.broadinstitute.org/">gnomAD</ExternalLink> that explain more about this sort of browser how to use it for variant interpretation.      
+      Here are some helpful resources from {' '}{/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}<ExternalLink href="https://gnomad.broadinstitute.org/">gnomAD</ExternalLink>{' '} that explain more about this sort of browser how to use it for variant interpretation.      
     </p>
     {/* @ts-expect-error TS(2746) FIXME: This JSX tag's 'children' prop expects a single ch... Remove this comment to see the full error message */}
     <List>
