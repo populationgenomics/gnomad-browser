@@ -86,9 +86,34 @@ const GeneCoverageTrack = ({
         const exomeCoverage = includeExomeCoverage ? data.gene.coverage.exome : null
         const genomeCoverage = includeGenomeCoverage ? data.gene.coverage.genome : null
 
+        const normalizeOverMetrics = (coverage: any, maxFraction: number) => {
+            if (!coverage) return null
+            
+            return coverage.map((point: any) => ({
+              ...point,
+              over_1: point.over_1 / maxFraction,
+              over_5: point.over_5 / maxFraction,
+              over_10: point.over_10 / maxFraction,
+              over_15: point.over_15 / maxFraction,
+              over_20: point.over_20 / maxFraction,
+              over_25: point.over_25 / maxFraction,
+              over_30: point.over_30 / maxFraction,
+              over_50: point.over_50 / maxFraction,
+              over_100: point.over_100 / maxFraction,
+            }))
+          }
+
+        const normalizedExomeCoverage = exomeCoverage 
+        ? normalizeOverMetrics(exomeCoverage, 10671 / 11945) 
+        : null
+      
+        const normalizedGenomeCoverage = genomeCoverage 
+          ? normalizeOverMetrics(genomeCoverage, 2211 / 2515) 
+          : null
+            
         const coverageConfig = isExac(datasetId)
           ? coverageConfigClassic(exomeCoverage, genomeCoverage)
-          : coverageConfigNew(exomeCoverage, genomeCoverage)
+          : coverageConfigNew(normalizedExomeCoverage, normalizedGenomeCoverage)
 
         return (
           <CoverageTrack
