@@ -12,8 +12,8 @@ const LegendWrapper = styled.ul`
 
 const LegendItem = styled.li`
   display: flex;
-  align-items: center;
   flex-shrink: 0;
+  align-items: center;
   margin: 0 1em 0.33em 0;
 `
 
