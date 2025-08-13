@@ -12,7 +12,9 @@ const LegendWrapper = styled.ul`
 
 const LegendItem = styled.li`
   display: flex;
+  align-items: center;
   margin: 0 1em 0.33em 0;
+  flex-shrink: 0;
 `
 
 type LegendSwatchProps = {
