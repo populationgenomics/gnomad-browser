@@ -5,6 +5,7 @@ on:
     branches:
       - ourdna-browser
       - ourdna-browser-dev
+      - fixing-favicon
 
 permissions:
   id-token: write
