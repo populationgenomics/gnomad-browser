@@ -2,11 +2,14 @@ import React from 'react'
 
 import { DownloadElementAsPNGButton } from '../DownloadFigure'
 
+import Link from '../../Link'
+
 import versionData from './GeneticAncestryGroupsByVersionData.json'
 
 import {
   renderNumberOrDash,
   StatsTable,
+  StatsTableCaption,
   StatsTableHeaderRow,
   StatsTableSubHeaderRow,
   StatsTableBody,
@@ -57,9 +60,15 @@ const GeneticAncestryGroupsByVersionTable = () => {
               )
             })}
         </StatsTableFooter>
-        {/* <StatsTableCaption>
-            <div>* Description here</div>
-            </StatsTableCaption> */}
+        <StatsTableCaption>
+          <div>
+            <p>
+              * Individuals that fall below a 0.8 probability threshold of being assigned to any of
+              the named continent-level ancestry clusters, based on their genetic data. For more
+              details, please see our <Link to="/news">blog posts.</Link>
+            </p>
+          </div>
+        </StatsTableCaption>
       </StatsTable>
       <div>
         <DownloadElementAsPNGButton elementId={elementId} />
