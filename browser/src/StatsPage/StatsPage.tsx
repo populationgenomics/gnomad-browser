@@ -63,7 +63,7 @@ const ResponsiveGnomadSamplesContainer = styled.div`
 
 const DiversityBarGraphContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 
   @media (max-width: 992px) {
     display: block;
@@ -95,7 +95,7 @@ const SexDistributionList = styled.div`
 
 const ResponsiveTable = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 
   @media (max-width: 992px) {
     display: block;
