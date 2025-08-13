@@ -28,8 +28,8 @@ const NumberOfVariantsInOurDNAList = () => {
       <Section>
         <SectionHeader>Short variants</SectionHeader>
         <SectionList>
-          {/* <li>Total SNVs: 786,500,648</li>
-              <li>Total INDELs: 122,583,462</li> */}
+          <li>Total SNVs: 57,322,471</li>
+          <li>Total INDELs: 4,567,608</li>
           <li>
             Variant type* counts
             <SectionList>
