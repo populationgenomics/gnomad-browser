@@ -5,6 +5,7 @@ on:
     branches:
       - ourdna-browser
       - ourdna-browser-dev
+      - fixing-variants-in-region
 
 permissions:
   id-token: write
