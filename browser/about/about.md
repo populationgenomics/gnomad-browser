@@ -40,7 +40,9 @@ The OurDNA program is overseen by the director of the Centre for Population Geno
 
 The OurDNA browser provides access to key summary statistics and allele frequency information from from the OurDNA program and contributing projects. It contains data from healthy individuals that self-identify as having ancestry from Australian multicultural communities represented in the OurDNA program. Data from the OurDNA browser is designed to integrate with clinical pipelines to support researchers and doctors to find disease-causing genes, understand diversity and improve medical treatments for Australians of diverse backgrounds.
 
-The current browser release (August 2025) contains data from OurDNA participants who self-identify as having Australian Filipino ancestry only. Version 1 of the OurDNA dataset is composed of:
+The browser was built by modifying [code](https://github.com/broadinstitute/gnomad-browser) from the [gnomAD browser](https://gnomad.broadinstitute.org/), which was built and is maintained by the gnomAD team at the Broad Institute of MIT and Harvard.
+
+The current OurDNA browser release (August 2025) contains data from OurDNA participants who self-identify as having Australian Filipino ancestry only. Version 1 of the OurDNA dataset is composed of:
 
 - 2,211 genomes
 - 10,671 exomes
