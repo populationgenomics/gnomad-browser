@@ -64,16 +64,88 @@ def add_xpos(ds):
 def add_transcript_id(ds):
     return ds.annotate(transcript_id=ds.preferred_transcript_id)
 
+def add_variant_document_id_old(ds):
+    return ds.annotate(
+        document_id=compressed_variant_id(ds.locus, ds.alleles),
+    )
+
 def add_variant_document_id(ds):
     return ds.annotate(
         document_id=compressed_variant_id(ds.locus, ds.alleles),
+
         # transcript_consequences=hl.array([ds.variant_id]), # hl.empty_set([]) # hl.array([hl.struct(gene_id='NA',)])
         # rsids=ds.variant_id,
         # genome=ds.variant_id,
         # exome=ds.variant_id,
         # coverage=ds.variant_id,
+        
+        joint=ds.joint.annotate(
+        # .drop('faf')
+        # faf: array<struct {
+        #     faf95: float64, 
+        #     faf99: float64
+        # }>, 
+#         joint.faf                                                                    |
+# +------------------------------------------------------------------------------+
+# | array<struct{faf95: float64, faf99: float64}>                                |
+# +------------------------------------------------------------------------------+
+# | [(8.65e-03,7.67e-03),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(8.88e-03,7.... |
+# | [(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.... |
+# | [(1.01e-04,4.15e-05),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(1.20e-04,5.... |
+# | [(1.72e-04,7.17e-05),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(2.18e-04,9.... |
+# | [(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.... |
+# | [(6.74e-04,3.59e-04),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(3.98e-04,1.... |
+# | [(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.... |
+# | [(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.... |
+# | [(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(0.00e+00,0.... |
+# | [(1.60e-03,9.65e-04),(0.00e+00,0.00e+00),(0.00e+00,0.00e+00),(2.35e-03,1.... 
+        
+        # .drop('freq_comparison_stats')
+        # .annotate(
+            # faf=ds.joint.faf.filter(
+            #         lambda x: hl.is_defined(x)
+            # ),
+            freq_comparison_stats=ds.joint.freq_comparison_stats.annotate(
+                contingency_table_test=ds.joint.freq_comparison_stats.contingency_table_test
+                .filter(
+                    lambda x: hl.is_defined(x)
+                )
+            )
+        )
+            # .drop('contingency_table_test')
+            # contingency_table_test: array<struct {
+            #     p_value: float64, 
+            #     odds_ratio: float64
+            # }>, 
+#             joint.freq_comparison_stats.contingency_table_test                           |
+# +------------------------------------------------------------------------------+
+# | array<struct{p_value: float64, odds_ratio: float64}>                         |
+# +------------------------------------------------------------------------------+
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
+# | [NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,... |
 
-        # joint=ds.joint.annotate(
+            # .drop('cochran_mantel_haenszel_test')
+            # .drop('stat_union')
+        
+        # .drop('histograms')
+        # .drop('flags')
+        # .drop('faf95_joint')
+        # .drop('faf99_joint')
+        # .drop('freq')
+        # .drop('fafmax')
+        # .drop('grpmax')
+        
+        
+
+        #.annotate(
         #     freq_comparison_stats=ds.joint.freq_comparison_stats.annotate(
         #         contingency_table_test=hl.empty_set(hl.tstr),
         #         # stat_union=hl.empty_set(hl.tstr)
@@ -85,9 +157,9 @@ def add_variant_document_id(ds):
         #     # fafmax=ds.variant_id,
         #     # grpmax=ds.variant_id,
         #     # flags=ds.variant_id,
-        # ),
-        
+        # )
     )
+    # .drop('joint')
 
 
 def truncate_clinvar_variant_ids(ds):
@@ -559,7 +631,7 @@ DATASETS_CONFIG = {
         "get_table": lambda: add_xpos(
             hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/genome_coverage.ht")
         ),
-        "args": {"index": "gnomad_v3_genome_coverage", "id_field": "xpos", "num_shards": 48, "block_size": 100_000},
+        "args": {"index": "gnomad_v3_genome_coverage", "id_field": "xpos", "num_shards": 48, "block_size": 50_000}, # 100_000
     },
     "ourdna_v4_exome_coverage": {
         "get_table": lambda: add_xpos(
@@ -576,6 +648,28 @@ DATASETS_CONFIG = {
             "index_fields": ["transcript_id"],
             "id_field": "transcript_id",
             "block_size": 1_000,
+        },
+    },
+    "test_variants_v4": {
+        "get_table": lambda: subset_table(
+            add_variant_document_id_old(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/test/gnomad.browser.v4.1.sites.ht"))
+        ),
+        "args": {
+            "index": "gnomad_v4_variants",
+            "index_fields": [
+                "document_id",
+                "variant_id",
+                "rsids",
+                "locus",
+                # NA in OurDNA fields:
+                # "caid",
+                "transcript_consequences.gene_id",
+                "transcript_consequences.transcript_id",
+                # "vrs.alt.allele_id",
+            ],
+            "id_field": "document_id",
+            "num_shards": 48,
+            "block_size": 10_000,
         },
     },
 }

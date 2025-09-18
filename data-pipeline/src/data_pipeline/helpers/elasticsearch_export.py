@@ -181,6 +181,8 @@ def export_table_to_elasticsearch(
     if id_field is not None:
         elasticsearch_config["es.mapping.id"] = id_field
 
+    print(table, host, index, type_name, block_size, elasticsearch_config)
+
     hl.export_elasticsearch(table, host, 9200, index, type_name, block_size, elasticsearch_config, True)
 
     es_client.indices.forcemerge(index=index)
