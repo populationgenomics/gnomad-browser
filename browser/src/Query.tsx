@@ -49,7 +49,9 @@ type BaseQueryProps = {
 
 export class BaseQuery extends Component<BaseQueryProps, BaseQueryState> {
   static defaultProps = {
-    url: '/api/',
+    // url: '/api/',
+    // TODO put this back to relative
+    url: 'https://ourdna-dev.popgen.rocks/api/',
     operationName: null,
     variables: {},
   }

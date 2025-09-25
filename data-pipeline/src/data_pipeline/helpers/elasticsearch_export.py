@@ -183,6 +183,17 @@ def export_table_to_elasticsearch(
 
     print(table, host, index, type_name, block_size, elasticsearch_config)
 
+    # hl.typecheck.typecheck(
+    #     t=hl.table.Table,
+    #     host=host,
+    #     port=9200,
+    #     index=index,
+    #     index_type=type_name,
+    #     block_size=block_size,
+    #     config=elasticsearch_config,
+    #     verbose=True
+    # )
+
     hl.export_elasticsearch(table, host, 9200, index, type_name, block_size, elasticsearch_config, True)
 
     es_client.indices.forcemerge(index=index)

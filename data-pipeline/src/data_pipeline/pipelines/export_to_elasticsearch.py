@@ -105,10 +105,28 @@ def add_variant_document_id(ds):
             # faf=ds.joint.faf.filter(
             #         lambda x: hl.is_defined(x)
             # ),
+            faf=ds.joint.faf.map(
+                # lambda x: hl.if_else(hl.is_defined(x), x, hl.missing(hl.tstruct(faf95=hl.tfloat64, faf99=hl.tfloat64)))
+                # lambda x: hl.if_else(hl.is_defined(x), x, hl.tstruct(faf95=hl.missing(hl.tfloat64), faf99=hl.missing(hl.tfloat64)))
+                #lambda x: hl.if_else(hl.is_defined(x), x, hl.missing(hl.tstruct(faf95=hl.tfloat64, faf99=hl.tfloat64)))
+                # lambda x: hl.if_else(hl.is_defined(x), x, hl.struct(faf95=0.0, faf99=0.0))
+                lambda x: hl.if_else(hl.is_defined(x), x, hl.struct(faf95=hl.missing(hl.tfloat64), faf99=hl.missing(hl.tfloat64)))
+            
+            ),  
+            # freq_comparison_stats=ds.joint.freq_comparison_stats.annotate(
+            #     contingency_table_test=ds.joint.freq_comparison_stats.contingency_table_test
+            #     .filter(
+            #         lambda x: hl.is_defined(x)
+            #     )
+            # )
             freq_comparison_stats=ds.joint.freq_comparison_stats.annotate(
                 contingency_table_test=ds.joint.freq_comparison_stats.contingency_table_test
-                .filter(
-                    lambda x: hl.is_defined(x)
+                .map(
+                    #lambda x: hl.if_else(hl.is_defined(x), x, hl.missing(hl.tstruct(p_value=hl.tfloat64, odds_ratio=hl.tfloat64)))
+                    lambda x: hl.if_else(
+                        hl.is_defined(x), x, 
+                        hl.struct(p_value=hl.missing(hl.tfloat64), odds_ratio=hl.missing(hl.tfloat64))
+                    )
                 )
             )
         )
@@ -594,8 +612,8 @@ DATASETS_CONFIG = {
     ##############################################################################################################
     "ourdna_variants_v4": {
         "get_table": lambda: subset_table(
-            add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
-            # add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/test/browser.ht"))
+            # add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
+            add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser_test.ht"))
         ),
         "args": {
             "index": "gnomad_v4_variants",
@@ -631,7 +649,7 @@ DATASETS_CONFIG = {
         "get_table": lambda: add_xpos(
             hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/genome_coverage.ht")
         ),
-        "args": {"index": "gnomad_v3_genome_coverage", "id_field": "xpos", "num_shards": 48, "block_size": 50_000}, # 100_000
+        "args": {"index": "gnomad_v3_genome_coverage", "id_field": "xpos", "num_shards": 48, "block_size": 25_000}, # 100_000
     },
     "ourdna_v4_exome_coverage": {
         "get_table": lambda: add_xpos(
@@ -652,7 +670,7 @@ DATASETS_CONFIG = {
     },
     "test_variants_v4": {
         "get_table": lambda: subset_table(
-            add_variant_document_id_old(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/test/gnomad.browser.v4.1.sites.ht"))
+            add_variant_document_id_old(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser_test.ht"))
         ),
         "args": {
             "index": "gnomad_v4_variants",
