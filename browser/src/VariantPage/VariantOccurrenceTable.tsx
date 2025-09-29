@@ -74,13 +74,13 @@ const renderGnomadVariantFlag = (variant: Variant, context: VariantContext) => {
   return filters.map((filter) => {
     const data =
       filter === 'discrepant_frequencies'
-        ? {
-            pValue: variant.joint!.freq_comparison_stats.stat_union.p_value,
-            testName: variant.joint!.freq_comparison_stats.stat_union.stat_test_name,
-            geneticAncestry:
-              variant.joint!.freq_comparison_stats.stat_union.gen_ancs[0] || undefined,
-          }
-        : {}
+      ? {
+        pValue: variant.joint!.freq_comparison_stats.stat_union.p_value,
+        testName: variant.joint!.freq_comparison_stats.stat_union.stat_test_name,
+        geneticAncestry:
+          variant.joint!.freq_comparison_stats.stat_union.gen_ancs[0]?.toLowerCase() || undefined,
+        }
+      : {}
 
     return <QCFilter key={filter} filter={filter} data={data} />
   })
