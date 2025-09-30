@@ -612,8 +612,8 @@ DATASETS_CONFIG = {
     ##############################################################################################################
     "ourdna_variants_v4": {
         "get_table": lambda: subset_table(
-            # add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
-            add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser_test.ht"))
+            add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser.ht"))
+            # add_variant_document_id(hl.read_table("gs://cpg-ourdna-browser-dev-test/ourDNA-browser/browser_test.ht"))
         ),
         "args": {
             "index": "gnomad_v4_variants",
