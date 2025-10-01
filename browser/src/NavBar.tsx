@@ -109,11 +109,11 @@ const NavBar = () => {
             About
           </Link>
         </li>
-        {/* <li>
+        <li>
           <Link to="/team" onClick={closeMenu}>
             Team
           </Link>
-        </li> */}
+        </li>
         <li>
           <Link to="/federated" onClick={closeMenu}>
             Federated

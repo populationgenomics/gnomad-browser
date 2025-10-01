@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { PageHeading } from '@gnomad/ui'
 // @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
-import dataGenerationContributors from '../../about/contributors/data-generation.md'
+import dataGenerationContributors from '../../about/contributors/cpg-team.md'
 import DocumentTitle from '../DocumentTitle'
 import InfoPage from '../InfoPage'
 
@@ -30,7 +30,7 @@ const ColumnList = styled.div`
 `
 const ResponsiveColumn = styled.div`
   float: left;
-  width: 33.33%;
+  width: 50%;
 
   @media screen and (max-width: 600px) {
     width: 100%;
