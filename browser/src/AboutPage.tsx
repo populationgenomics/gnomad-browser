@@ -4,8 +4,6 @@ import { ExternalLink, PageHeading } from '@gnomad/ui'
 
 // @ts-expect-error
 import aboutContent from '../about/about.md'
-// import contributingProjectsList from '../about/contributors/contributing-projects.md'
-// import dataContributorsList from '../about/contributors/data-contributors.md'
 // import gcbrContent from '../about/contributors/gcbr/gcbr.md'
 
 import DocumentTitle from './DocumentTitle'

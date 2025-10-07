@@ -42,12 +42,12 @@ const FILTER_DISPLAY_MAPPING: Record<Filter, DisplayData> = {
   not_called_in_exomes: {
     name: 'Not in exomes',
     description:
-      'This variant was not called in the gnomAD exome callset; no exome samples had any genotype call (no reference or alternate calls)',
+      'This variant was not called in the OurDNA browser exome callset; no exome samples had any genotype call (no reference or alternate calls)',
   },
   not_called_in_genomes: {
     name: 'Not in genomes',
     description:
-      'This variant was not called in the gnomAD genome callset; no genome samples had any genotype call (no reference or alternate calls)',
+      'This variant was not called in the OurDNA browser genome callset; no genome samples had any genotype call (no reference or alternate calls)',
   },
 }
 
