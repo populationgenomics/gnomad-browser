@@ -30,7 +30,7 @@ const ColumnList = styled.div`
 `
 const ResponsiveColumn = styled.div`
   float: left;
-  width: 50%;
+  width: 75%;
 
   @media screen and (max-width: 600px) {
     width: 100%;
