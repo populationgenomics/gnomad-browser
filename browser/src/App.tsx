@@ -42,11 +42,27 @@ const PageLoading = () => {
 
 const GoogleAnalytics = () => {
   const location = useLocation()
+  const webVitals = (window as any).webVitals
+
+  const sendToGA = ({name, delta, value, id}) => {
+    (window as any).gtag('event', name, {
+      value: delta,
+      metric_id: id,
+      metric_value: value,
+      metric_delta: delta,
+    })
+  }
+  
   useEffect(() => {
     if ((window as any).gtag) {
-      ;(window as any).gtag('config', (window as any).gaTrackingId, {
+      (window as any).gtag('config', (window as any).gaTrackingId, {
         page_path: location.pathname,
       })
+      if (webVitals) {
+        webVitals.getLCP(sendToGA)
+        webVitals.getFID(sendToGA)
+        webVitals.getCLS(sendToGA)
+      }
     }
   }, [location.pathname])
   return null
