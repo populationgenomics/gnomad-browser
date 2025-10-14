@@ -40,18 +40,25 @@ const PageLoading = () => {
   return null
 }
 
+interface EventCWV {
+  name: string;
+  delta: number;
+  value: number;
+  id: string;
+}
+
+const sendCWV = (event: EventCWV) => {
+  ;(window as any).gtag('event', event.name, {
+      value: event.delta,
+      metric_id: event.id,
+      metric_value: event.value,
+      metric_delta: event.delta,
+    })
+}
+
 const GoogleAnalytics = () => {
   const location = useLocation()
   const webVitals = (window as any).webVitals
-
-  const sendToGA = ({name, delta, value, id}) => {
-    ;(window as any).gtag('event', name, {
-      value: delta,
-      metric_id: id,
-      metric_value: value,
-      metric_delta: delta,
-    })
-  }
   
   useEffect(() => {
     if ((window as any).gtag) {
@@ -59,12 +66,12 @@ const GoogleAnalytics = () => {
         page_path: location.pathname,
       })
       if (webVitals) {
-        webVitals.getLCP(sendToGA)
-        webVitals.getFID(sendToGA)
-        webVitals.getCLS(sendToGA)
+        webVitals.getLCP(sendCWV)
+        webVitals.getFID(sendCWV)
+        webVitals.getCLS(sendCWV)
       }
     }
-  }, [location.pathname, webVitals])
+  }, [location.pathname, webVitals, sendCWV])
   return null
 }
 
