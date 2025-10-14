@@ -53,7 +53,7 @@ const renderGnomadVariantFlag = (variant: Variant, context: VariantContext) => {
         (context === 'genome' && variant.joint.filters.includes('not_called_in_genomes'))
       ) {
         badgeName = 'No data'
-        badgeDescription = `This variant was not called in the gnomAD ${context} callset; no ${context} samples had any genotype call (no reference or alternate calls)`
+        badgeDescription = `This variant was not called in the OurDNA ${context} callset; no ${context} samples had any genotype call (no reference or alternate calls)`
       }
     }
 
