@@ -71,7 +71,7 @@ const GoogleAnalytics = () => {
         webVitals.getCLS(sendCWV)
       }
     }
-  }, [location.pathname, webVitals, sendCWV])
+  }, [location.pathname, webVitals])
   return null
 }
 
