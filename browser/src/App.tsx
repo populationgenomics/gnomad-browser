@@ -45,7 +45,7 @@ const GoogleAnalytics = () => {
   const webVitals = (window as any).webVitals
 
   const sendToGA = ({name, delta, value, id}) => {
-    (window as any).gtag('event', name, {
+    ;(window as any).gtag('event', name, {
       value: delta,
       metric_id: id,
       metric_value: value,
@@ -55,7 +55,7 @@ const GoogleAnalytics = () => {
   
   useEffect(() => {
     if ((window as any).gtag) {
-      (window as any).gtag('config', (window as any).gaTrackingId, {
+      ;(window as any).gtag('config', (window as any).gaTrackingId, {
         page_path: location.pathname,
       })
       if (webVitals) {
@@ -64,7 +64,7 @@ const GoogleAnalytics = () => {
         webVitals.getCLS(sendToGA)
       }
     }
-  }, [location.pathname])
+  }, [location.pathname, webVitals])
   return null
 }
 

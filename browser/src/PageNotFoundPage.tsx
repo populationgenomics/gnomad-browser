@@ -9,7 +9,7 @@ import Link from './Link'
 const PageNotFoundPage = () => {
   React.useEffect(() => {
     if ((window as any).gtag) {
-      (window as any).gtag('event', '404_view', {})
+      ;(window as any).gtag('event', '404_view', {})
     }
   }, [])
 
