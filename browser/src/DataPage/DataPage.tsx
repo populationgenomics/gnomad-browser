@@ -15,7 +15,7 @@ import InfoPage from '../InfoPage'
 // @ts-expect-error
 import styles from './DataPage.module.css'
 
-// import GnomadV4Downloads from './GnomadV4Downloads'
+import GnomadV4Downloads from './GnomadV4Downloads'
 // import GnomadV3Downloads from './GnomadV3Downloads'
 // import GnomadV2Downloads from './GnomadV2Downloads'
 // import GnomadV2LiftoverDownloads from './GnomadV2LiftoverDownloads'
@@ -61,7 +61,7 @@ const DataPage = () => {
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-    {/* 
+    {/*
       <TableOfContentsSection>
         <DataPageTableOfContents />
       </TableOfContentsSection> */}
