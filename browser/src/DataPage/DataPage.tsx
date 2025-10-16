@@ -10,7 +10,7 @@ import InfoPage from '../InfoPage'
 
 // import { SectionTitle, StyledParagraph, CodeBlock } from './downloadsPageStyles'
 
-// import DataPageTableOfContents from './TableOfContents'
+import DataPageTableOfContents from './TableOfContents'
 
 // @ts-expect-error
 import styles from './DataPage.module.css'
@@ -59,14 +59,18 @@ const DataPage = () => {
       <PageHeading>Data</PageHeading>
 
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-    {/*
+
       <TableOfContentsSection>
         <DataPageTableOfContents />
-      </TableOfContentsSection> */}
+      </TableOfContentsSection>
 
-     {/* <TextSection>
+      {/* <TextSection>
         <div>
           <SectionTitle id="summary" theme={{ type: 'datasets' }}>
             Summary
@@ -217,7 +221,6 @@ const DataPage = () => {
 
         <BottomSpacer />
       </TextSection> */}
-
     </InfoPage>
   )
 }
