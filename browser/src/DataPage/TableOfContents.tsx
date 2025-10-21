@@ -56,7 +56,7 @@ const DataPageTableOfContents = () => {
     if (activeId.indexOf('v1') > -1) {
       setActiveSection('v1')
     } else {
-      setActiveSection('downloads')
+      setActiveSection('summary')
     }
   }, [activeId])
 
@@ -66,14 +66,6 @@ const DataPageTableOfContents = () => {
   // This would be a lot cleaner if v2-liftover wasn't the only top level dataset that
   //   also includes a "-".
   const filterSection = (idString: string) => {
-    if (activeSection === 'v2') {
-      return (
-        (idString.indexOf('-') === -1 ||
-          idString === 'v2-liftover' ||
-          idString.indexOf(activeSection) > -1) &&
-        idString.indexOf('v2-liftover-') === -1
-      )
-    }
     return (
       idString.indexOf('-') === -1 ||
       idString === 'v2-liftover' ||

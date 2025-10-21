@@ -33,6 +33,7 @@ const TableOfContentsSection = styled.div`
   width: 25%;
   float: right;
   padding-bottom: 1rem;
+  margin-left: 1rem;
   border-left: 1px solid lightgrey;
 
   @media (max-width: 900px) {
@@ -60,6 +61,7 @@ const DataPage = () => {
           borderLeft: '4px solid #0066cc',
           borderRadius: '4px',
           fontStyle: 'italic',
+          display: 'flex',
         }}
       >
         <p>
@@ -74,6 +76,9 @@ const DataPage = () => {
 
       <TextSection>
         <div>
+          <SectionTitle id="summary" theme={{ type: 'datasets' }}>
+            Summary
+          </SectionTitle>
           <StyledParagraph>
             OurDNA data are available for download through a requester pays Google Cloud bucket
             maintained by the Centre for Population Genomics. We recommend using{' '}
