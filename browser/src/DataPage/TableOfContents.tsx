@@ -53,18 +53,10 @@ const DataPageTableOfContents = () => {
 
   // Determine which top-level dataset should be shown accordion style in the ToC
   useEffect(() => {
-    if (activeId.indexOf('v2-liftover') > -1) {
-      setActiveSection('v2-liftover')
-    } else if (activeId.indexOf('v2') > -1) {
-      setActiveSection('v2')
-    } else if (activeId.indexOf('v4') > -1) {
-      setActiveSection('v4')
-    } else if (activeId.indexOf('v3') > -1) {
-      setActiveSection('v3')
-    } else if (activeId.indexOf('exac') > -1) {
-      setActiveSection('exac')
+    if (activeId.indexOf('v1') > -1) {
+      setActiveSection('v1')
     } else {
-      setActiveSection('summary')
+      setActiveSection('downloads')
     }
   }, [activeId])
 

@@ -99,7 +99,7 @@ const jointChromosomeVcfs = [
 const GnomadV4Downloads = () => {
   return (
     <>
-      <SectionTitle id="v4" theme={{ type: 'release' }}>
+      <SectionTitle id="v1" theme={{ type: 'release' }}>
         Downloads
       </SectionTitle>
       <StyledParagraph>
@@ -108,7 +108,7 @@ const GnomadV4Downloads = () => {
       </StyledParagraph>
 
       <DownloadsSection>
-        <SectionTitle>Variants</SectionTitle>
+        <SectionTitle id="v1-variants">Variants</SectionTitle>
         <ColumnsWrapper>
           <Column>
             <h3>Exomes</h3>
@@ -151,7 +151,7 @@ const GnomadV4Downloads = () => {
       </DownloadsSection>
 
       <DownloadsSection>
-        <SectionTitle id="v4-joint-freq-stats">Joint Frequency</SectionTitle>
+        <SectionTitle id="v1-joint-freq-stats">Joint Frequency</SectionTitle>
         <FileList>
           {jointChromosomeVcfs.map(({ chrom, size, md5 }) => (
             // @ts-expect-error TS(2769) FIXME: No overload matches this call.

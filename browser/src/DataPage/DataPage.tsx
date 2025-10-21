@@ -15,7 +15,7 @@ import DataPageTableOfContents from './TableOfContents'
 // @ts-expect-error
 import styles from './DataPage.module.css'
 
-import GnomadV4Downloads from './GnomadV4Downloads'
+import OurDNAV1Downloads from './OurDNAV1Downloads'
 
 const TextSection = styled.div`
   width: 70%;
@@ -25,7 +25,7 @@ const TextSection = styled.div`
   }
 `
 
-const _TableOfContentsSection = styled.div`
+const TableOfContentsSection = styled.div`
   /* stylelint-disable-next-line value-no-vendor-prefix */
   position: -webkit-sticky;
   position: sticky;
@@ -48,9 +48,9 @@ const DataPage = () => {
       <DocumentTitle title="Data" />
       <PageHeading>Data</PageHeading>
 
-      {/* <TableOfContentsSection>
+      <TableOfContentsSection>
         <DataPageTableOfContents />
-      </TableOfContentsSection> */}
+      </TableOfContentsSection>
 
       <div
         style={{
@@ -98,7 +98,7 @@ const DataPage = () => {
 
         <hr />
 
-        <GnomadV4Downloads />
+        <OurDNAV1Downloads />
       </TextSection>
     </InfoPage>
   )
