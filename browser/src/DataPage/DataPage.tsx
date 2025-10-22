@@ -97,7 +97,9 @@ const DataPage = () => {
           </p>
 
           <p>
-            <CodeBlock>gcloud storage ls gs://cpg-public-data--gnomad/release/</CodeBlock>
+            <CodeBlock>
+              gcloud storage ls gs://cpg-ourdna-browser-public-australia-southeast1/release
+            </CodeBlock>
           </p>
         </div>
 
