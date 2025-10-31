@@ -40,15 +40,38 @@ const PageLoading = () => {
   return null
 }
 
+interface EventCWV {
+  name: string;
+  delta: number;
+  value: number;
+  id: string;
+}
+
+const sendCWV = (event: EventCWV) => {
+  ;(window as any).gtag('event', event.name, {
+      value: event.delta,
+      metric_id: event.id,
+      metric_value: event.value,
+      metric_delta: event.delta,
+    })
+}
+
 const GoogleAnalytics = () => {
   const location = useLocation()
+  const webVitals = (window as any).webVitals
+  
   useEffect(() => {
     if ((window as any).gtag) {
       ;(window as any).gtag('config', (window as any).gaTrackingId, {
         page_path: location.pathname,
       })
+      if (webVitals) {
+        webVitals.getLCP(sendCWV)
+        webVitals.getFID(sendCWV)
+        webVitals.getCLS(sendCWV)
+      }
     }
-  }, [location.pathname])
+  }, [location.pathname, webVitals])
   return null
 }
 

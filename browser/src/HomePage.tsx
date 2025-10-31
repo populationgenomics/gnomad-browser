@@ -109,7 +109,7 @@ export default () => (
     }}>
       <p>
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      Please note that the OurDNA Browser is a resource intended for clinicians and researchers. If you are part of one of our OurDNA communities and you would like to learn more about the program, please see the <ExternalLink href="https://www.ourdna.org.au">OurDNA website.</ExternalLink>
+      Please note that the OurDNA Browser is a resource intended for clinicians and researchers with formal training in genetics and genomics who understand the limitations of population genetic data. If you are part of one of our OurDNA communities and you would like to learn more about the program, please see the <ExternalLink href="https://www.ourdna.org.au">OurDNA website.</ExternalLink>
       </p>
     </div>
     <p>
