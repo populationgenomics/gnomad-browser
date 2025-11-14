@@ -80,8 +80,14 @@ const DataPage = () => {
             Summary
           </SectionTitle>
           <StyledParagraph>
-            OurDNA data are available for download through a requester pays Google Cloud bucket
-            maintained by the Centre for Population Genomics. We recommend using{' '}
+            OurDNA data are available for download through{' '}
+            <ExternalLink href="https://cloud.google.com/storage/docs/requester-pays">
+              a requester pays Google Cloud bucket
+            </ExternalLink>
+            .
+          </StyledParagraph>
+          <StyledParagraph>
+            The data are maintained by the Centre for Population Genomics. We recommend using{' '}
             <ExternalLink href="https://hail.is/">Hail</ExternalLink> and{' '}
             <ExternalLink href="https://github.com/populationgenomics/gnomad_methods">
               the Centre for Population Genomics' fork of gnomad_methods
@@ -98,7 +104,8 @@ const DataPage = () => {
 
           <p>
             <CodeBlock>
-              gcloud storage ls gs://cpg-ourdna-browser-public-australia-southeast1/release
+              gcloud storage ls --billing-project project_name
+              gs://cpg-ourdna-browser-public-australia-southeast1/release
             </CodeBlock>
           </p>
         </div>
