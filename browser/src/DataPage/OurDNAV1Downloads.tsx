@@ -13,31 +13,31 @@ import {
 } from './downloadsPageStyles'
 
 const exomeChromosomeVcfs = [
-  { chrom: '1', size: '17.5 GiB', md5: '848be4d85c953bc73a8e4f0c97026a72' },
-  { chrom: '2', size: '13.3 GiB', md5: 'e2f5d891a3374e88d1c3136f94bed0ea' },
-  { chrom: '3', size: '10.79 GiB', md5: 'a35b949b32453b4b5abd7b1de42e298a' },
-  { chrom: '4', size: '7.18 GiB', md5: 'c7c7008a73acbb8fea68b82951842832' },
-  { chrom: '5', size: '7.91 GiB', md5: 'c1016f56be62deb2e947fed4d31302dd' },
-  { chrom: '6', size: '8.5 GiB', md5: 'f96bc8711ed085d63b8bd5396664adbc' },
-  { chrom: '7', size: '9.01 GiB', md5: 'c41cd52571b001cf7d3e388a668e4dff' },
-  { chrom: '8', size: '6.78 GiB', md5: 'a47777fe141c01876cb170f2c2f2e6b6' },
-  { chrom: '9', size: '7.49 GiB', md5: 'c5abd4d8aff12f2bf8b4ec844769782f' },
-  { chrom: '10', size: '7.32 GiB', md5: '4befc8dc50ead888e8af24f556c9fdd6' },
-  { chrom: '11', size: '10.84 GiB', md5: '3833ce3ab046afe92c9b55df93a61ec8' },
-  { chrom: '12', size: '9.9 GiB', md5: 'e530a9ed203cdcc914621ab7430774bb' },
-  { chrom: '13', size: '3.3 GiB', md5: 'af1eab40c8be47c8c7c04dc73e0333e4' },
-  { chrom: '14', size: '6.21 GiB', md5: 'd0e0fa71d94bf016a061ba4dc0bd869f' },
-  { chrom: '15', size: '6.87 GiB', md5: '01b116e34b3815cfd1d3afa53a29a41b' },
-  { chrom: '16', size: '9.1 GiB', md5: '44137843b2df39c8a654427181bda919' },
-  { chrom: '17', size: '11.19 GiB', md5: 'c61978218ab3eaa07b571eb9959f39d2' },
-  { chrom: '18', size: '3.16 GiB', md5: '1ec708d5cae9657ccee0626763ed9946' },
-  { chrom: '19', size: '11.75 GiB', md5: '50a37cfa9a9a3e030388bcf15bdabb79' },
-  { chrom: '20', size: '4.43 GiB', md5: '605680cd99e469bdf5f0045bd22359c9' },
-  { chrom: '21', size: '2.1 GiB', md5: '7ca6d51a42425b857eddb46d7bc5832d' },
-  { chrom: '22', size: '4.71 GiB', md5: 'dcf191563e69054a71bd4dc77862799a' },
-  { chrom: 'X', size: '5.35 GiB', md5: '5b7b17d3d4cff22c20480a908c861a28' },
-  { chrom: 'Y', size: '108.3 MiB', md5: 'd500cf5a73c53f02d1b95f1e092f2e49' },
-  { chrom: 'M', size: '108.3 MiB', md5: 'd500cf5a73c53f02d1b95f1e092f2e49' },
+  { chrom: '1', size: '968.42 MiB', md5: 'qMrxnP88pCAarPzAZGysDg==' },
+  { chrom: '2', size: '753.9 MiB', md5: 'JiFN2aCMvdk8C0tBDANgSg==' },
+  { chrom: '3', size: '599.85 MiB', md5: '7Sn7PXxCzCXxF1tmGXCQGA==' },
+  { chrom: '4', size: '405.63 MiB', md5: 'trt7+USRJhKnG29QItRf9w==' },
+  { chrom: '5', size: '453.08 MiB', md5: 'z9hVKSEMokzx/KNJZQZbLQ==' },
+  { chrom: '6', size: '470.79 MiB', md5: '3HoE5RFGPo6GDapEtxPr/Q==' },
+  { chrom: '7', size: '510.54 MiB', md5: 'fm7UyEWDnho0Igu9h3X0CA==' },
+  { chrom: '8', size: '387.74 MiB', md5: 'DTYgdD4TFNXLCbvwv8HbZw==' },
+  { chrom: '9', size: '396.95 MiB', md5: 'bJvx/Sauky7BW15+y5wtVA==' },
+  { chrom: '10', size: '388.09 MiB', md5: 'nLL6+YpvpxxZPgC3Ri8qtg==' },
+  { chrom: '11', size: '605.96 MiB', md5: 'YEQMyFuIAGQJmxpdq+8HYg==' },
+  { chrom: '12', size: '564.59 MiB', md5: 'Bzw+HSFp5RflbdLMuUT9kg==' },
+  { chrom: '13', size: '184.33 MiB', md5: 'XtkNGwxtS0Y25FFkmnhSyQ==' },
+  { chrom: '14', size: '368.6 MiB', md5: 'a7weiXFKvbP5yFZeTGU11A==' },
+  { chrom: '15', size: '399.41 MiB', md5: '6lqdHy9siDGlhnqhK5uSeg==' },
+  { chrom: '16', size: '548.08 MiB', md5: 'CMC9TB1Scao6YfYD/IHxbw==' },
+  { chrom: '17', size: '658.62 MiB', md5: 'oBrYC52XIuOOiEbS8ksCnQ==' },
+  { chrom: '18', size: '185.52 MiB', md5: 'o3zgDRo4xVgnukynkcfBuw==' },
+  { chrom: '19', size: '708.75 MiB', md5: 'PsfGeYi4L8GWl85KjYYujA==' },
+  { chrom: '20', size: '248.51 MiB', md5: 'VWZgx7sxekiUPoSB8pwK/w==' },
+  { chrom: '21', size: '124.59 MiB', md5: 'ketDHVrYayzekc9mIdDPww==' },
+  { chrom: '22', size: '271.52 MiB', md5: 'zBhbwO7VPwB+iDcXBGxYZQ==' },
+  { chrom: 'X', size: '307.99 MiB', md5: 'KGXJBum9Uuwrejf2dvp56w==' },
+  { chrom: 'Y', size: '11.07 MiB', md5: 'vvu7H477zN1lw1xpPQz3zA==' },
+  { chrom: 'M', size: '5931.42 KiB', md5: '+y0+Dhd/QYui/r2E6E5HyA==' },
 ]
 
 const genomeChromosomeVcfs = [
@@ -118,10 +118,10 @@ const GnomadV4Downloads = () => {
                 <ListItem key={chrom}>
                   <DownloadLinks
                     label={`chr${chrom} sites VCF`}
-                    path={`/release/4.1/vcf/exomes/gnomad.exomes.v4.1.sites.chr${chrom}.vcf.bgz`}
+                    path={`/release/1.0/vcf/exomes/chr${chrom}_variants.vcf.bgz`}
                     size={size}
                     md5={md5}
-                    associatedFileType="TBI"
+                    associatedFileType="CSI"
                     logClicks
                   />
                 </ListItem>
