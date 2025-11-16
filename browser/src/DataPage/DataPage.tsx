@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 import { ExternalLink, PageHeading } from '@gnomad/ui'
 
-import Link from '../Link'
-
 import DocumentTitle from '../DocumentTitle'
 import InfoPage from '../InfoPage'
 
@@ -33,8 +31,8 @@ const TableOfContentsSection = styled.div`
   width: 25%;
   float: right;
   padding-bottom: 1rem;
-  margin-left: 1rem;
   border-left: 1px solid lightgrey;
+  margin-left: 1rem;
 
   @media (max-width: 900px) {
     display: none;
@@ -81,6 +79,7 @@ const DataPage = () => {
           </SectionTitle>
           <StyledParagraph>
             OurDNA data are available for download through{' '}
+            {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
             <ExternalLink href="https://cloud.google.com/storage/docs/requester-pays">
               a requester pays Google Cloud bucket
             </ExternalLink>
@@ -88,14 +87,17 @@ const DataPage = () => {
           </StyledParagraph>
           <StyledParagraph>
             The data are maintained by the Centre for Population Genomics. We recommend using{' '}
+            {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
             <ExternalLink href="https://hail.is/">Hail</ExternalLink> and{' '}
+            {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
             <ExternalLink href="https://github.com/populationgenomics/gnomad_methods">
-              the Centre for Population Genomics' fork of gnomad_methods
+              the Centre for Population Genomics&apos; fork of gnomad_methods
             </ExternalLink>{' '}
             to work with OurDNA data.
           </StyledParagraph>
           <p>
             Data can be browsed and downloaded from Google Cloud Storage using{' '}
+            {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
             <ExternalLink href="https://cloud.google.com/sdk/gcloud/reference/storage">
               gcloud storage
             </ExternalLink>
@@ -104,7 +106,8 @@ const DataPage = () => {
 
           <p>
             <CodeBlock>
-              gcloud storage ls --billing-project project_name
+              gcloud storage ls --billing-project project_name \
+              <br/>
               gs://cpg-ourdna-browser-public-australia-southeast1/release
             </CodeBlock>
           </p>
