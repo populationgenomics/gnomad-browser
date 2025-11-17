@@ -225,9 +225,9 @@ export const DownloadLinks = ({
       <br />
       {size && md5 && (
         <>
-          <span>
-            {size}, MD5:&nbsp;{md5}
-          </span>
+          <span>{size}</span>
+          <br />
+          <span>MD5:&nbsp;{md5}</span>
           <br />
         </>
       )}
@@ -240,21 +240,21 @@ export const DownloadLinks = ({
         </>
       )}
       <span>
-        Download from{' '}
+        {' '}
         {renderDownloadOptions([
           includeGCP && (
             // @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component.
             <ExternalLink
               key="gcp"
-              aria-label={`Download ${label} from Google`}
-              href={`https://storage.googleapis.com/${gcsBucket}${path}`}
+              aria-label={`VCF path ${label}`}
+              href={`${gcsBucket}${path}`}
               onClick={() => {
                 if (logClicks) {
-                  logButtonClick(`User downloaded ${label} from Google`)
+                  logButtonClick(`User accessed ${label} to download`)
                 }
               }}
             >
-              Google
+              VCF path
             </ExternalLink>
           ),
         ])}
@@ -263,16 +263,16 @@ export const DownloadLinks = ({
         <>
           <br />
           <span>
-            Download {associatedFileType.toUpperCase()} from{' '}
+            {' '}
             {renderDownloadOptions([
               includeGCP && (
                 // @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component.
                 <ExternalLink
                   key="gcp"
-                  aria-label={`Download ${associatedFileType.toUpperCase()} file for ${label} from Google`}
-                  href={`https://storage.googleapis.com/${gcsBucket}${path}.${associatedFileType.toLowerCase()}`}
+                  aria-label={`VCF CSI path ${label}`}
+                  href={`${gcsBucket}${path}.${associatedFileType.toLowerCase()}`}
                 >
-                  Google
+                  VCF CSI path
                 </ExternalLink>
               ),
             ])}
