@@ -104,8 +104,9 @@ const DataPage = () => {
 
           <p>
             <CodeBlock>
-              gcloud storage ls --billing-project project_name
-              gs://cpg-ourdna-browser-public-australia-southeast1/release
+              gcloud storage cp --billing-project &lt;project_name&gt;
+              gs://cpg-ourdna-browser-public-australia-southeast1/release/&lt;path_to_file&gt;
+              &lt;destination_path&lt;
             </CodeBlock>
           </p>
         </div>
