@@ -284,9 +284,11 @@ export const DownloadLinks = ({
 }
 
 export const CodeBlock = styled.code`
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
+  width: 100%;
   max-width: 100%;
+  overflow-x: auto;
   padding: 0.5em 1em;
   border-radius: 0.25em;
   background: #333;
