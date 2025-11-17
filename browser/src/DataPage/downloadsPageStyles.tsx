@@ -214,7 +214,7 @@ export const DownloadLinks = ({
   size,
   md5,
   crc32c,
-  gcsBucket = 'gs://cpg-ourdna-browser-public-australia-southeast1',
+  gcsBucket = 'cpg-ourdna-browser-public-australia-southeast1',
   includeGCP = true,
   associatedFileType,
   logClicks = false,
