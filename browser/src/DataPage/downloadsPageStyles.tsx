@@ -190,7 +190,7 @@ export const GetUrlButtons = ({
 }
 
 GetUrlButtons.defaultProps = {
-  gcsBucket: 'cpg-public-data--gnomad',
+  gcsBucket: 'cpg-ourdna-browser-public-australia-southeast1',
   size: undefined,
   md5: undefined,
   includeGCP: true,
@@ -214,7 +214,7 @@ export const DownloadLinks = ({
   size,
   md5,
   crc32c,
-  gcsBucket = 'cpg-ourdna-browser-public-australia-southeast1',
+  gcsBucket = 'gs://cpg-ourdna-browser-public-australia-southeast1',
   includeGCP = true,
   associatedFileType,
   logClicks = false,
@@ -285,10 +285,10 @@ export const DownloadLinks = ({
 
 export const CodeBlock = styled.code`
   display: block;
+  overflow-x: auto;
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
   padding: 0.5em 1em;
   border-radius: 0.25em;
   background: #333;
