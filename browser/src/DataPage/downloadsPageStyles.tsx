@@ -160,7 +160,7 @@ export const GetUrlButtons = ({
             url={`gs://${gcsBucket}${path}`}
             logClicks={logClicks}
           >
-            Get VCF
+            Show URL for VCF
           </ShowURLButton>
         ),
       ])}
@@ -179,7 +179,7 @@ export const GetUrlButtons = ({
                   url={`gs://${gcsBucket}${path}.${associatedFileType.toLowerCase()}`}
                   logClicks={logClicks}
                 >
-                  Get VCF CSI
+                  Show URL for VCF CSI
                 </ShowURLButton>
               ),
             ])}
