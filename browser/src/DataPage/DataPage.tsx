@@ -102,9 +102,10 @@ const DataPage = () => {
               gcloud storage
             </ExternalLink>
             .
-            <br />
-            Replace <b>YOUR_PROJECT_NAME</b> with your Google project name to be used for paying the
-            Egress costs
+          </p>
+          <p>
+            Replace <b>YOUR_PROJECT_NAME</b> with your nominated Google project name for paying
+            egress costs
           </p>
 
           <p>
