@@ -157,7 +157,7 @@ export const GetUrlButtons = ({
             key="gcp"
             aria-label={`VCF ${label}`}
             label={label}
-            url={`gs://${gcsBucket}${path} .`}
+            url={`gs://${gcsBucket}${path}`}
             logClicks={logClicks}
           >
             Get VCF
@@ -176,7 +176,7 @@ export const GetUrlButtons = ({
                   key="gcp"
                   aria-label={`VCF CSI path ${label}`}
                   label={label}
-                  url={`gs://${gcsBucket}${path}.${associatedFileType.toLowerCase()} .`}
+                  url={`gs://${gcsBucket}${path}.${associatedFileType.toLowerCase()}`}
                   logClicks={logClicks}
                 >
                   Get VCF CSI
