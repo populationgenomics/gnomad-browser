@@ -89,7 +89,7 @@ const ShowURLButton = ({ label, url, logClicks, ...otherProps }: ShowURLButtonPr
                   }}
                   style={{ marginLeft: '1em' }}
                 >
-                  Copy URL
+                  Copy
                 </PrimaryButton>
               )}
             </>
@@ -116,6 +116,7 @@ type OwnGetUrlButtonsProps = {
   gcsBucket?: string
   label: string
   path: string
+  associatedFileType?: string
   size?: string
   md5?: string
   crc32c?: string
@@ -131,6 +132,7 @@ export const GetUrlButtons = ({
   gcsBucket,
   label,
   path,
+  associatedFileType,
   size,
   md5,
   includeGCP,
@@ -148,41 +150,40 @@ export const GetUrlButtons = ({
           <br />
         </>
       )}
-      Show URL for{' '}
       {renderDownloadOptions([
-        includeGCP(
+        includeGCP && (
           // @ts-expect-error TS(2322) FIXME: Type '{ children: string; key: string; "aria-label... Remove this comment to see the full error message
           <ShowURLButton
             key="gcp"
-            aria-label={`Show Google URL for ${label}`}
+            aria-label={`VCF ${label}`}
             label={label}
             url={`gs://${gcsBucket}${path}`}
             logClicks={logClicks}
           >
-            Google
+            Show URL for VCF
           </ShowURLButton>
         ),
       ])}
-      {navigator.clipboard && navigator.clipboard.writeText && (
+      {associatedFileType && (
         <>
           <br />
-          Copy URL for{' '}
-          {renderDownloadOptions([
-            includeGCP(
-              <TextButton
-                key="gcp"
-                aria-label={`Copy Google URL for ${label}`}
-                onClick={() => {
-                  if (logClicks) {
-                    logButtonClick(`User showed or copied URL for ${label}`)
-                  }
-                  navigator.clipboard.writeText(`gs://${gcsBucket}${path}`)
-                }}
-              >
-                Google
-              </TextButton>
-            ),
-          ])}
+          <span>
+            {' '}
+            {renderDownloadOptions([
+              includeGCP && (
+                // @ts-expect-error TS(2786) FIXME: 'ShowURLButton' cannot be used as a JSX component.
+                <ShowURLButton
+                  key="gcp"
+                  aria-label={`VCF CSI path ${label}`}
+                  label={label}
+                  url={`gs://${gcsBucket}${path}.${associatedFileType.toLowerCase()}`}
+                  logClicks={logClicks}
+                >
+                  Show URL for VCF CSI
+                </ShowURLButton>
+              ),
+            ])}
+          </span>
         </>
       )}
     </>

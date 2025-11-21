@@ -5,9 +5,9 @@ import { ListItem } from '@gnomad/ui'
 import {
   Column,
   ColumnsWrapper,
-  DownloadLinks,
   DownloadsSection,
   FileList,
+  GetUrlButtons,
   SectionTitle,
   StyledParagraph,
 } from './downloadsPageStyles'
@@ -108,7 +108,7 @@ const GnomadV4Downloads = () => {
       </StyledParagraph>
 
       <DownloadsSection>
-        <SectionTitle id="v1-variants">Variants</SectionTitle>
+        <SectionTitle id="v1-variants">Small Variants</SectionTitle>
         <ColumnsWrapper>
           <Column>
             <h3>Exomes</h3>
@@ -116,7 +116,7 @@ const GnomadV4Downloads = () => {
               {exomeChromosomeVcfs.map(({ chrom, size, md5 }) => (
                 // @ts-expect-error TS(2769) FIXME: No overload matches this call.
                 <ListItem key={chrom}>
-                  <DownloadLinks
+                  <GetUrlButtons
                     label={`chr${chrom} sites VCF`}
                     path={`/release/1.0/vcf/exomes/chr${chrom}_variants.vcf.bgz`}
                     size={size}
@@ -135,7 +135,7 @@ const GnomadV4Downloads = () => {
               {genomeChromosomeVcfs.map(({ chrom, size, md5 }) => (
                 // @ts-expect-error TS(2769) FIXME: No overload matches this call.
                 <ListItem key={chrom}>
-                  <DownloadLinks
+                  <GetUrlButtons
                     label={`chr${chrom} sites VCF`}
                     path={`/release/1.0/vcf/genomes/chr${chrom}_variants.vcf.bgz`}
                     size={size}
@@ -156,7 +156,7 @@ const GnomadV4Downloads = () => {
           {jointChromosomeVcfs.map(({ chrom, size, md5 }) => (
             // @ts-expect-error TS(2769) FIXME: No overload matches this call.
             <ListItem key={chrom}>
-              <DownloadLinks
+              <GetUrlButtons
                 label={`chr${chrom} sites VCF`}
                 path={`/release/1.0/vcf/joint/chr${chrom}_variants.vcf.bgz`}
                 size={size}

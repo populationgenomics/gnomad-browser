@@ -103,12 +103,27 @@ const DataPage = () => {
             </ExternalLink>
             .
           </p>
+          <p>
+            Replace <b>YOUR_PROJECT_NAME</b> with your nominated Google project name for paying
+            egress costs
+          </p>
 
           <p>
+            <h4>Command to browse</h4>{' '}
             <CodeBlock>
-              gcloud storage ls --billing-project project_name \
+              gcloud storage ls --billing-project YOUR_PROJECT_NAME \
               <br />
               gs://cpg-ourdna-browser-public-australia-southeast1/release
+            </CodeBlock>
+          </p>
+          <p>
+            <h4>Command to download (e.g. chr1 sites VCF)</h4>{' '}
+            <CodeBlock>
+              gcloud storage cp --billing-project YOUR_PROJECT_NAME \
+              <br />
+              gs://cpg-ourdna-browser-public-australia-southeast1/release/\
+              <br />
+              1.0/vcf/exomes/chr1_variants.vcf.bgz .
             </CodeBlock>
           </p>
         </div>
