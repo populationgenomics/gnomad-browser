@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ExternalLink, PageHeading } from '@gnomad/ui'
+import { ExternalLink, Link as StyledLink, PageHeading } from '@gnomad/ui'
 
 import DocumentTitle from '../DocumentTitle'
 import InfoPage from '../InfoPage'
@@ -93,7 +93,10 @@ const DataPage = () => {
             <ExternalLink href="https://github.com/populationgenomics/gnomad_methods">
               the Centre for Population Genomics&apos; fork of gnomad_methods
             </ExternalLink>{' '}
-            to work with OurDNA data.
+            to work with OurDNA data. Please see our{' '}
+            {/* @ts-expect-error TS(2769) FIXME: No overload matches this call. */}
+            <StyledLink href="/data-readme">README</StyledLink> page for details on how OurDNA data
+            differs from gnomAD data.
           </StyledParagraph>
           <p>
             Data can be browsed and downloaded from Google Cloud Storage using{' '}
@@ -107,17 +110,16 @@ const DataPage = () => {
             Replace <b>YOUR_PROJECT_NAME</b> with your nominated Google project name for paying
             egress costs
           </p>
-
+          <h4>Command to browse</h4>{' '}
           <p>
-            <h4>Command to browse</h4>{' '}
             <CodeBlock>
               gcloud storage ls --billing-project YOUR_PROJECT_NAME \
               <br />
               gs://cpg-ourdna-browser-public-australia-southeast1/release
             </CodeBlock>
           </p>
+          <h4>Command to download (e.g. chr1 sites VCF)</h4>{' '}
           <p>
-            <h4>Command to download (e.g. chr1 sites VCF)</h4>{' '}
             <CodeBlock>
               gcloud storage cp --billing-project YOUR_PROJECT_NAME \
               <br />
