@@ -1,4 +1,4 @@
-# OurDNA v1 Data Downloads
+# OurDNA v1 Data Downloads README
 
 ## Overview
 
