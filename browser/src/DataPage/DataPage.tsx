@@ -94,6 +94,7 @@ const DataPage = () => {
               the Centre for Population Genomics&apos; fork of gnomad_methods
             </ExternalLink>{' '}
             to work with OurDNA data. Please see our{' '}
+            {/* @ts-expect-error TS(2769) FIXME: No overload matches this call. */}
             <StyledLink href="/data-readme">README</StyledLink> page for details on how OurDNA data
             differs from gnomAD data.
           </StyledParagraph>
