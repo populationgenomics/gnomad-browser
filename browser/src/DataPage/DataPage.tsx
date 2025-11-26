@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ExternalLink, Link as StyledLink, PageHeading } from '@gnomad/ui'
+import { ExternalLink, PageHeading } from '@gnomad/ui'
 
 import DocumentTitle from '../DocumentTitle'
 import InfoPage from '../InfoPage'
@@ -84,9 +84,6 @@ const DataPage = () => {
               a requester pays Google Cloud bucket
             </ExternalLink>
             .
-            <br/>
-            {/* @ts-expect-error TS(2769) FIXME: No overload matches this call. */}
-            Please see <StyledLink href="/data-readme">README</StyledLink> page for more details.
           </StyledParagraph>
           <StyledParagraph>
             The data are maintained by the Centre for Population Genomics. We recommend using{' '}

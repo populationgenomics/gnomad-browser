@@ -13,7 +13,6 @@ const AboutPage = lazy(() => import('./AboutPage'))
 const TeamPage = lazy(() => import('./TeamPage/TeamPage'))
 const ContactPage = lazy(() => import('./ContactPage'))
 const DataPage = lazy(() => import('./DataPage/DataPage'))
-const DataReadmePage = lazy(() => import('./DataPage/ReadmePage'))
 const FederationPage = lazy(() => import('./FederationPage'))
 const HelpPage = lazy(() => import('./help/HelpPage'))
 const HelpTopicPage = lazy(() => import('./help/HelpTopicPage'))
@@ -178,8 +177,6 @@ const Routes = () => {
       <Route exact path="/downloads" component={DataPage} />
 
       <Route exact path="/data" component={DataPage} />
-
-      <Route exact path="/data-readme" component={DataReadmePage} />
 
       <Redirect from="/terms" to="/policies" />
 
