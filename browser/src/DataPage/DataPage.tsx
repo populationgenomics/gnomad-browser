@@ -83,7 +83,8 @@ const DataPage = () => {
             <ExternalLink href="https://cloud.google.com/storage/docs/requester-pays">
               a requester pays Google Cloud bucket
             </ExternalLink>
-            .
+            . Data access and download requires a Google Cloud account with billing enabled. Costs
+            are billed to the user.
           </StyledParagraph>
           <StyledParagraph>
             The data are maintained by the Centre for Population Genomics. We recommend using{' '}
