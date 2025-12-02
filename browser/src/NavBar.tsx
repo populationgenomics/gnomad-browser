@@ -138,11 +138,11 @@ const NavBar = () => {
         <li>
           <a href="/news/">Blog</a>
         </li>
-        {/* <li>
+        <li>
           <Link to="/data" onClick={closeMenu}>
             Data
           </Link>
-        </li> */}
+        </li>
         <li>
           <Link to="/contact" onClick={closeMenu}>
             Contact
