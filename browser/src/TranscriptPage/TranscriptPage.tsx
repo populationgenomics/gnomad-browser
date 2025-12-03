@@ -21,7 +21,6 @@ import { TrackPage, TrackPageSection } from '../TrackPage'
 import { useWindowSize } from '../windowSize'
 
 import MitochondrialTranscriptCoverageTrack from './MitochondrialTranscriptCoverageTrack'
-import MitochondrialVariantsInTranscript from './MitochondrialVariantsInTranscript'
 import TranscriptCoverageTrack from './TranscriptCoverageTrack'
 import TranscriptInfo from './TranscriptInfo'
 import TranscriptTrack from './TranscriptTrack'
@@ -31,7 +30,6 @@ import { GnomadConstraint } from '../ConstraintTable/GnomadConstraintTable'
 import { ExacConstraint } from '../ConstraintTable/ExacConstraintTable'
 import { GtexTissueExpression } from '../GenePage/TranscriptsTissueExpression'
 import { Variant, ClinvarVariant } from '../VariantPage/VariantPage'
-import { MitochondrialVariant } from '../MitochondrialVariantPage/MitochondrialVariantPage'
 import {
   ControlPanel,
   Legend,
@@ -61,7 +59,6 @@ export type Transcript = {
   gene: GeneMetadata
   gtex_tissue_expression: GtexTissueExpression | null
   variants: Variant[]
-  mitochondrial_variants: MitochondrialVariant[]
   clinvar_variants: ClinvarVariant[]
 }
 
@@ -255,21 +252,14 @@ const TranscriptPage = ({ datasetId, transcript }: Props) => {
           <TranscriptTrack transcript={transcript} showUTRs={includeUTRs} />
         </div>
 
-        {transcript.chrom === 'M' ? (
-          <MitochondrialVariantsInTranscript
-            datasetId={datasetId}
-            transcript={transcript}
-            zoomRegion={zoomRegion}
-          />
-        ) : (
-          <VariantsInTranscript
-            datasetId={datasetId}
-            // @ts-expect-error TS(2322) FIXME: Type '{ datasetId: string; includeUTRs: boolean; t... Remove this comment to see the full error message
-            includeUTRs={includeUTRs}
-            transcript={transcript}
-            zoomRegion={zoomRegion}
-          />
-        )}
+        <VariantsInTranscript
+          datasetId={datasetId}
+          // @ts-expect-error TS(2322) FIXME: Type '{ datasetId: string; includeUTRs: boolean; t... Remove this comment to see the full error message
+          includeUTRs={includeUTRs}
+          transcript={transcript}
+          zoomRegion={zoomRegion}
+        />
+        
       </RegionViewer>
     </TrackPage>
   )

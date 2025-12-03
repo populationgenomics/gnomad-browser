@@ -47,8 +47,6 @@ import GeneCoverageTrack from './GeneCoverageTrack'
 import GeneFlags from './GeneFlags'
 import GeneInfo from './GeneInfo'
 import GeneTranscriptsTrack from './GeneTranscriptsTrack'
-import MitochondrialGeneCoverageTrack from './MitochondrialGeneCoverageTrack'
-import MitochondrialVariantsInGene from './MitochondrialVariantsInGene'
 import { getPreferredTranscript } from './preferredTranscript'
 import StructuralVariantsInGene from './StructuralVariantsInGene'
 import TissueExpressionTrack, { TranscriptWithTissueExpression } from './TissueExpressionTrack'
@@ -412,8 +410,6 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
             start={gene.start}
             stop={gene.stop}
           />
-        ) : gene.chrom === 'M' ? (
-          <MitochondrialGeneCoverageTrack datasetId={datasetId} geneId={geneId} />
         ) : (
           <GeneCoverageTrack
             datasetId={datasetId}
@@ -566,8 +562,6 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
         ) : // eslint-disable-next-line no-nested-ternary
         hasCopyNumberVariants(datasetId) ? (
           <CopyNumberVariantsInGene datasetId={datasetId} gene={gene} zoomRegion={zoomRegion} />
-        ) : gene.chrom === 'M' ? (
-          <MitochondrialVariantsInGene datasetId={datasetId} gene={gene} zoomRegion={zoomRegion} />
         ) : (
           <VariantsInGene
             datasetId={datasetId}

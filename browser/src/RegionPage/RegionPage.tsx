@@ -23,7 +23,6 @@ import { useWindowSize } from '../windowSize'
 import EditRegion from './EditRegion'
 import GenesInRegionTrack from './GenesInRegionTrack'
 import MitochondrialRegionCoverageTrack from './MitochondrialRegionCoverageTrack'
-import MitochondrialVariantsInRegion from './MitochondrialVariantsInRegion'
 import RegionControls from './RegionControls'
 import RegionCoverageTrack from './RegionCoverageTrack'
 import RegionInfo from './RegionInfo'
@@ -85,12 +84,6 @@ const variantsInRegion = (datasetId: DatasetId, region: Region) => {
 
   if (isV4CNVs(datasetId)) {
     return <CopyNumberVariantsInRegion datasetId={datasetId} region={region} zoomRegion={region} />
-  }
-
-  if (region.chrom === 'M') {
-    return (
-      <MitochondrialVariantsInRegion datasetId={datasetId} region={region} zoomRegion={region} />
-    )
   }
 
   return <RegularVariantsInRegion datasetId={datasetId} region={region} />
