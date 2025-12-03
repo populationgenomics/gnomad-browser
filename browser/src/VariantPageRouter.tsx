@@ -17,7 +17,6 @@ import useRequest from './useRequest'
 import StatusMessage from './StatusMessage'
 import { fetchVariantSearchResults } from './search'
 
-const MNVPage = lazy(() => import('./MNVPage/MNVPage'))
 const StructuralVariantPage = lazy(() => import('./StructuralVariantPage/StructuralVariantPage'))
 const CopyNumberVariantPage = lazy(() => import('./CopyNumberVariantPage/CopyNumberVariantPage'))
 const VariantPage = lazy(() => import('./VariantPage/VariantPage'))
@@ -117,9 +116,6 @@ const VariantPageRouter = ({ datasetId, variantId }: VariantPageRouterProps) => 
   if (isVariantId(variantId)) {
     const normalizedVariantId = normalizeVariantId(variantId).replace(/^MT/, 'M')
     const [chrom, _pos, ref, alt] = normalizedVariantId.split('-')
-    if (ref.length === alt.length && ref.length > 1) {
-      return <MNVPage datasetId={datasetId} variantId={normalizedVariantId} />
-    }
 
     return <VariantPage datasetId={datasetId} variantId={normalizedVariantId} />
   }
