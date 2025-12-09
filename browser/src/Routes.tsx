@@ -33,9 +33,6 @@ const ShortTandemRepeatPageContainer = lazy(
   () => import('./ShortTandemRepeatPage/ShortTandemRepeatPageContainer')
 )
 const ShortTandemRepeatsPage = lazy(() => import('./ShortTandemRepeatsPage/ShortTandemRepeatsPage'))
-const VariantCooccurrencePage = lazy(
-  () => import('./VariantCooccurrencePage/VariantCooccurrencePage')
-)
 const LiftoverDisambiguationPage = lazy(() => import('./VariantPage/LiftoverDisambiguationPage'))
 
 // Other pages
@@ -135,16 +132,6 @@ const Routes = () => {
           const queryParams = queryString.parse(location.search)
           const datasetId = queryParams.dataset || defaultDataset
           return <VariantPageRouter datasetId={datasetId} variantId={match.params.variantId} />
-        }}
-      />
-
-      <Route
-        exact
-        path="/variant-cooccurrence"
-        render={({ location }: any) => {
-          const params = queryString.parse(location.search)
-          const datasetId = params.dataset || defaultDataset
-          return <VariantCooccurrencePage datasetId={datasetId} />
         }}
       />
 
