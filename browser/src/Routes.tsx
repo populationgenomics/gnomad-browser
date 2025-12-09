@@ -29,10 +29,6 @@ const RegionPageContainer = lazy(() => import('./RegionPage/RegionPageContainer'
 const TranscriptPageContainer = lazy(() => import('./TranscriptPage/TranscriptPageContainer'))
 const VariantPageRouter = lazy(() => import('./VariantPageRouter'))
 
-const ShortTandemRepeatPageContainer = lazy(
-  () => import('./ShortTandemRepeatPage/ShortTandemRepeatPageContainer')
-)
-const ShortTandemRepeatsPage = lazy(() => import('./ShortTandemRepeatsPage/ShortTandemRepeatsPage'))
 const LiftoverDisambiguationPage = lazy(() => import('./VariantPage/LiftoverDisambiguationPage'))
 
 // Other pages
@@ -132,26 +128,6 @@ const Routes = () => {
           const queryParams = queryString.parse(location.search)
           const datasetId = queryParams.dataset || defaultDataset
           return <VariantPageRouter datasetId={datasetId} variantId={match.params.variantId} />
-        }}
-      />
-
-      <Route
-        exact
-        path="/short-tandem-repeats"
-        render={({ location }: any) => {
-          const queryParams = queryString.parse(location.search)
-          const datasetId = queryParams.dataset || defaultDataset
-          return <ShortTandemRepeatsPage datasetId={datasetId} />
-        }}
-      />
-
-      <Route
-        exact
-        path="/short-tandem-repeat/:strId"
-        render={({ location, match }: any) => {
-          const queryParams = queryString.parse(location.search)
-          const datasetId = queryParams.dataset || defaultDataset
-          return <ShortTandemRepeatPageContainer datasetId={datasetId} strId={match.params.strId} />
         }}
       />
 
