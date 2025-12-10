@@ -48,7 +48,6 @@ import GeneFlags from './GeneFlags'
 import GeneInfo from './GeneInfo'
 import GeneTranscriptsTrack from './GeneTranscriptsTrack'
 import { getPreferredTranscript } from './preferredTranscript'
-import StructuralVariantsInGene from './StructuralVariantsInGene'
 import TissueExpressionTrack, { TranscriptWithTissueExpression } from './TissueExpressionTrack'
 import VariantsInGene from './VariantsInGene'
 
@@ -557,10 +556,7 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
         )}
 
         {/* eslint-disable-next-line no-nested-ternary */}
-        {hasStructuralVariants(datasetId) ? (
-          <StructuralVariantsInGene datasetId={datasetId} gene={gene} zoomRegion={zoomRegion} />
-        ) : // eslint-disable-next-line no-nested-ternary
-        hasCopyNumberVariants(datasetId) ? (
+        {hasCopyNumberVariants(datasetId) ? (
           <CopyNumberVariantsInGene datasetId={datasetId} gene={gene} zoomRegion={zoomRegion} />
         ) : (
           <VariantsInGene
