@@ -26,7 +26,6 @@ import TranscriptInfo from './TranscriptInfo'
 import TranscriptTrack from './TranscriptTrack'
 import VariantsInTranscript from './VariantsInTranscript'
 import { GeneMetadata, Strand } from '../GenePage/GenePage'
-import { ExacConstraint } from '../ConstraintTable/ExacConstraintTable'
 import { GtexTissueExpression } from '../GenePage/TranscriptsTissueExpression'
 import { Variant, ClinvarVariant } from '../VariantPage/VariantPage'
 import {
@@ -53,7 +52,6 @@ export type Transcript = {
   start: number
   stop: number
   exons: Exon[]
-  exac_constraint: ExacConstraint | null
   gene: GeneMetadata
   gtex_tissue_expression: GtexTissueExpression | null
   variants: Variant[]

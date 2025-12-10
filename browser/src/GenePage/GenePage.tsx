@@ -49,7 +49,6 @@ import { getPreferredTranscript } from './preferredTranscript'
 import TissueExpressionTrack, { TranscriptWithTissueExpression } from './TissueExpressionTrack'
 import VariantsInGene from './VariantsInGene'
 
-import { ExacConstraint } from '../ConstraintTable/ExacConstraintTable'
 import {
   Variant,
   ClinvarVariant,
@@ -121,7 +120,6 @@ export type Gene = GeneMetadata & {
   }[]
   transcripts: GeneTranscript[]
   flags: string[]
-  exac_constraint?: ExacConstraint
   pext?: Pext
   short_tandem_repeats?: {
     id: string
