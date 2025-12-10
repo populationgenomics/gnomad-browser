@@ -33,7 +33,6 @@ const LiftoverDisambiguationPage = lazy(() => import('./VariantPage/LiftoverDisa
 
 // Other pages
 const PageNotFoundPage = lazy(() => import('./PageNotFoundPage'))
-const SearchRedirectPage = lazy(() => import('./SearchRedirectPage'))
 
 const defaultDataset = 'ourdna'
 
@@ -186,15 +185,6 @@ const Routes = () => {
       />
 
       <Route exact path="/help" component={HelpPage} />
-
-      <Route
-        exact
-        path="/awesome"
-        render={({ location }: any) => {
-          const params = queryString.parse(location.search)
-          return <SearchRedirectPage query={params.query} />
-        }}
-      />
 
       <Route component={PageNotFoundPage} />
     </Switch>
