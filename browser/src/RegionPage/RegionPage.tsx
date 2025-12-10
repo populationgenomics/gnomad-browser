@@ -9,8 +9,6 @@ import {
   hasNonCodingConstraints,
   regionsHaveExomeCoverage,
   regionsHaveGenomeCoverage,
-  isSVs,
-  isV4CNVs,
 } from '@gnomad/dataset-metadata/metadata'
 import DocumentTitle from '../DocumentTitle'
 import GnomadPageHeading from '../GnomadPageHeading'
@@ -27,7 +25,6 @@ import RegionControls from './RegionControls'
 import RegionCoverageTrack from './RegionCoverageTrack'
 import RegionInfo from './RegionInfo'
 import RegularVariantsInRegion from './VariantsInRegion'
-import CopyNumberVariantsInRegion from './CopyNumberVariantsInRegion'
 
 const RegionInfoColumnWrapper = styled.div`
   display: flex;
@@ -74,14 +71,6 @@ export type Region = {
 type RegionPageProps = {
   datasetId: DatasetId
   region: Region
-}
-
-const variantsInRegion = (datasetId: DatasetId, region: Region) => {
-  if (isV4CNVs(datasetId)) {
-    return <CopyNumberVariantsInRegion datasetId={datasetId} region={region} zoomRegion={region} />
-  }
-
-  return <RegularVariantsInRegion datasetId={datasetId} region={region} />
 }
 
 const RegionPage = ({ datasetId, region }: RegionPageProps) => {
@@ -176,7 +165,7 @@ const RegionPage = ({ datasetId, region }: RegionPageProps) => {
             />
           </>
         )}
-        {variantsInRegion(datasetId, region)}
+        <RegularVariantsInRegion datasetId={datasetId} region={region} />
       </RegionViewer>
     </TrackPage>
   )

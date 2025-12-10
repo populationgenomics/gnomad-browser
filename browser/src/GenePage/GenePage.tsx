@@ -19,7 +19,6 @@ import {
   ReferenceGenome,
   hasExons,
   isExac,
-  hasCopyNumberVariants,
   isV2,
 } from '@gnomad/dataset-metadata/metadata'
 // import ConstraintTable from '../ConstraintTable/ConstraintTable'
