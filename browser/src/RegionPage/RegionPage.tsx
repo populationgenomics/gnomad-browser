@@ -27,7 +27,6 @@ import RegionControls from './RegionControls'
 import RegionCoverageTrack from './RegionCoverageTrack'
 import RegionInfo from './RegionInfo'
 import RegularVariantsInRegion from './VariantsInRegion'
-import StructuralVariantsInRegion from './StructuralVariantsInRegion'
 import CopyNumberVariantsInRegion from './CopyNumberVariantsInRegion'
 
 const RegionInfoColumnWrapper = styled.div`
@@ -78,10 +77,6 @@ type RegionPageProps = {
 }
 
 const variantsInRegion = (datasetId: DatasetId, region: Region) => {
-  if (isSVs(datasetId)) {
-    return <StructuralVariantsInRegion datasetId={datasetId} region={region} zoomRegion={region} />
-  }
-
   if (isV4CNVs(datasetId)) {
     return <CopyNumberVariantsInRegion datasetId={datasetId} region={region} zoomRegion={region} />
   }
