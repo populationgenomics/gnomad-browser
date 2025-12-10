@@ -16,7 +16,6 @@ import {
   genesHaveExomeCoverage,
   genesHaveGenomeCoverage,
   labelForDataset,
-  hasStructuralVariants,
   ReferenceGenome,
   hasExons,
   isExac,
@@ -59,7 +58,6 @@ import {
   StructuralVariant,
   CopyNumberVariant,
 } from '../VariantPage/VariantPage'
-import CopyNumberVariantsInGene from './CopyNumberVariantsInGene'
 import {
   ControlPanel,
   Legend,
@@ -556,9 +554,6 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
         )}
 
         {/* eslint-disable-next-line no-nested-ternary */}
-        {hasCopyNumberVariants(datasetId) ? (
-          <CopyNumberVariantsInGene datasetId={datasetId} gene={gene} zoomRegion={zoomRegion} />
-        ) : (
           <VariantsInGene
             datasetId={datasetId}
             gene={gene}
@@ -566,7 +561,6 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
             includeUTRs={includeUTRs}
             zoomRegion={zoomRegion}
           />
-        )}
       </RegionViewer>
     </TrackPage>
   )
