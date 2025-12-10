@@ -29,8 +29,6 @@ const RegionPageContainer = lazy(() => import('./RegionPage/RegionPageContainer'
 const TranscriptPageContainer = lazy(() => import('./TranscriptPage/TranscriptPageContainer'))
 const VariantPageRouter = lazy(() => import('./VariantPageRouter'))
 
-const LiftoverDisambiguationPage = lazy(() => import('./VariantPage/LiftoverDisambiguationPage'))
-
 // Other pages
 const PageNotFoundPage = lazy(() => import('./PageNotFoundPage'))
 
@@ -102,24 +100,6 @@ const Routes = () => {
         }}
       />
 
-      <Route
-        exact
-        path="/variant/liftover/:fromVariantId/:fromDatasetId/:toDatasetId"
-        render={({ match }) => {
-          const { fromVariantId, fromDatasetId, toDatasetId } = match.params as {
-            fromVariantId: string
-            fromDatasetId: DatasetId
-            toDatasetId: DatasetId
-          }
-          return (
-            <LiftoverDisambiguationPage
-              fromVariantId={fromVariantId}
-              fromDatasetId={fromDatasetId}
-              toDatasetId={toDatasetId}
-            />
-          )
-        }}
-      />
       <Route
         exact
         path="/variant/:variantId([-A-Za-z0-9_.]+)"
