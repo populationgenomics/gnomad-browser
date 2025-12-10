@@ -5,7 +5,6 @@ import { Badge, Button, ExternalLink, Page } from '@gnomad/ui'
 
 import {
   DatasetId,
-  hasNonCodingConstraints,
   labelForDataset,
   referenceGenome,
   ReferenceGenome,
@@ -36,7 +35,6 @@ import VariantGenotypeQualityMetrics from './VariantGenotypeQualityMetrics'
 import VariantNotFound from './VariantNotFound'
 import { GnomadVariantOccurrenceTable } from './VariantOccurrenceTable'
 import VariantInSilicoPredictors from './VariantInSilicoPredictors'
-import GnomadNonCodingConstraintTableVariant from '../ConstraintTable/GnomadNonCodingConstraintTableVariant'
 import VariantLoFCurationResults from './VariantLoFCurationResults'
 import VariantPageTitle from './VariantPageTitle'
 import VariantPopulationFrequencies from './VariantPopulationFrequencies'
@@ -436,16 +434,6 @@ export const VariantPageContent = ({ datasetId, variant, globalData }: VariantPa
           <ResponsiveSection>
             <h2>In Silico Predictors</h2>
             <VariantInSilicoPredictors variant={variant} datasetId={datasetId} />
-          </ResponsiveSection>
-        )}
-        {hasNonCodingConstraints(datasetId) && (
-          <ResponsiveSection>
-            <h2>Genomic Constraint of Surrounding 1kb Region</h2>
-            <GnomadNonCodingConstraintTableVariant
-              variantId={variant.variant_id}
-              chrom={variant.chrom}
-              nonCodingConstraint={variant.non_coding_constraint}
-            />
           </ResponsiveSection>
         )}
       </FlexWrapper>
