@@ -49,7 +49,6 @@ import { getPreferredTranscript } from './preferredTranscript'
 import TissueExpressionTrack, { TranscriptWithTissueExpression } from './TissueExpressionTrack'
 import VariantsInGene from './VariantsInGene'
 
-import { GnomadConstraint } from '../ConstraintTable/GnomadConstraintTable'
 import { ExacConstraint } from '../ConstraintTable/ExacConstraintTable'
 import {
   Variant,
@@ -122,7 +121,6 @@ export type Gene = GeneMetadata & {
   }[]
   transcripts: GeneTranscript[]
   flags: string[]
-  gnomad_constraint?: GnomadConstraint
   exac_constraint?: ExacConstraint
   pext?: Pext
   short_tandem_repeats?: {
