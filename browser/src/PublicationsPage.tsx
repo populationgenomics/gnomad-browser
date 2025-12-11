@@ -71,10 +71,12 @@ export default () => (
     <h2>Flagship paper</h2>
     <p>Publication of the OurDNA flagship paper is forthcoming.</p>
     <h2>Dataset</h2>
-    Richards, C., de Lange, K., Piscionere, J., Bobowik, K. S., Bodemer, D., Cantsilieris, S.,
-    Coates, D., Croy, S., Dang, Z., Harper, M., Madala, B. S., Miniter, A., Schmidt, J., Seesink,
-    L., Shouly, R., Silk, M., Stuckey, A., Terrill, B., Uren, C., … MacArthur, D. G. (2025). OurDNA
-    dataset (1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15299717
+    <p>
+      Richards, C., de Lange, K., Piscionere, J., Bobowik, K. S., Bodemer, D., Cantsilieris, S.,
+      Coates, D., Croy, S., Dang, Z., Harper, M., Madala, B. S., Miniter, A., Schmidt, J., Seesink,
+      L., Shouly, R., Silk, M., Stuckey, A., Terrill, B., Uren, C., … MacArthur, D. G. (2025).
+      OurDNA dataset (1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15299717
+    </p>
     <h2>Other resources</h2>
     <p>
       We have a range of additional resources published in the{' '}
