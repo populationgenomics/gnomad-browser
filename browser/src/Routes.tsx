@@ -17,7 +17,6 @@ const DataReadmePage = lazy(() => import('./DataPage/ReadmePage'))
 const FederationPage = lazy(() => import('./FederationPage'))
 const HelpTopicPage = lazy(() => import('./help/HelpTopicPage'))
 const HomePage = lazy(() => import('./HomePage'))
-const MOUPage = lazy(() => import('./MOUPage'))
 const StatsPage = lazy(() => import('./StatsPage/StatsPage'))
 const PublicationsPage = lazy(() => import('./PublicationsPage'))
 const PoliciesPage = lazy(() => import('./PoliciesPage'))
@@ -133,8 +132,6 @@ const Routes = () => {
       <Route exact path="/contact" component={ContactPage} />
 
       <Route exact path="/feedback" render={() => <Redirect to="/contact" />} />
-
-      <Route exact path="/mou" component={MOUPage} />
 
       <Route exact path="/stats" component={StatsPage} />
 
