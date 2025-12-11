@@ -23,16 +23,13 @@ type Dataset = {
 const datasets: Dataset[] = [
   {
     resource: 'OurDNA flagship paper (forthcoming)',
-    description: 'Methodologies, study design; pipeline parameters, data collection details.'
+    description: 'Methodologies, study design; pipeline parameters, data collection details.',
   },
   {
     resource: 'OurDNA dataset',
-    description: 'Details on individual variants or genes; summary of population distributions; use of dataset for population programmatic annotation of OurDNA variants with global allele frequencies from gnomAD.'
+    description:
+      'Details on individual variants or genes; summary of population distributions; use of dataset for population programmatic annotation of OurDNA variants with global allele frequencies from gnomAD.',
   },
-  {
-    resource: 'OurDNA Browser (software)',
-    description: 'Descriptions of software functionality; data access methods; comparisons of OurDNA Browser to gnomAD browser; references to statistics or visualisations listed in the browser.'
-  }
 ]
 
 export default () => (
@@ -41,16 +38,16 @@ export default () => (
     <PageHeading>Publications</PageHeading>
     <p>
       {' '}
-       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://ardc.edu.au/resource/data-and-software-citation/">
-      Datasets and software are premier, citable research outputs
-      </ExternalLink>.
-      There are several distinct outputs from the OurDNA program and we request that you cite the specific resource/s that have been used as input to your work. Please use Digital Object Identifiers (DOIs) in your citations to refer to definitive, persistent records of OurDNA resources.
-
-      The OurDNA dataset and OurDNA Browser software are registered on Zenodo. Please take care to include the digital object identifier (DOI) in your references list when citing these resources.
-
+        Datasets are premier, citable research outputs
+      </ExternalLink>
+      . There are several distinct outputs from the OurDNA program and we request that you cite the
+      specific resource/s that have been used as input to your work. Please use Digital Object
+      Identifiers (DOIs) as opposed to web URLs in your citations to refer to definitive, persistent
+      records of OurDNA resources.
     </p>
-    <br/>
+    <br />
     <CenteredContainer>
       <StatsTable>
         <thead>
@@ -71,25 +68,21 @@ export default () => (
         </StatsTableBody>
       </StatsTable>
     </CenteredContainer>
-
-    <h2>Dataset</h2>
-    Richards, C., de Lange, K., Piscionere J., et al. (2025, July 31). OurDNA dataset (1.0)[Dataset]. www.doi.com
-
-    <h2>Browser (software)</h2>
-    Hyben, M., Harper, M., Bakiris, V., et al. (2025, July 31). OurDNA dataset (1.0)[Software]. www.doi.com
-
     <h2>Flagship paper</h2>
-    <p>
-      Publication of the OurDNA flagship paper is forthcoming.
-    </p>
+    <p>Publication of the OurDNA flagship paper is forthcoming.</p>
+    <h2>Dataset</h2>
+    Richards, C., de Lange, K., Piscionere, J., Bobowik, K. S., Bodemer, D., Cantsilieris, S.,
+    Coates, D., Croy, S., Dang, Z., Harper, M., Madala, B. S., Miniter, A., Schmidt, J., Seesink,
+    L., Shouly, R., Silk, M., Stuckey, A., Terrill, B., Uren, C., … MacArthur, D. G. (2025). OurDNA
+    dataset (1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15299717
     <h2>Other resources</h2>
     <p>
       We have a range of additional resources published in the{' '}
-       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://zenodo.org/communities/populationgenomics/records?q=&l=list&p=1&s=10&sort=newest">
-      Centre for Populations Zenodo Community
-      </ExternalLink>.
+        Centre for Populations Zenodo Community
+      </ExternalLink>
+      .
     </p>
-
   </InfoPage>
 )
