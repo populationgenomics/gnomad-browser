@@ -15,7 +15,6 @@ const ContactPage = lazy(() => import('./ContactPage'))
 const DataPage = lazy(() => import('./DataPage/DataPage'))
 const DataReadmePage = lazy(() => import('./DataPage/ReadmePage'))
 const FederationPage = lazy(() => import('./FederationPage'))
-const HelpPage = lazy(() => import('./help/HelpPage'))
 const HelpTopicPage = lazy(() => import('./help/HelpTopicPage'))
 const HomePage = lazy(() => import('./HomePage'))
 const MOUPage = lazy(() => import('./MOUPage'))
@@ -163,8 +162,6 @@ const Routes = () => {
         path="/help/:topic"
         render={({ match }: any) => <HelpTopicPage topicId={match.params.topic} />}
       />
-
-      <Route exact path="/help" component={HelpPage} />
 
       <Route component={PageNotFoundPage} />
     </Switch>
