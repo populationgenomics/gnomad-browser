@@ -22,10 +22,6 @@ type Dataset = {
 
 const datasets: Dataset[] = [
   {
-    resource: 'OurDNA flagship paper (forthcoming)',
-    description: 'Methodologies, study design; pipeline parameters, data collection details.',
-  },
-  {
     resource: 'OurDNA dataset',
     description:
       'Details on individual variants or genes; summary of population distributions; use of dataset for population programmatic annotation of OurDNA variants with global allele frequencies from gnomAD.',
@@ -68,21 +64,26 @@ export default () => (
         </StatsTableBody>
       </StatsTable>
     </CenteredContainer>
-    <h2>Flagship paper</h2>
-    <p>Publication of the OurDNA flagship paper is forthcoming.</p>
+    <p>Guidance for citing other resources will be added when resources are released.</p>
+
     <h2>Dataset</h2>
     <p>
       Richards, C., de Lange, K., Piscionere, J., Bobowik, K. S., Bodemer, D., Cantsilieris, S.,
       Coates, D., Croy, S., Dang, Z., Harper, M., Madala, B. S., Miniter, A., Schmidt, J., Seesink,
       L., Shouly, R., Silk, M., Stuckey, A., Terrill, B., Uren, C., … MacArthur, D. G. (2025).
-      OurDNA dataset (1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15299717
+      OurDNA dataset (1.0.0) [Data set]. Zenodo.{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://doi.org/10.5281/zenodo.15299717">
+        {' '}
+        https://doi.org/10.5281/zenodo.15299717
+      </ExternalLink>
     </p>
     <h2>Other resources</h2>
     <p>
       We have a range of additional resources published in the{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
       <ExternalLink href="https://zenodo.org/communities/populationgenomics/records?q=&l=list&p=1&s=10&sort=newest">
-        Centre for Populations Zenodo Community
+        Centre for Population Genomics Zenodo Community
       </ExternalLink>
       .
     </p>
