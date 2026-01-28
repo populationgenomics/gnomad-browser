@@ -3,7 +3,7 @@
 exports[`local ancestry populations table has no unexpected changes 1`] = `
 <div>
   <table
-    className="Table__BaseTable-sc-7fgtt2-0 PopulationsTable__Table-sc-sijbl0-0 hRGkzk"
+    className="Table__BaseTable-sc-7fgtt2-0 PopulationsTable__Table-sc-1ipx9am-0 bRugnY"
   >
     <thead>
       <tr>
@@ -16,7 +16,13 @@ exports[`local ancestry populations table has no unexpected changes 1`] = `
             onClick={[Function]}
             type="button"
           >
-            Genetic Ancestry Group
+            <span
+              className="TooltipHint-sc-1wwbc8j-0 cXXQWi"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              Genetic Ancestry Group
+            </span>
           </button>
         </th>
         <th
@@ -89,11 +95,11 @@ exports[`local ancestry populations table has no unexpected changes 1`] = `
           scope="row"
         >
           <button
-            className="Button__TextButton-sc-1eobygi-3 PopulationsTable__TogglePopulationButton-sc-sijbl0-1 ckJgLT"
+            className="Button__TextButton-sc-1eobygi-3 PopulationsTable__TogglePopulationButton-sc-1ipx9am-1 eIhvlp"
             onClick={[Function]}
             type="button"
           >
-            African/African American
+            African, African American and African Caribbean
           </button>
         </th>
         <td>
@@ -180,11 +186,11 @@ exports[`local ancestry populations table has no unexpected changes 1`] = `
           scope="row"
         >
           <button
-            className="Button__TextButton-sc-1eobygi-3 PopulationsTable__TogglePopulationButton-sc-sijbl0-1 ckJgLT"
+            className="Button__TextButton-sc-1eobygi-3 PopulationsTable__TogglePopulationButton-sc-1ipx9am-1 eIhvlp"
             onClick={[Function]}
             type="button"
           >
-            Admixed American
+            Central and South American
           </button>
         </th>
         <td>

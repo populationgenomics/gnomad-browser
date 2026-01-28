@@ -15680,3 +15680,390 @@ exports[`TranscriptPage with dataset "gnomad_sv_r4" has no unexpected changes 1`
   </div>
 </div>
 `;
+
+exports[`TranscriptPage with dataset "ourdna" has no unexpected changes 1`] = `
+<div
+  className="Page-sc-w7h773-0 TrackPage-sc-vqfhzf-0 bgFPQC"
+>
+  <div
+    className="TrackPage__TrackPageSection-sc-vqfhzf-1 jvDrnn"
+  >
+    <div
+      className="GnomadPageHeading__PageHeadingWrapper-sc-1as7lgu-0 duaTzK"
+    >
+      <div
+        className="GnomadPageHeading__PageHeadingInnerWrapper-sc-1as7lgu-1 jRZHzJ"
+      >
+        <h1
+          className="GnomadPageHeading__PageHeadingText-sc-1as7lgu-3 kxiaLS"
+        >
+          Transcript: 
+          dummy_transcript
+          .
+          12.34.5
+        </h1>
+      </div>
+      <div
+        className="GnomadPageHeading__PageControlsWrapper-sc-1as7lgu-4 hlgnzz"
+      >
+        <span
+          className="GnomadPageHeading__Label-sc-1as7lgu-5 dAgNcs"
+        >
+          Dataset
+        </span>
+        <ul
+          className="DatasetSelector__NavigationMenuWrapper-sc-120636a-0 eGsWgq"
+        >
+          <li
+            className="DatasetSelector__NavigationMenuItem-sc-120636a-2 kPZWcy"
+          >
+            <a
+              className="DatasetSelector__TopLevelNavigationLink-sc-120636a-1-Link fOwday"
+              data-item="current_short_variant"
+              href="/?dataset=ourdna"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+            >
+              OurDNA v1.0
+            </a>
+          </li>
+          <li
+            className="DatasetSelector__NavigationMenuItem-sc-120636a-2 kPZWcy"
+          >
+            <a
+              aria-expanded={false}
+              aria-haspopup="true"
+              aria-label="More datasets"
+              className="DatasetSelector__TopLevelNavigationLink-sc-120636a-1-Link fOwday"
+              data-item="other_short_variant"
+              href="/"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+            >
+              <span
+                className="DatasetSelector__MoreIcon-sc-120636a-3 ktXFXP"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+              </span>
+            </a>
+            <ul
+              className="DatasetSelector__SubNavigationMenu-sc-120636a-4 idrGZn"
+            >
+              <li>
+                <div
+                  className="DatasetSelector__GroupedNav-sc-120636a-7 giEZYU"
+                >
+                  GRCh38
+                </div>
+                <li>
+                  <a
+                    className="DatasetSelector__SubNavigationLink-sc-120636a-5-Link kHAftC"
+                    data-item="ourdna"
+                    href="/?dataset=ourdna"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                  >
+                    OurDNA v1.0
+                    <div
+                      className="DatasetSelector__ItemDescription-sc-120636a-6 dmmIPD"
+                    >
+                      12,882 samples
+                    </div>
+                  </a>
+                </li>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="TranscriptPage__TranscriptInfoColumnWrapper-sc-1fkgo44-0 bCFapw"
+    >
+      <div
+        style={
+          {
+            "maxWidth": "50%",
+          }
+        }
+      >
+        <dl
+          className="AttributeList-sc-1t2e3h0-0 fnjhPC"
+          style={
+            {
+              "marginTop": "1.25em",
+            }
+          }
+        >
+          <div>
+            <dt>
+              Genome build
+            </dt>
+            <dd>
+              GRCh37
+               / 
+              hg19
+            </dd>
+          </div>
+          <div>
+            <dt>
+              Ensembl ID
+            </dt>
+            <dd>
+              dummy_transcript
+              .
+              12.34.5
+            </dd>
+          </div>
+          <div>
+            <dt>
+              Gene
+            </dt>
+            <dd>
+              <a
+                className="Link-sc-14lgydv-0-Link jBvaYQ"
+                href="/gene/dummy_gene"
+                onClick={[Function]}
+              >
+                FAKEGENE
+                 (
+                dummy_gene
+                .
+                5.6.7.8
+                )
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              Region
+            </dt>
+            <dd>
+              <a
+                className="Link-sc-14lgydv-0-Link jBvaYQ"
+                href="/region/13-123-321"
+                onClick={[Function]}
+              >
+                13
+                :
+                123
+                -
+                321
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              External resources
+            </dt>
+            <dd>
+              <a
+                className="Link-sc-14lgydv-0 Link__ExternalLink-sc-14lgydv-1 haNmsP"
+                href="https://grch37.ensembl.org/Homo_sapiens/Transcript/Summary?t=dummy_transcript"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Ensembl
+              </a>
+              ,
+               
+              <a
+                className="Link-sc-14lgydv-0 Link__ExternalLink-sc-14lgydv-1 haNmsP"
+                href="https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=chr13%3A123-321"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                UCSC Browser
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  Viewing full 
+  transcript
+  .
+   
+  <button
+    className="Button__BaseButton-sc-1eobygi-0 Button-sc-1eobygi-1 indcWT"
+    onClick={[Function]}
+    type="button"
+  >
+    Zoom in
+  </button>
+  <div
+    className="RegionViewer__RegionViewerWrapper-sc-1tcq1x9-0 bzkzsd"
+  >
+    <div
+      className="RegionViewer__RegionViewerWrapper-sc-tk0egb-0 cgruVM"
+      style={
+        {
+          "width": 994,
+        }
+      }
+    >
+      <div
+        style={
+          {
+            "height": 220,
+          }
+        }
+      />
+      <div
+        className="ChartStyles__ControlPanel-sc-d4m4al-0 bBTspC"
+        width={814}
+      >
+        Include:
+        <ul
+          className="ChartStyles__Legend-sc-d4m4al-1 ifeYXc"
+        >
+          <li
+            className="ChartStyles__LegendItemWrapper-sc-d4m4al-2 SbQDK"
+          >
+            <label
+              className="ChartStyles__Label-sc-d4m4al-3 cgMHVq"
+              htmlFor="include-cds-regions"
+            >
+              <input
+                checked={false}
+                className="ChartStyles__CheckboxInput-sc-d4m4al-4 itzRll"
+                disabled={true}
+                id="include-cds-regions"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              Coding regions (CDS)
+              <span
+                className="ChartStyles__LegendSwatch-sc-d4m4al-5 dCYhAY"
+                color="#424242"
+                height={10}
+              />
+            </label>
+          </li>
+          <li
+            className="ChartStyles__LegendItemWrapper-sc-d4m4al-2 SbQDK"
+          >
+            <label
+              className="ChartStyles__Label-sc-d4m4al-3 cgMHVq"
+              htmlFor="include-utr-regions"
+            >
+              <input
+                checked={false}
+                className="ChartStyles__CheckboxInput-sc-d4m4al-4 itzRll"
+                disabled={true}
+                id="include-utr-regions"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              Untranslated regions (UTRs)
+              <span
+                className="ChartStyles__LegendSwatch-sc-d4m4al-5 iJsjnD"
+                color="#424242"
+                height={4}
+              />
+            </label>
+          </li>
+          <li
+            className="ChartStyles__LegendItemWrapper-sc-d4m4al-2 SbQDK"
+          >
+            <label
+              className="ChartStyles__Label-sc-d4m4al-3 cgMHVq"
+              htmlFor="include-nc-regions"
+            >
+              <input
+                checked={true}
+                className="ChartStyles__CheckboxInput-sc-d4m4al-4 itzRll"
+                disabled={true}
+                id="include-nc-regions"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              Non-coding regions
+              <span
+                className="ChartStyles__LegendSwatch-sc-d4m4al-5 ibHumi"
+                color="#bdbdbd"
+                height={4}
+              />
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div
+        style={
+          {
+            "margin": "1em 0",
+          }
+        }
+      >
+        <div
+          className="Track__OuterWrapper-sc-1sdyh2h-0 bBMGlf"
+        >
+          <div
+            className="Track__InnerWrapper-sc-1sdyh2h-1 cEOGGC"
+          >
+            <div
+              className="Track__SidePanel-sc-1sdyh2h-3 iSYzDq"
+              style={
+                {
+                  "width": 115,
+                }
+              }
+            >
+              <div
+                className="TranscriptTrack__LeftPanel-sc-1bb21f3-0 dxhXqy"
+                width={115}
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  height={20}
+                  src="test-file-stub"
+                  width={20}
+                />
+              </div>
+            </div>
+            <div
+              className="Track__CenterPanel-sc-1sdyh2h-4 iAyrrk"
+              style={
+                {
+                  "width": 799,
+                }
+              }
+            >
+              <svg
+                height={20}
+                width={799}
+              >
+                <line
+                  stroke="#bdbdbd"
+                  strokeWidth={1}
+                  x1={0}
+                  x2={799}
+                  y1={10}
+                  y2={10}
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style={
+          {
+            "height": "auto",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -22495,3 +22495,24 @@ exports[`DataSelector with "gnomad_sv_r4" dataset selected has no unexpected cha
   </li>
 </ul>
 `;
+
+exports[`DataSelector with "ourdna" dataset selected has no unexpected changes 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 0;
+  border: 1px solid #6c757d;
+  border-radius: 0.5em;
+  margin: 0;
+  list-style-type: none;
+}
+
+<ul
+  className="c0"
+/>
+`;
