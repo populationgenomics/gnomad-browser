@@ -15,7 +15,6 @@ import useRequest from './useRequest'
 import StatusMessage from './StatusMessage'
 import { fetchVariantSearchResults } from './search'
 
-const StructuralVariantPage = lazy(() => import('./StructuralVariantPage/StructuralVariantPage'))
 const CopyNumberVariantPage = lazy(() => import('./CopyNumberVariantPage/CopyNumberVariantPage'))
 const VariantPage = lazy(() => import('./VariantPage/VariantPage'))
 
