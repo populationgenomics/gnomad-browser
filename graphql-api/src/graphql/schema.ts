@@ -11,13 +11,8 @@ import copyNumberVariantResolvers from './resolvers/copy-number-variants'
 import coverageResolvers from './resolvers/coverage'
 import geneResolvers from './resolvers/gene'
 import geneFieldResolvers from './resolvers/gene-fields'
-import liftoverResolvers from './resolvers/liftover'
-import mitochondrialCoverageResolvers from './resolvers/mitochondrial-coverage'
-import mitochondrialVariantResolvers from './resolvers/mitochondrial-variants'
-import multiNucleotideVariantResolves from './resolvers/multi-nucleotide-variants'
 import regionResolvers from './resolvers/region'
 import regionFieldResolvers from './resolvers/region-fields'
-import shortTandemRepeatResolvers from './resolvers/short-tandem-repeats'
 import structuralVariantResolvers from './resolvers/structural-variants'
 import transcriptResolvers from './resolvers/transcript'
 import transcriptFieldResolvers from './resolvers/transcript-fields'
@@ -41,13 +36,8 @@ const resolvers = mergeResolvers([
   coverageResolvers,
   geneResolvers,
   geneFieldResolvers,
-  liftoverResolvers,
-  mitochondrialCoverageResolvers,
-  mitochondrialVariantResolvers,
-  multiNucleotideVariantResolves,
   regionResolvers,
   regionFieldResolvers,
-  shortTandemRepeatResolvers,
   structuralVariantResolvers,
   transcriptResolvers,
   transcriptFieldResolvers,

@@ -2,8 +2,6 @@ import { withCache } from '../cache'
 
 import { assertDatasetAndReferenceGenomeMatch } from './helpers/validation-helpers'
 import gnomadV4VariantQueries from './variant-datasets/gnomad-v4-variant-queries'
-import gnomadV3VariantQueries from './variant-datasets/gnomad-v3-variant-queries'
-import gnomadV2VariantQueries from './variant-datasets/gnomad-v2-variant-queries'
 import exacVariantQueries from './variant-datasets/exac-variant-queries'
 
 type QueryArgs = [any, any]
@@ -23,20 +21,6 @@ const datasetQueries: Record<string, any> = {
     fetchMatchingVariants: (...args: QueryArgs) =>
       gnomadV4VariantQueries.fetchMatchingVariants(...args, 'all'),
   },
-  gnomad_r4_non_ukb: {
-    countVariantsInRegion: (...args: QueryArgs) =>
-      gnomadV4VariantQueries.countVariantsInRegion(...args, 'non_ukb'),
-    fetchVariantById: (...args: QueryArgs) =>
-      gnomadV4VariantQueries.fetchVariantById(...args, 'non_ukb'),
-    fetchVariantsByGene: (...args: QueryArgs) =>
-      gnomadV4VariantQueries.fetchVariantsByGene(...args, 'non_ukb'),
-    fetchVariantsByRegion: (...args: QueryArgs) =>
-      gnomadV4VariantQueries.fetchVariantsByRegion(...args, 'non_ukb'),
-    fetchVariantsByTranscript: (...args: QueryArgs) =>
-      gnomadV4VariantQueries.fetchVariantsByTranscript(...args, 'non_ukb'),
-    fetchMatchingVariants: (...args: QueryArgs) =>
-      gnomadV4VariantQueries.fetchMatchingVariants(...args, 'non_ukb'),
-  },
   ourdna: {
     countVariantsInRegion: (...args: QueryArgs) =>
       gnomadV4VariantQueries.countVariantsInRegion(...args, 'all'),
@@ -53,76 +37,10 @@ const datasetQueries: Record<string, any> = {
     fetchVariantsAgeDistribution: (...args: QueryArgs) =>
       gnomadV4VariantQueries.fetchVariantsAgeDistribution(...args),
   },
-  gnomad_r3: {
-    countVariantsInRegion: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.countVariantsInRegion(...args, 'all'),
-    fetchVariantById: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchVariantById(...args, 'all'),
-    fetchVariantsByGene: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchVariantsByGene(...args, 'all'),
-    fetchVariantsByRegion: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchVariantsByRegion(...args, 'all'),
-    fetchVariantsByTranscript: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchVariantsByTranscript(...args, 'all'),
-    fetchMatchingVariants: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchMatchingVariants(...args, 'all'),
-  },
-  gnomad_r2_1: {
-    countVariantsInRegion: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.countVariantsInRegion(...args, 'gnomad'),
-    fetchVariantById: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchVariantById(...args, 'gnomad'),
-    fetchVariantsByGene: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchVariantsByGene(...args, 'gnomad'),
-    fetchVariantsByRegion: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchVariantsByRegion(...args, 'gnomad'),
-    fetchVariantsByTranscript: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchVariantsByTranscript(...args, 'gnomad'),
-    fetchMatchingVariants: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchMatchingVariants(...args, 'gnomad'),
-  },
   exac: exacVariantQueries,
 }
 
 type DatasetId = keyof typeof datasetQueries
-
-const gnomadV2Subsets = ['controls', 'non_neuro', 'non_cancer', 'non_topmed']
-
-gnomadV2Subsets.forEach((subset) => {
-  datasetQueries[`gnomad_r2_1_${subset}`] = {
-    countVariantsInRegion: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.countVariantsInRegion(...args, subset),
-    fetchVariantById: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchVariantById(...args, subset),
-    fetchVariantsByGene: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchVariantsByGene(...args, subset),
-    fetchVariantsByRegion: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchVariantsByRegion(...args, subset),
-    fetchVariantsByTranscript: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchVariantsByTranscript(...args, subset),
-    fetchMatchingVariants: (...args: QueryArgs) =>
-      gnomadV2VariantQueries.fetchMatchingVariants(...args, subset),
-  }
-})
-
-const gnomadV3Subsets = ['controls_and_biobanks', 'non_cancer', 'non_neuro', 'non_topmed', 'non_v2']
-
-gnomadV3Subsets.forEach((subset) => {
-  datasetQueries[`gnomad_r3_${subset}`] = {
-    countVariantsInRegion: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.countVariantsInRegion(...args, subset),
-    fetchVariantById: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchVariantById(...args, subset),
-    fetchVariantsByGene: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchVariantsByGene(...args, subset),
-    fetchVariantsByRegion: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchVariantsByRegion(...args, subset),
-    fetchVariantsByTranscript: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchVariantsByTranscript(...args, subset),
-    fetchMatchingVariants: (...args: QueryArgs) =>
-      gnomadV3VariantQueries.fetchMatchingVariants(...args, subset),
-  }
-})
 
 export const countVariantsInRegion = (esClient: any, datasetId: DatasetId, region: any) => {
   assertDatasetAndReferenceGenomeMatch(datasetId, region.reference_genome)
