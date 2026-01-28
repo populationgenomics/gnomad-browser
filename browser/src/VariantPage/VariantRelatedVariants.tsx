@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import { hasRelatedVariants } from '@gnomad/dataset-metadata/metadata'
 import Link from '../Link'
-import VariantLiftover from './VariantLiftover'
 import { Variant } from './VariantPage'
 
 const CODING_AND_UTR_VEP_CONSEQUENCES = new Set([
@@ -89,13 +88,6 @@ const VariantRelatedVariants = ({ datasetId, variant }: VariantRelatedVariantsPr
               </li>
             ))}
           </ul>
-        </Item>
-      )}
-
-      {(variant.liftover || variant.liftover_sources || []).length > 0 && (
-        <Item>
-          <h3>Liftover</h3>
-          <VariantLiftover variant={variant} />
         </Item>
       )}
 

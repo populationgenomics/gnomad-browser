@@ -4,42 +4,11 @@ import { forAllDatasets } from '../../tests/__helpers__/datasets'
 import { variantFeedbackUrl } from './variantFeedback'
 
 const expectedResults: Record<DatasetId, string> = {
-  exac: 'http://example.com/variant_report_form?variant_id_param=1-234-A-C',
-  gnomad_r2_1:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v2&variant_id_param=1-234-A-C',
-  gnomad_r2_1_controls:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v2&variant_id_param=1-234-A-C',
-  gnomad_r2_1_non_cancer:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v2&variant_id_param=1-234-A-C',
-  gnomad_r2_1_non_neuro:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v2&variant_id_param=1-234-A-C',
-  gnomad_r2_1_non_topmed:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v2&variant_id_param=1-234-A-C',
-  gnomad_r3:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v3&variant_id_param=1-234-A-C',
-  gnomad_r3_non_cancer:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v3&variant_id_param=1-234-A-C',
-  gnomad_r3_non_neuro:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v3&variant_id_param=1-234-A-C',
-  gnomad_r3_controls_and_biobanks:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v3&variant_id_param=1-234-A-C',
-  gnomad_r3_non_topmed:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v3&variant_id_param=1-234-A-C',
-  gnomad_r3_non_v2:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v3&variant_id_param=1-234-A-C',
-  gnomad_sv_r2_1:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v2&variant_id_param=1-234-A-C',
-  gnomad_sv_r2_1_controls:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v2&variant_id_param=1-234-A-C',
-  gnomad_sv_r2_1_non_neuro:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v2&variant_id_param=1-234-A-C',
   gnomad_sv_r4:
     'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v3&variant_id_param=1-234-A-C',
   gnomad_r4:
     'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v4&variant_id_param=1-234-A-C',
   gnomad_cnv_r4:
-    'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v4&variant_id_param=1-234-A-C',
-  gnomad_r4_non_ukb:
     'http://example.com/variant_report_form?dataset_id_parameter=gnomAD%20v4&variant_id_param=1-234-A-C',
   ourdna:
     'http://example.com/variant_report_form?dataset_id_parameter=ourdna&variant_id_param=1-234-A-C',

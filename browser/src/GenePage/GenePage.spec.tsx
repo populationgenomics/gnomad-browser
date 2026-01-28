@@ -191,19 +191,7 @@ forDatasetsMatching(cnvRegexp, 'GenePage with CNV dataset "%s"', (datasetId) => 
 })
 
 describe.each([
-  ['exac', true],
-  ['gnomad_r2_1', true],
-  ['gnomad_r2_1_controls', true],
-  ['gnomad_r2_1_non_cancer', true],
-  ['gnomad_r2_1_non_neuro', true],
-  ['gnomad_r2_1_non_topmed', true],
-  ['gnomad_r3', false],
-  ['gnomad_r3_controls_and_biobanks', false],
-  ['gnomad_r3_non_cancer', false],
-  ['gnomad_r3_non_neuro', false],
-  ['gnomad_r3_non_topmed', false],
-  ['gnomad_r3_non_v2', false],
-  ['gnomad_cnv_r4', true],
+  ['ourdna', true],
 ] as [DatasetId, boolean][])('GenePage with non-SV dataset "%s"', (datasetId, expectedResult) => {
   test('queries the API for gene coverage with the correct parameters', async () => {
     const gene = geneFactory.build()
@@ -238,22 +226,7 @@ describe.each([
 })
 
 describe.each([
-  ['exac', 'GRCh37', false],
-  ['gnomad_r2_1', 'GRCh37', false],
-  ['gnomad_r2_1_controls', 'GRCh37', false],
-  ['gnomad_r2_1_non_cancer', 'GRCh37', false],
-  ['gnomad_r2_1_non_neuro', 'GRCh37', false],
-  ['gnomad_r2_1_non_topmed', 'GRCh37', false],
-  ['gnomad_sv_r2_1', 'GRCh37', false],
-  ['gnomad_sv_r2_1_controls', 'GRCh37', false],
-  ['gnomad_sv_r2_1_non_neuro', 'GRCh37', false],
-  ['gnomad_r3', 'GRCh38', true],
-  ['gnomad_r3_controls_and_biobanks', 'GRCh38', true],
-  ['gnomad_r3_non_cancer', 'GRCh38', true],
-  ['gnomad_r3_non_neuro', 'GRCh38', true],
-  ['gnomad_r3_non_topmed', 'GRCh38', true],
-  ['gnomad_r3_non_v2', 'GRCh38', true],
-  ['gnomad_cnv_r4', 'GRCh38', false],
+  ['ourdna', 'GRCh38', true],
 ] as [DatasetId, ReferenceGenome, boolean][])(
   'gene query with dataset %s',
   (datasetId, expectedReferenceGenome, expectedIncludeShortTandemRepeats) => {

@@ -9,68 +9,68 @@ describe('fetchSearchResults', () => {
   })
 
   it('should return a variant page link for structural variant IDs', async () => {
-    expect(await fetchSearchResults('gnomad_sv_r2_1', 'MCNV_4_185')).toEqual([
+    expect(await fetchSearchResults('ourdna', 'MCNV_4_185')).toEqual([
       {
         label: 'MCNV_4_185',
-        value: '/variant/MCNV_4_185?dataset=gnomad_sv_r2_1',
+        value: '/variant/MCNV_4_185?dataset=ourdna',
       },
     ])
   })
 
   it('should return a variant page link for variant IDs', async () => {
-    expect(await fetchSearchResults('gnomad_r3', '1-55516888-G-GA')).toEqual([
+    expect(await fetchSearchResults('ourdna', '1-55516888-G-GA')).toEqual([
       {
         label: '1-55516888-G-GA',
-        value: '/variant/1-55516888-G-GA?dataset=gnomad_r3',
+        value: '/variant/1-55516888-G-GA?dataset=ourdna',
       },
     ])
   })
 
   it('should return a variant page link for rsIDs', async () => {
-    expect(await fetchSearchResults('gnomad_r3', 'rs527413419')).toEqual([
+    expect(await fetchSearchResults('ourdna', 'rs527413419')).toEqual([
       {
         label: 'rs527413419',
-        value: '/variant/rs527413419?dataset=gnomad_r3',
+        value: '/variant/rs527413419?dataset=ourdna',
       },
     ])
   })
 
   it('should return a gene page link for Ensembl gene IDs', async () => {
-    expect(await fetchSearchResults('gnomad_r3', 'ENSG00000169174')).toEqual([
+    expect(await fetchSearchResults('ourdna', 'ENSG00000169174')).toEqual([
       {
         label: 'ENSG00000169174',
-        value: '/gene/ENSG00000169174?dataset=gnomad_r3',
+        value: '/gene/ENSG00000169174?dataset=ourdna',
       },
     ])
   })
 
   it('should return a transcript page link for Ensembl transcript IDs', async () => {
-    expect(await fetchSearchResults('gnomad_r3', 'ENST00000302118')).toEqual([
+    expect(await fetchSearchResults('ourdna', 'ENST00000302118')).toEqual([
       {
         label: 'ENST00000302118',
-        value: '/transcript/ENST00000302118?dataset=gnomad_r3',
+        value: '/transcript/ENST00000302118?dataset=ourdna',
       },
     ])
   })
 
   it('should return a region page link for region IDs', async () => {
-    expect(await fetchSearchResults('gnomad_r3', '1:55039447-55064852')).toEqual([
+    expect(await fetchSearchResults('ourdna', '1:55039447-55064852')).toEqual([
       {
         label: '1-55039447-55064852',
-        value: '/region/1-55039447-55064852?dataset=gnomad_r3',
+        value: '/region/1-55039447-55064852?dataset=ourdna',
       },
     ])
   })
 
   it('should return region page links for a window and a position for position IDs', async () => {
-    expect(await fetchSearchResults('gnomad_r3', '1:55039447')).toEqual([
+    expect(await fetchSearchResults('ourdna', '1:55039447')).toEqual([
       {
         label: '1-55039427-55039467',
-        value: '/region/1-55039427-55039467?dataset=gnomad_r3',
+        value: '/region/1-55039427-55039467?dataset=ourdna',
       },
       {
         label: '1-55039447-55039447',
-        value: '/region/1-55039447-55039447?dataset=gnomad_r3',
+        value: '/region/1-55039447-55039447?dataset=ourdna',
       },
     ])
   })
@@ -88,10 +88,10 @@ describe('fetchSearchResults', () => {
       })
     )
 
-    expect(await fetchSearchResults('gnomad_r3', 'PCSK9')).toEqual([
+    expect(await fetchSearchResults('ourdna', 'PCSK9')).toEqual([
       {
         label: 'PCSK9',
-        value: '/gene/ENSG00000169174?dataset=gnomad_r3',
+        value: '/gene/ENSG00000169174?dataset=ourdna',
       },
     ])
   })
@@ -116,37 +116,37 @@ describe('fetchSearchResults', () => {
       })
     )
 
-    expect(await fetchSearchResults('gnomad_r3', 'QRS')).toEqual([
-      { label: 'QRST1', value: '/gene/ENSG000002?dataset=gnomad_r3' },
+    expect(await fetchSearchResults('ourdna', 'QRS')).toEqual([
+      { label: 'QRST1', value: '/gene/ENSG000002?dataset=ourdna' },
       {
         label: 'QRST2',
-        value: '/gene/ENSG000003?dataset=gnomad_r3',
+        value: '/gene/ENSG000003?dataset=ourdna',
       },
       {
         label: 'QRST3',
-        value: '/gene/ENSG000001?dataset=gnomad_r3',
+        value: '/gene/ENSG000001?dataset=ourdna',
       },
       {
         label: 'ABCD3',
-        value: '/gene/ENSG000004?dataset=gnomad_r3',
+        value: '/gene/ENSG000004?dataset=ourdna',
       },
       {
         label: 'LMNO2',
-        value: '/gene/ENSG000005?dataset=gnomad_r3',
+        value: '/gene/ENSG000005?dataset=ourdna',
       },
       {
         label: 'ZXCV1',
-        value: '/gene/ENSG000006?dataset=gnomad_r3',
+        value: '/gene/ENSG000006?dataset=ourdna',
       },
     ])
   })
 
   it('should return a link to variant co-occurrence for two variant IDs', async () => {
-    expect(await fetchSearchResults('gnomad_r2_1', '1-55505647-G-T and 1-55523855-G-A')).toEqual([
+    expect(await fetchSearchResults('ourdna', '1-55505647-G-T and 1-55523855-G-A')).toEqual([
       {
         label: '1-55505647-G-T and 1-55523855-G-A co-occurrence',
         value:
-          '/variant-cooccurrence?dataset=gnomad_r2_1&variant=1-55505647-G-T&variant=1-55523855-G-A',
+          '/variant-cooccurrence?dataset=ourdna&variant=1-55505647-G-T&variant=1-55523855-G-A',
       },
     ])
   })
@@ -171,51 +171,51 @@ describe('fetchSearchResults', () => {
         })
       )
 
-      expect(await fetchSearchResults('gnomad_r4', 'CA3')).toEqual([
-        { label: 'CA3', value: `/variant/CA3?dataset=gnomad_r4` },
+      expect(await fetchSearchResults('ourdna', 'CA3')).toEqual([
+        { label: 'CA3', value: `/variant/CA3?dataset=ourdna` },
         {
           label: 'CA32',
-          value: '/gene/ENSG000006?dataset=gnomad_r4',
+          value: '/gene/ENSG000006?dataset=ourdna',
         },
         {
           label: 'CA321',
-          value: '/gene/ENSG000001?dataset=gnomad_r4',
+          value: '/gene/ENSG000001?dataset=ourdna',
         },
         {
           label: 'CA3213',
-          value: '/gene/ENSG000005?dataset=gnomad_r4',
+          value: '/gene/ENSG000005?dataset=ourdna',
         },
         {
           label: 'CA325',
-          value: '/gene/ENSG000003?dataset=gnomad_r4',
+          value: '/gene/ENSG000003?dataset=ourdna',
         },
         {
           label: 'CA327',
-          value: '/gene/ENSG000004?dataset=gnomad_r4',
+          value: '/gene/ENSG000004?dataset=ourdna',
         },
       ])
 
-      expect(await fetchSearchResults('gnomad_r4', 'CA32')).toEqual([
-        { label: 'CA32 (variant)', value: `/variant/CA32?dataset=gnomad_r4` },
+      expect(await fetchSearchResults('ourdna', 'CA32')).toEqual([
+        { label: 'CA32 (variant)', value: `/variant/CA32?dataset=ourdna` },
         {
           label: 'CA32 (ENSG000006)',
-          value: '/gene/ENSG000006?dataset=gnomad_r4',
+          value: '/gene/ENSG000006?dataset=ourdna',
         },
         {
           label: 'CA321',
-          value: '/gene/ENSG000001?dataset=gnomad_r4',
+          value: '/gene/ENSG000001?dataset=ourdna',
         },
         {
           label: 'CA3213',
-          value: '/gene/ENSG000005?dataset=gnomad_r4',
+          value: '/gene/ENSG000005?dataset=ourdna',
         },
         {
           label: 'CA325',
-          value: '/gene/ENSG000003?dataset=gnomad_r4',
+          value: '/gene/ENSG000003?dataset=ourdna',
         },
         {
           label: 'CA327',
-          value: '/gene/ENSG000004?dataset=gnomad_r4',
+          value: '/gene/ENSG000004?dataset=ourdna',
         },
       ])
     })

@@ -5,7 +5,7 @@ import { mockQueries } from '../../../tests/__helpers__/queries'
 import Query, { BaseQuery } from '../Query'
 import { forDatasetsMatching } from '../../../tests/__helpers__/datasets'
 import VariantPage from './VariantPage'
-import { v2VariantFactory, v3VariantFactory } from '../__factories__/Variant'
+import { v3VariantFactory } from '../__factories__/Variant'
 import { BrowserRouter } from 'react-router-dom'
 
 jest.mock('../Query', () => {
@@ -44,7 +44,7 @@ afterEach(() => {
   resetMockApiResponses()
 })
 
-forDatasetsMatching(/gnomad_r3/, 'VariantPage with the dataset "%s"', (datasetId) => {
+forDatasetsMatching(/ourdna/, 'VariantPage with the dataset "%s"', (datasetId) => {
   test('has no unexpected changes', () => {
     const variant = v3VariantFactory.build()
 
@@ -57,44 +57,6 @@ forDatasetsMatching(/gnomad_r3/, 'VariantPage with the dataset "%s"', (datasetId
     const tree = renderer.create(
       <BrowserRouter>
         <VariantPage datasetId={datasetId} variantId={variant.variant_id} />
-      </BrowserRouter>
-    )
-    expect(tree).toMatchSnapshot()
-  })
-})
-
-forDatasetsMatching(/gnomad_r2/, 'VariantPage with the dataset %s', (datasetId) => {
-  test('has no unexpected changes', () => {
-    const variant = v2VariantFactory.build()
-
-    setMockApiResponses({
-      GnomadVariant: () => ({ variant }),
-      ReadData: () => ({
-        variant_0: { exome: null, genome: [] },
-      }),
-    })
-    const tree = renderer.create(
-      <BrowserRouter>
-        <VariantPage datasetId={datasetId} variantId={variant.variant_id} />
-      </BrowserRouter>
-    )
-    expect(tree).toMatchSnapshot()
-  })
-})
-
-describe('VariantPage with the dataset exac', () => {
-  test('has no unexpected changes', () => {
-    const variant = v2VariantFactory.build()
-
-    setMockApiResponses({
-      GnomadVariant: () => ({ variant }),
-      ReadData: () => ({
-        variant_0: { exome: null, genome: [] },
-      }),
-    })
-    const tree = renderer.create(
-      <BrowserRouter>
-        <VariantPage datasetId="exac" variantId={variant.variant_id} />
       </BrowserRouter>
     )
     expect(tree).toMatchSnapshot()

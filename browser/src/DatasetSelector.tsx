@@ -12,11 +12,8 @@ import {
   DatasetId,
   labelForDataset,
   hasShortVariants,
-  hasStructuralVariants,
   referenceGenome,
-  hasCopyNumberVariants,
   shortVariantDatasetId,
-  isV2,
 } from '@gnomad/dataset-metadata/metadata'
 
 const NavigationMenuWrapper = styled.ul`
@@ -464,15 +461,7 @@ const UnwrappedDatasetSelector = (props: DatasetSelectorProps) => {
 
   const {
     includeShortVariants = false,
-    includeStructuralVariants = false,
-    includeExac = false,
-    includeGnomad2 = false,
-    includeGnomad2Subsets = false,
-    includeGnomad3 = false,
-    includeGnomad3Subsets = false,
-    includeGnomad4 = false,
     includeGnomad4Subsets = true,
-    includeCopyNumberVariants = false,
     urlBuilder = datasetLink,
   } = datasetOptions
 
@@ -499,24 +488,7 @@ const UnwrappedDatasetSelector = (props: DatasetSelectorProps) => {
 
     if (!shortVariantDatasets[1].children) throw new Error('Dataset children undefined')
 
-    if (includeGnomad4) {
-      shortVariantDatasets[1].children.push({
-        id: 'gnomad_r4',
-        label: labelForDataset('gnomad_r4'),
-        url: urlBuilder(window.location, 'gnomad_r4'),
-        description: `${sampleCounts.gnomad_r4.total.toLocaleString()} samples`,
-        childReferenceGenome: referenceGenome('gnomad_r4'),
-      })
-    }
-
     if (includeGnomad4Subsets) {
-      // shortVariantDatasets[1].children.push({
-      //   id: 'gnomad_r4_non_ukb',
-      //   label: labelForDataset('gnomad_r4_non_ukb'),
-      //   url: urlBuilder(window.location, 'gnomad_r4_non_ukb'),
-      //   description: `${sampleCounts.gnomad_r4_non_ukb.total.toLocaleString()} samples`,
-      //   childReferenceGenome: referenceGenome('gnomad_r4_non_ukb'),
-      // })
       shortVariantDatasets[1].children.push({
         id: 'ourdna',
         label: labelForDataset('ourdna'),
@@ -525,184 +497,7 @@ const UnwrappedDatasetSelector = (props: DatasetSelectorProps) => {
         childReferenceGenome: referenceGenome('ourdna'),
       })
     }
-
-    if (includeGnomad3) {
-      shortVariantDatasets[1].children.push({
-        id: 'gnomad_r3',
-        label: labelForDataset('gnomad_r3'),
-        url: urlBuilder(window.location, 'gnomad_r3'),
-        description: `${sampleCounts.gnomad_r3.total.toLocaleString()} samples`,
-        childReferenceGenome: referenceGenome('gnomad_r3'),
-      })
-    }
-
-    if (includeGnomad3 && includeGnomad3Subsets) {
-      shortVariantDatasets[1].children.push(
-        {
-          id: 'gnomad_r3_non_cancer',
-          label: labelForDataset('gnomad_r3_non_cancer'),
-          url: urlBuilder(window.location, 'gnomad_r3_non_cancer'),
-          description: `${sampleCounts.gnomad_r3_non_cancer.total.toLocaleString()} samples`,
-          childReferenceGenome: referenceGenome('gnomad_r3_non_cancer'),
-        },
-        {
-          id: 'gnomad_r3_non_neuro',
-          label: labelForDataset('gnomad_r3_non_neuro'),
-          url: urlBuilder(window.location, 'gnomad_r3_non_neuro'),
-          description: `${sampleCounts.gnomad_r3_non_neuro.total.toLocaleString()} samples`,
-          childReferenceGenome: referenceGenome('gnomad_r3_non_neuro'),
-        },
-        {
-          id: 'gnomad_r3_non_v2',
-          label: labelForDataset('gnomad_r3_non_v2'),
-          url: urlBuilder(window.location, 'gnomad_r3_non_v2'),
-          description: `${sampleCounts.gnomad_r3_non_v2.total.toLocaleString()} samples`,
-          childReferenceGenome: referenceGenome('gnomad_r3_non_v2'),
-        },
-        {
-          id: 'gnomad_r3_non_topmed',
-          label: labelForDataset('gnomad_r3_non_topmed'),
-          url: urlBuilder(window.location, 'gnomad_r3_non_topmed'),
-          description: `${sampleCounts.gnomad_r3_non_topmed.total.toLocaleString()} samples`,
-          childReferenceGenome: referenceGenome('gnomad_r3_non_topmed'),
-        },
-        {
-          id: 'gnomad_r3_controls_and_biobanks',
-          label: labelForDataset('gnomad_r3_controls_and_biobanks'),
-          url: urlBuilder(window.location, 'gnomad_r3_controls_and_biobanks'),
-          description: `${sampleCounts.gnomad_r3_controls_and_biobanks.total.toLocaleString()} samples`,
-          childReferenceGenome: referenceGenome('gnomad_r3_controls_and_biobanks'),
-        }
-      )
-    }
-
-    if (includeGnomad2) {
-      shortVariantDatasets[1].children.push({
-        id: 'gnomad_r2_1',
-        label: labelForDataset('gnomad_r2_1'),
-        url: urlBuilder(window.location, 'gnomad_r2_1'),
-        description: `${sampleCounts.gnomad_r2_1.total.toLocaleString()} samples`,
-        childReferenceGenome: referenceGenome('gnomad_r2_1'),
-      })
-    }
-
-    if (includeGnomad2 && includeGnomad2Subsets) {
-      shortVariantDatasets[1].children.push(
-        {
-          id: 'gnomad_r2_1_non_topmed',
-          label: labelForDataset('gnomad_r2_1_non_topmed'),
-          url: urlBuilder(window.location, 'gnomad_r2_1_non_topmed'),
-          description: `${sampleCounts.gnomad_r2_1_non_topmed.total.toLocaleString()} samples`,
-          childReferenceGenome: referenceGenome('gnomad_r2_1_non_topmed'),
-        },
-        {
-          id: 'gnomad_r2_1_non_cancer',
-          label: labelForDataset('gnomad_r2_1_non_cancer'),
-          url: urlBuilder(window.location, 'gnomad_r2_1_non_cancer'),
-          description: `${sampleCounts.gnomad_r2_1_non_cancer.total.toLocaleString()} samples`,
-          childReferenceGenome: referenceGenome('gnomad_r2_1_non_cancer'),
-        },
-        {
-          id: 'gnomad_r2_1_non_neuro',
-          label: labelForDataset('gnomad_r2_1_non_neuro'),
-          url: urlBuilder(window.location, 'gnomad_r2_1_non_neuro'),
-          description: `${sampleCounts.gnomad_r2_1_non_neuro.total.toLocaleString()} samples`,
-          childReferenceGenome: referenceGenome('gnomad_r2_1_non_neuro'),
-        },
-        {
-          id: 'gnomad_r2_1_controls',
-          label: labelForDataset('gnomad_r2_1_controls'),
-          url: urlBuilder(window.location, 'gnomad_r2_1_controls'),
-          description: `${sampleCounts.gnomad_r2_1_controls.total.toLocaleString()} samples`,
-          childReferenceGenome: referenceGenome('gnomad_r2_1_controls'),
-        }
-      )
-    }
-
-    if (includeExac) {
-      shortVariantDatasets[1].children.push({
-        id: 'exac',
-        label: labelForDataset('exac'),
-        url: urlBuilder(window.location, 'exac'),
-        description: `${sampleCounts.exac.total.toLocaleString()} samples`,
-        childReferenceGenome: referenceGenome('exac'),
-      })
-    }
-
     datasets = datasets.concat(shortVariantDatasets)
-  }
-
-  if (includeStructuralVariants || includeCopyNumberVariants) {
-    const topLevelStructuralVariantDataset: any = (() => {
-      if (isV2(selectedDataset)) {
-        return 'gnomad_sv_r2_1'
-      }
-
-      if (hasStructuralVariants(selectedDataset)) {
-        return selectedDataset
-      }
-
-      return 'gnomad_sv_r4'
-    })()
-
-    const topLevelCopyNumberVariantDataset = hasCopyNumberVariants(selectedDataset)
-      ? selectedDataset
-      : 'gnomad_cnv_r4'
-
-    const currentDataset = hasCopyNumberVariants(selectedDataset)
-      ? topLevelCopyNumberVariantDataset
-      : topLevelStructuralVariantDataset
-
-    datasets.push(
-      {
-        id: 'current_sv_dataset',
-        isActive: hasStructuralVariants(selectedDataset) || hasCopyNumberVariants(selectedDataset),
-        label: labelForDataset(currentDataset),
-        url: urlBuilder(window.location, currentDataset),
-      },
-      {
-        id: 'other_structural_variant',
-        isActive: hasStructuralVariants(selectedDataset) || hasCopyNumberVariants(selectedDataset),
-        label: 'More datasets',
-        children: [
-          {
-            id: 'gnomad_sv_r4',
-            label: labelForDataset('gnomad_sv_r4'),
-            url: urlBuilder(window.location, 'gnomad_sv_r4'),
-            description: `${sampleCounts.gnomad_sv_r4.total.toLocaleString()} samples, genome`,
-            childReferenceGenome: referenceGenome('gnomad_sv_r4'),
-          },
-          {
-            id: 'gnomad_sv_r2_1',
-            label: labelForDataset('gnomad_sv_r2_1'),
-            url: urlBuilder(window.location, 'gnomad_sv_r2_1'),
-            description: `${sampleCounts.gnomad_sv_r2_1.total.toLocaleString()} samples, genome`,
-            childReferenceGenome: referenceGenome('gnomad_sv_r2_1'),
-          },
-          {
-            id: 'gnomad_sv_r2_1_non_neuro',
-            label: labelForDataset('gnomad_sv_r2_1_non_neuro'),
-            url: urlBuilder(window.location, 'gnomad_sv_r2_1_non_neuro'),
-            description: `${sampleCounts.gnomad_sv_r2_1_non_neuro.total.toLocaleString()} samples, genome`,
-            childReferenceGenome: referenceGenome('gnomad_sv_r2_1_non_neuro'),
-          },
-          {
-            id: 'gnomad_sv_r2_1_controls',
-            label: labelForDataset('gnomad_sv_r2_1_controls'),
-            url: urlBuilder(window.location, 'gnomad_sv_r2_1_controls'),
-            description: `${sampleCounts.gnomad_sv_r2_1_controls.total.toLocaleString()} samples, genome`,
-            childReferenceGenome: referenceGenome('gnomad_sv_r2_1_controls'),
-          },
-          {
-            id: 'gnomad_cnv_r4',
-            label: labelForDataset('gnomad_cnv_r4'),
-            url: urlBuilder(window.location, 'gnomad_cnv_r4'),
-            description: `${sampleCounts.gnomad_cnv_r4.total.toLocaleString()} samples, exome, rare (<0.01)`,
-            childReferenceGenome: referenceGenome('gnomad_cnv_r4'),
-          },
-        ],
-      }
-    )
   }
 
   return <NavigationMenu items={datasets} />
