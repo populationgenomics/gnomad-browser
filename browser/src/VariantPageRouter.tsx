@@ -8,6 +8,7 @@ import { Badge, List, ListItem, Page, PageHeading } from '@gnomad/ui'
 import {
   DatasetId,
   labelForDataset,
+  hasCopyNumberVariants,
 } from '@gnomad/dataset-metadata/metadata'
 import DocumentTitle from './DocumentTitle'
 import Link from './Link'
