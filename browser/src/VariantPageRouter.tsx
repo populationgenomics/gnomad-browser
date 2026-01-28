@@ -8,7 +8,6 @@ import { Badge, List, ListItem, Page, PageHeading } from '@gnomad/ui'
 import {
   DatasetId,
   labelForDataset,
-  hasStructuralVariants,
 } from '@gnomad/dataset-metadata/metadata'
 import DocumentTitle from './DocumentTitle'
 import Link from './Link'
@@ -105,7 +104,6 @@ const VariantPageRouter = ({ datasetId, variantId }: VariantPageRouterProps) => 
 
   if (isVariantId(variantId)) {
     const normalizedVariantId = normalizeVariantId(variantId).replace(/^MT/, 'M')
-    const [chrom, _pos, ref, alt] = normalizedVariantId.split('-')
 
     return <VariantPage datasetId={datasetId} variantId={normalizedVariantId} />
   }
