@@ -22,6 +22,11 @@ import {
   isV2,
 } from '@gnomad/dataset-metadata/metadata'
 // import ConstraintTable from '../ConstraintTable/ConstraintTable'
+// import VariantCooccurrenceCountsTable, 
+import {
+  HeterozygousVariantCooccurrenceCountsPerSeverityAndAf,
+  HomozygousVariantCooccurrenceCountsPerSeverityAndAf,
+} from './VariantCooccurrenceCountsTable'
 
 import DocumentTitle from '../DocumentTitle'
 import GnomadPageHeading from '../GnomadPageHeading'
@@ -125,6 +130,8 @@ export type Gene = GeneMetadata & {
   structural_variants: StructuralVariant[]
   copy_number_variants: CopyNumberVariant[]
   clinvar_variants: ClinvarVariant[]
+  homozygous_variant_cooccurrence_counts: HomozygousVariantCooccurrenceCountsPerSeverityAndAf
+  heterozygous_variant_cooccurrence_counts: HeterozygousVariantCooccurrenceCountsPerSeverityAndAf
 }
 
 const GeneName = styled.span`
