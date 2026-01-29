@@ -1,6 +1,5 @@
 import { withCache } from '../cache'
 import { UserVisibleError } from '../errors'
-import logger from '../logger'
 
 import { extendRegions, mergeOverlappingRegions, totalRegionSize } from './helpers/region-helpers'
 

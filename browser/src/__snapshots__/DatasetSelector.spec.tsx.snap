@@ -22516,3 +22516,236 @@ exports[`DataSelector with "ourdna" dataset selected has no unexpected changes 1
   className="c0"
 />
 `;
+
+exports[`DataSelector with "ourdna" dataset selected has no unexpected changes when showing all possible datasets 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 0;
+  border: 1px solid #6c757d;
+  border-radius: 0.5em;
+  margin: 0;
+  list-style-type: none;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0.375em 0.25em;
+  color: #000;
+  outline: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:visited {
+  color: #000;
+}
+
+.c3:focus {
+  box-shadow: 0 0 0 0.2em rgba(66,139,202,0.5);
+}
+
+.c9 .c2 {
+  background: none;
+}
+
+.c9:first-child .c2 {
+  padding-left: 0.75em;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+
+.c9:last-child .c2 {
+  padding-right: 0.75em;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+.c1 {
+  position: relative;
+  display: inline-block;
+}
+
+.c1 .c2 {
+  background: #cbd3da;
+}
+
+.c1:first-child .c2 {
+  padding-left: 0.75em;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+
+.c1:last-child .c2 {
+  padding-right: 0.75em;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+.c4 img {
+  position: relative;
+  top: 0.11em;
+  width: 0.9em;
+  height: 0.9em;
+}
+
+.c5 {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  display: none;
+  width: 220px;
+  padding: 0.5em 0;
+  border: 1px solid #6c757d;
+  margin: 0;
+  background: #f8f9fa;
+  list-style-type: none;
+}
+
+.c7 {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.25em 0.5em;
+  color: #000;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7:visited {
+  color: #000;
+}
+
+.c7:active,
+.c7:focus,
+.c7:hover {
+  background: rgba(66,139,202,0.25);
+}
+
+.c7:focus {
+  outline: 2px solid #428bca;
+}
+
+.c8 {
+  margin-top: 0.125em;
+  margin-left: 5px;
+  font-size: 0.68em;
+  opacity: 0.6;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-left: 2px;
+  font-weight: bold;
+}
+
+@media (max-width:1200px) {
+  .c5 {
+    right: auto;
+    left: -100px;
+  }
+}
+
+@media (max-width:900px) {
+  .c5 {
+    left: -150px;
+  }
+}
+
+<ul
+  className="c0"
+>
+  <li
+    className="c1"
+  >
+    <a
+      className="c2 c3"
+      data-item="current_short_variant"
+      href="/?dataset=ourdna"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      OurDNA v1.0
+    </a>
+  </li>
+  <li
+    className="c1"
+  >
+    <a
+      aria-expanded={false}
+      aria-haspopup="true"
+      aria-label="More datasets"
+      className="c2 c3"
+      data-item="other_short_variant"
+      href="/"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+    >
+      <span
+        className="c4"
+      >
+        <img
+          alt=""
+          aria-hidden="true"
+          src="test-file-stub"
+        />
+      </span>
+    </a>
+    <ul
+      className="c5"
+    >
+      <li>
+        <div
+          className="c6"
+        >
+          GRCh38
+        </div>
+        <li>
+          <a
+            className="-Link c7"
+            data-item="ourdna"
+            href="/?dataset=ourdna"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            OurDNA v1.0
+            <div
+              className="c8"
+            >
+              12,882 samples
+            </div>
+          </a>
+        </li>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;

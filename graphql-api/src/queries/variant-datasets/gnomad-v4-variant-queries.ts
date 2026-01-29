@@ -13,8 +13,6 @@ import { getFlagsForContext } from './shared/flags'
 import { getConsequenceForContext } from './shared/transcriptConsequence'
 import largeGenes from '../helpers/large-genes'
 
-import logger from '../../logger'
-
 const GNOMAD_V4_VARIANT_INDEX = 'gnomad_v4_variants'
 
 type Subset = 'all' | 'non_ukb'

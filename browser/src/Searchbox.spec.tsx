@@ -31,6 +31,9 @@ describe('Searchbox', () => {
     })
 
     const expectedDefaultDatasets: Record<DatasetId, DatasetId> = {
+      gnomad_sv_r4: 'gnomad_sv_r4',
+      gnomad_r4: 'gnomad_r4',
+      gnomad_cnv_r4: 'gnomad_cnv_r4',
       ourdna: 'ourdna',
     }
 
