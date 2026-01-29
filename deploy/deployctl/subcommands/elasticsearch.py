@@ -5,7 +5,7 @@ import typing
 
 from deployctl.shell import kubectl
 
-
+# W0613: Unused argument 'cluster_name', pylint: disable=W0613
 def get_elasticsearch_password(cluster_name: str, namespace: str) -> None:
     # ECK creates this secret when the cluster is created.
     print(
@@ -20,7 +20,7 @@ def get_elasticsearch_password(cluster_name: str, namespace: str) -> None:
         )
     )
 
-
+# W0613: Unused argument 'cluster_name', pylint: disable=W0613
 def load_datasets(cluster_name: str, namespace: str, dataproc_cluster: str, secret: str, datasets: str):
     # Matches service name in deploy/manifests/elasticsearch.load-balancer.yaml.jinja2
     elasticsearch_load_balancer_ip = kubectl(
