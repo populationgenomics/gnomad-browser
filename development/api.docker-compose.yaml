@@ -34,6 +34,7 @@ services:
       - ELASTICSEARCH_PASSWORD
       - CACHE_REDIS_URL=redis://redis:6379/1
       - RATE_LIMITER_REDIS_URL=redis://redis:6379/2
+      - REDIS_HOST=redis
     ports:
       - 8010:8000
     volumes:
