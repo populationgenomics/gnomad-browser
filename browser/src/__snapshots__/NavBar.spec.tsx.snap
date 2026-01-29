@@ -232,7 +232,14 @@ exports[`NavBar has no unexpected changes 1`] = `
       <div
         className="c2"
       >
-        gnomAD browser
+        <svg
+          viewBox="0 0 341 228"
+          width="50"
+        >
+          <image
+            href="test-file-stub"
+          />
+        </svg>
       </div>
     </a>
     <button
@@ -250,49 +257,15 @@ exports[`NavBar has no unexpected changes 1`] = `
     <select
       className="c5"
       onChange={[Function]}
-      value="gnomad_r4"
+      value="ourdna"
     >
       <optgroup
         label="GRCh38"
       >
         <option
-          value="gnomad_r4"
+          value="ourdna"
         >
           OurDNA v1.0
-        </option>
-        <option
-          value="gnomad_r3"
-        >
-          gnomAD v3.1.2
-        </option>
-        <option
-          value="gnomad_sv_r4"
-        >
-          gnomAD SVs v4.1.0
-        </option>
-        <option
-          value="gnomad_cnv_r4"
-        >
-          gnomAD CNVs v4.1.0
-        </option>
-      </optgroup>
-      <optgroup
-        label="GRCh37"
-      >
-        <option
-          value="gnomad_r2_1"
-        >
-          gnomAD v2.1.1
-        </option>
-        <option
-          value="gnomad_sv_r2_1"
-        >
-          gnomAD SVs v2.1
-        </option>
-        <option
-          value="exac"
-        >
-          ExAC
         </option>
       </optgroup>
     </select>
@@ -351,6 +324,14 @@ exports[`NavBar has no unexpected changes 1`] = `
     </li>
     <li>
       <a
+        href="/federated"
+        onClick={[Function]}
+      >
+        Federated
+      </a>
+    </li>
+    <li>
+      <a
         href="/stats"
         onClick={[Function]}
       >
@@ -367,24 +348,9 @@ exports[`NavBar has no unexpected changes 1`] = `
     </li>
     <li>
       <a
-        href="/publications"
-        onClick={[Function]}
-      >
-        Publications
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://gnomad.broadinstitute.org/news/"
+        href="/news/"
       >
         Blog
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://gnomad.broadinstitute.org/news/changelog/"
-      >
-        Changelog
       </a>
     </li>
     <li>
@@ -397,27 +363,10 @@ exports[`NavBar has no unexpected changes 1`] = `
     </li>
     <li>
       <a
-        href="https://discuss.gnomad.broadinstitute.org"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Forum
-      </a>
-    </li>
-    <li>
-      <a
         href="/contact"
         onClick={[Function]}
       >
         Contact
-      </a>
-    </li>
-    <li>
-      <a
-        href="/help"
-        onClick={[Function]}
-      >
-        Help/FAQ
       </a>
     </li>
   </ul>

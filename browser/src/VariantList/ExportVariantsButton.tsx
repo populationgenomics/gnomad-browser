@@ -260,18 +260,16 @@ const exportVariantsToCsv = (
     {
       label: 'Source',
       getValue:
-        datasetId === 'exac'
-          ? () => 'ExAC'
-          : (variant: VariantTableVariant) => {
-              const sources = []
-              if (variant.exome) {
-                sources.push('gnomAD Exomes')
-              }
-              if (variant.genome) {
-                sources.push('gnomAD Genomes')
-              }
-              return sources.join(',')
-            },
+        (variant: VariantTableVariant) => {
+            const sources = []
+            if (variant.exome) {
+              sources.push('gnomAD Exomes')
+            }
+            if (variant.genome) {
+              sources.push('gnomAD Genomes')
+            }
+            return sources.join(',')
+          },
     },
     {
       label: 'Filters - exomes',

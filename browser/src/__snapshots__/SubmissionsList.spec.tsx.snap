@@ -31,7 +31,7 @@ exports[`SubmissionsList has no unexpected changes 1`] = `
       <AttributeListItem
         label="Last evaluated"
       >
-        March 1, 2016
+        1 March 2016
       </AttributeListItem>
     </AttributeList>
   </List__ListItem>
@@ -64,7 +64,7 @@ exports[`SubmissionsList has no unexpected changes 1`] = `
       <AttributeListItem
         label="Last evaluated"
       >
-        January 13, 2018
+        13 January 2018
       </AttributeListItem>
     </AttributeList>
   </List__ListItem>

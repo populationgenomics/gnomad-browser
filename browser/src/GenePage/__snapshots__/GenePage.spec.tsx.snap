@@ -31118,3 +31118,1063 @@ exports[`GenePage with non-SV dataset "gnomad_r4_non_ukb" has no unexpected chan
   </div>
 </div>
 `;
+
+exports[`GenePage with non-SV dataset "ourdna" has no unexpected changes 1`] = `
+<div
+  className="Page-sc-w7h773-0 TrackPage-sc-vqfhzf-0 bgFPQC"
+>
+  <div
+    className="TrackPage__TrackPageSection-sc-vqfhzf-1 jvDrnn"
+  >
+    <div
+      className="GnomadPageHeading__PageHeadingWrapper-sc-1as7lgu-0 duaTzK"
+    >
+      <div
+        className="GnomadPageHeading__PageHeadingInnerWrapper-sc-1as7lgu-1 jRZHzJ"
+      >
+        <h1
+          className="GnomadPageHeading__PageHeadingText-sc-1as7lgu-3 kxiaLS"
+        >
+          FAKEGENE
+           
+          <span
+            className="GenePage__GeneName-sc-1m21thi-0 fFlSWl"
+          />
+        </h1>
+      </div>
+      <div
+        className="GnomadPageHeading__PageControlsWrapper-sc-1as7lgu-4 hlgnzz"
+      >
+        <span
+          className="GnomadPageHeading__Label-sc-1as7lgu-5 dAgNcs"
+        >
+          Dataset
+        </span>
+        <ul
+          className="DatasetSelector__NavigationMenuWrapper-sc-120636a-0 eGsWgq"
+        >
+          <li
+            className="DatasetSelector__NavigationMenuItem-sc-120636a-2 kPZWcy"
+          >
+            <a
+              className="DatasetSelector__TopLevelNavigationLink-sc-120636a-1-Link fOwday"
+              data-item="current_short_variant"
+              href="/?dataset=ourdna"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+            >
+              OurDNA v1.0
+            </a>
+          </li>
+          <li
+            className="DatasetSelector__NavigationMenuItem-sc-120636a-2 kPZWcy"
+          >
+            <a
+              aria-expanded={false}
+              aria-haspopup="true"
+              aria-label="More datasets"
+              className="DatasetSelector__TopLevelNavigationLink-sc-120636a-1-Link fOwday"
+              data-item="other_short_variant"
+              href="/"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+            >
+              <span
+                className="DatasetSelector__MoreIcon-sc-120636a-3 ktXFXP"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+              </span>
+            </a>
+            <ul
+              className="DatasetSelector__SubNavigationMenu-sc-120636a-4 idrGZn"
+            >
+              <li>
+                <div
+                  className="DatasetSelector__GroupedNav-sc-120636a-7 giEZYU"
+                >
+                  GRCh38
+                </div>
+                <li>
+                  <a
+                    className="DatasetSelector__SubNavigationLink-sc-120636a-5-Link kHAftC"
+                    data-item="ourdna"
+                    href="/?dataset=ourdna"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                  >
+                    OurDNA v1.0
+                    <div
+                      className="DatasetSelector__ItemDescription-sc-120636a-6 dmmIPD"
+                    >
+                      12,882 samples
+                    </div>
+                  </a>
+                </li>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="GenePage__GeneInfoColumnWrapper-sc-1m21thi-1 kawOHf"
+    >
+      <div
+        className="GenePage__GeneInfoColumn-sc-1m21thi-2 FDPtN"
+      >
+        <dl
+          className="AttributeList-sc-1t2e3h0-0 fnjhPC"
+          style={
+            {
+              "marginTop": "1.25em",
+            }
+          }
+        >
+          <div>
+            <dt>
+              Genome build
+            </dt>
+            <dd>
+              GRCh37
+               / 
+              hg19
+            </dd>
+          </div>
+          <div>
+            <dt>
+              Ensembl gene ID
+            </dt>
+            <dd>
+              dummy_gene-1
+              .
+              5.6.7.8
+            </dd>
+          </div>
+          <div>
+            <dt>
+              Symbol in GENCODE v19
+            </dt>
+            <dd />
+          </div>
+          <div>
+            <dt>
+              Ensembl canonical transcript 
+              <button
+                className="InfoButton__Button-sc-df7t1w-0 dUqjIJ"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+                <span
+                  style={
+                    {
+                      "border": "0",
+                      "clip": "rect(0 0 0 0)",
+                      "height": "1px",
+                      "margin": "-1px",
+                      "overflow": "hidden",
+                      "padding": "0",
+                      "position": "absolute",
+                      "whiteSpace": "nowrap",
+                      "width": "1px",
+                    }
+                  }
+                >
+                  More information
+                </span>
+              </button>
+            </dt>
+            <dd>
+              <a
+                className="Link-sc-14lgydv-0-Link jBvaYQ"
+                href="/transcript/transcript-999"
+                onClick={[Function]}
+              >
+                transcript-999
+                .
+                12.34.5
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              Region
+            </dt>
+            <dd>
+              <a
+                className="Link-sc-14lgydv-0-Link jBvaYQ"
+                href="/region/13-123-321"
+                onClick={[Function]}
+              >
+                13
+                :
+                123
+                -
+                321
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              External resources
+            </dt>
+            <dd>
+              <a
+                className="Link-sc-14lgydv-0 Link__ExternalLink-sc-14lgydv-1 haNmsP"
+                href="https://grch37.ensembl.org/Homo_sapiens/Gene/Summary?g=dummy_gene-1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Ensembl
+              </a>
+              ,
+               
+              <a
+                className="Link-sc-14lgydv-0 Link__ExternalLink-sc-14lgydv-1 haNmsP"
+                href="https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=chr13%3A123-321"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                UCSC Browser
+              </a>
+              ,
+               
+              <button
+                className="Button__TextButton-sc-1eobygi-3 gWkUTz"
+                onClick={[Function]}
+                type="button"
+              >
+                and more
+              </button>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  Viewing full 
+  gene
+  .
+   
+  <button
+    className="Button__BaseButton-sc-1eobygi-0 Button-sc-1eobygi-1 indcWT"
+    onClick={[Function]}
+    type="button"
+  >
+    Zoom in
+  </button>
+  <div
+    className="RegionViewer__RegionViewerWrapper-sc-1tcq1x9-0 bzkzsd"
+  >
+    <div
+      className="RegionViewer__RegionViewerWrapper-sc-tk0egb-0 cgruVM"
+      style={
+        {
+          "width": 994,
+        }
+      }
+    >
+      <div
+        className="Track__OuterWrapper-sc-1sdyh2h-0 bBMGlf"
+      >
+        <div
+          className="Track__TopPanel-sc-1sdyh2h-2 cAuoSY"
+          style={
+            {
+              "marginLeft": 115,
+              "marginRight": 80,
+              "width": 799,
+            }
+          }
+        >
+          <div
+            className="CoverageTrack__TopPanel-sc-1t0ae08-0 eKsxjC"
+          >
+            <ul
+              className="CoverageTrack__LegendWrapper-sc-1t0ae08-1 bEepZ"
+            />
+            <label
+              htmlFor="coverage-metric"
+            >
+              Metric: 
+              <select
+                className="Select-sc-1lkyg9e-0 ivadCR"
+                id="coverage-metric"
+                onChange={[Function]}
+                value="over_20"
+              >
+                <optgroup
+                  label="Per-base depth of coverage"
+                >
+                  <option
+                    value="mean"
+                  >
+                    Mean
+                  </option>
+                  <option
+                    value="median"
+                  >
+                    Median
+                  </option>
+                </optgroup>
+                <optgroup
+                  label="Fraction of individuals with coverage over X"
+                >
+                  <option
+                    value="over_1"
+                  >
+                    Over 
+                    1
+                  </option>
+                  <option
+                    value="over_5"
+                  >
+                    Over 
+                    5
+                  </option>
+                  <option
+                    value="over_10"
+                  >
+                    Over 
+                    10
+                  </option>
+                  <option
+                    value="over_15"
+                  >
+                    Over 
+                    15
+                  </option>
+                  <option
+                    value="over_20"
+                  >
+                    Over 
+                    20
+                  </option>
+                  <option
+                    value="over_25"
+                  >
+                    Over 
+                    25
+                  </option>
+                  <option
+                    value="over_30"
+                  >
+                    Over 
+                    30
+                  </option>
+                  <option
+                    value="over_50"
+                  >
+                    Over 
+                    50
+                  </option>
+                  <option
+                    value="over_100"
+                  >
+                    Over 
+                    100
+                  </option>
+                </optgroup>
+              </select>
+            </label>
+            <button
+              className="Button__BaseButton-sc-1eobygi-0 Button-sc-1eobygi-1 indcWT"
+              onClick={[Function]}
+              style={
+                {
+                  "marginLeft": "1em",
+                }
+              }
+              type="button"
+            >
+              Save plot
+            </button>
+          </div>
+        </div>
+        <div
+          className="Track__InnerWrapper-sc-1sdyh2h-1 cEOGGC"
+        >
+          <div
+            className="Track__SidePanel-sc-1sdyh2h-3 iSYzDq"
+            style={
+              {
+                "width": 115,
+              }
+            }
+          >
+            <div
+              className="CoverageTrack__TitlePanel-sc-1t0ae08-4 iHWVVU"
+            >
+              Fraction of individuals with coverage over 20
+            </div>
+          </div>
+          <div
+            className="Track__CenterPanel-sc-1sdyh2h-4 iAyrrk"
+            style={
+              {
+                "width": 799,
+              }
+            }
+          >
+            <div
+              style={
+                {
+                  "marginLeft": -60,
+                }
+              }
+            >
+              <svg
+                height={190}
+                width={859}
+              >
+                <g
+                  className="visx-group visx-axis visx-axis-left"
+                  transform="translate(60, 0)"
+                >
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={171.7}
+                      y2={171.7}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={171.7}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          0.1
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={153.4}
+                      y2={153.4}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={153.4}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          0.2
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={135.1}
+                      y2={135.1}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={135.1}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          0.3
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={116.8}
+                      y2={116.8}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={116.8}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          0.4
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={98.5}
+                      y2={98.5}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={98.5}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          0.5
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={80.2}
+                      y2={80.2}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={80.2}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          0.6
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={61.900000000000006}
+                      y2={61.900000000000006}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={61.900000000000006}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          0.7
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={43.599999999999994}
+                      y2={43.599999999999994}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={43.599999999999994}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          0.8
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={25.299999999999997}
+                      y2={25.299999999999997}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={25.299999999999997}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          0.9
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <g
+                    className="visx-group visx-axis-tick"
+                    transform="translate(0, 0)"
+                  >
+                    <line
+                      className="visx-line"
+                      fill="transparent"
+                      shapeRendering="crispEdges"
+                      stroke="#222"
+                      strokeLinecap="square"
+                      strokeWidth={1}
+                      x1={0}
+                      x2={-8}
+                      y1={7}
+                      y2={7}
+                    />
+                    <svg
+                      fontSize={10}
+                      style={
+                        {
+                          "overflow": "visible",
+                        }
+                      }
+                      x="-0.25em"
+                      y="0.25em"
+                    >
+                      <text
+                        fill="#000"
+                        fontSize={10}
+                        textAnchor="end"
+                        transform=""
+                        x={-8}
+                        y={7}
+                      >
+                        <tspan
+                          dy="0em"
+                          x={-8}
+                        >
+                          1.0
+                        </tspan>
+                      </text>
+                    </svg>
+                  </g>
+                  <line
+                    className="visx-line visx-axis-line"
+                    fill="transparent"
+                    shapeRendering="crispEdges"
+                    stroke="#333"
+                    strokeWidth={1}
+                    x1={0}
+                    x2={0}
+                    y1={190.5}
+                    y2={7.5}
+                  />
+                  
+                </g>
+                <g
+                  transform="translate(60,0)"
+                >
+                  <line
+                    stroke="#333"
+                    x1={0}
+                    x2={799}
+                    y1={190}
+                    y2={190}
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="ChartStyles__ControlPanel-sc-d4m4al-0 bBTspC"
+        width={814}
+      >
+        Include:
+        <ul
+          className="ChartStyles__Legend-sc-d4m4al-1 ifeYXc"
+        >
+          <li
+            className="ChartStyles__LegendItemWrapper-sc-d4m4al-2 SbQDK"
+          >
+            <label
+              className="ChartStyles__Label-sc-d4m4al-3 cgMHVq"
+              htmlFor="include-cds-regions"
+            >
+              <input
+                checked={false}
+                className="ChartStyles__CheckboxInput-sc-d4m4al-4 itzRll"
+                disabled={true}
+                id="include-cds-regions"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              Coding regions (CDS)
+              <span
+                className="ChartStyles__LegendSwatch-sc-d4m4al-5 dCYhAY"
+                color="#424242"
+                height={10}
+              />
+            </label>
+          </li>
+          <li
+            className="ChartStyles__LegendItemWrapper-sc-d4m4al-2 SbQDK"
+          >
+            <label
+              className="ChartStyles__Label-sc-d4m4al-3 cgMHVq"
+              htmlFor="include-utr-regions"
+            >
+              <input
+                checked={false}
+                className="ChartStyles__CheckboxInput-sc-d4m4al-4 itzRll"
+                disabled={true}
+                id="include-utr-regions"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              Untranslated regions (UTRs)
+              <span
+                className="ChartStyles__LegendSwatch-sc-d4m4al-5 iJsjnD"
+                color="#424242"
+                height={4}
+              />
+            </label>
+          </li>
+          <li
+            className="ChartStyles__LegendItemWrapper-sc-d4m4al-2 SbQDK"
+          >
+            <label
+              className="ChartStyles__Label-sc-d4m4al-3 cgMHVq"
+              htmlFor="include-nc-transcripts"
+            >
+              <input
+                checked={true}
+                className="ChartStyles__CheckboxInput-sc-d4m4al-4 itzRll"
+                disabled={true}
+                id="include-nc-transcripts"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              Non-coding transcripts
+              <span
+                className="ChartStyles__LegendSwatch-sc-d4m4al-5 ibHumi"
+                color="#bdbdbd"
+                height={4}
+              />
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="GenePage__TrackWrapper-sc-1m21thi-3 kGJOtH"
+      >
+        <div
+          className="Track__OuterWrapper-sc-1sdyh2h-0 bBMGlf"
+        >
+          <div
+            className="Track__InnerWrapper-sc-1sdyh2h-1 cEOGGC"
+          >
+            <div
+              className="Track__SidePanel-sc-1sdyh2h-3 iSYzDq"
+              style={
+                {
+                  "width": 115,
+                }
+              }
+            >
+              <div
+                className="GenePage__ToggleTranscriptsPanel-sc-1m21thi-4 iwWhLq"
+              >
+                <button
+                  className="Button__BaseButton-sc-1eobygi-0 Button-sc-1eobygi-1 indcWT"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Show
+                   transcripts
+                </button>
+                <img
+                  alt="Positive strand"
+                  height={20}
+                  src="test-file-stub"
+                  width={20}
+                />
+              </div>
+            </div>
+            <div
+              className="Track__CenterPanel-sc-1sdyh2h-4 iAyrrk"
+              style={
+                {
+                  "width": 799,
+                }
+              }
+            >
+              <div
+                className="GenePage__CompositeTranscriptPlotWrapper-sc-1m21thi-5 iZSXfj"
+              >
+                <svg
+                  height={20}
+                  width={799}
+                >
+                  <line
+                    stroke="#bdbdbd"
+                    strokeWidth={1}
+                    x1={0}
+                    x2={799}
+                    y1={10}
+                    y2={10}
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="TrackPage__TrackPageSection-sc-vqfhzf-1 jvDrnn"
+      >
+        <h2>
+          ClinVar variants
+        </h2>
+      </div>
+      <p
+        className="TrackPage__TrackPageSection-sc-vqfhzf-1 jvDrnn"
+      >
+        No ClinVar variants found in this gene.
+      </p>
+      <div
+        className="TrackPage__TrackPageSection-sc-vqfhzf-1 jvDrnn"
+      >
+        <h2
+          style={
+            {
+              "margin": "2em 0 0.25em",
+            }
+          }
+        >
+          OurDNA variants
+        </h2>
+        <p>
+          No OurDNA variants found.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

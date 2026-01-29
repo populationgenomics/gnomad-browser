@@ -7,10 +7,6 @@ import { AxisBottom, AxisLeft, AxisRight } from '@visx/axis'
 
 import { BaseTable, Select, Tabs, TooltipAnchor } from '@gnomad/ui'
 
-import exacSiteQualityMetricDistributions from '@gnomad/dataset-metadata/datasets/exac/siteQualityMetricDistributions.json'
-import gnomadV2SiteQualityMetricDistributions from '@gnomad/dataset-metadata/datasets/gnomad-v2/siteQualityMetricDistributions.json'
-import gnomadV3SiteQualityMetricDistributions from '@gnomad/dataset-metadata/datasets/gnomad-v3/siteQualityMetricDistributions.json'
-
 import gnomadV4ExomeSiteQualityMetricDistributions from '@gnomad/dataset-metadata/datasets/gnomad-v4/exomeSiteQualityMetricDistributions.json'
 import gnomadV4GenomeSiteQualityMetricDistributions from '@gnomad/dataset-metadata/datasets/gnomad-v4/genomeSiteQualityMetricDistributions.json'
 
@@ -241,209 +237,6 @@ const prepareDataGnomadV4 = ({ metric, variant }: { metric: string; variant: Var
   }
 }
 
-const prepareDataGnomadV3 = ({ metric, genome }: { metric: string; genome: SequencingType }) => {
-  const genomeMetrics = getMetricDataForSequencingType({
-    metric,
-    genomeOrExome: genome,
-    metricDistributions: gnomadV3SiteQualityMetricDistributions,
-  })
-
-  if (genomeMetrics) {
-    return {
-      binEdges: genomeMetrics.binEdges,
-      description: genomeMetrics.description,
-      genomeBinValues: genomeMetrics && genomeMetrics.binValues,
-      genomeMetricValue: genomeMetrics && genomeMetrics.metricValue,
-    }
-  }
-  throw new Error(`Could not derive genome metrics`)
-}
-
-const prepareDataGnomadV2 = ({ metric, variant }: any) => {
-  let binEdges
-  let exomeBinValues
-  let genomeBinValues
-  let exomeMetricValue
-  let genomeMetricValue
-  let description
-
-  if (variant.exome) {
-    exomeMetricValue = variant.exome.quality_metrics.site_quality_metrics.find(
-      (m: any) => m.metric === metric
-    ).value
-  }
-  if (variant.genome) {
-    genomeMetricValue = variant.genome.quality_metrics.site_quality_metrics.find(
-      (m: any) => m.metric === metric
-    ).value
-  }
-
-  if (metric === 'SiteQuality') {
-    const getAFBin = ({ sequencingType, ac, an }: any) => {
-      let afBinHistogram
-      let afBinLabel
-      if (ac === 1) {
-        afBinHistogram =
-          // @ts-expect-error
-          gnomadV2SiteQualityMetricDistributions[sequencingType].siteQuality.singleton
-        afBinLabel = `singleton ${sequencingType} variants`
-      } else if (ac === 2) {
-        afBinHistogram =
-          // @ts-expect-error
-          gnomadV2SiteQualityMetricDistributions[sequencingType].siteQuality.doubleton
-        afBinLabel = `doubleton ${sequencingType} variants`
-      } else {
-        const af = an === 0 ? 0 : ac / an
-        // @ts-expect-error
-        const afBin = gnomadV2SiteQualityMetricDistributions[
-          sequencingType
-        ].siteQuality.af_bins.find(
-          (bin: any) => bin.min_af <= af && (af < bin.max_af || (af === 1 && af <= bin.max_af))
-        )
-        afBinHistogram = afBin.histogram
-        afBinLabel = `${sequencingType} variants with ${afBin.min_af} <= AF ${
-          afBin.max_af === 1 ? '<=' : '<'
-        } ${afBin.max_af}`
-      }
-      return { histogram: afBinHistogram, label: afBinLabel }
-    }
-
-    const exomeBin = variant.exome
-      ? getAFBin({ sequencingType: 'exome', ac: variant.exome.ac, an: variant.exome.an })
-      : null
-    const genomeBin = variant.genome
-      ? getAFBin({ sequencingType: 'genome', ac: variant.genome.ac, an: variant.genome.an })
-      : null
-
-    if (process.env.NODE_ENV === 'development' && exomeBin && genomeBin) {
-      if (
-        !exomeBin.histogram.bin_edges.every(
-          (edge: any, i: any) => Math.abs(edge - genomeBin.histogram.bin_edges[i]) < 0.001
-        )
-      ) {
-        throw new Error(
-          `gnomAD v2 site quality bin edges do not match for ${exomeBin.label} exomes and ${genomeBin.label} genomes`
-        )
-      }
-    }
-
-    // @ts-expect-error TS(2339) FIXME: Property 'histogram' does not exist on type '{ his... Remove this comment to see the full error message
-    const { histogram } = exomeBin || genomeBin
-    binEdges = histogram.bin_edges.map((edge: any) => Math.log10(edge))
-
-    exomeBinValues = exomeBin
-      ? [exomeBin.histogram.n_smaller, ...exomeBin.histogram.bin_freq, exomeBin.histogram.n_larger]
-      : null
-    genomeBinValues = genomeBin
-      ? [
-          genomeBin.histogram.n_smaller,
-          ...genomeBin.histogram.bin_freq,
-          genomeBin.histogram.n_larger,
-        ]
-      : null
-
-    if (variant.exome && variant.genome) {
-      // @ts-expect-error TS(2531) FIXME: Object is possibly 'null'.
-      description = `This is the site quality distribution for all ${exomeBin.label} and all ${genomeBin.label}.`
-    } else {
-      description = `This is the site quality distribution for all ${
-        // @ts-expect-error TS(2531) FIXME: Object is possibly 'null'.
-        (exomeBin || genomeBin).label
-      }.`
-    }
-  } else {
-    // @ts-expect-error
-    const exomeHistogram = gnomadV2SiteQualityMetricDistributions.exome.otherMetrics.find(
-      (m: any) => m.metric === metric
-    ).histogram
-    // @ts-expect-error
-    const genomeHistogram = gnomadV2SiteQualityMetricDistributions.genome.otherMetrics.find(
-      (m: any) => m.metric === metric
-    ).histogram
-
-    if (process.env.NODE_ENV === 'development') {
-      if (
-        !exomeHistogram.bin_edges.every(
-          (edge: any, i: any) => Math.abs(edge - genomeHistogram.bin_edges[i]) < 0.001
-        )
-      ) {
-        throw new Error(`gnomAD v2 ${metric} bin edges do not match for exomes and genomes`)
-      }
-    }
-
-    binEdges =
-      metric === 'DP'
-        ? exomeHistogram.bin_edges.map((edge: any) => Math.log10(edge))
-        : exomeHistogram.bin_edges
-    exomeBinValues = [exomeHistogram.n_smaller, ...exomeHistogram.bin_freq, exomeHistogram.n_larger]
-    genomeBinValues = [
-      genomeHistogram.n_smaller,
-      ...genomeHistogram.bin_freq,
-      genomeHistogram.n_larger,
-    ]
-
-    // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
-    description = qualityMetricDescriptions[metric]
-  }
-
-  return {
-    binEdges,
-    exomeBinValues,
-    genomeBinValues,
-    exomeMetricValue,
-    genomeMetricValue,
-    description,
-  }
-}
-
-const prepareDataExac = ({ metric, variant }: any) => {
-  const exomeMetricValue = variant.exome.quality_metrics.site_quality_metrics.find(
-    (m: any) => m.metric === metric
-  ).value
-  const { ac, an } = variant.exome
-  let binEdges
-  let histogram
-  let description
-  if (metric === 'SiteQuality') {
-    if (ac === 1) {
-      histogram = exacSiteQualityMetricDistributions.exome.siteQuality.singleton
-      description = 'This is the site quality distribution for all singleton variants.'
-    } else if (ac === 2) {
-      histogram = exacSiteQualityMetricDistributions.exome.siteQuality.doubleton
-      description = 'This is the site quality distribution for all doubleton variants.'
-    } else {
-      const af = an === 0 ? 0 : ac / an
-      const afBin = exacSiteQualityMetricDistributions.exome.siteQuality.af_bins.find(
-        (bin: any) => bin.min_af <= af && (af < bin.max_af || (af === 1 && af <= bin.max_af))
-      )
-      // @ts-expect-error
-      histogram = afBin.histogram
-      description = `This is the site quality distribution for all variants with ${
-        // @ts-expect-error
-        afBin.min_af
-        // @ts-expect-error
-      } <= AF ${afBin.max_af === 1 ? '<=' : '<'} ${afBin.max_af}.`
-    }
-    binEdges = histogram.bin_edges.map((edge: any) => Math.log10(edge))
-  } else {
-    // @ts-expect-error
-    histogram = exacSiteQualityMetricDistributions.exome.otherMetrics.find(
-      (m: any) => m.metric === metric
-    ).histogram
-    binEdges =
-      metric === 'DP'
-        ? histogram.bin_edges.map((edge: any) => Math.log10(edge))
-        : // @ts-expect-error
-          histogram.binEdges
-    // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
-    description = qualityMetricDescriptions[metric]
-  }
-
-  const exomeBinValues = [0, ...histogram.bin_freq, 0]
-
-  return { binEdges, exomeBinValues, exomeMetricValue, description }
-}
-
 const prepareData = ({
   datasetId,
   metric,
@@ -455,18 +248,6 @@ const prepareData = ({
 }) => {
   if (isV4(datasetId)) {
     return prepareDataGnomadV4({ metric, variant })
-  }
-
-  if (isV3(datasetId)) {
-    return prepareDataGnomadV3({ metric, genome: variant.genome! })
-  }
-
-  if (isV2(datasetId)) {
-    return prepareDataGnomadV2({ metric, variant })
-  }
-
-  if (isExac(datasetId)) {
-    return prepareDataExac({ metric, variant })
   }
 
   throw new Error(`No metric values for dataset "${datasetId}"`)
@@ -576,15 +357,15 @@ const logScaleMetrics = (selectedMetric: string) => {
   return logMetrics.includes(selectedMetric)
 }
 
-const formatMetricValue = (value: number, metric: string, isLog: boolean) => {
+const formatMetricValue = (value: number | null | undefined, metric: string, isLog: boolean) => {
+  if (!value) {
+    return 'No value for this metric'
+  }
   if (isLog) {
     return `${Math.log10(value).toPrecision(5)}`
   }
   if (value === 0) {
     return '0'
-  }
-  if (!value) {
-    return 'No value for this metric'
   }
   if (
     metric === 'SiteQuality' ||
@@ -1005,15 +786,15 @@ const getDefaultSelectedSequencingType = (variant: any) => {
   return 'g'
 }
 
-const exomeLegendText = (exomeMetricValue: number, selectedMetric: string) => {
+const exomeLegendText = (exomeMetricValue: number | null | undefined, selectedMetric: string) => {
   return `${
-    exomeMetricValue === null
+    exomeMetricValue === null || exomeMetricValue === undefined
       ? '–'
       : formatMetricValue(exomeMetricValue, selectedMetric, logScaleMetrics(selectedMetric))
   } (exome samples)`
 }
 
-const genomeLegendText = (genomeMetricValue: number, selectedMetric: string) => {
+const genomeLegendText = (genomeMetricValue: number | null | undefined, selectedMetric: string) => {
   return `${
     genomeMetricValue === null
       ? '–'
@@ -1038,15 +819,12 @@ const VariantSiteQualityMetricsDistribution = ({
 
   const {
     binEdges,
-    // @ts-expect-error TS(2339) FIXME: Property 'exomeBinValues' does not exist on type '... Remove this comment to see the full error message
-    exomeBinValues,
-    // @ts-expect-error TS(2339) FIXME: Property 'genomeBinValues' does not exist on type ... Remove this comment to see the full error message
-    genomeBinValues,
-    // @ts-expect-error TS(2339) FIXME: Property 'exomeMetricValue' does not exist on type... Remove this comment to see the full error message
-    exomeMetricValue,
-    // @ts-expect-error TS(2339) FIXME: Property 'genomeMetricValue' does not exist on typ... Remove this comment to see the full error message
-    genomeMetricValue,
     description,
+    exomeBinValues,
+    genomeBinValues,
+    exomeMetricValue,
+    genomeMetricValue,
+    
   } = prepareData({
     datasetId,
     metric: selectedMetric,

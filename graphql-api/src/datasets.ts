@@ -1,7 +1,7 @@
 export const DATASET_LABELS = {
   gnomad_r4: 'gnomAD v4',
   gnomad_r4_non_ukb: 'gnomAD v4 (non-UK Biobank)',
-  ourdna: 'gnomAD v4 (OurDNA)',
+  ourdna: 'OurDNA v1.0',
   gnomad_cnv_r4: 'gnomAD v4 cnv',
   gnomad_r3: 'gnomAD v3',
   gnomad_r3_controls_and_biobanks: 'gnomAD v3 (controls and biobanks)',

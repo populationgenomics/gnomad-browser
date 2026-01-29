@@ -8,7 +8,7 @@ import { Badge, List, ListItem, Page, PageHeading } from '@gnomad/ui'
 import {
   DatasetId,
   labelForDataset,
-  hasStructuralVariants,
+  hasCopyNumberVariants,
 } from '@gnomad/dataset-metadata/metadata'
 import DocumentTitle from './DocumentTitle'
 import Link from './Link'
@@ -16,6 +16,7 @@ import useRequest from './useRequest'
 import StatusMessage from './StatusMessage'
 import { fetchVariantSearchResults } from './search'
 
+const CopyNumberVariantPage = lazy(() => import('./CopyNumberVariantPage/CopyNumberVariantPage'))
 const VariantPage = lazy(() => import('./VariantPage/VariantPage'))
 
 type VariantSearchProps = {
@@ -103,9 +104,12 @@ type VariantPageRouterProps = {
 
 const VariantPageRouter = ({ datasetId, variantId }: VariantPageRouterProps) => {
 
+  if (hasCopyNumberVariants(datasetId)) {
+    return <CopyNumberVariantPage datasetId={datasetId} variantId={variantId} />
+  }
+
   if (isVariantId(variantId)) {
     const normalizedVariantId = normalizeVariantId(variantId).replace(/^MT/, 'M')
-    const [chrom, _pos, ref, alt] = normalizedVariantId.split('-')
 
     return <VariantPage datasetId={datasetId} variantId={normalizedVariantId} />
   }

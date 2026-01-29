@@ -6,7 +6,6 @@ import { isRegionId, normalizeRegionId } from '@gnomad/identifiers'
 import { Page, PageHeading } from '@gnomad/ui'
 
 import DocumentTitle from './DocumentTitle'
-import { DatasetId } from '@gnomad/dataset-metadata/metadata'
 
 // Content pages
 const AboutPage = lazy(() => import('./AboutPage'))
