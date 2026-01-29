@@ -2,10 +2,10 @@
 
 exports[`TissueExpressionTrack snapshot has no unexpected changes 1`] = `
 <div
-  className="TissueExpressionTrack__Wrapper-sc-1t85ku0-3 iexARk"
+  className="TissueExpressionTrack__Wrapper-sc-15jkxr4-3 kjXAAZ"
 >
   <div
-    className="TissueExpressionTrack__InnerWrapper-sc-1t85ku0-4 jdaBoy"
+    className="TissueExpressionTrack__InnerWrapper-sc-15jkxr4-4 cnnEod"
   >
     <div
       className="Track__OuterWrapper-sc-1sdyh2h-0 bBMGlf"
@@ -22,7 +22,7 @@ exports[`TissueExpressionTrack snapshot has no unexpected changes 1`] = `
           }
         >
           <div
-            className="TissueExpressionTrack__TissueName-sc-1t85ku0-5 duaCFM"
+            className="TissueExpressionTrack__TissueName-sc-15jkxr4-5 gzTyCc"
             style={
               {
                 "fontSize": "12px",
@@ -59,7 +59,7 @@ exports[`TissueExpressionTrack snapshot has no unexpected changes 1`] = `
               Mean pext
             </span>
             <button
-              className="InfoButton__Button-sc-13t5e82-0 gxsoyZ"
+              className="InfoButton__Button-sc-df7t1w-0 dUqjIJ"
               onClick={[Function]}
               style={
                 {
@@ -102,26 +102,26 @@ exports[`TissueExpressionTrack snapshot has no unexpected changes 1`] = `
           }
         >
           <div
-            className="TissueExpressionTrack__PlotWrapper-sc-1t85ku0-6 jiFpkp"
+            className="TissueExpressionTrack__PlotWrapper-sc-15jkxr4-6 hHUuKE"
           >
             <svg
               height={20}
               width={500}
             >
               <g
-                className="TissueExpressionTrack__RegionHoverTarget-sc-1t85ku0-2 fjPGDI"
+                className="TissueExpressionTrack__RegionHoverTarget-sc-15jkxr4-2 fXeKvT"
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >
                 <rect
-                  className="TissueExpressionTrack__RegionBackground-sc-1t85ku0-0 laWhbX"
+                  className="TissueExpressionTrack__RegionBackground-sc-15jkxr4-0 evdkPu"
                   height={20}
                   width={10}
                   x={10}
                   y={0}
                 />
                 <rect
-                  className="TissueExpressionTrack__Region-sc-1t85ku0-1 cckHbF"
+                  className="TissueExpressionTrack__Region-sc-15jkxr4-1 jWZQVE"
                   fill="#428bca"
                   height={0}
                   stroke="#428bca"
@@ -131,19 +131,19 @@ exports[`TissueExpressionTrack snapshot has no unexpected changes 1`] = `
                 />
               </g>
               <g
-                className="TissueExpressionTrack__RegionHoverTarget-sc-1t85ku0-2 fjPGDI"
+                className="TissueExpressionTrack__RegionHoverTarget-sc-15jkxr4-2 fXeKvT"
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >
                 <rect
-                  className="TissueExpressionTrack__RegionBackground-sc-1t85ku0-0 laWhbX"
+                  className="TissueExpressionTrack__RegionBackground-sc-15jkxr4-0 evdkPu"
                   height={20}
                   width={10}
                   x={20}
                   y={0}
                 />
                 <rect
-                  className="TissueExpressionTrack__Region-sc-1t85ku0-1 cckHbF"
+                  className="TissueExpressionTrack__Region-sc-15jkxr4-1 jWZQVE"
                   fill="#428bca"
                   height={6}
                   stroke="#428bca"
@@ -153,19 +153,19 @@ exports[`TissueExpressionTrack snapshot has no unexpected changes 1`] = `
                 />
               </g>
               <g
-                className="TissueExpressionTrack__RegionHoverTarget-sc-1t85ku0-2 fjPGDI"
+                className="TissueExpressionTrack__RegionHoverTarget-sc-15jkxr4-2 fXeKvT"
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >
                 <rect
-                  className="TissueExpressionTrack__RegionBackground-sc-1t85ku0-0 laWhbX"
+                  className="TissueExpressionTrack__RegionBackground-sc-15jkxr4-0 evdkPu"
                   height={20}
                   width={20}
                   x={40}
                   y={0}
                 />
                 <rect
-                  className="TissueExpressionTrack__Region-sc-1t85ku0-1 cckHbF"
+                  className="TissueExpressionTrack__Region-sc-15jkxr4-1 jWZQVE"
                   fill="#428bca"
                   height={14}
                   stroke="#428bca"

@@ -311,27 +311,6 @@ const RegionalMissenseConstraintTrack = ({ regionalMissenseConstraint, gene }: P
   if (regionalMissenseConstraint.has_no_rmc_evidence) {
     // eslint-disable-next-line no-param-reassign
     regionalMissenseConstraint.regions = []
-
-    if (gene.gnomad_constraint) {
-      // eslint-disable-next-line no-param-reassign
-      regionalMissenseConstraint.regions = [
-        {
-          chrom: gene.chrom,
-          start: Math.min(gene.start, gene.stop),
-          stop: Math.max(gene.start, gene.stop),
-          region_start: Math.min(gene.start, gene.stop),
-          region_stop: Math.max(gene.start, gene.stop),
-          obs_mis: gene.gnomad_constraint.obs_mis,
-          exp_mis: gene.gnomad_constraint.exp_mis,
-          obs_exp: gene.gnomad_constraint.oe_mis,
-          z_score: gene.gnomad_constraint.mis_z,
-          p_value: -0.01,
-          chisq_diff_null: undefined,
-          aa_start: null,
-          aa_stop: null,
-        },
-      ]
-    }
   }
 
   const constrainedExons = regionIntersections([

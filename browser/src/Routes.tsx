@@ -6,7 +6,6 @@ import { isRegionId, normalizeRegionId } from '@gnomad/identifiers'
 import { Page, PageHeading } from '@gnomad/ui'
 
 import DocumentTitle from './DocumentTitle'
-import { DatasetId } from '@gnomad/dataset-metadata/metadata'
 
 // Content pages
 const AboutPage = lazy(() => import('./AboutPage'))
@@ -15,10 +14,8 @@ const ContactPage = lazy(() => import('./ContactPage'))
 const DataPage = lazy(() => import('./DataPage/DataPage'))
 const DataReadmePage = lazy(() => import('./DataPage/ReadmePage'))
 const FederationPage = lazy(() => import('./FederationPage'))
-const HelpPage = lazy(() => import('./help/HelpPage'))
 const HelpTopicPage = lazy(() => import('./help/HelpTopicPage'))
 const HomePage = lazy(() => import('./HomePage'))
-const MOUPage = lazy(() => import('./MOUPage'))
 const StatsPage = lazy(() => import('./StatsPage/StatsPage'))
 const PublicationsPage = lazy(() => import('./PublicationsPage'))
 const PoliciesPage = lazy(() => import('./PoliciesPage'))
@@ -29,18 +26,8 @@ const RegionPageContainer = lazy(() => import('./RegionPage/RegionPageContainer'
 const TranscriptPageContainer = lazy(() => import('./TranscriptPage/TranscriptPageContainer'))
 const VariantPageRouter = lazy(() => import('./VariantPageRouter'))
 
-const ShortTandemRepeatPageContainer = lazy(
-  () => import('./ShortTandemRepeatPage/ShortTandemRepeatPageContainer')
-)
-const ShortTandemRepeatsPage = lazy(() => import('./ShortTandemRepeatsPage/ShortTandemRepeatsPage'))
-const VariantCooccurrencePage = lazy(
-  () => import('./VariantCooccurrencePage/VariantCooccurrencePage')
-)
-const LiftoverDisambiguationPage = lazy(() => import('./VariantPage/LiftoverDisambiguationPage'))
-
 // Other pages
 const PageNotFoundPage = lazy(() => import('./PageNotFoundPage'))
-const SearchRedirectPage = lazy(() => import('./SearchRedirectPage'))
 
 const defaultDataset = 'ourdna'
 
@@ -112,59 +99,11 @@ const Routes = () => {
 
       <Route
         exact
-        path="/variant/liftover/:fromVariantId/:fromDatasetId/:toDatasetId"
-        render={({ match }) => {
-          const { fromVariantId, fromDatasetId, toDatasetId } = match.params as {
-            fromVariantId: string
-            fromDatasetId: DatasetId
-            toDatasetId: DatasetId
-          }
-          return (
-            <LiftoverDisambiguationPage
-              fromVariantId={fromVariantId}
-              fromDatasetId={fromDatasetId}
-              toDatasetId={toDatasetId}
-            />
-          )
-        }}
-      />
-      <Route
-        exact
         path="/variant/:variantId([-A-Za-z0-9_.]+)"
         render={({ location, match }: any) => {
           const queryParams = queryString.parse(location.search)
           const datasetId = queryParams.dataset || defaultDataset
           return <VariantPageRouter datasetId={datasetId} variantId={match.params.variantId} />
-        }}
-      />
-
-      <Route
-        exact
-        path="/variant-cooccurrence"
-        render={({ location }: any) => {
-          const params = queryString.parse(location.search)
-          const datasetId = params.dataset || defaultDataset
-          return <VariantCooccurrencePage datasetId={datasetId} />
-        }}
-      />
-
-      <Route
-        exact
-        path="/short-tandem-repeats"
-        render={({ location }: any) => {
-          const queryParams = queryString.parse(location.search)
-          const datasetId = queryParams.dataset || defaultDataset
-          return <ShortTandemRepeatsPage datasetId={datasetId} />
-        }}
-      />
-
-      <Route
-        exact
-        path="/short-tandem-repeat/:strId"
-        render={({ location, match }: any) => {
-          const queryParams = queryString.parse(location.search)
-          const datasetId = queryParams.dataset || defaultDataset
-          return <ShortTandemRepeatPageContainer datasetId={datasetId} strId={match.params.strId} />
         }}
       />
 
@@ -193,8 +132,6 @@ const Routes = () => {
 
       <Route exact path="/feedback" render={() => <Redirect to="/contact" />} />
 
-      <Route exact path="/mou" component={MOUPage} />
-
       <Route exact path="/stats" component={StatsPage} />
 
       <Route
@@ -220,17 +157,6 @@ const Routes = () => {
         exact
         path="/help/:topic"
         render={({ match }: any) => <HelpTopicPage topicId={match.params.topic} />}
-      />
-
-      <Route exact path="/help" component={HelpPage} />
-
-      <Route
-        exact
-        path="/awesome"
-        render={({ location }: any) => {
-          const params = queryString.parse(location.search)
-          return <SearchRedirectPage query={params.query} />
-        }}
       />
 
       <Route component={PageNotFoundPage} />

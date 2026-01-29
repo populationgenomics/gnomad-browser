@@ -5,14 +5,10 @@ import styled from 'styled-components'
 
 import { Checkbox, Select } from '@gnomad/ui'
 
-import gnomadV2AgeDistribution from '@gnomad/dataset-metadata/datasets/gnomad-v2/ageDistribution.json'
-import gnomadV3AgeDistribution from '@gnomad/dataset-metadata/datasets/gnomad-v3/ageDistribution.json'
-import gnomadV4AgeDistribution from '@gnomad/dataset-metadata/datasets/gnomad-v4/ageDistribution.json'
+import gnomadV4AgeDistribution from '@gnomad/dataset-metadata/datasets/ourdna-v1/ageDistribution.json'
 
 import {
   DatasetId,
-  isV2,
-  isV3,
   isV4,
   showAllIndividualsInAgeDistributionByDefault,
 } from '@gnomad/dataset-metadata/metadata'
@@ -88,10 +84,6 @@ const prepareOverallData = ({ datasetId, includeExomes, includeGenomes, globalAg
   if (!overallAgeDistribution) {
     if (isV4(datasetId)) {
       overallAgeDistribution = gnomadV4AgeDistribution
-    } else if (isV3(datasetId)) {
-      overallAgeDistribution = gnomadV3AgeDistribution
-    } else if (isV2(datasetId)) {
-      overallAgeDistribution = gnomadV2AgeDistribution
     }
   }
 

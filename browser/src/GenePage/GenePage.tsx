@@ -16,11 +16,9 @@ import {
   genesHaveExomeCoverage,
   genesHaveGenomeCoverage,
   labelForDataset,
-  hasStructuralVariants,
   ReferenceGenome,
   hasExons,
   isExac,
-  hasCopyNumberVariants,
   isV2,
 } from '@gnomad/dataset-metadata/metadata'
 // import ConstraintTable from '../ConstraintTable/ConstraintTable'
@@ -47,22 +45,16 @@ import GeneCoverageTrack from './GeneCoverageTrack'
 import GeneFlags from './GeneFlags'
 import GeneInfo from './GeneInfo'
 import GeneTranscriptsTrack from './GeneTranscriptsTrack'
-import MitochondrialGeneCoverageTrack from './MitochondrialGeneCoverageTrack'
-import MitochondrialVariantsInGene from './MitochondrialVariantsInGene'
 import { getPreferredTranscript } from './preferredTranscript'
-import StructuralVariantsInGene from './StructuralVariantsInGene'
 import TissueExpressionTrack, { TranscriptWithTissueExpression } from './TissueExpressionTrack'
 import VariantsInGene from './VariantsInGene'
 
-import { GnomadConstraint } from '../ConstraintTable/GnomadConstraintTable'
-import { ExacConstraint } from '../ConstraintTable/ExacConstraintTable'
 import {
   Variant,
   ClinvarVariant,
   StructuralVariant,
   CopyNumberVariant,
 } from '../VariantPage/VariantPage'
-import CopyNumberVariantsInGene from './CopyNumberVariantsInGene'
 import {
   ControlPanel,
   Legend,
@@ -128,8 +120,6 @@ export type Gene = GeneMetadata & {
   }[]
   transcripts: GeneTranscript[]
   flags: string[]
-  gnomad_constraint?: GnomadConstraint
-  exac_constraint?: ExacConstraint
   pext?: Pext
   short_tandem_repeats?: {
     id: string
@@ -412,8 +402,6 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
             start={gene.start}
             stop={gene.stop}
           />
-        ) : gene.chrom === 'M' ? (
-          <MitochondrialGeneCoverageTrack datasetId={datasetId} geneId={geneId} />
         ) : (
           <GeneCoverageTrack
             datasetId={datasetId}
@@ -561,14 +549,6 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
         )}
 
         {/* eslint-disable-next-line no-nested-ternary */}
-        {hasStructuralVariants(datasetId) ? (
-          <StructuralVariantsInGene datasetId={datasetId} gene={gene} zoomRegion={zoomRegion} />
-        ) : // eslint-disable-next-line no-nested-ternary
-        hasCopyNumberVariants(datasetId) ? (
-          <CopyNumberVariantsInGene datasetId={datasetId} gene={gene} zoomRegion={zoomRegion} />
-        ) : gene.chrom === 'M' ? (
-          <MitochondrialVariantsInGene datasetId={datasetId} gene={gene} zoomRegion={zoomRegion} />
-        ) : (
           <VariantsInGene
             datasetId={datasetId}
             gene={gene}
@@ -576,7 +556,6 @@ const GenePage = ({ datasetId, gene, geneId }: Props) => {
             includeUTRs={includeUTRs}
             zoomRegion={zoomRegion}
           />
-        )}
       </RegionViewer>
     </TrackPage>
   )

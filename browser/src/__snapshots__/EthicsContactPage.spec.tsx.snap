@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ethics Contact Page has no unexpected changes 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #ccc;
+  margin: 0.67em 0;
+  font-size: 14px;
+}
+
+.c2 {
+  margin: 0;
+}
+
+.c5 {
+  border-collapse: collapse;
+  min-width: 400px;
+  font-size: 0.9em;
+  -webkit-letter-spacing: 0.01px;
+  -moz-letter-spacing: 0.01px;
+  -ms-letter-spacing: 0.01px;
+  letter-spacing: 0.01px;
+}
+
+.c5 th,
+.c5 td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.c6 {
+  background-color: #0e6fbf;
+  color: #fafafa;
+}
+
+.c6 th {
+  font-weight: bold;
+}
+
+.c7 tr {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.c7 tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.c7 td.rb {
+  border-right: 1px solid #bbb;
+}
+
+.c3 {
+  font-size: 16px;
+}
+
+.c3 h1,
+.c3 h2,
+.c3 h3 {
+  font-weight: bold;
+}
+
+.c3 h1 {
+  font-size: 2em;
+}
+
+.c3 h2 {
+  font-size: 1.5em;
+}
+
+.c3 p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.c3 a {
+  color: #428bca;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3 img {
+  max-width: 100%;
+}
+
+.c3 blockquote {
+  margin: 0 0 0 10px;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.c3 ol,
+.c3 ul {
+  padding-left: 20px;
+  margin: 1em 0;
+}
+
+.c3 li {
+  margin-bottom: 0.5em;
+}
+
+.c3 table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.c3 td {
+  padding: 0.5em 10px 0.5em 0;
+  border-bottom: 1px solid #ccc;
+  font-weight: normal;
+  text-align: left;
+}
+
+.c3 th {
+  padding: 0.5em 10px 0.5em 0;
+  border-bottom: 1px solid #000;
+  background-position: center right;
+  background-repeat: no-repeat;
+  font-weight: bold;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c0 {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto 40px;
+  font-size: 14px;
+  height: auto !important;
+  min-height: 1000px;
+  font-size: 16px;
+}
+
+.c0 p {
+  margin-bottom: 1em;
+  line-height: 1.4;
+}
+
+.c0 h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.c0 h2:not(:first-child) {
+  padding-top: 1.5rem;
+}
+
+@media (max-width:900px) {
+  .c1 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: none;
+  }
+}
+
+@media (max-width:900px) {
+  .c2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0.5em;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <h1
+      className="c2"
+    >
+      Ethics Contact
+    </h1>
+  </div>
+  <div
+    className="c3"
+    dangerouslySetInnerHTML={
+      {
+        "__html": "### Who should I contact for more information?
+If you would like more information about the project or if you need to speak to a member of the research team please contact <a href="mailto:servicedesk@populationgenomics.org.au">servicedesk@populationgenomics.com</a>.
+
+<br>You can contact the Director of Research Operations at the Royal Children's Hospital if you:
+
+* have any concerns or complaints about the project;
+* are worried about your rights as a research participant; or
+* would like to speak to someone independent of the project.
+
+You can phone the Director on (+61) 03 9345 5044 or email them at <a href="mailto:rch.ethics@rch.org.au">rch.ethics@rch.org.au</a>.
+",
+      }
+    }
+    onClick={[Function]}
+  />
+  <br />
+  <div
+    className="c4"
+  >
+    <table
+      className="c5"
+    >
+      <thead>
+        <tr
+          className="c6"
+        >
+          <th>
+            Protocol name
+          </th>
+          <th>
+            Ethics approval reference number
+          </th>
+          <th>
+            Datasets
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="c7"
+      >
+        <tr>
+          <td>
+            OurDNA program
+          </td>
+          <td>
+            HREC/91986/RCHM-2023
+          </td>
+          <td>
+            OurDNA
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Large-scale genomic analysis of existing cohorts
+          </td>
+          <td>
+            HREC/84612/RCHM-2022
+          </td>
+          <td>
+            BioHEART, Mackenzie's Mission, Tasmanian Ophthalmic Biobank Whole Genome Sequencing
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Aggregating and analysing data from existing cohort and biobank studies
+          </td>
+          <td>
+            2021/ETH00202
+          </td>
+          <td>
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

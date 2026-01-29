@@ -5,7 +5,6 @@ import { Badge, Button, ExternalLink, Page } from '@gnomad/ui'
 
 import {
   DatasetId,
-  hasNonCodingConstraints,
   labelForDataset,
   referenceGenome,
   ReferenceGenome,
@@ -17,7 +16,6 @@ import {
   isV3,
   isV3Subset,
   isV4,
-  isExac,
 } from '@gnomad/dataset-metadata/metadata'
 import Delayed from '../Delayed'
 import DocumentTitle from '../DocumentTitle'
@@ -28,7 +26,6 @@ import { BaseQuery } from '../Query'
 import StatusMessage from '../StatusMessage'
 import TableWrapper from '../TableWrapper'
 import { variantFeedbackUrl } from '../variantFeedback'
-import ExacVariantOccurrenceTable from './ExacVariantOccurrenceTable'
 import { ReferenceList } from './ReferenceList'
 import GnomadAgeDistribution from './GnomadAgeDistribution'
 import VariantClinvarInfo from './VariantClinvarInfo'
@@ -36,7 +33,6 @@ import VariantGenotypeQualityMetrics from './VariantGenotypeQualityMetrics'
 import VariantNotFound from './VariantNotFound'
 import { GnomadVariantOccurrenceTable } from './VariantOccurrenceTable'
 import VariantInSilicoPredictors from './VariantInSilicoPredictors'
-import GnomadNonCodingConstraintTableVariant from '../ConstraintTable/GnomadNonCodingConstraintTableVariant'
 import VariantLoFCurationResults from './VariantLoFCurationResults'
 import VariantPageTitle from './VariantPageTitle'
 import VariantPopulationFrequencies from './VariantPopulationFrequencies'
@@ -346,16 +342,11 @@ export const VariantPageContent = ({ datasetId, variant, globalData }: VariantPa
     <FlexWrapper>
       <ResponsiveSection>
         <TableWrapper>
-          {isExac(datasetId) ? (
-            // @ts-expect-error TS(2741) FIXME: Property 'coverage' is missing in type '{ variant_... Remove this comment to see the full error message
-            <ExacVariantOccurrenceTable variant={variant} />
-          ) : (
-            <GnomadVariantOccurrenceTable
-              datasetId={datasetId}
-              variant={variant}
-              showExomes={hasExome(datasetId)}
-            />
-          )}
+          <GnomadVariantOccurrenceTable
+            datasetId={datasetId}
+            variant={variant}
+            showExomes={hasExome(datasetId)}
+          />
         </TableWrapper>
 
         {variant.flags && variant.flags.includes('par') && (
@@ -436,16 +427,6 @@ export const VariantPageContent = ({ datasetId, variant, globalData }: VariantPa
           <ResponsiveSection>
             <h2>In Silico Predictors</h2>
             <VariantInSilicoPredictors variant={variant} datasetId={datasetId} />
-          </ResponsiveSection>
-        )}
-        {hasNonCodingConstraints(datasetId) && (
-          <ResponsiveSection>
-            <h2>Genomic Constraint of Surrounding 1kb Region</h2>
-            <GnomadNonCodingConstraintTableVariant
-              variantId={variant.variant_id}
-              chrom={variant.chrom}
-              nonCodingConstraint={variant.non_coding_constraint}
-            />
           </ResponsiveSection>
         )}
       </FlexWrapper>

@@ -31,26 +31,10 @@ describe('Searchbox', () => {
     })
 
     const expectedDefaultDatasets: Record<DatasetId, DatasetId> = {
-      exac: 'exac',
-      gnomad_r2_1: 'gnomad_r2_1',
-      gnomad_r2_1_controls: 'gnomad_r2_1',
-      gnomad_r2_1_non_cancer: 'gnomad_r2_1',
-      gnomad_r2_1_non_neuro: 'gnomad_r2_1',
-      gnomad_r2_1_non_topmed: 'gnomad_r2_1',
-      gnomad_r3: 'gnomad_r3',
-      gnomad_r3_controls_and_biobanks: 'gnomad_r3',
-      gnomad_r3_non_cancer: 'gnomad_r3',
-      gnomad_r3_non_neuro: 'gnomad_r3',
-      gnomad_r3_non_topmed: 'gnomad_r3',
-      gnomad_r3_non_v2: 'gnomad_r3',
-      gnomad_sv_r2_1: 'gnomad_sv_r2_1',
-      gnomad_sv_r2_1_controls: 'gnomad_sv_r2_1',
-      gnomad_sv_r2_1_non_neuro: 'gnomad_sv_r2_1',
       gnomad_sv_r4: 'gnomad_sv_r4',
       gnomad_r4: 'gnomad_r4',
       gnomad_cnv_r4: 'gnomad_cnv_r4',
-      gnomad_r4_non_ukb: 'gnomad_r4',
-      ourdna: 'gnomad_r4',
+      ourdna: 'ourdna',
     }
 
     test('has correct default dataset', () => {

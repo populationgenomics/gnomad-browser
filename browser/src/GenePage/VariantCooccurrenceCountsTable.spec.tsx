@@ -58,7 +58,7 @@ describe('VariantCooccurrenceCountsTable', () => {
     const homozygousCounts = HomozygousVariantCooccurrenceCountsPerSeverityAndAfFactory.build()
     const tableContent = render(
       <VariantCooccurrenceCountsTable
-        datasetId="gnomad_r2_1"
+        datasetId="ourdna"
         heterozygous_variant_cooccurrence_counts={heterozygousCounts}
         homozygous_variant_cooccurrence_counts={homozygousCounts}
       />
@@ -87,7 +87,7 @@ describe('VariantCooccurrenceCountsTable', () => {
   test('fills in missing data with zeroes', () => {
     const tableContent = render(
       <VariantCooccurrenceCountsTable
-        datasetId="gnomad_r2_1"
+        datasetId="ourdna"
         heterozygous_variant_cooccurrence_counts={{}}
         homozygous_variant_cooccurrence_counts={{}}
       />

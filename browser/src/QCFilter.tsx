@@ -61,7 +61,7 @@ const renderFilterDescription = (filter: Filter, data: any) => {
           ? 'Cochran Mantel Haenszel test'
           : // @ts-ignore
             `Contingency Table test on ${GNOMAD_POPULATION_NAMES[data.geneticAncestry]}`
-      } p-value of ${data.pValue.toExponential(2)}`
+      } p-value of ${data.pValue === null ? '0' : data.pValue.toExponential(2)}`
     )
   }
 

@@ -17,7 +17,6 @@ import { PageHeading } from '@gnomad/ui'
 
 import DocumentTitle from '../DocumentTitle'
 import Histogram from '../Histogram'
-import { SectionHeading } from '../help/HelpPage'
 import InfoPage from '../InfoPage'
 /* import Link from '../Link' */
 
@@ -28,6 +27,7 @@ import ourdnaV1GeneticAncestryCounts from './BarGraphData/ourdnaV1GeneticAncestr
 import NumberOfVariantsInOurDNAList, { SectionList } from './NumberOfVariantsInOurDNAList'
 import StackedBarGraph from './StackedBarGraph'
 import GeneticAncestryGroupsByVersionTable from './StatsPageTables/GeneticAncestryGroupsByVersionTable'
+import { withAnchor } from '../AnchorLink'
 /* import V4GeneticAncestryTable from './StatsPageTables/V4GeneticAncestryTable' */
 /* import StudyDiseasesInGnomadTable from './StatsPageTables/StudyDiseasesInGnomadTable' */
 
@@ -35,6 +35,8 @@ import GeneticAncestryGroupsByVersionTable from './StatsPageTables/GeneticAncest
  *   InferredSexAllV4Table,
  *   InferredSexNonUKBV4Table,
  * } from './StatsPageTables/InferredSexPerGeneticAncestryTables' */
+
+const SectionHeading = withAnchor(styled.h2``)
 
 const TwoColumnLayout = styled.div`
   display: flex;

@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 import { hasRelatedVariants } from '@gnomad/dataset-metadata/metadata'
 import Link from '../Link'
-import MNVSummaryList from '../MNVPage/MNVSummaryList'
-import VariantLiftover from './VariantLiftover'
 import { Variant } from './VariantPage'
 
 const CODING_AND_UTR_VEP_CONSEQUENCES = new Set([
@@ -90,22 +88,6 @@ const VariantRelatedVariants = ({ datasetId, variant }: VariantRelatedVariantsPr
               </li>
             ))}
           </ul>
-        </Item>
-      )}
-
-      {(variant.multi_nucleotide_variants || []).length > 0 && (
-        <Item>
-          <h3>Multi-nucleotide Variants</h3>
-          <p>This variant&apos;s consequence may be affected by other variants:</p>
-          {/* @ts-expect-error TS(2322) FIXME: Type 'any[] | undefined' is not assignable to type... Remove this comment to see the full error message */}
-          <MNVSummaryList multiNucleotideVariants={variant.multi_nucleotide_variants} />
-        </Item>
-      )}
-
-      {(variant.liftover || variant.liftover_sources || []).length > 0 && (
-        <Item>
-          <h3>Liftover</h3>
-          <VariantLiftover variant={variant} />
         </Item>
       )}
 
