@@ -11,7 +11,8 @@ def get_elasticsearch_password(cluster_name: str, namespace: str) -> None:
     print(
         kubectl(
             [
-                f"--cluster {cluster_name}",
+                # TODO cluster name recognised, works without it
+                # f"--cluster {cluster_name}",
                 f"-n={namespace}",
                 "get",
                 "secret",
@@ -26,7 +27,8 @@ def load_datasets(cluster_name: str, namespace: str, dataproc_cluster: str, secr
     # Matches service name in deploy/manifests/elasticsearch.load-balancer.yaml.jinja2
     elasticsearch_load_balancer_ip = kubectl(
         [
-            f"--cluster {cluster_name}",
+            # TODO cluster name recognised, works without it
+            # f"--cluster {cluster_name}",
             f"-n={namespace}",
             "get",
             "service",

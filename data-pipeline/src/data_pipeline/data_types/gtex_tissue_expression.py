@@ -12,6 +12,10 @@ def prepare_gtex_expression_data(transcript_tpms_path, sample_annotations_path, 
     bgz_compressed_transcript_tpms_path = transcript_tpms_path
 
     if recompress:
+        # MH: this part of code would not work for hail table with ~10K columns
+        # rather re-compress bgz with:
+        # gzip -dc *.gz | bgzip -o *.bgz
+        # 
         # Recompress tpms file with block gzip so that import_matrix_table will read the file
         ds = hl.import_table(transcript_tpms_path, force=True)
         tmp_transcript_tpms_path = tmp_path + "/" + transcript_tpms_path.split("/")[-1].replace(".gz", ".bgz")
@@ -23,6 +27,7 @@ def prepare_gtex_expression_data(transcript_tpms_path, sample_annotations_path, 
         bgz_compressed_transcript_tpms_path,
         row_fields={"transcript_id": hl.tstr, "gene_id": hl.tstr},
         entry_type=hl.tfloat,
+        force_bgz=True
     )
     ds = ds.rename({"col_id": "sample_id"})
     ds = ds.repartition(1000, shuffle=True)
