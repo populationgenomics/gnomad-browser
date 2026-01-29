@@ -92,8 +92,6 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
 
   const variant = response.body.hits.hits[0]._source.value
   
-  logger.info(`Variant found ${JSON.stringify(variant)}`)
-
   const subsetGenomeFreq = variant.genome?.freq?.all || {}
   const subsetJointFreq = variant.joint?.freq[subset] || {}
 
@@ -146,10 +144,6 @@ const fetchVariantById = async (esClient: any, variantId: any, subset: Subset) =
     'gnomad_r3',
     variant.variant_id
   )
-
-  logger.info(`localAncestryPopulations: ${JSON.stringify(localAncestryPopulations)}`)
-
-  logger.info(`variant.colocated_variants: ${JSON.stringify(variant.colocated_variants)}`)
 
   // if variant is missing coverage, then append empty one
   if (!('coverage' in variant)){
@@ -310,8 +304,6 @@ const shapeVariantSummary = (subset: Subset, context: any) => {
 
   return (variant: any) => {
 
-    logger.info(`shapeVariantSummary: ${JSON.stringify(variant)}`)
-    
     const transcriptConsequence = getConsequence(variant) || {}
     const { variantFlags, exomeFlags, genomeFlags } = getFlagsForContext(context, variant)
 
@@ -428,8 +420,6 @@ const fetchVariantsByGene = async (esClient: any, gene: any, subset: Subset) => 
   const isLargeGene = largeGenes.includes(gene.gene_id)
 
   const pageSize = isLargeGene ? 500 : 10000
-
-  logger.info(`fetchVariantsByGene called for gene: ${gene.gene_id}, subset: ${subset}`)
 
   try {
     const filteredRegions = gene.exons.filter((exon: any) => exon.feature_type === 'CDS')
@@ -653,9 +643,6 @@ const fetchVariantsAgeDistribution = async (esClient: any, _subset: Subset) => {
 
   const genome_age_distribution = metadata.map((m) => m.table_globals.genome_age_distribution)
   const exome_age_distribution = metadata.map((m) => m.table_globals.exome_age_distribution)
-
-  logger.info(`genome age_distribution: ${JSON.stringify(genome_age_distribution)}`)
-  logger.info(`exome age_distribution: ${JSON.stringify(exome_age_distribution)}`)
 
   // Empty histogram record, when distr is not defined
   const empty_hist_rec = {
