@@ -11,21 +11,9 @@ const COVERAGE_INDICES = {
     exome: 'gnomad_v4_exome_coverage',
     genome: 'gnomad_v3_genome_coverage',
   },
-  gnomad_cnv_r4: {
+  ourdna: {
     exome: 'gnomad_v4_exome_coverage',
-    genome: null,
-  },
-  gnomad_r3: {
-    exome: null,
     genome: 'gnomad_v3_genome_coverage',
-  },
-  gnomad_r2_1: {
-    exome: 'gnomad_v2_exome_coverage',
-    genome: 'gnomad_v2_genome_coverage',
-  },
-  exac: {
-    exome: 'exac_exome_coverage',
-    genome: null,
   },
 }
 
