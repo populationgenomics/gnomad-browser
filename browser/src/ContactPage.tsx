@@ -11,59 +11,31 @@ export default () => (
     <PageHeading>Contact</PageHeading>
 
     <p>
-      Tell us how you use gnomAD and your wish list by filling out{' '}
-      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="http://broad.io/2024_survey">our user survey</ExternalLink>.
-    </p>
-
-    <p>
-      Use the gnomAD{' '}
-      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://discuss.gnomad.broadinstitute.org/new-topic?category=General">
-        Forum
-      </ExternalLink>{' '}
-      to request help, discuss the data, and ask questions.*
-    </p>
-
-    <p>
-      Report errors in the website on{' '}
-      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://github.com/broadinstitute/gnomad-browser/issues/new?labels=Type%3A%20Bug">
-        GitHub
-      </ExternalLink>{' '}
-      or the{' '}
-      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://discuss.gnomad.broadinstitute.org/new-topic?category=Browser&tags=bug">
-        Forum
+      Report OurDNA Browser errors via{' '}
+       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://github.com/populationgenomics/ourdna-browser/issues">
+        GitHub.
       </ExternalLink>
     </p>
-
+    {/* <p>
+      For questions about the OurDNA dataset, please see our{' '}
+      <Link to="/news">blog</Link>.
+    </p> */}
     <p>
-      For questions about gnomAD, check out the{' '}
+      Follow us on Instagram{' '}
+       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://www.instagram.com/ourdna_australia/">@ourdna_australia</ExternalLink>
+      ,{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="/help">help page</ExternalLink>.
-    </p>
-
-    <p>
-      Note that, for many reasons (including consent and data usage restrictions), we do not have
-      (and cannot share) phenotype information. Overall, we have limited information that we can
-      share for some cohorts, such as last known age in bins of 5 years (when known) and chromosomal
-      sex.
-    </p>
-
-    <p>
-      Follow us on Twitter{' '}
+      <ExternalLink href="https://www.facebook.com/people/Our-DNA/61563734916751/">Facebook </ExternalLink>
+      and{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="https://twitter.com/gnomad_project">@gnomad_project</ExternalLink>.
+      <ExternalLink href="https://www.linkedin.com/company/centrepopgen/">LinkedIn</ExternalLink>.
     </p>
-
-    <br />
     <p>
-      *Alternately, you can{' '}
+      For all other questions, or to raise issues with the browser or data, please{' '}
       {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-      <ExternalLink href="mailto:gnomad@broadinstitute.org">email us</ExternalLink>. Please note
-      that we prioritize answering issues on Github and topics on the Forum, so if you choose to
-      email it may take us longer to respond.
+      <ExternalLink href="mailto:servicedesk@populationgenomics.com">email us</ExternalLink>.
     </p>
   </InfoPage>
 )

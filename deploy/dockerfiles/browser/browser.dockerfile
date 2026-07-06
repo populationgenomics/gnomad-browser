@@ -7,7 +7,7 @@ WORKDIR /home/node/app
 
 USER node
 
-ENV NODE_ENV=production
+# ENV NODE_ENV=production
 
 # Install dependencies
 COPY --chown=node:node package.json .

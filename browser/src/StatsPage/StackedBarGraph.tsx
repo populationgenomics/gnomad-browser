@@ -90,7 +90,7 @@ const margin = {
   left: 60,
   right: 10,
   top: 10,
-  legend: 50,
+  legend: 20,
   bar: 25,
 }
 

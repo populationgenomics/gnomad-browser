@@ -13,6 +13,8 @@ const AboutPage = lazy(() => import('./AboutPage'))
 const TeamPage = lazy(() => import('./TeamPage/TeamPage'))
 const ContactPage = lazy(() => import('./ContactPage'))
 const DataPage = lazy(() => import('./DataPage/DataPage'))
+const DataReadmePage = lazy(() => import('./DataPage/ReadmePage'))
+const FederationPage = lazy(() => import('./FederationPage'))
 const HelpPage = lazy(() => import('./help/HelpPage'))
 const HelpTopicPage = lazy(() => import('./help/HelpTopicPage'))
 const HomePage = lazy(() => import('./HomePage'))
@@ -20,6 +22,7 @@ const MOUPage = lazy(() => import('./MOUPage'))
 const StatsPage = lazy(() => import('./StatsPage/StatsPage'))
 const PublicationsPage = lazy(() => import('./PublicationsPage'))
 const PoliciesPage = lazy(() => import('./PoliciesPage'))
+const EthicsContactPage = lazy(() => import('./EthicsContactPage'))
 
 const GenePageContainer = lazy(() => import('./GenePage/GenePageContainer'))
 const RegionPageContainer = lazy(() => import('./RegionPage/RegionPageContainer'))
@@ -39,7 +42,7 @@ const LiftoverDisambiguationPage = lazy(() => import('./VariantPage/LiftoverDisa
 const PageNotFoundPage = lazy(() => import('./PageNotFoundPage'))
 const SearchRedirectPage = lazy(() => import('./SearchRedirectPage'))
 
-const defaultDataset = 'gnomad_r4'
+const defaultDataset = 'ourdna'
 
 const Routes = () => {
   // ==================================================================================
@@ -169,14 +172,20 @@ const Routes = () => {
 
       <Route exact path="/team" component={TeamPage} />
 
+      <Route exact path="/federated" component={FederationPage} />
+
       {/* /downloads is the legacy path to the data page, which we still support here because there are lots of extant links to fragments within /downloads, and those get stripped if you use a redirect. */}
       <Route exact path="/downloads" component={DataPage} />
 
       <Route exact path="/data" component={DataPage} />
 
+      <Route exact path="/data-readme" component={DataReadmePage} />
+
       <Redirect from="/terms" to="/policies" />
 
       <Route exact path="/policies" component={PoliciesPage} />
+
+      <Route exact path="/ethics-contact" component={EthicsContactPage} />
 
       <Route exact path="/publications" component={PublicationsPage} />
 

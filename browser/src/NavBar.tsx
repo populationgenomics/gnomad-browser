@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-
 import { Button } from '@gnomad/ui'
-
 import Searchbox from './Searchbox'
+
+// @ts-ignore - TS2307 Cannot fine module ... or its corresponding type declarations.
+import logoImage from './OurDNA_Browser_Header.png'
 
 const Wrapper = styled.div`
   display: flex;
@@ -92,7 +93,11 @@ const NavBar = () => {
     <Wrapper>
       <LogoWrapper>
         <Link to="/" onClick={closeMenu}>
-          <Logo>gnomAD browser</Logo>
+          <Logo>
+            <svg width="50" viewBox="0 0 341 228">
+              <image href={logoImage} />
+            </svg>
+          </Logo>
         </Link>
         <ToggleMenuButton onClick={toggleMenu}>☰</ToggleMenuButton>
       </LogoWrapper>
@@ -107,6 +112,11 @@ const NavBar = () => {
         <li>
           <Link to="/team" onClick={closeMenu}>
             Team
+          </Link>
+        </li>
+        <li>
+          <Link to="/federated" onClick={closeMenu}>
+            Federated
           </Link>
         </li>
         <li>
@@ -126,10 +136,7 @@ const NavBar = () => {
         </li>
         {/* two <a> tags instead of <Link>s because the blog is a separate application */}
         <li>
-          <a href="https://gnomad.broadinstitute.org/news/">Blog</a>
-        </li>
-        <li>
-          <a href="https://gnomad.broadinstitute.org/news/changelog/">Changelog</a>
+          <a href="/news/">Blog</a>
         </li>
         <li>
           <Link to="/data" onClick={closeMenu}>
@@ -137,22 +144,8 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <a
-            href="https://discuss.gnomad.broadinstitute.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Forum
-          </a>
-        </li>
-        <li>
           <Link to="/contact" onClick={closeMenu}>
             Contact
-          </Link>
-        </li>
-        <li>
-          <Link to="/help" onClick={closeMenu}>
-            Help/FAQ
           </Link>
         </li>
       </Menu>

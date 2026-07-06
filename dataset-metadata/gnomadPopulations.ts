@@ -2,19 +2,30 @@ import { textOrMissingTextWarning } from '../browser/src/missingContent'
 import { DatasetId, getTopLevelDataset } from './metadata'
 
 export const GNOMAD_POPULATION_NAMES = {
-  afr: 'African/African American',
+  // afr: 'African/African American',
   ami: 'Amish',
-  amr: 'Admixed American',
+  // amr: 'Admixed American',
   asj: 'Ashkenazi Jewish',
-  eas: 'East Asian',
-  mid: 'Middle Eastern',
-  eur: 'European',
+  // eas: 'East Asian',
+  // mid: 'Middle Eastern',
+  // eur: 'European',
   nfe: 'European (non-Finnish)',
   fin: 'European (Finnish)',
   oth: 'Remaining individuals',
   sas: 'South Asian',
   rmi: 'Remaining',
   remaining: 'Remaining',
+
+  // Custom OurDNA definitions
+  afr: 'African, African American and African Caribbean',
+  amr: 'Central and South American',
+
+  csa: 'Central and South Asian',
+  eas: 'East and South East Asian',
+  eur: 'European',
+  fil: 'Australian Filipino',
+  mid: 'Middle Eastern and North African',
+  na: 'Unclassified',
 
   // EAS subpopulations
   eas_jpn: 'Japanese',
@@ -48,7 +59,7 @@ export type PopulationIdAndChromosome =
   | 'XY'
 
 export const populationName = (populationId: string) =>
-  textOrMissingTextWarning('genetic ancestry group name', GNOMAD_POPULATION_NAMES, populationId)
+  textOrMissingTextWarning('genetic ancestry group name', GNOMAD_POPULATION_NAMES, populationId.toLowerCase())
 
 const ExACPopulations: PopulationId[] = ['sas', 'afr', 'amr', 'eas', 'fin', 'nfe', 'remaining']
 const v2Populations: PopulationId[] = ['amr', 'nfe', 'afr', 'asj', 'eas', 'fin', 'sas', 'oth']
@@ -67,14 +78,12 @@ const v3Populations: PopulationId[] = [
 const v4Populations: PopulationId[] = [
   'afr',
   'amr',
-  'asj',
+  'csa',
   'eas',
-  'fin',
+  'eur',
   'mid',
-  'nfe',
-  'ami', // v4 does not directly include amish, but v3 does and v4 genomes are from v3
-  'sas',
-  'remaining',
+  'fil',
+  'na',
 ]
 
 export const populationsInDataset = {

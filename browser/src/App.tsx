@@ -12,6 +12,7 @@ import userPreferences from './userPreferences'
 import { ExternalLink } from '@gnomad/ui'
 
 const NavBar = lazy(() => import('./NavBar'))
+const Footer = lazy(() => import('./Footer'))
 const Routes = lazy(() => import('./Routes'))
 
 const scrollToAnchorOrStartOfPage = (location: any) => {
@@ -39,15 +40,38 @@ const PageLoading = () => {
   return null
 }
 
+interface EventCWV {
+  name: string;
+  delta: number;
+  value: number;
+  id: string;
+}
+
+const sendCWV = (event: EventCWV) => {
+  ;(window as any).gtag('event', event.name, {
+      value: event.delta,
+      metric_id: event.id,
+      metric_value: event.value,
+      metric_delta: event.delta,
+    })
+}
+
 const GoogleAnalytics = () => {
   const location = useLocation()
+  const webVitals = (window as any).webVitals
+  
   useEffect(() => {
     if ((window as any).gtag) {
       ;(window as any).gtag('config', (window as any).gaTrackingId, {
         page_path: location.pathname,
       })
+      if (webVitals) {
+        webVitals.getLCP(sendCWV)
+        webVitals.getFID(sendCWV)
+        webVitals.getCLS(sendCWV)
+      }
     }
-  }, [location.pathname])
+  }, [location.pathname, webVitals])
   return null
 }
 
@@ -71,12 +95,19 @@ const Banner = styled.div`
   }
 `
 
-const BANNER_CONTENT = (
-  <>
-    Help us continue to improve gnomAD by taking 5 minutes to fill out our {/* @ts-expect-error */}
-    <ExternalLink href="http://broad.io/2024_survey">user survey</ExternalLink>.
-  </>
-)
+let BANNER_CONTENT: React.ReactNode = ''
+
+if (process.env.NODE_ENV === 'development') {
+  BANNER_CONTENT = (
+    <>
+      This is <b>DEVELOPMENT</b> version of OurDNA Browser! Please visit released version{' '}
+      {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
+      <ExternalLink href="https://ourdna.populationgenomics.org.au">here</ExternalLink>.
+    </>
+  )
+}
+
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
@@ -128,6 +159,7 @@ const App = () => {
             <Suspense fallback={<PageLoading />}>
               <Routes />
             </Suspense>
+            <Footer />
           </Suspense>
         )}
       </ErrorBoundary>

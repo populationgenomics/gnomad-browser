@@ -112,6 +112,7 @@ const config = {
       REPORT_VARIANT_URL: null,
       REPORT_VARIANT_VARIANT_ID_PARAMETER: null,
       REPORT_VARIANT_DATASET_PARAMETER: null,
+      IS_OFFLINE: null,
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'),
@@ -124,11 +125,17 @@ const config = {
             minifyJS: true,
           },
     }),
-    new FaviconsWebpackPlugin('./src/logo.svg'),
+    new FaviconsWebpackPlugin({
+      logo: './src/OurDNA_Browser_Favicon.png',
+      prefix: 'assets/ourdna/',
+    }),
   ],
   // Use browserslist queries from .browserslistrc
   // Set to web in development as workaround for https://github.com/webpack/webpack-dev-server/issues/2758
   target: isDev ? 'web' : 'browserslist',
+  performance : {
+      hints : false
+  },
 }
 
 module.exports = config

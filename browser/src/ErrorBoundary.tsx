@@ -45,16 +45,12 @@ ${error.stack}
 **Browser**: ${navigator.userAgent}
 `
 
-      const issueURL = `https://github.com/broadinstitute/gnomad-browser/issues/new?title=${encodeURIComponent(
+      const issueURL = `https://github.com/populationgenomics/gnomad-browser/issues/new?title=${encodeURIComponent(
         error.message
       )}&body=${encodeURIComponent(issueBody)}&labels=Type%3A%20Bug`
 
-      const forumURL = `https://discuss.gnomad.broadinstitute.org/new-topic?title=topic%20${encodeURIComponent(
-        error.message
-      )}&body=${encodeURIComponent(issueBody)}&category=Browser&tags=bug`
-
-      const emailURL = `mailto:gnomad@broadinstitute.org?subject=${encodeURIComponent(
-        'Browser bug report'
+      const emailURL = `mailto:servicedesk@populationgenomics.com?subject=${encodeURIComponent(
+        'OurDNA Browser bug report'
       )}&body=${encodeURIComponent(issueBody.replace(/```\n/g, ''))}`
 
       return (
@@ -84,10 +80,6 @@ ${error.stack}
                 {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
                 <ExternalLink href={issueURL}>an issue on GitHub</ExternalLink> or{' '}
               </li>
-              <li>
-                {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-                <ExternalLink href={forumURL}>a topic on our forum</ExternalLink>
-              </li>
             </ul>
             Then {/* @ts-expect-error TS(2769) FIXME: No overload matches this call. */}
             <StyledLink href="/">reload the browser</StyledLink>.
@@ -97,9 +89,7 @@ ${error.stack}
             <p>
               Alternately, you can{' '}
               {/* @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component. */}
-              <ExternalLink href={emailURL}>email us</ExternalLink>. Please note that we prioritize
-              answering issues on Github and topics on the Forum, so if you choose to email it may
-              take us longer to respond.
+              <ExternalLink href={emailURL}>email us</ExternalLink>.
             </p>
           </p>
         </InfoPage>

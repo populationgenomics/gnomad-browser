@@ -174,6 +174,18 @@ const expectedVersionSpecificColumns: Record<DatasetId, Column[]> = {
     { label: SIFT_MAX_LABEL, getValue: getSift },
     { label: POLYPHEN_MAX_LABEL, getValue: getPolyphen },
   ],
+  ourdna: [
+    { label: JOINT_FILTERS_LABEL, getValue: getJointFilters },
+    { label: JOINT_GROUPMAX_GROUP_LABEL, getValue: getJointFAFGroup },
+    { label: JOINT_GROUPMAX_FREQ_LABEL, getValue: getJointFAFFreq },
+    { label: CADD_LABEL, getValue: getCadd },
+    { label: REVEL_MAX_LABEL, getValue: getRevel },
+    { label: SPLICEAI_DS_MAX_LABEL, getValue: getSpliceAI },
+    { label: PANGOLIN_LARGEST_DS_LABEL, getValue: getPangolin },
+    { label: PHYLOP_LABEL, getValue: getPhylop },
+    { label: SIFT_MAX_LABEL, getValue: getSift },
+    { label: POLYPHEN_MAX_LABEL, getValue: getPolyphen },
+  ],
 }
 
 forAllDatasets('createVersionSpecificColumns for %s dataset', (datasetId) => {

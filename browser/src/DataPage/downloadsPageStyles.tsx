@@ -89,7 +89,7 @@ const ShowURLButton = ({ label, url, logClicks, ...otherProps }: ShowURLButtonPr
                   }}
                   style={{ marginLeft: '1em' }}
                 >
-                  Copy URL
+                  Copy
                 </PrimaryButton>
               )}
             </>
@@ -116,12 +116,11 @@ type OwnGetUrlButtonsProps = {
   gcsBucket?: string
   label: string
   path: string
+  associatedFileType?: string
   size?: string
   md5?: string
   crc32c?: string
   includeGCP?: boolean
-  includeAWS?: boolean
-  includeAzure?: boolean
   logClicks?: boolean
 }
 
@@ -133,11 +132,10 @@ export const GetUrlButtons = ({
   gcsBucket,
   label,
   path,
+  associatedFileType,
   size,
   md5,
   includeGCP,
-  includeAWS,
-  includeAzure,
   logClicks = false,
 }: GetUrlButtonsProps) => {
   return (
@@ -152,95 +150,40 @@ export const GetUrlButtons = ({
           <br />
         </>
       )}
-      Show URL for{' '}
       {renderDownloadOptions([
         includeGCP && (
           // @ts-expect-error TS(2322) FIXME: Type '{ children: string; key: string; "aria-label... Remove this comment to see the full error message
           <ShowURLButton
             key="gcp"
-            aria-label={`Show Google URL for ${label}`}
+            aria-label={`VCF ${label}`}
             label={label}
             url={`gs://${gcsBucket}${path}`}
             logClicks={logClicks}
           >
-            Google
-          </ShowURLButton>
-        ),
-        includeAWS && (
-          // @ts-expect-error TS(2322) FIXME: Type '{ children: string; key: string; "aria-label... Remove this comment to see the full error message
-          <ShowURLButton
-            key="aws"
-            aria-label={`Show Amazon URL for ${label}`}
-            label={label}
-            url={`s3://gnomad-public-us-east-1${path}`}
-            logClicks={logClicks}
-          >
-            Amazon
-          </ShowURLButton>
-        ),
-        includeAzure && (
-          // @ts-expect-error TS(2322) FIXME: Type '{ children: string; key: string; "aria-label... Remove this comment to see the full error message
-          <ShowURLButton
-            key="azure"
-            aria-label={`Show Microsoft URL for ${label}`}
-            label={label}
-            url={`https://datasetgnomad.blob.core.windows.net/dataset${path}`}
-            logClicks={logClicks}
-          >
-            Microsoft
+            Show URL for VCF
           </ShowURLButton>
         ),
       ])}
-      {navigator.clipboard && navigator.clipboard.writeText && (
+      {associatedFileType && (
         <>
           <br />
-          Copy URL for{' '}
-          {renderDownloadOptions([
-            includeGCP && (
-              <TextButton
-                key="gcp"
-                aria-label={`Copy Google URL for ${label}`}
-                onClick={() => {
-                  if (logClicks) {
-                    logButtonClick(`User showed or copied URL for ${label}`)
-                  }
-                  navigator.clipboard.writeText(`gs://${gcsBucket}${path}`)
-                }}
-              >
-                Google
-              </TextButton>
-            ),
-            includeAWS && (
-              <TextButton
-                key="aws"
-                aria-label={`Copy Amazon URL for ${label}`}
-                onClick={() => {
-                  if (logClicks) {
-                    logButtonClick(`User showed or copied URL for ${label}`)
-                  }
-                  navigator.clipboard.writeText(`s3://gnomad-public-us-east-1${path}`)
-                }}
-              >
-                Amazon
-              </TextButton>
-            ),
-            includeAzure && (
-              <TextButton
-                key="azure"
-                aria-label={`Copy Microsoft URL for ${label}`}
-                onClick={() => {
-                  if (logClicks) {
-                    logButtonClick(`User showed or copied URL for ${label}`)
-                  }
-                  navigator.clipboard.writeText(
-                    `https://datasetgnomad.blob.core.windows.net/dataset${path}`
-                  )
-                }}
-              >
-                Microsoft
-              </TextButton>
-            ),
-          ])}
+          <span>
+            {' '}
+            {renderDownloadOptions([
+              includeGCP && (
+                // @ts-expect-error TS(2786) FIXME: 'ShowURLButton' cannot be used as a JSX component.
+                <ShowURLButton
+                  key="gcp"
+                  aria-label={`VCF CSI path ${label}`}
+                  label={label}
+                  url={`gs://${gcsBucket}${path}.${associatedFileType.toLowerCase()}`}
+                  logClicks={logClicks}
+                >
+                  Show URL for VCF CSI
+                </ShowURLButton>
+              ),
+            ])}
+          </span>
         </>
       )}
     </>
@@ -248,12 +191,10 @@ export const GetUrlButtons = ({
 }
 
 GetUrlButtons.defaultProps = {
-  gcsBucket: 'gcp-public-data--gnomad',
+  gcsBucket: 'cpg-ourdna-browser-public-australia-southeast1',
   size: undefined,
   md5: undefined,
   includeGCP: true,
-  includeAWS: true,
-  includeAzure: true,
 }
 
 type DownloadLinksProps = {
@@ -264,8 +205,6 @@ type DownloadLinksProps = {
   crc32c?: string
   gcsBucket?: string
   includeGCP?: boolean
-  includeAWS?: boolean
-  includeAzure?: boolean
   associatedFileType?: string
   logClicks?: boolean
 }
@@ -276,10 +215,8 @@ export const DownloadLinks = ({
   size,
   md5,
   crc32c,
-  gcsBucket = 'gcp-public-data--gnomad',
+  gcsBucket = 'gs://cpg-ourdna-browser-public-australia-southeast1',
   includeGCP = true,
-  includeAWS = true,
-  includeAzure = true,
   associatedFileType,
   logClicks = false,
 }: DownloadLinksProps) => {
@@ -289,9 +226,9 @@ export const DownloadLinks = ({
       <br />
       {size && md5 && (
         <>
-          <span>
-            {size}, MD5:&nbsp;{md5}
-          </span>
+          <span>{size}</span>
+          <br />
+          <span>MD5:&nbsp;{md5}</span>
           <br />
         </>
       )}
@@ -304,51 +241,21 @@ export const DownloadLinks = ({
         </>
       )}
       <span>
-        Download from{' '}
+        {' '}
         {renderDownloadOptions([
           includeGCP && (
             // @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component.
             <ExternalLink
               key="gcp"
-              aria-label={`Download ${label} from Google`}
-              href={`https://storage.googleapis.com/${gcsBucket}${path}`}
+              aria-label={`VCF path ${label}`}
+              href={`${gcsBucket}${path}`}
               onClick={() => {
                 if (logClicks) {
-                  logButtonClick(`User downloaded ${label} from Google`)
+                  logButtonClick(`User accessed ${label} to download`)
                 }
               }}
             >
-              Google
-            </ExternalLink>
-          ),
-          includeAWS && (
-            // @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component.
-            <ExternalLink
-              key="aws"
-              aria-label={`Download ${label} from Amazon`}
-              href={`https://gnomad-public-us-east-1.s3.amazonaws.com${path}`}
-              onClick={() => {
-                if (logClicks) {
-                  logButtonClick(`User downloaded ${label} from Amazon`)
-                }
-              }}
-            >
-              Amazon
-            </ExternalLink>
-          ),
-          includeAzure && (
-            // @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component.
-            <ExternalLink
-              key="azure"
-              aria-label={`Download ${label} from Microsoft`}
-              href={`https://datasetgnomad.blob.core.windows.net/dataset${path}`}
-              onClick={() => {
-                if (logClicks) {
-                  logButtonClick(`User downloaded ${label} from Microsoft`)
-                }
-              }}
-            >
-              Microsoft
+              VCF path
             </ExternalLink>
           ),
         ])}
@@ -357,36 +264,16 @@ export const DownloadLinks = ({
         <>
           <br />
           <span>
-            Download {associatedFileType.toUpperCase()} from{' '}
+            {' '}
             {renderDownloadOptions([
               includeGCP && (
                 // @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component.
                 <ExternalLink
                   key="gcp"
-                  aria-label={`Download ${associatedFileType.toUpperCase()} file for ${label} from Google`}
-                  href={`https://storage.googleapis.com/${gcsBucket}${path}.${associatedFileType.toLowerCase()}`}
+                  aria-label={`VCF CSI path ${label}`}
+                  href={`${gcsBucket}${path}.${associatedFileType.toLowerCase()}`}
                 >
-                  Google
-                </ExternalLink>
-              ),
-              includeAWS && (
-                // @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component.
-                <ExternalLink
-                  key="aws"
-                  aria-label={`Download ${associatedFileType.toUpperCase()} file for ${label} from Amazon`}
-                  href={`https://gnomad-public-us-east-1.s3.amazonaws.com${path}.${associatedFileType.toLowerCase()}`}
-                >
-                  Amazon
-                </ExternalLink>
-              ),
-              includeAzure && (
-                // @ts-expect-error TS(2786) FIXME: 'ExternalLink' cannot be used as a JSX component.
-                <ExternalLink
-                  key="azure"
-                  aria-label={`Download ${associatedFileType.toUpperCase()} file for ${label} from Microsoft`}
-                  href={`https://datasetgnomad.blob.core.windows.net/dataset${path}.${associatedFileType.toLowerCase()}`}
-                >
-                  Microsoft
+                  VCF CSI path
                 </ExternalLink>
               ),
             ])}
@@ -398,8 +285,10 @@ export const DownloadLinks = ({
 }
 
 export const CodeBlock = styled.code`
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   box-sizing: border-box;
+  width: 100%;
   max-width: 100%;
   padding: 0.5em 1em;
   border-radius: 0.25em;
